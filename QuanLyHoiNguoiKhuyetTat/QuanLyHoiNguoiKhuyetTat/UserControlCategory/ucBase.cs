@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DauThau.Models;
+using DauThau.Class;
 
 namespace DauThau.UserControlCategory
 {
@@ -16,6 +18,8 @@ namespace DauThau.UserControlCategory
             InitializeComponent();
         }
 
+        protected EnumFormStatus _formStatus = EnumFormStatus.VIEW;
+        protected QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
         public delegate void deletegateCloseTabCurrent();
         public deletegateCloseTabCurrent closeTab;
     }

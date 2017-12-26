@@ -24,6 +24,7 @@ namespace DauThau.Models
         public string HUYEN_TEN { get; set; }
         public string HUYEN_DIENGIAI { get; set; }
         public Nullable<long> TINH_ID { get; set; }
+        public Nullable<int> HUYEN_STT { get; set; }
     
         public virtual DM_TINH DM_TINH { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

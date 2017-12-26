@@ -12,7 +12,7 @@ using DevExpress.XtraGrid;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucDmHuyen : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucDmHuyen : ucBase
     {
         public ucDmHuyen()
         {

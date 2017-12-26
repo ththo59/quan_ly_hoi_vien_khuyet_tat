@@ -16,6 +16,7 @@ using DevExpress.XtraEditors;
 using DauThau.UserControlCategoryMain;
 using DevExpress.Utils;
 using System.Linq;
+using DevExpress.XtraBars.Ribbon;
 
 namespace DauThau
 {
@@ -49,6 +50,53 @@ namespace DauThau
             //clsConnection.OpenConn();
             this.ribbonStatusBar.ItemLinks.Add(clsParameter._barStaticLogin);
             barVersion.Caption = clsBuildClickOne.getVersion();
+
+            foreach (var obj in ribbonMain.Items)
+            {
+                BarButtonItem items = obj as BarButtonItem;
+                if (items == null)
+                {
+                    continue;
+                }
+                items.ItemClick += new ItemClickEventHandler(this.event_ItemClick);
+            }
+        }
+
+        private void event_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BarButtonItem item = e.Item as BarButtonItem;
+            if(item != null)
+            {
+                ucBase uc = new ucBase();
+                switch (item.Name)
+                {
+                    #region Danh mục
+                    case "btnTinh":
+                        uc = new ucDmTinh();
+                        break;
+                    case "btnHuyen":
+                        uc = new ucDmHuyen();
+                        break;
+                    case "btnXa":
+                        uc = new ucDmXa();
+                        break;
+                            case "btnTrinhDoHocVan":
+                        uc = new ucDMTrinhDoHocVan();
+                        break;
+                    case "btnTrinhDoChuyenMon":
+                        uc = new ucDMTrinhDoChuyenMon();
+                        break;
+                    case "btnNgheNghiep":
+                        uc = new ucDMNgheNghiep();
+                        break;
+                    #endregion
+
+                    default:
+                        break;
+                }
+                clsAddTab.AddTabControl(TabControlParent, uc, item.Name, item.Caption, this);
+
+            }
         }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
@@ -90,10 +138,6 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucConfigReportFooter(), "ucConfigReportFooter", "Cấu hình chữ ký báo cáo.");
         }
 
-         private void btnLyLich_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucLyLich(), "ucLyLich", "Cập nhật lý lịch hội viên", this);
-        }
 
         private void btnNapExcels_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -126,15 +170,9 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucPhieuThuChiTimKiem(), "ucPhieuThuChiTimKiem", "Tìm kiếm phiếu thu chi");
         }
 
-        private void btnTinh_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucDmTinh(), "ucDmTinh", "Thành phố, tỉnh");
-        }
+        
 
-        private void btnHuyen_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucDmHuyen(), "ucDmHuyen", "Quận, huyện");
-        }
+        
 
         private void btnXa_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -171,21 +209,6 @@ namespace DauThau
         {
             rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
             clsAddTab.AddTabControl(TabControlParent, new ucPrint(rpt), "ucBM_DonGiaNhapHoi", "Đơn xin gia nhập hội");
-        }
-
-        private void btnTrinhDoHocVan_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucDMTrinhDoHocVan(), "ucDMTrinhDoHocVan", "Trình độ học vấn");
-        }
-
-        private void btnTrinhDoChuyenMon_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucDMTrinhDoChuyenMon(), "ucDMTrinhDoChuyenMon", "Trình độ chuyên môn");
-        }
-
-        private void btnNgheNghiep_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucDMNgheNghiep(), "ucDMNgheNghiep", "Nghề nghiệp");
         }
     }
 }

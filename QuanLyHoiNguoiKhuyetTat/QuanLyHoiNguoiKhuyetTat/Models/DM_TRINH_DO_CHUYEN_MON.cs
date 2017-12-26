@@ -17,5 +17,6 @@ namespace DauThau.Models
         public long CM_ID { get; set; }
         public string CM_TEN { get; set; }
         public string CM_DIENGIAI { get; set; }
+        public Nullable<int> CM_STT { get; set; }
     }
 }

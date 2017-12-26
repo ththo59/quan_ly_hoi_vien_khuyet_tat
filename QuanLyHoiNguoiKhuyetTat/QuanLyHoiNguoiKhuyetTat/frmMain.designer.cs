@@ -6,7 +6,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSanPham = new DevExpress.XtraBars.BarButtonItem();
             this.btnDonGiaNhapHoi = new DevExpress.XtraBars.BarButtonItem();
             this.barTinhNangKT = new DevExpress.XtraBars.BarButtonItem();
@@ -135,7 +135,7 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.dsBangChaoGia1 = new DauThau.DataSets.dsBangChaoGia();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoiThau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
@@ -146,12 +146,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsBangChaoGia1)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbon
+            // ribbonMain
             // 
-            this.ribbon.ApplicationIcon = global::DauThau.Properties.Resources.Hospital_main;
-            this.ribbon.ExpandCollapseItem.Id = 0;
-            this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem,
+            this.ribbonMain.ApplicationIcon = global::DauThau.Properties.Resources.Hospital_main;
+            this.ribbonMain.ExpandCollapseItem.Id = 0;
+            this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonMain.ExpandCollapseItem,
             this.barSanPham,
             this.btnDonGiaNhapHoi,
             this.barTinhNangKT,
@@ -250,28 +250,28 @@
             this.btnKetQuaTrungThau,
             this.btnBangKiemTraGiaKeKhai,
             this.btnBangKiemTraGiaKeKhaiTrungThau});
-            this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 136;
-            this.ribbon.Name = "ribbon";
-            this.ribbon.PageHeaderItemLinks.Add(this.ribbon.ExpandCollapseItem);
-            this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonMain.Location = new System.Drawing.Point(0, 0);
+            this.ribbonMain.MaxItemId = 136;
+            this.ribbonMain.Name = "ribbonMain";
+            this.ribbonMain.PageHeaderItemLinks.Add(this.ribbonMain.ExpandCollapseItem);
+            this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage5,
             this.ribbonPage6,
             this.ribbonPage1,
             this.ribbonPage4,
             this.ribbonPage2});
-            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.ribbonMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lueGoiThau,
             this.repositoryItemLookUpEdit1,
             this.repositoryItemCalcEdit1,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemTextEdit1});
-            this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(1288, 147);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
-            this.ribbon.Toolbar.ShowCustomizeItem = false;
+            this.ribbonMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.True;
+            this.ribbonMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
+            this.ribbonMain.ShowToolbarCustomizeItem = false;
+            this.ribbonMain.Size = new System.Drawing.Size(1288, 147);
+            this.ribbonMain.StatusBar = this.ribbonStatusBar;
+            this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // barSanPham
             // 
@@ -313,7 +313,7 @@
             this.btnTrinhDoHocVan.Name = "btnTrinhDoHocVan";
             this.btnTrinhDoHocVan.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnTrinhDoHocVan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTrinhDoHocVan_ItemClick);
+
             // 
             // barYCPhapLy
             // 
@@ -411,7 +411,7 @@
             this.btnTrinhDoChuyenMon.Name = "btnTrinhDoChuyenMon";
             this.btnTrinhDoChuyenMon.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnTrinhDoChuyenMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTrinhDoChuyenMon_ItemClick);
+    
             // 
             // barSPYCPhapLy
             // 
@@ -462,7 +462,7 @@
             this.btnNgheNghiep.Name = "btnNgheNghiep";
             this.btnNgheNghiep.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnNgheNghiep.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNgheNghiep_ItemClick);
+  
             // 
             // barDangDung
             // 
@@ -508,7 +508,6 @@
             this.btnTinh.Name = "btnTinh";
             this.btnTinh.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnTinh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTinh_ItemClick);
             // 
             // btnXa
             // 
@@ -530,7 +529,6 @@
             this.btnHuyen.Name = "btnHuyen";
             this.btnHuyen.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnHuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuyen_ItemClick);
             // 
             // btnLyLich
             // 
@@ -541,7 +539,6 @@
             this.btnLyLich.Name = "btnLyLich";
             this.btnLyLich.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnLyLich.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLyLich_ItemClick);
             // 
             // btnBMLyLich
             // 
@@ -1414,7 +1411,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barVersion);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 426);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Ribbon = this.ribbonMain;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1288, 23);
             // 
             // TabControlParent
@@ -1449,11 +1446,11 @@
             this.ClientSize = new System.Drawing.Size(1288, 449);
             this.Controls.Add(this.TabControlParent);
             this.Controls.Add(this.ribbonStatusBar);
-            this.Controls.Add(this.ribbon);
+            this.Controls.Add(this.ribbonMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frmMain";
-            this.Ribbon = this.ribbon;
+            this.Ribbon = this.ribbonMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Hệ thống quản lý hội viên người khuyết tật";
@@ -1461,7 +1458,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoiThau)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
@@ -1475,7 +1472,7 @@
 
         }
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonMain;
         //private DevExpress.XtraBars.BarStaticItem barStaticLogin;
         private DevExpress.XtraBars.BarButtonItem barSanPham;
         private DevExpress.XtraBars.BarButtonItem btnDonGiaNhapHoi;

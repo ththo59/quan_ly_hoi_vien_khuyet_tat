@@ -17,5 +17,6 @@ namespace DauThau.Models
         public long HV_ID { get; set; }
         public string HV_TEN { get; set; }
         public string HV_DIENGIAI { get; set; }
+        public Nullable<int> HV_STT { get; set; }
     }
 }

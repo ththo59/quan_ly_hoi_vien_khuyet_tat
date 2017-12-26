@@ -18,6 +18,7 @@ namespace DauThau.Models
         public string XA_TEN { get; set; }
         public Nullable<long> HUYEN_ID { get; set; }
         public string XA_DIENGIAI { get; set; }
+        public Nullable<int> XA_STT { get; set; }
     
         public virtual DM_HUYEN DM_HUYEN { get; set; }
     }

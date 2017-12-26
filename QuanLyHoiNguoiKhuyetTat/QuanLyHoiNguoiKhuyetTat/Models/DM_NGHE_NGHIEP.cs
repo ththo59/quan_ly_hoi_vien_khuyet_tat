@@ -17,5 +17,6 @@ namespace DauThau.Models
         public long NN_ID { get; set; }
         public string NN_TEN { get; set; }
         public string NN_DIENGIAI { get; set; }
+        public Nullable<int> NN_STT { get; set; }
     }
 }

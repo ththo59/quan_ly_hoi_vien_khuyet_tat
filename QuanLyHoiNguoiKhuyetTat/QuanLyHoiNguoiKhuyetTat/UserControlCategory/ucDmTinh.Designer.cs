@@ -30,8 +30,11 @@
         {
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colDANGDUNG_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDANGDUNG_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTINH_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTINH_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTINH_DIENGIAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTINH_STT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.seSTT = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.btnControl = new ControlsLib.ButtonsArray();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
@@ -45,6 +48,7 @@
             this.DtNgay = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seSTT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
@@ -71,7 +75,9 @@
             this.gcGrid.Location = new System.Drawing.Point(0, 0);
             this.gcGrid.MainView = this.gvGrid;
             this.gcGrid.Name = "gcGrid";
-            this.gcGrid.Size = new System.Drawing.Size(718, 445);
+            this.gcGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.seSTT});
+            this.gcGrid.Size = new System.Drawing.Size(758, 445);
             this.gcGrid.TabIndex = 22;
             this.gcGrid.UseEmbeddedNavigator = true;
             this.gcGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -79,35 +85,68 @@
             // 
             // gvGrid
             // 
-            this.gvGrid.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvGrid.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
             this.gvGrid.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvGrid.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.gvGrid.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gvGrid.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvGrid.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
             this.gvGrid.Appearance.Row.Options.UseFont = true;
             this.gvGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDANGDUNG_ID,
-            this.colDANGDUNG_TEN});
+            this.colTINH_ID,
+            this.colTINH_TEN,
+            this.colTINH_DIENGIAI,
+            this.colTINH_STT});
             this.gvGrid.GridControl = this.gcGrid;
             this.gvGrid.Name = "gvGrid";
             this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
             this.gvGrid.OptionsView.ShowGroupPanel = false;
+            this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colTINH_STT, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gvGrid.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvGrid_InvalidRowException);
             this.gvGrid.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvGrid_ValidateRow);
             this.gvGrid.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvGrid_ValidatingEditor);
             // 
-            // colDANGDUNG_ID
+            // colTINH_ID
             // 
-            this.colDANGDUNG_ID.Caption = "ID";
-            this.colDANGDUNG_ID.FieldName = "DANGDUNG_ID";
-            this.colDANGDUNG_ID.Name = "colDANGDUNG_ID";
+            this.colTINH_ID.Caption = "ID";
+            this.colTINH_ID.FieldName = "TINH_ID";
+            this.colTINH_ID.Name = "colTINH_ID";
             // 
-            // colDANGDUNG_TEN
+            // colTINH_TEN
             // 
-            this.colDANGDUNG_TEN.Caption = "Tên tỉnh, thành phố";
-            this.colDANGDUNG_TEN.Name = "colDANGDUNG_TEN";
-            this.colDANGDUNG_TEN.Visible = true;
-            this.colDANGDUNG_TEN.VisibleIndex = 0;
+            this.colTINH_TEN.Caption = "Tên tỉnh, thành phố";
+            this.colTINH_TEN.FieldName = "TINH_TEN";
+            this.colTINH_TEN.Name = "colTINH_TEN";
+            this.colTINH_TEN.Visible = true;
+            this.colTINH_TEN.VisibleIndex = 0;
+            this.colTINH_TEN.Width = 333;
+            // 
+            // colTINH_DIENGIAI
+            // 
+            this.colTINH_DIENGIAI.Caption = "Diễn giải";
+            this.colTINH_DIENGIAI.FieldName = "TINH_DIENGIAI";
+            this.colTINH_DIENGIAI.Name = "colTINH_DIENGIAI";
+            this.colTINH_DIENGIAI.Visible = true;
+            this.colTINH_DIENGIAI.VisibleIndex = 1;
+            this.colTINH_DIENGIAI.Width = 291;
+            // 
+            // colTINH_STT
+            // 
+            this.colTINH_STT.Caption = "Số thứ tự";
+            this.colTINH_STT.ColumnEdit = this.seSTT;
+            this.colTINH_STT.FieldName = "TINH_STT";
+            this.colTINH_STT.Name = "colTINH_STT";
+            this.colTINH_STT.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
+            this.colTINH_STT.Visible = true;
+            this.colTINH_STT.VisibleIndex = 2;
+            this.colTINH_STT.Width = 72;
+            // 
+            // seSTT
+            // 
+            this.seSTT.AutoHeight = false;
+            this.seSTT.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seSTT.Name = "seSTT";
             // 
             // btnControl
             // 
@@ -154,7 +193,7 @@
             this.btnControl.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnControl.FlatStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.btnControl.GroupBoxShow = false;
-            this.btnControl.Location = new System.Drawing.Point(385, 0);
+            this.btnControl.Location = new System.Drawing.Point(425, 0);
             this.btnControl.Name = "btnControl";
             this.btnControl.Size = new System.Drawing.Size(333, 60);
             this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
@@ -173,7 +212,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 445);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(718, 60);
+            this.panelControl1.Size = new System.Drawing.Size(758, 60);
             this.panelControl1.TabIndex = 21;
             // 
             // repositoryItemImageEdit1
@@ -270,10 +309,11 @@
             this.Controls.Add(this.gcGrid);
             this.Controls.Add(this.panelControl1);
             this.Name = "ucDmTinh";
-            this.Size = new System.Drawing.Size(718, 505);
+            this.Size = new System.Drawing.Size(758, 505);
             this.Load += new System.EventHandler(this.ucDmTinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seSTT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
@@ -294,8 +334,7 @@
 
         private DevExpress.XtraGrid.GridControl gcGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gvGrid;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGDUNG_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGDUNG_TEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colTINH_TEN;
         private ControlsLib.ButtonsArray btnControl;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
@@ -307,5 +346,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit calEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lueDonViTinh;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DtNgay;
+        private DevExpress.XtraGrid.Columns.GridColumn colTINH_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn colTINH_DIENGIAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colTINH_STT;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit seSTT;
     }
 }
