@@ -80,7 +80,7 @@ namespace DauThau
                     case "btnXa":
                         uc = new ucDmXa();
                         break;
-                            case "btnTrinhDoHocVan":
+                    case "btnTrinhDoHocVan":
                         uc = new ucDMTrinhDoHocVan();
                         break;
                     case "btnTrinhDoChuyenMon":

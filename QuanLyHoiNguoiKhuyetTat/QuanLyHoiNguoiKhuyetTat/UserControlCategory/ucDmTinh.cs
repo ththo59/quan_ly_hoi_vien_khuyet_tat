@@ -9,10 +9,10 @@ using DevExpress.XtraEditors;
 using DauThau.Class;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid;
-using DauThau.Models;
 using System.Linq;
 using System.Data.Entity;
 using DevExpress.Utils;
+using DauThau.Models;
 
 namespace DauThau.UserControlCategory
 {
@@ -25,7 +25,7 @@ namespace DauThau.UserControlCategory
 
         private void ucDmTinh_Load(object sender, EventArgs e)
         {
-            CommandData();
+            initData();
             FormStatus = EnumFormStatus.VIEW;
         }
 
@@ -40,12 +40,12 @@ namespace DauThau.UserControlCategory
         void CommandData()
         {
             gvGrid._SetDefaultColorRowStyle();
-            SelectData();
         }
 
         void SelectData()
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            context = new QL_HOIVIEN_KTEntities();
             context.DM_TINH.Load();
             gcGrid.DataSource = context.DM_TINH.Local.ToBindingList();
             _wait.Close();
@@ -60,7 +60,6 @@ namespace DauThau.UserControlCategory
                 gvGrid.UpdateCurrentRow();
                 context.SaveChanges();
                 FormStatus = EnumFormStatus.VIEW;
-                SelectData();
                 _wait.Close();
             }
             catch
@@ -111,6 +110,7 @@ namespace DauThau.UserControlCategory
 
                 else
                 {
+                    SelectData();
                     gvGrid.OptionsBehavior.Editable = false;
                     gvGrid.OptionsView.ShowAutoFilterRow = true;
                     gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
@@ -152,7 +152,7 @@ namespace DauThau.UserControlCategory
             }
 
             string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTINH_TEN.FieldName).ToString();
-            if (XtraMessageBox.Show("Bạn có chắc muốn xóa đơn vị tính: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 gvGrid.DeleteSelectedRows();
                 Save();

@@ -30,8 +30,13 @@
         {
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colDANGDUNG_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDANGDUNG_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHUYEN_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTINH_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lueTinh = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colHUYEN_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHUYEN_DIENGIAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHUYEN_STT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.seSTT = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.btnControl = new ControlsLib.ButtonsArray();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
@@ -43,9 +48,10 @@
             this.calEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.lueDonViTinh = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.DtNgay = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seSTT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
@@ -72,6 +78,9 @@
             this.gcGrid.Location = new System.Drawing.Point(0, 0);
             this.gcGrid.MainView = this.gvGrid;
             this.gcGrid.Name = "gcGrid";
+            this.gcGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.seSTT,
+            this.lueTinh});
             this.gcGrid.Size = new System.Drawing.Size(718, 445);
             this.gcGrid.TabIndex = 22;
             this.gcGrid.UseEmbeddedNavigator = true;
@@ -87,29 +96,86 @@
             this.gvGrid.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvGrid.Appearance.Row.Options.UseFont = true;
             this.gvGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDANGDUNG_ID,
-            this.colDANGDUNG_TEN,
-            this.gridColumn1});
+            this.colHUYEN_ID,
+            this.colTINH_ID,
+            this.colHUYEN_TEN,
+            this.colHUYEN_DIENGIAI,
+            this.colHUYEN_STT});
             this.gvGrid.GridControl = this.gcGrid;
+            this.gvGrid.GroupCount = 1;
+            this.gvGrid.GroupFormat = "{1}";
             this.gvGrid.Name = "gvGrid";
             this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
+            this.gvGrid.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gvGrid.OptionsView.ShowGroupedColumns = true;
             this.gvGrid.OptionsView.ShowGroupPanel = false;
+            this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colTINH_ID, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHUYEN_STT, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gvGrid.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvGrid_InvalidRowException);
             this.gvGrid.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvGrid_ValidateRow);
             this.gvGrid.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvGrid_ValidatingEditor);
             // 
-            // colDANGDUNG_ID
+            // colHUYEN_ID
             // 
-            this.colDANGDUNG_ID.Caption = "ID";
-            this.colDANGDUNG_ID.FieldName = "DANGDUNG_ID";
-            this.colDANGDUNG_ID.Name = "colDANGDUNG_ID";
+            this.colHUYEN_ID.Caption = "ID";
+            this.colHUYEN_ID.FieldName = "HUYEN_ID";
+            this.colHUYEN_ID.Name = "colHUYEN_ID";
             // 
-            // colDANGDUNG_TEN
+            // colTINH_ID
             // 
-            this.colDANGDUNG_TEN.Caption = "Tên tỉnh, thành phố";
-            this.colDANGDUNG_TEN.Name = "colDANGDUNG_TEN";
-            this.colDANGDUNG_TEN.Visible = true;
-            this.colDANGDUNG_TEN.VisibleIndex = 0;
+            this.colTINH_ID.Caption = "Tên tỉnh, thành phố";
+            this.colTINH_ID.ColumnEdit = this.lueTinh;
+            this.colTINH_ID.FieldName = "TINH_ID";
+            this.colTINH_ID.Name = "colTINH_ID";
+            this.colTINH_ID.Visible = true;
+            this.colTINH_ID.VisibleIndex = 0;
+            // 
+            // lueTinh
+            // 
+            this.lueTinh.AutoHeight = false;
+            this.lueTinh.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTinh.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TINH_ID", "Name1", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TINH_TEN", "Tỉnh, Thành phố")});
+            this.lueTinh.DisplayMember = "TINH_TEN";
+            this.lueTinh.Name = "lueTinh";
+            this.lueTinh.NullText = "Vui lòng chọn thành phố";
+            this.lueTinh.ValueMember = "TINH_ID";
+            // 
+            // colHUYEN_TEN
+            // 
+            this.colHUYEN_TEN.Caption = "Tên quận, huyện";
+            this.colHUYEN_TEN.FieldName = "HUYEN_TEN";
+            this.colHUYEN_TEN.Name = "colHUYEN_TEN";
+            this.colHUYEN_TEN.Visible = true;
+            this.colHUYEN_TEN.VisibleIndex = 1;
+            // 
+            // colHUYEN_DIENGIAI
+            // 
+            this.colHUYEN_DIENGIAI.Caption = "Diễn giải";
+            this.colHUYEN_DIENGIAI.FieldName = "HUYEN_DIENGIAI";
+            this.colHUYEN_DIENGIAI.Name = "colHUYEN_DIENGIAI";
+            this.colHUYEN_DIENGIAI.Visible = true;
+            this.colHUYEN_DIENGIAI.VisibleIndex = 2;
+            // 
+            // colHUYEN_STT
+            // 
+            this.colHUYEN_STT.Caption = "Sắp xếp";
+            this.colHUYEN_STT.ColumnEdit = this.seSTT;
+            this.colHUYEN_STT.FieldName = "HUYEN_STT";
+            this.colHUYEN_STT.Name = "colHUYEN_STT";
+            this.colHUYEN_STT.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
+            this.colHUYEN_STT.Visible = true;
+            this.colHUYEN_STT.VisibleIndex = 3;
+            // 
+            // seSTT
+            // 
+            this.seSTT.AutoHeight = false;
+            this.seSTT.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seSTT.Name = "seSTT";
             // 
             // btnControl
             // 
@@ -265,13 +331,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.DtNgay.Name = "DtNgay";
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Tên quận, huyện";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
-            // 
             // ucDmHuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,6 +342,8 @@
             this.Load += new System.EventHandler(this.ucDmHuyen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seSTT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
@@ -303,8 +364,8 @@
 
         private DevExpress.XtraGrid.GridControl gcGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gvGrid;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGDUNG_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGDUNG_TEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colHUYEN_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn colTINH_ID;
         private ControlsLib.ButtonsArray btnControl;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
@@ -316,6 +377,10 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit calEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lueDonViTinh;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DtNgay;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colHUYEN_TEN;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lueTinh;
+        private DevExpress.XtraGrid.Columns.GridColumn colHUYEN_DIENGIAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colHUYEN_STT;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit seSTT;
     }
 }
