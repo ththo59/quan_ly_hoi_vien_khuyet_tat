@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsChonKyThuat" targetNamespace="http://tempuri.org/dsChonKyThuat.xsd" xmlns:mstns="http://tempuri.org/dsChonKyThuat.xsd" xmlns="http://tempuri.org/dsChonKyThuat.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsChonKyThuat" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsChonKyThuat" msprop:Generator_UserDSName="dsChonKyThuat">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtKyThuat" msprop:Generator_TableClassName="dtKyThuatDataTable" msprop:Generator_TableVarName="tabledtKyThuat" msprop:Generator_TablePropName="dtKyThuat" msprop:Generator_RowDeletingName="dtKyThuatRowDeleting" msprop:Generator_UserTableName="dtKyThuat" msprop:Generator_RowChangingName="dtKyThuatRowChanging" msprop:Generator_RowEvHandlerName="dtKyThuatRowChangeEventHandler" msprop:Generator_RowDeletedName="dtKyThuatRowDeleted" msprop:Generator_RowEvArgName="dtKyThuatRowChangeEvent" msprop:Generator_RowChangedName="dtKyThuatRowChanged" msprop:Generator_RowClassName="dtKyThuatRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Chon" msprop:Generator_ColumnVarNameInTable="columnChon" msprop:Generator_ColumnPropNameInRow="Chon" msprop:Generator_ColumnPropNameInTable="ChonColumn" msprop:Generator_UserColumnName="Chon" type="xs:boolean" minOccurs="0" />
+              <xs:element name="TenNhom" msprop:Generator_ColumnVarNameInTable="columnTenNhom" msprop:Generator_ColumnPropNameInRow="TenNhom" msprop:Generator_ColumnPropNameInTable="TenNhomColumn" msprop:Generator_UserColumnName="TenNhom" type="xs:string" minOccurs="0" />
+              <xs:element name="ChiTiet" msprop:Generator_ColumnVarNameInTable="columnChiTiet" msprop:Generator_ColumnPropNameInRow="ChiTiet" msprop:Generator_ColumnPropNameInTable="ChiTietColumn" msprop:Generator_UserColumnName="ChiTiet" type="xs:string" minOccurs="0" />
+              <xs:element name="Diem" msprop:Generator_ColumnVarNameInTable="columnDiem" msprop:Generator_ColumnPropNameInRow="Diem" msprop:Generator_ColumnPropNameInTable="DiemColumn" msprop:Generator_UserColumnName="Diem" type="xs:double" minOccurs="0" />
+              <xs:element name="NHOM_KYTHUAT_ID" msprop:Generator_ColumnVarNameInTable="columnNHOM_KYTHUAT_ID" msprop:Generator_ColumnPropNameInRow="NHOM_KYTHUAT_ID" msprop:Generator_ColumnPropNameInTable="NHOM_KYTHUAT_IDColumn" msprop:Generator_UserColumnName="NHOM_KYTHUAT_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="DataColumn1" msprop:Generator_ColumnVarNameInTable="columnDataColumn1" msprop:Generator_ColumnPropNameInRow="DataColumn1" msprop:Generator_ColumnPropNameInTable="DataColumn1Column" msprop:Generator_UserColumnName="DataColumn1" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

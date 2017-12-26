@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QL_HOIVIEN_KTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DM_HUYEN">
+          <Key>
+            <PropertyRef Name="HUYEN_ID" />
+          </Key>
+          <Property Name="HUYEN_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HUYEN_TEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="HUYEN_DIENGIAI" Type="nvarchar" MaxLength="250" />
+          <Property Name="TINH_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="DM_NGHE_NGHIEP">
+          <Key>
+            <PropertyRef Name="NN_ID" />
+          </Key>
+          <Property Name="NN_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NN_TEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NN_DIENGIAI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DM_TINH">
+          <Key>
+            <PropertyRef Name="TINH_ID" />
+          </Key>
+          <Property Name="TINH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TINH_TEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="TINH_DIENGIAI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
+          <Key>
+            <PropertyRef Name="CM_ID" />
+          </Key>
+          <Property Name="CM_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CM_TEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="CM_DIENGIAI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DM_TRINH_DO_HOC_VAN">
+          <Key>
+            <PropertyRef Name="HV_ID" />
+          </Key>
+          <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HV_TEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="HV_DIENGIAI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DM_XA">
+          <Key>
+            <PropertyRef Name="XA_ID" />
+          </Key>
+          <Property Name="XA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="XA_TEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="HUYEN_ID" Type="bigint" />
+          <Property Name="XA_DIENGIAI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_DM_HUYEN_DM_TINH">
+          <End Role="DM_TINH" Type="Self.DM_TINH" Multiplicity="0..1" />
+          <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_TINH">
+              <PropertyRef Name="TINH_ID" />
+            </Principal>
+            <Dependent Role="DM_HUYEN">
+              <PropertyRef Name="TINH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_XA_DM_HUYEN">
+          <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="0..1" />
+          <End Role="DM_XA" Type="Self.DM_XA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_HUYEN">
+              <PropertyRef Name="HUYEN_ID" />
+            </Principal>
+            <Dependent Role="DM_XA">
+              <PropertyRef Name="HUYEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_HOIVIEN_KTModelStoreContainer">
+          <EntitySet Name="DM_HUYEN" EntityType="Self.DM_HUYEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
+            <End Role="DM_TINH" EntitySet="DM_TINH" />
+            <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_XA_DM_HUYEN" Association="Self.FK_DM_XA_DM_HUYEN">
+            <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
+            <End Role="DM_XA" EntitySet="DM_XA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QL_HOIVIEN_KTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DM_HUYEN">
+          <Key>
+            <PropertyRef Name="HUYEN_ID" />
+          </Key>
+          <Property Name="HUYEN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HUYEN_TEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HUYEN_DIENGIAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TINH_ID" Type="Int64" />
+          <NavigationProperty Name="DM_TINH" Relationship="Self.FK_DM_HUYEN_DM_TINH" FromRole="DM_HUYEN" ToRole="DM_TINH" />
+          <NavigationProperty Name="DM_XA" Relationship="Self.FK_DM_XA_DM_HUYEN" FromRole="DM_HUYEN" ToRole="DM_XA" />
+        </EntityType>
+        <EntityType Name="DM_NGHE_NGHIEP">
+          <Key>
+            <PropertyRef Name="NN_ID" />
+          </Key>
+          <Property Name="NN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NN_TEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NN_DIENGIAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_TINH">
+          <Key>
+            <PropertyRef Name="TINH_ID" />
+          </Key>
+          <Property Name="TINH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TINH_TEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TINH_DIENGIAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_HUYEN" Relationship="Self.FK_DM_HUYEN_DM_TINH" FromRole="DM_TINH" ToRole="DM_HUYEN" />
+        </EntityType>
+        <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
+          <Key>
+            <PropertyRef Name="CM_ID" />
+          </Key>
+          <Property Name="CM_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CM_TEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CM_DIENGIAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_TRINH_DO_HOC_VAN">
+          <Key>
+            <PropertyRef Name="HV_ID" />
+          </Key>
+          <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HV_TEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DIENGIAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_XA">
+          <Key>
+            <PropertyRef Name="XA_ID" />
+          </Key>
+          <Property Name="XA_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="XA_TEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HUYEN_ID" Type="Int64" />
+          <Property Name="XA_DIENGIAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_HUYEN" Relationship="Self.FK_DM_XA_DM_HUYEN" FromRole="DM_XA" ToRole="DM_HUYEN" />
+        </EntityType>
+        <Association Name="FK_DM_HUYEN_DM_TINH">
+          <End Role="DM_TINH" Type="Self.DM_TINH" Multiplicity="0..1" />
+          <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_TINH">
+              <PropertyRef Name="TINH_ID" />
+            </Principal>
+            <Dependent Role="DM_HUYEN">
+              <PropertyRef Name="TINH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_XA_DM_HUYEN">
+          <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="0..1" />
+          <End Role="DM_XA" Type="Self.DM_XA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_HUYEN">
+              <PropertyRef Name="HUYEN_ID" />
+            </Principal>
+            <Dependent Role="DM_XA">
+              <PropertyRef Name="HUYEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_HOIVIEN_KTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DM_HUYEN" EntityType="Self.DM_HUYEN" />
+          <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" />
+          <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" />
+          <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" />
+          <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" />
+          <EntitySet Name="DM_XA" EntityType="Self.DM_XA" />
+          <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
+            <End Role="DM_TINH" EntitySet="DM_TINH" />
+            <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_XA_DM_HUYEN" Association="Self.FK_DM_XA_DM_HUYEN">
+            <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
+            <End Role="DM_XA" EntitySet="DM_XA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QL_HOIVIEN_KTModelStoreContainer" CdmEntityContainer="QL_HOIVIEN_KTEntities">
+          <EntitySetMapping Name="DM_HUYEN">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_HUYEN">
+              <MappingFragment StoreEntitySet="DM_HUYEN">
+                <ScalarProperty Name="HUYEN_ID" ColumnName="HUYEN_ID" />
+                <ScalarProperty Name="HUYEN_TEN" ColumnName="HUYEN_TEN" />
+                <ScalarProperty Name="HUYEN_DIENGIAI" ColumnName="HUYEN_DIENGIAI" />
+                <ScalarProperty Name="TINH_ID" ColumnName="TINH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NGHE_NGHIEP">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NGHE_NGHIEP">
+              <MappingFragment StoreEntitySet="DM_NGHE_NGHIEP">
+                <ScalarProperty Name="NN_ID" ColumnName="NN_ID" />
+                <ScalarProperty Name="NN_TEN" ColumnName="NN_TEN" />
+                <ScalarProperty Name="NN_DIENGIAI" ColumnName="NN_DIENGIAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TINH">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_TINH">
+              <MappingFragment StoreEntitySet="DM_TINH">
+                <ScalarProperty Name="TINH_ID" ColumnName="TINH_ID" />
+                <ScalarProperty Name="TINH_TEN" ColumnName="TINH_TEN" />
+                <ScalarProperty Name="TINH_DIENGIAI" ColumnName="TINH_DIENGIAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TRINH_DO_CHUYEN_MON">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_TRINH_DO_CHUYEN_MON">
+              <MappingFragment StoreEntitySet="DM_TRINH_DO_CHUYEN_MON">
+                <ScalarProperty Name="CM_ID" ColumnName="CM_ID" />
+                <ScalarProperty Name="CM_TEN" ColumnName="CM_TEN" />
+                <ScalarProperty Name="CM_DIENGIAI" ColumnName="CM_DIENGIAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TRINH_DO_HOC_VAN">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_TRINH_DO_HOC_VAN">
+              <MappingFragment StoreEntitySet="DM_TRINH_DO_HOC_VAN">
+                <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+                <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
+                <ScalarProperty Name="HV_DIENGIAI" ColumnName="HV_DIENGIAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_XA">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_XA">
+              <MappingFragment StoreEntitySet="DM_XA">
+                <ScalarProperty Name="XA_ID" ColumnName="XA_ID" />
+                <ScalarProperty Name="XA_TEN" ColumnName="XA_TEN" />
+                <ScalarProperty Name="HUYEN_ID" ColumnName="HUYEN_ID" />
+                <ScalarProperty Name="XA_DIENGIAI" ColumnName="XA_DIENGIAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
