@@ -37,7 +37,7 @@ namespace DauThau.UserControlCategory
 
         #region Function
 
-        void CommandData()
+        void initData()
         {
             gvGrid._SetDefaultColorRowStyle();
         }

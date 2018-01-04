@@ -50,11 +50,11 @@ namespace DauThau
             //clsConnection.OpenConn();
             this.ribbonStatusBar.ItemLinks.Add(clsParameter._barStaticLogin);
             barVersion.Caption = clsBuildClickOne.getVersion();
-
+            String[] btnIngore = new String[] { "btnNapExcels" };
             foreach (var obj in ribbonMain.Items)
             {
                 BarButtonItem items = obj as BarButtonItem;
-                if (items == null)
+                if (items == null || btnIngore.Contains(items.Name))
                 {
                     continue;
                 }
@@ -89,10 +89,17 @@ namespace DauThau
                     case "btnNgheNghiep":
                         uc = new ucDMNgheNghiep();
                         break;
-                    #endregion
-
-                    default:
+                        #endregion
+                        
+                    case "btnLyLich":
+                        uc = new ucLyLich();
                         break;
+                    case "btnHoatDongHoiThaoASXH":
+                        uc = new ucHoatDongHoiThaoTapHuan();
+                        break;
+                    default:
+                        clsMessage.MessageWarning("Vui lòng cấu hình link...");
+                        return;
                 }
                 clsAddTab.AddTabControl(TabControlParent, uc, item.Name, item.Caption, this);
 
@@ -145,10 +152,7 @@ namespace DauThau
             frm.ShowDialog();
         }
 
-        private void btnHoatDongHoiThaoASXH_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucHoatDongHoiThaoTapHuan(), "ucHoatDongHoiThaoTapHuan", "Tập huấn - hội thảo - an sinh xã hội", this);
-        }
+      
 
         private void btnHoatDongTimKiem_ItemClick(object sender, ItemClickEventArgs e)
         {

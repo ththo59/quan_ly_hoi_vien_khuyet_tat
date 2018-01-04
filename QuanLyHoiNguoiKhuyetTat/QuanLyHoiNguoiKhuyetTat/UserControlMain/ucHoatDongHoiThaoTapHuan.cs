@@ -12,7 +12,7 @@ using DevExpress.XtraGrid;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucHoatDongHoiThaoTapHuan : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucHoatDongHoiThaoTapHuan : ucBase
     {
         public ucHoatDongHoiThaoTapHuan()
         {

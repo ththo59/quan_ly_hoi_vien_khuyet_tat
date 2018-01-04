@@ -171,6 +171,7 @@
     <Compile Include="Class\frmMainPartial.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Class\FuncCategory.cs" />
     <Compile Include="Class\FunctionHelper.cs" />
     <Compile Include="Class\RegistryHelper.cs" />
     <Compile Include="Class\ReportHelper.cs" />
@@ -1029,10 +1030,10 @@
     <Compile Include="UserControlCategory\ucSP_DanhSach.Designer.cs">
       <DependentUpon>ucSP_DanhSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlCategory\ucLyLich.cs">
+    <Compile Include="UserControlMain\ucLyLich.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlCategory\ucLyLich.Designer.cs">
+    <Compile Include="UserControlMain\ucLyLich.Designer.cs">
       <DependentUpon>ucLyLich.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlCategory\ucTinhNangKyThuat.cs">
@@ -1427,7 +1428,7 @@
     <EmbeddedResource Include="UserControlCategory\ucSP_DanhSach.resx">
       <DependentUpon>ucSP_DanhSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlCategory\ucLyLich.resx">
+    <EmbeddedResource Include="UserControlMain\ucLyLich.resx">
       <DependentUpon>ucLyLich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucTinhNangKyThuat.resx">

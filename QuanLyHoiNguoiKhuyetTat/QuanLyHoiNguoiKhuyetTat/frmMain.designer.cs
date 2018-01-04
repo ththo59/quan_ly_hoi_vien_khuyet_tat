@@ -313,7 +313,6 @@
             this.btnTrinhDoHocVan.Name = "btnTrinhDoHocVan";
             this.btnTrinhDoHocVan.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-
             // 
             // barYCPhapLy
             // 
@@ -411,7 +410,6 @@
             this.btnTrinhDoChuyenMon.Name = "btnTrinhDoChuyenMon";
             this.btnTrinhDoChuyenMon.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-    
             // 
             // barSPYCPhapLy
             // 
@@ -462,7 +460,6 @@
             this.btnNgheNghiep.Name = "btnNgheNghiep";
             this.btnNgheNghiep.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-  
             // 
             // barDangDung
             // 
@@ -941,7 +938,6 @@
             this.btnHoatDongHoiThaoASXH.Name = "btnHoatDongHoiThaoASXH";
             this.btnHoatDongHoiThaoASXH.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnHoatDongHoiThaoASXH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoatDongHoiThaoASXH_ItemClick);
             // 
             // btnTimKiemPhieuThuChi
             // 

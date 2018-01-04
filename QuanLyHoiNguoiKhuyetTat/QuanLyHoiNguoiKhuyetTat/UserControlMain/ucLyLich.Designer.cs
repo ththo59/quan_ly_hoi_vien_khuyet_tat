@@ -32,8 +32,8 @@
             this.btnControl = new ControlsLib.ButtonsArray();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lueQuan = new DevExpress.XtraEditors.LookUpEdit();
+            this.lueThanhPho = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -239,8 +239,8 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueQuan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueThanhPho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -521,8 +521,8 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.lookUpEdit2);
-            this.layoutControl1.Controls.Add(this.lookUpEdit1);
+            this.layoutControl1.Controls.Add(this.lueQuan);
+            this.layoutControl1.Controls.Add(this.lueThanhPho);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 23);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(0);
@@ -542,31 +542,42 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // lookUpEdit2
+            // lueQuan
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(81, 32);
-            this.lookUpEdit2.Name = "lookUpEdit2";
-            this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lueQuan.Location = new System.Drawing.Point(81, 32);
+            this.lueQuan.Name = "lueQuan";
+            this.lueQuan.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lueQuan.Properties.Appearance.Options.UseFont = true;
+            this.lueQuan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit2.Properties.NullText = "Ninh Kiều";
-            this.lookUpEdit2.Size = new System.Drawing.Size(260, 26);
-            this.lookUpEdit2.StyleController = this.layoutControl1;
-            this.lookUpEdit2.TabIndex = 5;
+            this.lueQuan.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HUYEN_ID", "Name3", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HUYEN_TEN", "Quận, huyện")});
+            this.lueQuan.Properties.DisplayMember = "HUYEN_TEN";
+            this.lueQuan.Properties.NullText = "Vui lòng chọn huyện";
+            this.lueQuan.Properties.ValueMember = "HUYEN_ID";
+            this.lueQuan.Size = new System.Drawing.Size(260, 26);
+            this.lueQuan.StyleController = this.layoutControl1;
+            this.lueQuan.TabIndex = 5;
             // 
-            // lookUpEdit1
+            // lueThanhPho
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(81, 2);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lueThanhPho.Location = new System.Drawing.Point(81, 2);
+            this.lueThanhPho.Name = "lueThanhPho";
+            this.lueThanhPho.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lueThanhPho.Properties.Appearance.Options.UseFont = true;
+            this.lueThanhPho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.NullText = "Cần Thơ";
-            this.lookUpEdit1.Size = new System.Drawing.Size(260, 26);
-            this.lookUpEdit1.StyleController = this.layoutControl1;
-            this.lookUpEdit1.TabIndex = 4;
+            this.lueThanhPho.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TINH_ID", "TINH_ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TINH_TEN", "Thành phố")});
+            this.lueThanhPho.Properties.DisplayMember = "TINH_TEN";
+            this.lueThanhPho.Properties.NullText = "Vui lòng chọn tỉnh, thành phố";
+            this.lueThanhPho.Properties.ValueMember = "TINH_ID";
+            this.lueThanhPho.Size = new System.Drawing.Size(260, 26);
+            this.lueThanhPho.StyleController = this.layoutControl1;
+            this.lueThanhPho.TabIndex = 4;
+            this.lueThanhPho.EditValueChanged += new System.EventHandler(this.lueThanhPho_EditValueChanged);
             // 
             // Root
             // 
@@ -587,7 +598,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.lookUpEdit1;
+            this.layoutControlItem1.Control = this.lueThanhPho;
             this.layoutControlItem1.CustomizationFormText = "Thành phố";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -597,7 +608,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.lookUpEdit2;
+            this.layoutControlItem2.Control = this.lueQuan;
             this.layoutControlItem2.CustomizationFormText = "Quận huyện";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -1034,7 +1045,6 @@
             this.textEdit38.Size = new System.Drawing.Size(50, 26);
             this.textEdit38.StyleController = this.layoutControl2;
             this.textEdit38.TabIndex = 5;
-
             // 
             // textEdit31
             // 
@@ -1045,7 +1055,6 @@
             this.textEdit31.Size = new System.Drawing.Size(64, 26);
             this.textEdit31.StyleController = this.layoutControl2;
             this.textEdit31.TabIndex = 5;
-      
             // 
             // textEdit11
             // 
@@ -1057,7 +1066,6 @@
             this.textEdit11.Size = new System.Drawing.Size(307, 26);
             this.textEdit11.StyleController = this.layoutControl2;
             this.textEdit11.TabIndex = 5;
-      
             // 
             // textEdit8
             // 
@@ -1069,7 +1077,6 @@
             this.textEdit8.Size = new System.Drawing.Size(285, 26);
             this.textEdit8.StyleController = this.layoutControl2;
             this.textEdit8.TabIndex = 5;
-
             // 
             // textEdit39
             // 
@@ -1080,7 +1087,6 @@
             this.textEdit39.Size = new System.Drawing.Size(103, 26);
             this.textEdit39.StyleController = this.layoutControl2;
             this.textEdit39.TabIndex = 5;
-
             // 
             // textEdit7
             // 
@@ -1091,7 +1097,6 @@
             this.textEdit7.Size = new System.Drawing.Size(139, 26);
             this.textEdit7.StyleController = this.layoutControl2;
             this.textEdit7.TabIndex = 5;
-
             // 
             // textEdit3
             // 
@@ -1249,7 +1254,6 @@
             this.textEdit2.Size = new System.Drawing.Size(102, 26);
             this.textEdit2.StyleController = this.layoutControl2;
             this.textEdit2.TabIndex = 5;
-    
             // 
             // textEdit4
             // 
@@ -1276,7 +1280,6 @@
             this.textEdit5.Size = new System.Drawing.Size(111, 26);
             this.textEdit5.StyleController = this.layoutControl2;
             this.textEdit5.TabIndex = 5;
-
             // 
             // textEdit6
             // 
@@ -1290,7 +1293,6 @@
             this.textEdit6.Size = new System.Drawing.Size(103, 26);
             this.textEdit6.StyleController = this.layoutControl2;
             this.textEdit6.TabIndex = 5;
-  
             // 
             // textEdit33
             // 
@@ -1304,7 +1306,6 @@
             this.textEdit33.Size = new System.Drawing.Size(64, 26);
             this.textEdit33.StyleController = this.layoutControl2;
             this.textEdit33.TabIndex = 5;
-  
             // 
             // textEdit28
             // 
@@ -1318,7 +1319,6 @@
             this.textEdit28.Size = new System.Drawing.Size(101, 26);
             this.textEdit28.StyleController = this.layoutControl2;
             this.textEdit28.TabIndex = 5;
-     
             // 
             // textEdit30
             // 
@@ -1332,7 +1332,6 @@
             this.textEdit30.Size = new System.Drawing.Size(254, 26);
             this.textEdit30.StyleController = this.layoutControl2;
             this.textEdit30.TabIndex = 5;
- 
             // 
             // textEdit80
             // 
@@ -3209,8 +3208,8 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueQuan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueThanhPho.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -3439,8 +3438,8 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lueQuan;
+        private DevExpress.XtraEditors.LookUpEdit lueThanhPho;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;

@@ -9,6 +9,8 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using DauThau.Class;
 using DauThau.Forms;
+using DauThau.Models;
+using System.Linq;
 
 namespace DauThau.UserControlCategory
 {
@@ -21,7 +23,8 @@ namespace DauThau.UserControlCategory
 
         private void ucLyLich_Load(object sender, EventArgs e)
         {
-
+            FuncCategory.loadDMTinh(lueThanhPho);
+            
         }
 
         private void btnControl_btnEventClose_Click(object sender, EventArgs e)
@@ -30,6 +33,11 @@ namespace DauThau.UserControlCategory
             {
                 closeTab();
             }
+        }
+
+        private void lueThanhPho_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMHuyen(lueQuan, Convert.ToInt64(lueThanhPho.EditValue));
         }
     }
 }
