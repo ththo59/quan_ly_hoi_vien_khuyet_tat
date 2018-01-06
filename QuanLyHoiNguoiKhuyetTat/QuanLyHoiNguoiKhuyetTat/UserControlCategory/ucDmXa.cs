@@ -27,7 +27,6 @@ namespace DauThau.UserControlCategory
 
         #region Variable
 
-        private EnumFormStatus _formStatus = EnumFormStatus.VIEW;
         DataSet ds = new DataSet();
         SqlDataAdapter da = new SqlDataAdapter();
 
@@ -101,7 +100,7 @@ namespace DauThau.UserControlCategory
         #region Status
 
 
-        public EnumFormStatus FormStatus
+        protected override EnumFormStatus FormStatus
         {
             get { return _formStatus; }
             set

@@ -14,6 +14,7 @@ namespace DauThau.Class
         MODIFY,
         DELETE,
         SAVE,
-        CANCEL
+        CANCEL,
+        CLOSE
     }
 }

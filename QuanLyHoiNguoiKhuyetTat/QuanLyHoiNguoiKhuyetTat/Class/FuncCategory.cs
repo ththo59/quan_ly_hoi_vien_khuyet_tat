@@ -15,7 +15,7 @@ namespace DauThau.Class
         {
             using (var context = new QL_HOIVIEN_KTEntities())
             {
-                var dmThanhPho = (from p in context.DM_TINH select p).ToList();
+                var dmThanhPho = (from p in context.DM_TINH orderby p.TINH_STT select p).ToList();
                 lue.Properties.DataSource = dmThanhPho;
                 if (dmThanhPho.Count > 0 && itemIndexFirst)
                 {
@@ -28,7 +28,7 @@ namespace DauThau.Class
         {
             using (var context = new QL_HOIVIEN_KTEntities())
             {
-                var dmHuyen = (from p in context.DM_HUYEN where p.TINH_ID == idTinh select p).ToList();
+                var dmHuyen = (from p in context.DM_HUYEN orderby p.HUYEN_STT where p.TINH_ID == idTinh select p).ToList();
                 lue.Properties.DataSource = dmHuyen;
                 if (dmHuyen.Count > 0 && itemIndexFirst)
                 {

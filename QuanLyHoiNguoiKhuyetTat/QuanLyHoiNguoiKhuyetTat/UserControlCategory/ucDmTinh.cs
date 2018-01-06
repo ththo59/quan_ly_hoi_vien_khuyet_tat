@@ -86,7 +86,7 @@ namespace DauThau.UserControlCategory
         #region Status
 
 
-        public EnumFormStatus FormStatus
+        protected override EnumFormStatus FormStatus
         {
             get { return _formStatus; }
             set

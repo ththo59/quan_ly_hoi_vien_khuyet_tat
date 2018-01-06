@@ -172,6 +172,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Class\FuncCategory.cs" />
+    <Compile Include="Class\FuncFormatControl.cs" />
     <Compile Include="Class\FunctionHelper.cs" />
     <Compile Include="Class\RegistryHelper.cs" />
     <Compile Include="Class\ReportHelper.cs" />
