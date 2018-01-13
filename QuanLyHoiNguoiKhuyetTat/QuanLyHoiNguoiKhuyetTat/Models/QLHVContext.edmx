@@ -5,6 +5,22 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="QL_HOIVIEN_KTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DM_CHUCVU_HOI">
+          <Key>
+            <PropertyRef Name="CV_ID" />
+          </Key>
+          <Property Name="CV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="CV_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_DANTOC">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DT_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DT_STT" Type="int" />
+        </EntityType>
         <EntityType Name="DM_HUYEN">
           <Key>
             <PropertyRef Name="HUYEN_ID" />
@@ -32,6 +48,14 @@
           <Property Name="TINH_TEN" Type="nvarchar" MaxLength="150" />
           <Property Name="TINH_DIENGIAI" Type="nvarchar" MaxLength="250" />
           <Property Name="TINH_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_TONGIAO">
+          <Key>
+            <PropertyRef Name="TG_ID" />
+          </Key>
+          <Property Name="TG_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TG_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TG_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
           <Key>
@@ -61,6 +85,35 @@
           <Property Name="XA_DIENGIAI" Type="nvarchar" MaxLength="250" />
           <Property Name="XA_STT" Type="int" />
         </EntityType>
+        <EntityType Name="QL_HOIVIEN">
+          <Key>
+            <PropertyRef Name="HV_ID" />
+          </Key>
+          <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="50" />
+          <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="50" />
+          <Property Name="HV_NGAY_SINH" Type="date" />
+          <Property Name="HV_TON_GIAO_ID" Type="bigint" />
+          <Property Name="HV_NGHE_NGHIEP_ID" Type="bigint" />
+          <Property Name="HV_TRINHDO_VANHOA_ID" Type="bigint" />
+          <Property Name="HV_TRINHDO_CHUYENMON_ID" Type="bigint" />
+          <Property Name="HV_CMND" Type="nvarchar" MaxLength="20" />
+          <Property Name="HV_CMND_NGAY" Type="date" />
+          <Property Name="HV_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_KHUYETTAT_NGAY" Type="date" />
+          <Property Name="HV_CHUCVU" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HV_THUONGTRU_DUONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_THUONGTRU_KHUVUC" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_THUONGTRU_PHUONG" Type="bigint" />
+          <Property Name="HV_THUONGTRU_QUAN" Type="bigint" />
+          <Property Name="HV_THUONGTRU_TP" Type="bigint" />
+          <Property Name="HV_TAMTRU_DUONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_TAMTRU_KHUVUC" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_TAMTRU_PHUONG" Type="bigint" />
+          <Property Name="HV_TAMTRU_QUAN" Type="bigint" />
+          <Property Name="HV_TAMTRU_TP" Type="bigint" />
+        </EntityType>
         <Association Name="FK_DM_HUYEN_DM_TINH">
           <End Role="DM_TINH" Type="Self.DM_TINH" Multiplicity="0..1" />
           <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="*" />
@@ -86,12 +139,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QL_HOIVIEN_KTModelStoreContainer">
+          <EntitySet Name="DM_CHUCVU_HOI" EntityType="Self.DM_CHUCVU_HOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_DANTOC" EntityType="Self.DM_DANTOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_HUYEN" EntityType="Self.DM_HUYEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_TONGIAO" EntityType="Self.DM_TONGIAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOIVIEN" EntityType="Self.QL_HOIVIEN" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
             <End Role="DM_TINH" EntitySet="DM_TINH" />
             <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
@@ -204,7 +261,64 @@
             <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
             <End Role="DM_XA" EntitySet="DM_XA" />
           </AssociationSet>
+          <EntitySet Name="DM_CHUCVU_HOI" EntityType="QL_HOIVIEN_KTModel.DM_CHUCVU_HOI" />
+          <EntitySet Name="DM_DANTOC" EntityType="QL_HOIVIEN_KTModel.DM_DANTOC" />
+          <EntitySet Name="DM_TONGIAO" EntityType="QL_HOIVIEN_KTModel.DM_TONGIAO" />
+          <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
         </EntityContainer>
+        <EntityType Name="DM_CHUCVU_HOI">
+          <Key>
+            <PropertyRef Name="CV_ID" />
+          </Key>
+          <Property Name="CV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CV_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_DANTOC">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DT_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_TONGIAO">
+          <Key>
+            <PropertyRef Name="TG_ID" />
+          </Key>
+          <Property Name="TG_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TG_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TG_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="QL_HOIVIEN">
+          <Key>
+            <PropertyRef Name="HV_ID" />
+          </Key>
+          <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_GIOI_TINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DAN_TOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
+          <Property Name="HV_TON_GIAO_ID" Type="Int64" />
+          <Property Name="HV_NGHE_NGHIEP_ID" Type="Int64" />
+          <Property Name="HV_TRINHDO_VANHOA_ID" Type="Int64" />
+          <Property Name="HV_TRINHDO_CHUYENMON_ID" Type="Int64" />
+          <Property Name="HV_CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CMND_NGAY" Type="DateTime" Precision="0" />
+          <Property Name="HV_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KHUYETTAT_NGAY" Type="DateTime" Precision="0" />
+          <Property Name="HV_CHUCVU" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_DUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_KHUVUC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_PHUONG" Type="Int64" />
+          <Property Name="HV_THUONGTRU_QUAN" Type="Int64" />
+          <Property Name="HV_THUONGTRU_TP" Type="Int64" />
+          <Property Name="HV_TAMTRU_DUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_KHUVUC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_PHUONG" Type="Int64" />
+          <Property Name="HV_TAMTRU_QUAN" Type="Int64" />
+          <Property Name="HV_TAMTRU_TP" Type="Int64" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -270,6 +384,63 @@
                 <ScalarProperty Name="XA_TEN" ColumnName="XA_TEN" />
                 <ScalarProperty Name="HUYEN_ID" ColumnName="HUYEN_ID" />
                 <ScalarProperty Name="XA_DIENGIAI" ColumnName="XA_DIENGIAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_CHUCVU_HOI">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_CHUCVU_HOI">
+              <MappingFragment StoreEntitySet="DM_CHUCVU_HOI">
+                <ScalarProperty Name="CV_STT" ColumnName="CV_STT" />
+                <ScalarProperty Name="CV_TEN" ColumnName="CV_TEN" />
+                <ScalarProperty Name="CV_ID" ColumnName="CV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_DANTOC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_DANTOC">
+              <MappingFragment StoreEntitySet="DM_DANTOC">
+                <ScalarProperty Name="DT_STT" ColumnName="DT_STT" />
+                <ScalarProperty Name="DT_TEN" ColumnName="DT_TEN" />
+                <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_TONGIAO">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_TONGIAO">
+              <MappingFragment StoreEntitySet="DM_TONGIAO">
+                <ScalarProperty Name="TG_STT" ColumnName="TG_STT" />
+                <ScalarProperty Name="TG_TEN" ColumnName="TG_TEN" />
+                <ScalarProperty Name="TG_ID" ColumnName="TG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOIVIEN">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN">
+              <MappingFragment StoreEntitySet="QL_HOIVIEN">
+                <ScalarProperty Name="HV_TAMTRU_TP" ColumnName="HV_TAMTRU_TP" />
+                <ScalarProperty Name="HV_TAMTRU_QUAN" ColumnName="HV_TAMTRU_QUAN" />
+                <ScalarProperty Name="HV_TAMTRU_PHUONG" ColumnName="HV_TAMTRU_PHUONG" />
+                <ScalarProperty Name="HV_TAMTRU_KHUVUC" ColumnName="HV_TAMTRU_KHUVUC" />
+                <ScalarProperty Name="HV_TAMTRU_DUONG" ColumnName="HV_TAMTRU_DUONG" />
+                <ScalarProperty Name="HV_THUONGTRU_TP" ColumnName="HV_THUONGTRU_TP" />
+                <ScalarProperty Name="HV_THUONGTRU_QUAN" ColumnName="HV_THUONGTRU_QUAN" />
+                <ScalarProperty Name="HV_THUONGTRU_PHUONG" ColumnName="HV_THUONGTRU_PHUONG" />
+                <ScalarProperty Name="HV_THUONGTRU_KHUVUC" ColumnName="HV_THUONGTRU_KHUVUC" />
+                <ScalarProperty Name="HV_THUONGTRU_DUONG" ColumnName="HV_THUONGTRU_DUONG" />
+                <ScalarProperty Name="HV_CHUCVU" ColumnName="HV_CHUCVU" />
+                <ScalarProperty Name="HV_KHUYETTAT_NGAY" ColumnName="HV_KHUYETTAT_NGAY" />
+                <ScalarProperty Name="HV_CMND_NOICAP" ColumnName="HV_CMND_NOICAP" />
+                <ScalarProperty Name="HV_CMND_NGAY" ColumnName="HV_CMND_NGAY" />
+                <ScalarProperty Name="HV_CMND" ColumnName="HV_CMND" />
+                <ScalarProperty Name="HV_TRINHDO_CHUYENMON_ID" ColumnName="HV_TRINHDO_CHUYENMON_ID" />
+                <ScalarProperty Name="HV_TRINHDO_VANHOA_ID" ColumnName="HV_TRINHDO_VANHOA_ID" />
+                <ScalarProperty Name="HV_NGHE_NGHIEP_ID" ColumnName="HV_NGHE_NGHIEP_ID" />
+                <ScalarProperty Name="HV_TON_GIAO_ID" ColumnName="HV_TON_GIAO_ID" />
+                <ScalarProperty Name="HV_NGAY_SINH" ColumnName="HV_NGAY_SINH" />
+                <ScalarProperty Name="HV_DAN_TOC" ColumnName="HV_DAN_TOC" />
+                <ScalarProperty Name="HV_GIOI_TINH" ColumnName="HV_GIOI_TINH" />
+                <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
+                <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

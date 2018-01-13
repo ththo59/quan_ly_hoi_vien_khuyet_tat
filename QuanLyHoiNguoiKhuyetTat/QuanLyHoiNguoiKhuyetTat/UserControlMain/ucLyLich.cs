@@ -14,6 +14,7 @@ using System.Linq;
 using DevExpress.Utils;
 using DevExpress.XtraLayout;
 using DevExpress.XtraTab;
+using System.Collections;
 
 namespace DauThau.UserControlCategory
 {
@@ -28,14 +29,20 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             registerButtonArray(btnControl);
-            FuncCategory.loadDMTinh(lueThanhPho);
+
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThuongTru_TP);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTamTru_TP);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinh);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DANTOC, lueDanToc);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TONGIAO, lueTonGiao);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NGHE_NGHIEP, lueNgheNghiep);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN, lueTrinhDoVanHoa);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON, lueTrinhDoChuyenMon);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_CHUCVU_HOI, lueChucVuHoi);
+
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
-        }
-
-        private void lueThanhPho_EditValueChanged(object sender, EventArgs e)
-        {
-            FuncCategory.loadDMHuyen(lueQuan, Convert.ToInt64(lueThanhPho.EditValue));
         }
 
         protected override EnumFormStatus FormStatus
@@ -47,6 +54,7 @@ namespace DauThau.UserControlCategory
                 if (_formStatus == EnumFormStatus.ADD)
                 {
                     _clearData();
+                    _setDefaultValue();
                     _statusAllControl(false);
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
@@ -127,8 +135,53 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private void _setDefaultValue()
+        {
+            _setDefaultLookupedit(lueGioiTinh);
+            _setDefaultLookupedit(lueDanToc);
+            _setDefaultLookupedit(lueTonGiao);
+            _setDefaultLookupedit(lueNgheNghiep);
+            _setDefaultLookupedit(lueTrinhDoVanHoa);
+            _setDefaultLookupedit(lueTrinhDoChuyenMon);
+            _setDefaultLookupedit(lueTrinhDoVanHoa);
+            _setDefaultLookupedit(lueChucVuHoi);
+            _setDefaultLookupedit(lueThuongTru_TP);
+            _setDefaultLookupedit(lueTamTru_TP);
+        }
+
+        private void _setDefaultLookupedit(LookUpEdit lue)
+        {
+            //if(lue.ItemsCount() > 0)
+            //{
+            //    lue.ItemIndex = 0;
+            //}
+            lue.setDefaultFirstItems();
+        }
         #endregion
 
+        private void lueThanhPho_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMHuyen(lueQuan, clsChangeType.change_int64(lueThanhPho.EditValue));
+        }
 
+        private void lueThuongTru_TP_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMHuyen(lueThuongTru_Quan, clsChangeType.change_int64(lueThuongTru_TP.EditValue));
+        }
+
+        private void lueTamTru_TP_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMHuyen(lueTamTru_Quan, clsChangeType.change_int64(lueTamTru_TP.EditValue));
+        }
+
+        private void lueThuongTru_Quan_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMXa(lueThuongTru_Phuong, clsChangeType.change_int64(lueThuongTru_Quan.EditValue));
+        }
+
+        private void lueTamTru_Quan_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMXa(lueTamTru_Phuong, clsChangeType.change_int64(lueTamTru_Quan.EditValue));
+        }
     }
 }

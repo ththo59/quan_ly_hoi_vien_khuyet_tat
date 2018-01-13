@@ -161,6 +161,7 @@
     <Compile Include="Class\clsConstant.cs" />
     <Compile Include="Class\clsEncryption.cs" />
     <Compile Include="Class\clsEnum.cs" />
+    <Compile Include="Class\clsExtensionCustom.cs" />
     <Compile Include="Class\clsMessage.cs" />
     <Compile Include="Class\clsParameter.cs" />
     <Compile Include="Class\clsStatus.cs" />
@@ -348,6 +349,12 @@
     <Compile Include="frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DM_CHUCVU_HOI.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_DANTOC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DM_HUYEN.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -355,6 +362,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_TINH.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_TONGIAO.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_TRINH_DO_CHUYEN_MON.cs">
@@ -380,6 +390,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLHVContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOIVIEN.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

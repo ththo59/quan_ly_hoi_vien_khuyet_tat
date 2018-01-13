@@ -31,5 +31,9 @@ namespace DauThau.Models
         public virtual DbSet<DM_TRINH_DO_CHUYEN_MON> DM_TRINH_DO_CHUYEN_MON { get; set; }
         public virtual DbSet<DM_TRINH_DO_HOC_VAN> DM_TRINH_DO_HOC_VAN { get; set; }
         public virtual DbSet<DM_XA> DM_XA { get; set; }
+        public virtual DbSet<DM_CHUCVU_HOI> DM_CHUCVU_HOI { get; set; }
+        public virtual DbSet<DM_DANTOC> DM_DANTOC { get; set; }
+        public virtual DbSet<DM_TONGIAO> DM_TONGIAO { get; set; }
+        public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
     }
 }

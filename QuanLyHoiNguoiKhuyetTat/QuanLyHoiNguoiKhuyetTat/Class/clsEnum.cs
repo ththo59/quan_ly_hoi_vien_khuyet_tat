@@ -14,6 +14,18 @@ namespace DauThau.Class
         TATCA = 2
     }
 
+    enum CategoryEntitiesTable
+    {
+        DM_GIOITINH = 0,
+        DM_NGHE_NGHIEP,
+        DM_TINH,
+        DM_TRINH_DO_HOC_VAN,
+        DM_TRINH_DO_CHUYEN_MON,
+        DM_TONGIAO,
+        DM_DANTOC,
+        DM_CHUCVU_HOI
+    }
+
     /// <summary>
     /// Liệt kê các mẫu báo cáo có trong hệ thống
     /// Sử dụng:
