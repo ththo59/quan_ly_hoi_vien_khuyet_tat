@@ -28,6 +28,8 @@ namespace DauThau.UserControlCategory
 
         virtual protected EnumFormStatus FormStatus { get; set; }
 
+        virtual protected Boolean SaveData() { return true; }
+
         public void registerButtonArray(ButtonsArray btnControl)
         {
             btnControl.btnEventAdd_Click += new System.EventHandler(this.btnControl_btnEventAdd_Click);
@@ -64,7 +66,7 @@ namespace DauThau.UserControlCategory
         }
         protected void btnControl_btnEventSave_Click(object sender, EventArgs e)
         {
-            FormStatus = EnumFormStatus.SAVE;
+            SaveData();
         }
     }
 }

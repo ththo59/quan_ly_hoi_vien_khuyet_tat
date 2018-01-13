@@ -30,5 +30,32 @@ namespace DauThau.Class
             }
         }
 
+        public static Nullable<Int64> Ex_EditValueToInt64(this LookUpEdit lue)
+        {
+            if(lue.EditValue == null)
+            {
+                return new Nullable<Int64>();
+            }
+            return Convert.ToInt64(lue.EditValue);
+        }
+
+        public static Nullable<DateTime> Ex_EditValueToDateTime(this DateEdit de)
+        {
+            if (de.EditValue == null)
+            {
+                return new Nullable<DateTime>();
+            }
+            return Convert.ToDateTime(de.EditValue);
+        }
+
+        public static void Ex_FormatCustomDateEdit(this DateEdit de)
+        {
+            de.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            de.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            de.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            de.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            de.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            de.Properties.Mask.EditMask = "dd/MM/yyyy";
+        }
     }
 }

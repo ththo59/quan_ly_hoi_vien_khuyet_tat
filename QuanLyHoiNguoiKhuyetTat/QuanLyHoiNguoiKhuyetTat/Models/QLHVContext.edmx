@@ -91,8 +91,8 @@
           </Key>
           <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HV_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="50" />
-          <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="50" />
+          <Property Name="HV_GIOI_TINH" Type="bigint" />
+          <Property Name="HV_DAN_TOC" Type="bigint" />
           <Property Name="HV_NGAY_SINH" Type="date" />
           <Property Name="HV_TON_GIAO_ID" Type="bigint" />
           <Property Name="HV_NGHE_NGHIEP_ID" Type="bigint" />
@@ -102,7 +102,7 @@
           <Property Name="HV_CMND_NGAY" Type="date" />
           <Property Name="HV_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_KHUYETTAT_NGAY" Type="date" />
-          <Property Name="HV_CHUCVU" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="HV_CHUCVU" Type="nvarchar" MaxLength="100" />
           <Property Name="HV_THUONGTRU_DUONG" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THUONGTRU_KHUVUC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THUONGTRU_PHUONG" Type="bigint" />
@@ -113,6 +113,9 @@
           <Property Name="HV_TAMTRU_PHUONG" Type="bigint" />
           <Property Name="HV_TAMTRU_QUAN" Type="bigint" />
           <Property Name="HV_TAMTRU_TP" Type="bigint" />
+          <Property Name="HV_DIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="HV_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_DIACHI_COQUAN" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <Association Name="FK_DM_HUYEN_DM_TINH">
           <End Role="DM_TINH" Type="Self.DM_TINH" Multiplicity="0..1" />
@@ -296,8 +299,8 @@
           </Key>
           <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_GIOI_TINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DAN_TOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_GIOI_TINH" Type="Int64" />
+          <Property Name="HV_DAN_TOC" Type="Int64" />
           <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
           <Property Name="HV_TON_GIAO_ID" Type="Int64" />
           <Property Name="HV_NGHE_NGHIEP_ID" Type="Int64" />
@@ -307,7 +310,7 @@
           <Property Name="HV_CMND_NGAY" Type="DateTime" Precision="0" />
           <Property Name="HV_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_KHUYETTAT_NGAY" Type="DateTime" Precision="0" />
-          <Property Name="HV_CHUCVU" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CHUCVU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HV_THUONGTRU_DUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THUONGTRU_KHUVUC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THUONGTRU_PHUONG" Type="Int64" />
@@ -318,6 +321,9 @@
           <Property Name="HV_TAMTRU_PHUONG" Type="Int64" />
           <Property Name="HV_TAMTRU_QUAN" Type="Int64" />
           <Property Name="HV_TAMTRU_TP" Type="Int64" />
+          <Property Name="HV_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DIACHI_COQUAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -417,6 +423,9 @@
           <EntitySetMapping Name="QL_HOIVIEN">
             <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN">
               <MappingFragment StoreEntitySet="QL_HOIVIEN">
+                <ScalarProperty Name="HV_DIACHI_COQUAN" ColumnName="HV_DIACHI_COQUAN" />
+                <ScalarProperty Name="HV_EMAIL" ColumnName="HV_EMAIL" />
+                <ScalarProperty Name="HV_DIENTHOAI" ColumnName="HV_DIENTHOAI" />
                 <ScalarProperty Name="HV_TAMTRU_TP" ColumnName="HV_TAMTRU_TP" />
                 <ScalarProperty Name="HV_TAMTRU_QUAN" ColumnName="HV_TAMTRU_QUAN" />
                 <ScalarProperty Name="HV_TAMTRU_PHUONG" ColumnName="HV_TAMTRU_PHUONG" />

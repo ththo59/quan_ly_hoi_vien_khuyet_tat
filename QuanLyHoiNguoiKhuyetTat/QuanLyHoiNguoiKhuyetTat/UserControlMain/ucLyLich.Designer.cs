@@ -55,11 +55,11 @@
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.gcSP = new DevExpress.XtraGrid.GridControl();
-            this.gvSP = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colSP_MA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSP_TEN_THUONGMAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcGrid = new DevExpress.XtraGrid.GridControl();
+            this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colHV_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHV_GIOI_TINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHV_NGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabThongTinCaNhan = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -264,8 +264,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabThongTinCaNhan.SuspendLayout();
@@ -863,7 +863,7 @@
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.gcSP);
+            this.splitContainerControl1.Panel1.Controls.Add(this.gcGrid);
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.AutoScroll = true;
@@ -875,68 +875,69 @@
             this.splitContainerControl1.TabIndex = 3;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
-            // gcSP
+            // gcGrid
             // 
-            this.gcSP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcSP.EmbeddedNavigator.Buttons.Append.Visible = false;
-            this.gcSP.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
-            this.gcSP.EmbeddedNavigator.Buttons.Edit.Visible = false;
-            this.gcSP.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
-            this.gcSP.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.gcSP.EmbeddedNavigator.TextStringFormat = "Dòng {0} / {1}";
-            this.gcSP.Location = new System.Drawing.Point(0, 88);
-            this.gcSP.MainView = this.gvSP;
-            this.gcSP.Name = "gcSP";
-            this.gcSP.Size = new System.Drawing.Size(347, 612);
-            this.gcSP.TabIndex = 21;
-            this.gcSP.UseEmbeddedNavigator = true;
-            this.gcSP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvSP});
+            this.gcGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcGrid.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.gcGrid.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.gcGrid.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.gcGrid.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.gcGrid.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.gcGrid.EmbeddedNavigator.TextStringFormat = "Dòng {0} / {1}";
+            this.gcGrid.Location = new System.Drawing.Point(0, 88);
+            this.gcGrid.MainView = this.gvGrid;
+            this.gcGrid.Name = "gcGrid";
+            this.gcGrid.Size = new System.Drawing.Size(347, 612);
+            this.gcGrid.TabIndex = 21;
+            this.gcGrid.UseEmbeddedNavigator = true;
+            this.gcGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvGrid});
             // 
-            // gvSP
+            // gvGrid
             // 
-            this.gvSP.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.gvSP.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gvSP.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gvSP.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gvSP.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.gvSP.Appearance.Row.Options.UseFont = true;
-            this.gvSP.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colSP_MA,
-            this.colSP_TEN_THUONGMAI,
-            this.gridColumn1});
-            this.gvSP.GridControl = this.gcSP;
-            this.gvSP.Name = "gvSP";
-            this.gvSP.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
-            this.gvSP.OptionsBehavior.Editable = false;
-            this.gvSP.OptionsView.ShowAutoFilterRow = true;
-            this.gvSP.OptionsView.ShowGroupPanel = false;
+            this.gvGrid.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.gvGrid.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvGrid.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gvGrid.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gvGrid.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.gvGrid.Appearance.Row.Options.UseFont = true;
+            this.gvGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colHV_TEN,
+            this.colHV_GIOI_TINH,
+            this.colHV_NGAYSINH});
+            this.gvGrid.GridControl = this.gcGrid;
+            this.gvGrid.Name = "gvGrid";
+            this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
+            this.gvGrid.OptionsBehavior.Editable = false;
+            this.gvGrid.OptionsView.ShowAutoFilterRow = true;
+            this.gvGrid.OptionsView.ShowGroupPanel = false;
             // 
-            // colSP_MA
+            // colHV_TEN
             // 
-            this.colSP_MA.Caption = "Họ và tên";
-            this.colSP_MA.FieldName = "SP_MA";
-            this.colSP_MA.Name = "colSP_MA";
-            this.colSP_MA.Visible = true;
-            this.colSP_MA.VisibleIndex = 0;
-            this.colSP_MA.Width = 194;
+            this.colHV_TEN.Caption = "Họ và tên";
+            this.colHV_TEN.FieldName = "HV_TEN";
+            this.colHV_TEN.Name = "colHV_TEN";
+            this.colHV_TEN.Visible = true;
+            this.colHV_TEN.VisibleIndex = 0;
+            this.colHV_TEN.Width = 194;
             // 
-            // colSP_TEN_THUONGMAI
+            // colHV_GIOI_TINH
             // 
-            this.colSP_TEN_THUONGMAI.Caption = "Giới tính";
-            this.colSP_TEN_THUONGMAI.FieldName = "SP_TEN_THUONGMAI";
-            this.colSP_TEN_THUONGMAI.Name = "colSP_TEN_THUONGMAI";
-            this.colSP_TEN_THUONGMAI.Visible = true;
-            this.colSP_TEN_THUONGMAI.VisibleIndex = 1;
-            this.colSP_TEN_THUONGMAI.Width = 204;
+            this.colHV_GIOI_TINH.Caption = "Giới tính";
+            this.colHV_GIOI_TINH.FieldName = "HV_GIOI_TINH";
+            this.colHV_GIOI_TINH.Name = "colHV_GIOI_TINH";
+            this.colHV_GIOI_TINH.Visible = true;
+            this.colHV_GIOI_TINH.VisibleIndex = 1;
+            this.colHV_GIOI_TINH.Width = 204;
             // 
-            // gridColumn1
+            // colHV_NGAYSINH
             // 
-            this.gridColumn1.Caption = "Tuổi";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 2;
-            this.gridColumn1.Width = 297;
+            this.colHV_NGAYSINH.Caption = "Ngày sinh";
+            this.colHV_NGAYSINH.FieldName = "HV_NGAYSINH";
+            this.colHV_NGAYSINH.Name = "colHV_NGAYSINH";
+            this.colHV_NGAYSINH.Visible = true;
+            this.colHV_NGAYSINH.VisibleIndex = 2;
+            this.colHV_NGAYSINH.Width = 297;
             // 
             // tabControlMain
             // 
@@ -1171,8 +1172,7 @@
             this.deNgaySinh.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deNgaySinh.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.deNgaySinh.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.deNgaySinh.Properties.Mask.EditMask = "";
-            this.deNgaySinh.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.deNgaySinh.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.deNgaySinh.Size = new System.Drawing.Size(110, 26);
             this.deNgaySinh.StyleController = this.layoutControl2;
             this.deNgaySinh.TabIndex = 5;
@@ -1269,7 +1269,7 @@
             // 
             // deNgayCapCMND
             // 
-            this.deNgayCapCMND.EditValue = "23/03/1027";
+            this.deNgayCapCMND.EditValue = new System.DateTime(2018, 1, 13, 16, 55, 26, 702);
             this.deNgayCapCMND.Location = new System.Drawing.Point(476, 117);
             this.deNgayCapCMND.Name = "deNgayCapCMND";
             this.deNgayCapCMND.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1278,8 +1278,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgayCapCMND.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayCapCMND.Properties.Mask.EditMask = "";
-            this.deNgayCapCMND.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.deNgayCapCMND.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.deNgayCapCMND.Size = new System.Drawing.Size(102, 26);
             this.deNgayCapCMND.StyleController = this.layoutControl2;
             this.deNgayCapCMND.TabIndex = 5;
@@ -3305,8 +3304,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcSP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).EndInit();
             this.tabControlMain.ResumeLayout(false);
             this.tabThongTinCaNhan.ResumeLayout(false);
@@ -3502,10 +3501,10 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraGrid.GridControl gcSP;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvSP;
-        private DevExpress.XtraGrid.Columns.GridColumn colSP_MA;
-        private DevExpress.XtraGrid.Columns.GridColumn colSP_TEN_THUONGMAI;
+        private DevExpress.XtraGrid.GridControl gcGrid;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvGrid;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_TEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_GIOI_TINH;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
@@ -3514,7 +3513,7 @@
         private DevExpress.XtraEditors.LookUpEdit lueThanhPho;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_NGAYSINH;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;

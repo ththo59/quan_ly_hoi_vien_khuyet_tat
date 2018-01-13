@@ -16,8 +16,8 @@ namespace DauThau.Models
     {
         public long HV_ID { get; set; }
         public string HV_TEN { get; set; }
-        public string HV_GIOI_TINH { get; set; }
-        public string HV_DAN_TOC { get; set; }
+        public Nullable<long> HV_GIOI_TINH { get; set; }
+        public Nullable<long> HV_DAN_TOC { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
         public Nullable<long> HV_TON_GIAO_ID { get; set; }
         public Nullable<long> HV_NGHE_NGHIEP_ID { get; set; }
@@ -38,5 +38,8 @@ namespace DauThau.Models
         public Nullable<long> HV_TAMTRU_PHUONG { get; set; }
         public Nullable<long> HV_TAMTRU_QUAN { get; set; }
         public Nullable<long> HV_TAMTRU_TP { get; set; }
+        public string HV_DIENTHOAI { get; set; }
+        public string HV_EMAIL { get; set; }
+        public string HV_DIACHI_COQUAN { get; set; }
     }
 }

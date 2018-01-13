@@ -41,9 +41,14 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON, lueTrinhDoChuyenMon);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_CHUCVU_HOI, lueChucVuHoi);
 
+            deNgaySinh.Ex_FormatCustomDateEdit();
+            deNgayKhuyetTat.Ex_FormatCustomDateEdit();
+            deNgayCapCMND.Ex_FormatCustomDateEdit();
+
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
         }
+
 
         protected override EnumFormStatus FormStatus
         {
@@ -59,12 +64,13 @@ namespace DauThau.UserControlCategory
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
                 {
-                    
+
                 }
                 else if (_formStatus == EnumFormStatus.DELETE)
                 {
 
-                }else if (_formStatus == EnumFormStatus.CLOSE)
+                }
+                else if (_formStatus == EnumFormStatus.CLOSE)
                 {
                     if (closeTab != null)
                     {
@@ -73,7 +79,9 @@ namespace DauThau.UserControlCategory
                 }
                 else
                 {
+                    _loadData();
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
+                    dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
                 }
             }
@@ -151,13 +159,87 @@ namespace DauThau.UserControlCategory
 
         private void _setDefaultLookupedit(LookUpEdit lue)
         {
-            //if(lue.ItemsCount() > 0)
-            //{
-            //    lue.ItemIndex = 0;
-            //}
             lue.setDefaultFirstItems();
         }
+
+        private Boolean _validateControl()
+        {
+            dxErrorProvider.ClearErrors();
+            if(txtHoTen.Text.Trim() == string.Empty)
+            {
+                dxErrorProvider.SetError(txtHoTen, "Vui lòng nhập họ tên");
+            }
+
+            return !dxErrorProvider.HasErrors;
+        }
+
+        protected override bool SaveData()
+        {
+            if (_validateControl())
+            {
+                using (var _context = new QL_HOIVIEN_KTEntities())
+                {
+                    switch (_formStatus)
+                    {
+                        case EnumFormStatus.ADD:
+                            QL_HOIVIEN item = new QL_HOIVIEN();
+                            item.HV_TEN = txtHoTen.Text;
+                            item.HV_GIOI_TINH = lueGioiTinh.Ex_EditValueToInt64();
+                            item.HV_DAN_TOC = lueDanToc.Ex_EditValueToInt64();
+                            item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();
+                            item.HV_TON_GIAO_ID = lueTonGiao.Ex_EditValueToInt64();
+                            item.HV_NGHE_NGHIEP_ID = lueNgheNghiep.Ex_EditValueToInt64();
+                            item.HV_TRINHDO_VANHOA_ID = lueTrinhDoVanHoa.Ex_EditValueToInt64();
+                            item.HV_TRINHDO_CHUYENMON_ID = lueTrinhDoChuyenMon.Ex_EditValueToInt64();
+
+                            item.HV_CMND = txtCMND.Text;
+                            item.HV_CMND_NGAY = deNgayCapCMND.Ex_EditValueToDateTime();
+                            item.HV_CMND_NOICAP = txtNoiCapCMND.Text;
+
+                            item.HV_KHUYETTAT_NGAY = deNgayKhuyetTat.Ex_EditValueToDateTime();
+
+                            item.HV_THUONGTRU_TP = lueThuongTru_TP.Ex_EditValueToInt64();
+                            item.HV_THUONGTRU_QUAN = lueThuongTru_Quan.Ex_EditValueToInt64();
+                            item.HV_THUONGTRU_PHUONG = lueThuongTru_Phuong.Ex_EditValueToInt64();
+                            item.HV_THUONGTRU_KHUVUC = txtThuongTru_KhuVuc.Text;
+                            item.HV_THUONGTRU_DUONG = txtThuongTru_KhuVuc.Text;
+
+                            item.HV_TAMTRU_TP = lueTamTru_TP.Ex_EditValueToInt64();
+                            item.HV_TAMTRU_QUAN = lueTamTru_Quan.Ex_EditValueToInt64();
+                            item.HV_TAMTRU_PHUONG = lueTamTru_Phuong.Ex_EditValueToInt64();
+                            item.HV_TAMTRU_KHUVUC = txtTamTru_KhuVuc.Text;
+                            item.HV_TAMTRU_DUONG = txtTamTru_KhuVuc.Text;
+
+                            item.HV_DIENTHOAI = txtDienThoai.Text;
+                            item.HV_EMAIL = txtEmail.Text;
+                            item.HV_DIACHI_COQUAN = txtDiaChiCoQuan.Text;
+
+                            _context.QL_HOIVIEN.Add(item);
+                            break;
+                        case EnumFormStatus.MODIFY:
+                            break;
+                        case EnumFormStatus.DELETE:
+                            break;
+                        default:
+                            break;
+                    }
+                    _context.SaveChanges();
+                }
+                FormStatus = EnumFormStatus.VIEW;
+            }
+
+            return base.SaveData();
+        }
+        
+        private void _loadData()
+        {
+            var dmHoiVien = (from p in context.QL_HOIVIEN select p).ToList();
+            gcGrid.DataSource = dmHoiVien;
+        }
+
         #endregion
+
+        #region LookupEdit
 
         private void lueThanhPho_EditValueChanged(object sender, EventArgs e)
         {
@@ -183,5 +265,7 @@ namespace DauThau.UserControlCategory
         {
             FuncCategory.loadDMXa(lueTamTru_Phuong, clsChangeType.change_int64(lueTamTru_Quan.EditValue));
         }
+
+        #endregion
     }
 }
