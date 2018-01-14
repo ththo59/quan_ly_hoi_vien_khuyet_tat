@@ -16,6 +16,25 @@ namespace DauThau.Class
             public string NAME { get; set; }
         }
 
+        public static List<dynamicObject> loadDMGioiTinh()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Nam"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 0,
+                NAME = "Nữ"
+            };
+            list.Add(item);
+            return list;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())
@@ -24,21 +43,7 @@ namespace DauThau.Class
                 switch (table)
                 {
                     case CategoryEntitiesTable.DM_GIOITINH:
-                        List<dynamicObject> list = new List<dynamicObject>();
-                        var item = new dynamicObject()
-                        {
-                            ID = 1,
-                            NAME = "Nam"
-                        };
-                        list.Add(item);
-
-                        item = new dynamicObject()
-                        {
-                            ID = 0,
-                            NAME = "Nữ"
-                        };
-                        list.Add(item);
-                        listItem = list;
+                        listItem = loadDMGioiTinh();
                         break;
                     case CategoryEntitiesTable.DM_NGHE_NGHIEP:
                         listItem = (from p in context.DM_NGHE_NGHIEP orderby p.NN_STT select p).ToList();
@@ -97,83 +102,6 @@ namespace DauThau.Class
             using (var context = new QL_HOIVIEN_KTEntities())
             {
                 var dm = (from p in context.DM_XA orderby p.XA_STT where p.HUYEN_ID == idHuyen select p).ToList();
-                lue.Properties.DataSource = dm;
-                if (dm.Count > 0 && itemIndexFirst)
-                {
-                    lue.ItemIndex = 0;
-                }
-            }
-        }
-
-        public static void loadDMGioiTinh(LookUpEdit lue, Boolean itemIndexFirst = true)
-        {
-            List<dynamicObject> list = new List<dynamicObject>();
-            var item = new dynamicObject()
-            {
-                ID = 1,
-                NAME = "Nam"
-            };
-            list.Add(item);
-
-            item = new dynamicObject()
-            {
-                ID = 0,
-                NAME = "Nữ"
-            };
-            list.Add(item);
-
-            lue.Properties.DataSource = list;
-            if (itemIndexFirst)
-            {
-                lue.ItemIndex = 0;
-            }
-        }
-
-        public static void loadDMTrinhDoHocVan(LookUpEdit lue, Boolean itemIndexFirst = true)
-        {
-            using (var context = new QL_HOIVIEN_KTEntities())
-            {
-                var dm = (from p in context.DM_TRINH_DO_HOC_VAN orderby p.HV_STT select p).ToList();
-                lue.Properties.DataSource = dm;
-                if (dm.Count > 0 && itemIndexFirst)
-                {
-                    lue.ItemIndex = 0;
-                }
-            }
-        }
-
-        public static void loadDMTrinhDoChuyenMon(LookUpEdit lue, Boolean itemIndexFirst = true)
-        {
-            using (var context = new QL_HOIVIEN_KTEntities())
-            {
-                var dm = (from p in context.DM_TRINH_DO_CHUYEN_MON orderby p.CM_STT select p).ToList();
-                lue.Properties.DataSource = dm;
-                if (dm.Count > 0 && itemIndexFirst)
-                {
-                    lue.ItemIndex = 0;
-                }
-            }
-        }
-
-
-        public static void loadDMNgheNghiep(LookUpEdit lue, Boolean itemIndexFirst = true)
-        {
-            using (var context = new QL_HOIVIEN_KTEntities())
-            {
-                var dm = (from p in context.DM_NGHE_NGHIEP orderby p.NN_STT select p).ToList();
-                lue.Properties.DataSource = dm;
-                if (dm.Count > 0 && itemIndexFirst)
-                {
-                    lue.ItemIndex = 0;
-                }
-            }
-        }
-
-        public static void loadDM(LookUpEdit lue, Boolean itemIndexFirst = true)
-        {
-            using (var context = new QL_HOIVIEN_KTEntities())
-            {
-                var dm = (from p in context.DM_NGHE_NGHIEP orderby p.NN_STT select p).ToList();
                 lue.Properties.DataSource = dm;
                 if (dm.Count > 0 && itemIndexFirst)
                 {

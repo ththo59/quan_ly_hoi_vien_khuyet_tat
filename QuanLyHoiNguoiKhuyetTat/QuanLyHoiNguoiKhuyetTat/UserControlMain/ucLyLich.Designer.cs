@@ -57,9 +57,12 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colHV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHV_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHV_GIOI_TINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHV_NGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repLueGioiTinh = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colHV_NGAY_SINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repDateTime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabThongTinCaNhan = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -266,6 +269,9 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repLueGioiTinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTime.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabThongTinCaNhan.SuspendLayout();
@@ -558,6 +564,7 @@
             this.lueQuan.Size = new System.Drawing.Size(260, 26);
             this.lueQuan.StyleController = this.layoutControl1;
             this.lueQuan.TabIndex = 5;
+            this.lueQuan.EditValueChanged += new System.EventHandler(this.lueQuan_EditValueChanged);
             // 
             // lueThanhPho
             // 
@@ -887,6 +894,9 @@
             this.gcGrid.Location = new System.Drawing.Point(0, 88);
             this.gcGrid.MainView = this.gvGrid;
             this.gcGrid.Name = "gcGrid";
+            this.gcGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repLueGioiTinh,
+            this.repDateTime});
             this.gcGrid.Size = new System.Drawing.Size(347, 612);
             this.gcGrid.TabIndex = 21;
             this.gcGrid.UseEmbeddedNavigator = true;
@@ -902,15 +912,23 @@
             this.gvGrid.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
             this.gvGrid.Appearance.Row.Options.UseFont = true;
             this.gvGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colHV_ID,
             this.colHV_TEN,
             this.colHV_GIOI_TINH,
-            this.colHV_NGAYSINH});
+            this.colHV_NGAY_SINH});
             this.gvGrid.GridControl = this.gcGrid;
             this.gvGrid.Name = "gvGrid";
             this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
             this.gvGrid.OptionsBehavior.Editable = false;
             this.gvGrid.OptionsView.ShowAutoFilterRow = true;
             this.gvGrid.OptionsView.ShowGroupPanel = false;
+            this.gvGrid.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvGrid_RowClick);
+            // 
+            // colHV_ID
+            // 
+            this.colHV_ID.Caption = "HV_ID";
+            this.colHV_ID.FieldName = "HV_ID";
+            this.colHV_ID.Name = "colHV_ID";
             // 
             // colHV_TEN
             // 
@@ -924,20 +942,49 @@
             // colHV_GIOI_TINH
             // 
             this.colHV_GIOI_TINH.Caption = "Giới tính";
+            this.colHV_GIOI_TINH.ColumnEdit = this.repLueGioiTinh;
             this.colHV_GIOI_TINH.FieldName = "HV_GIOI_TINH";
             this.colHV_GIOI_TINH.Name = "colHV_GIOI_TINH";
             this.colHV_GIOI_TINH.Visible = true;
             this.colHV_GIOI_TINH.VisibleIndex = 1;
             this.colHV_GIOI_TINH.Width = 204;
             // 
-            // colHV_NGAYSINH
+            // repLueGioiTinh
             // 
-            this.colHV_NGAYSINH.Caption = "Ngày sinh";
-            this.colHV_NGAYSINH.FieldName = "HV_NGAYSINH";
-            this.colHV_NGAYSINH.Name = "colHV_NGAYSINH";
-            this.colHV_NGAYSINH.Visible = true;
-            this.colHV_NGAYSINH.VisibleIndex = 2;
-            this.colHV_NGAYSINH.Width = 297;
+            this.repLueGioiTinh.AutoHeight = false;
+            this.repLueGioiTinh.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+            this.repLueGioiTinh.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "Name1", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "Giới tính")});
+            this.repLueGioiTinh.DisplayMember = "NAME";
+            this.repLueGioiTinh.Name = "repLueGioiTinh";
+            this.repLueGioiTinh.ValueMember = "ID";
+            this.repLueGioiTinh.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueGioiTinh_ButtonClick);
+            // 
+            // colHV_NGAY_SINH
+            // 
+            this.colHV_NGAY_SINH.Caption = "Ngày sinh";
+            this.colHV_NGAY_SINH.ColumnEdit = this.repDateTime;
+            this.colHV_NGAY_SINH.FieldName = "HV_NGAY_SINH";
+            this.colHV_NGAY_SINH.Name = "colHV_NGAY_SINH";
+            this.colHV_NGAY_SINH.Visible = true;
+            this.colHV_NGAY_SINH.VisibleIndex = 2;
+            this.colHV_NGAY_SINH.Width = 297;
+            // 
+            // repDateTime
+            // 
+            this.repDateTime.AutoHeight = false;
+            this.repDateTime.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateTime.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateTime.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.repDateTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repDateTime.EditFormat.FormatString = "dd/MM/yyyy";
+            this.repDateTime.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repDateTime.Name = "repDateTime";
             // 
             // tabControlMain
             // 
@@ -1027,7 +1074,7 @@
             // 
             // txtCMND
             // 
-            this.txtCMND.EditValue = "352053442";
+            this.txtCMND.EditValue = "";
             this.txtCMND.Location = new System.Drawing.Point(141, 117);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1100,7 +1147,7 @@
             // 
             // txtNoiCapCMND
             // 
-            this.txtNoiCapCMND.EditValue = "An Giang";
+            this.txtNoiCapCMND.EditValue = "";
             this.txtNoiCapCMND.Location = new System.Drawing.Point(718, 117);
             this.txtNoiCapCMND.Name = "txtNoiCapCMND";
             this.txtNoiCapCMND.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1111,7 +1158,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.EditValue = "Trần Hữu Thọ";
+            this.txtHoTen.EditValue = "";
             this.txtHoTen.Location = new System.Drawing.Point(141, 27);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1141,7 +1188,7 @@
             // seTuoi
             // 
             this.seTuoi.EditValue = new decimal(new int[] {
-            28,
+            0,
             0,
             0,
             0});
@@ -1159,7 +1206,7 @@
             // 
             // deNgaySinh
             // 
-            this.deNgaySinh.EditValue = new System.DateTime(1989, 3, 31, 16, 35, 17, 0);
+            this.deNgaySinh.EditValue = null;
             this.deNgaySinh.Location = new System.Drawing.Point(141, 57);
             this.deNgaySinh.Name = "deNgaySinh";
             this.deNgaySinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1176,6 +1223,7 @@
             this.deNgaySinh.Size = new System.Drawing.Size(110, 26);
             this.deNgaySinh.StyleController = this.layoutControl2;
             this.deNgaySinh.TabIndex = 5;
+            this.deNgaySinh.EditValueChanged += new System.EventHandler(this.deNgaySinh_EditValueChanged);
             // 
             // lueDanToc
             // 
@@ -1269,7 +1317,7 @@
             // 
             // deNgayCapCMND
             // 
-            this.deNgayCapCMND.EditValue = new System.DateTime(2018, 1, 13, 16, 55, 26, 702);
+            this.deNgayCapCMND.EditValue = null;
             this.deNgayCapCMND.Location = new System.Drawing.Point(476, 117);
             this.deNgayCapCMND.Name = "deNgayCapCMND";
             this.deNgayCapCMND.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1397,7 +1445,7 @@
             // 
             // deNgayKhuyetTat
             // 
-            this.deNgayKhuyetTat.EditValue = new System.DateTime(1989, 3, 31, 20, 30, 19, 0);
+            this.deNgayKhuyetTat.EditValue = null;
             this.deNgayKhuyetTat.Location = new System.Drawing.Point(141, 147);
             this.deNgayKhuyetTat.Name = "deNgayKhuyetTat";
             this.deNgayKhuyetTat.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -1415,11 +1463,12 @@
             this.deNgayKhuyetTat.Size = new System.Drawing.Size(195, 26);
             this.deNgayKhuyetTat.StyleController = this.layoutControl2;
             this.deNgayKhuyetTat.TabIndex = 5;
+            this.deNgayKhuyetTat.EditValueChanged += new System.EventHandler(this.deNgayKhuyetTat_EditValueChanged);
             // 
             // seTongThoiGianKT
             // 
             this.seTongThoiGianKT.EditValue = new decimal(new int[] {
-            28,
+            0,
             0,
             0,
             0});
@@ -3306,6 +3355,9 @@
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repLueGioiTinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTime.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).EndInit();
             this.tabControlMain.ResumeLayout(false);
             this.tabThongTinCaNhan.ResumeLayout(false);
@@ -3513,7 +3565,7 @@
         private DevExpress.XtraEditors.LookUpEdit lueThanhPho;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraGrid.Columns.GridColumn colHV_NGAYSINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_NGAY_SINH;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
@@ -3705,5 +3757,8 @@
         private DevExpress.XtraEditors.SpinEdit seTongThoiGianKT;
         private DevExpress.XtraEditors.LookUpEdit lueChucVuHoi;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueGioiTinh;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repDateTime;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_ID;
     }
 }
