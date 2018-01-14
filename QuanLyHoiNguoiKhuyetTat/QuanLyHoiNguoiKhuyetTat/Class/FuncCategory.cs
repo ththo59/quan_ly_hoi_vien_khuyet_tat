@@ -12,7 +12,7 @@ namespace DauThau.Class
     {
         public class dynamicObject
         {
-            public int ID { get; set; }
+            public Int64 ID { get; set; }
             public string NAME { get; set; }
         }
 
@@ -65,6 +65,21 @@ namespace DauThau.Class
                         break;
                     case CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN:
                         listItem = (from p in context.DM_TRINH_DO_HOC_VAN orderby p.HV_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_KHUYETTAT_MUCDO:
+                        listItem = (from p in context.DM_KHUYETTAT_MUCDO orderby p.MDKT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN:
+                        listItem = (from p in context.DM_KHUYETTAT_NGUYENNHAN orderby p.NNKT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG:
+                        listItem = (from p in context.DM_KHUYETTAT_TINHTRANG orderby p.TTKT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_PHUONGTIEN_DILAI:
+                        listItem = (from p in context.DM_PHUONGTIEN_DILAI orderby p.PT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_TINHTRANG_HONNHAN:
+                        listItem = (from p in context.DM_TINHTRANG_HONNHAN orderby p.TTHN_STT select p).ToList();
                         break;
                     default:
                         break;

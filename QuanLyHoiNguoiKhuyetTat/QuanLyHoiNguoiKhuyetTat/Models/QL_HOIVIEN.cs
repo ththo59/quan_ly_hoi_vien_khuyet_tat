@@ -41,5 +41,23 @@ namespace DauThau.Models
         public string HV_DIENTHOAI { get; set; }
         public string HV_EMAIL { get; set; }
         public string HV_DIACHI_COQUAN { get; set; }
+        public Nullable<long> HV_KT_TINHTRANG_ID { get; set; }
+        public string HV_KT_TINHTRANG_CHITIET { get; set; }
+        public string HV_KT_KHAC { get; set; }
+        public Nullable<long> HV_KT_MUCDO { get; set; }
+        public Nullable<long> HV_PHUONGTIEN_DILAI_ID { get; set; }
+        public string HV_TINHTRANG_SUCKHOE { get; set; }
+        public Nullable<long> HV_KT_NGUYENNHAN { get; set; }
+        public string HV_KT_NGUYENNHAN_CHITIET { get; set; }
+        public Nullable<long> HV_TINHTRANG_HONNHAN_ID { get; set; }
+        public string HV_VOCHONG { get; set; }
+        public Nullable<int> HV_SOCON { get; set; }
+        public string HV_CON1_TEN { get; set; }
+        public string HV_CON2_TEN { get; set; }
+        public Nullable<System.DateTime> HV_CON1_NGAYSINH { get; set; }
+        public Nullable<System.DateTime> HV_CON2_NGAYSINH { get; set; }
+        public string HV_PHONGTRAO_THETHAO { get; set; }
+        public string HV_PHONGTRAO_MONGMUON { get; set; }
+        public string HV_NGUYENVONG { get; set; }
     }
 }

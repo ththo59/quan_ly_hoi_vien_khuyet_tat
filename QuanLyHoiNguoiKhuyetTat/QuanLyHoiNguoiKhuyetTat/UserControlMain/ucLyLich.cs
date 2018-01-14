@@ -43,16 +43,23 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON, lueTrinhDoChuyenMon);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_CHUCVU_HOI, lueChucVuHoi);
 
+            //Tab Suc khoe
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_MUCDO, lueMucDoKT);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN, lueNguyenNhanKT);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG, lueTinhTrangKT);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, luePhuongTienDiLai);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, lueTinhTrangHonNhan);
+
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
 
             deNgaySinh.Ex_FormatCustomDateEdit();
             deNgayKhuyetTat.Ex_FormatCustomDateEdit();
             deNgayCapCMND.Ex_FormatCustomDateEdit();
+
+            deNgaySinhCon1.Ex_FormatCustomDateEdit();
+            deNgaySinhCon2.Ex_FormatCustomDateEdit();
+
             FormStatus = EnumFormStatus.VIEW;
-            if (gvGrid.RowCount > 0)
-            {
-                gvGrid.FocusedRowHandle = 0;
-            }
             _wait.Close();
         }
 
@@ -75,7 +82,7 @@ namespace DauThau.UserControlCategory
                 }
                 else if (_formStatus == EnumFormStatus.DELETE)
                 {
-
+                    _deleteRow();
                 }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {
@@ -168,6 +175,12 @@ namespace DauThau.UserControlCategory
             _setDefaultLookupedit(lueChucVuHoi);
             _setDefaultLookupedit(lueThuongTru_TP);
             _setDefaultLookupedit(lueTamTru_TP);
+
+            //lueTinhTrangKT.setDefaultFirstItems();
+            //lueMucDoKT.setDefaultFirstItems();
+            //luePhuongTienDiLai.setDefaultFirstItems();
+            //lueNguyenNhanKT.setDefaultFirstItems();
+            //lueTinhTrangHonNhan.setDefaultFirstItems();
         }
 
         private void _setDefaultLookupedit(LookUpEdit lue)
@@ -178,15 +191,85 @@ namespace DauThau.UserControlCategory
         private Boolean _validateControl()
         {
             dxErrorProvider.ClearErrors();
-            if(txtHoTen.Text.Trim() == string.Empty)
+
+            if (txtHoTen.Text.Trim() == string.Empty)
             {
                 dxErrorProvider.SetError(txtHoTen, "Vui lòng nhập họ tên");
+            }
+
+            if (lueThuongTru_Quan.EditValue == null)
+            {
+                dxErrorProvider.SetError(lueThuongTru_Quan, "Vui lòng nhập thông tin");
+            }
+
+            if (dxErrorProvider.HasErrors)
+            {
+                clsMessage.MessageWarning("Vui lòng nhập đầy đủ thông tin.");
             }
 
             return !dxErrorProvider.HasErrors;
         }
 
-       
+        private void _loadDataFocusRow()
+        {
+            _clearData();
+            QL_HOIVIEN item = gvGrid.GetFocusedRow() as QL_HOIVIEN;
+            if (item != null)
+            {
+                btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = true;
+
+                txtHoTen.Text = item.HV_TEN;
+                lueGioiTinh.EditValue = item.HV_GIOI_TINH;
+                lueDanToc.EditValue = item.HV_DAN_TOC;
+                deNgaySinh.EditValue = item.HV_NGAY_SINH;
+                lueTonGiao.EditValue = item.HV_TON_GIAO_ID;
+                lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP_ID;
+                lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA_ID;
+                lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON_ID;
+                txtCMND.Text = item.HV_CMND;
+                deNgayCapCMND.EditValue = item.HV_CMND_NGAY;
+                txtNoiCapCMND.Text = item.HV_CMND_NOICAP;
+                deNgayKhuyetTat.EditValue = item.HV_KHUYETTAT_NGAY;
+                lueChucVuHoi.EditValue = item.HV_CHUCVU;
+
+                lueThuongTru_TP.EditValue = item.HV_THUONGTRU_TP;
+                lueThuongTru_Quan.EditValue = item.HV_THUONGTRU_QUAN;
+                lueThuongTru_Phuong.EditValue = item.HV_THUONGTRU_PHUONG;
+                txtThuongTru_KhuVuc.Text = item.HV_THUONGTRU_KHUVUC;
+                txtThuongTru_Duong.EditValue = item.HV_THUONGTRU_DUONG;
+
+                lueTamTru_TP.EditValue = item.HV_TAMTRU_TP;
+                lueTamTru_Quan.EditValue = item.HV_TAMTRU_QUAN;
+                lueTamTru_Phuong.EditValue = item.HV_TAMTRU_PHUONG;
+                txtTamTru_KhuVuc.Text = item.HV_TAMTRU_KHUVUC;
+                txtTamTru_Duong.EditValue = item.HV_TAMTRU_DUONG;
+
+                txtDienThoai.Text = item.HV_DIENTHOAI;
+                txtEmail.Text = item.HV_EMAIL;
+                txtDiaChiCoQuan.Text = item.HV_DIACHI_COQUAN;
+
+                //Tab sức khỏe
+                lueTinhTrangKT.EditValue = item.HV_KT_TINHTRANG_ID;
+                txtTinhTrangKTChiTiet.Text = item.HV_KT_TINHTRANG_CHITIET;
+                txtKhuyetTatKhac.Text = item.HV_KT_KHAC;
+                lueMucDoKT.EditValue = item.HV_KT_MUCDO;
+                luePhuongTienDiLai.EditValue = item.HV_PHUONGTIEN_DILAI_ID;
+                txtTinhTrangSucKhoe.Text = item.HV_TINHTRANG_SUCKHOE;
+                lueNguyenNhanKT.EditValue = item.HV_KT_NGUYENNHAN;
+
+                txtNguyenNhanChiTiet.Text = item.HV_KT_NGUYENNHAN_CHITIET;
+                lueTinhTrangHonNhan.EditValue = item.HV_TINHTRANG_HONNHAN_ID;
+                txtVoChong.Text = item.HV_VOCHONG;
+                seSoCon.EditValue = item.HV_SOCON;
+                txtCon1.Text = item.HV_CON1_TEN;
+                txtCon2.Text = item.HV_CON2_TEN;
+                deNgaySinhCon1.EditValue = item.HV_CON1_NGAYSINH;
+                deNgaySinhCon2.EditValue = item.HV_CON2_NGAYSINH;
+                txtPhongTraoTheThao.Text = item.HV_PHONGTRAO_THETHAO;
+                txtPhongTraoMongMuon.Text = item.HV_PHONGTRAO_MONGMUON;
+                txtNguyenVong.Text = item.HV_NGUYENVONG;
+            }
+        }
         
         private void _setObjectEntities(ref QL_HOIVIEN item)
         {
@@ -209,17 +292,37 @@ namespace DauThau.UserControlCategory
             item.HV_THUONGTRU_QUAN = lueThuongTru_Quan.Ex_EditValueToInt64();
             item.HV_THUONGTRU_PHUONG = lueThuongTru_Phuong.Ex_EditValueToInt64();
             item.HV_THUONGTRU_KHUVUC = txtThuongTru_KhuVuc.Text;
-            item.HV_THUONGTRU_DUONG = txtThuongTru_KhuVuc.Text;
+            item.HV_THUONGTRU_DUONG = txtThuongTru_Duong.Text;
 
             item.HV_TAMTRU_TP = lueTamTru_TP.Ex_EditValueToInt64();
             item.HV_TAMTRU_QUAN = lueTamTru_Quan.Ex_EditValueToInt64();
             item.HV_TAMTRU_PHUONG = lueTamTru_Phuong.Ex_EditValueToInt64();
             item.HV_TAMTRU_KHUVUC = txtTamTru_KhuVuc.Text;
-            item.HV_TAMTRU_DUONG = txtTamTru_KhuVuc.Text;
+            item.HV_TAMTRU_DUONG = txtTamTru_Duong.Text;
 
             item.HV_DIENTHOAI = txtDienThoai.Text;
             item.HV_EMAIL = txtEmail.Text;
             item.HV_DIACHI_COQUAN = txtDiaChiCoQuan.Text;
+
+            //Tab sức khỏe
+            item.HV_KT_TINHTRANG_ID = lueTinhTrangKT.Ex_EditValueToInt64();
+            item.HV_KT_TINHTRANG_CHITIET = txtTinhTrangKTChiTiet.Text;
+            item.HV_KT_KHAC = txtKhuyetTatKhac.Text;
+            item.HV_KT_MUCDO = lueMucDoKT.Ex_EditValueToInt64();
+            item.HV_PHUONGTIEN_DILAI_ID = luePhuongTienDiLai.Ex_EditValueToInt64();
+            item.HV_TINHTRANG_SUCKHOE = txtTinhTrangSucKhoe.Text;
+            item.HV_KT_NGUYENNHAN = lueNguyenNhanKT.Ex_EditValueToInt64();
+            item.HV_KT_NGUYENNHAN_CHITIET = txtNguyenNhanChiTiet.Text;
+            item.HV_TINHTRANG_HONNHAN_ID = lueTinhTrangHonNhan.Ex_EditValueToInt64();
+            item.HV_VOCHONG = txtVoChong.Text;
+            item.HV_SOCON = seSoCon.Ex_EditValueToInt();
+            item.HV_CON1_TEN = txtCon1.Text;
+            item.HV_CON2_TEN = txtCon2.Text;
+            item.HV_CON1_NGAYSINH = deNgaySinhCon1.Ex_EditValueToDateTime();
+            item.HV_CON2_NGAYSINH = deNgaySinhCon2.Ex_EditValueToDateTime();
+            item.HV_PHONGTRAO_THETHAO = txtPhongTraoTheThao.Text;
+            item.HV_PHONGTRAO_MONGMUON = txtPhongTraoMongMuon.Text;
+            item.HV_NGUYENVONG = txtNguyenVong.Text;
         }
 
         private void _loadData()
@@ -227,12 +330,31 @@ namespace DauThau.UserControlCategory
             context = new QL_HOIVIEN_KTEntities();
             context.QL_HOIVIEN.Load();
             Int64? thanhPhoId = lueThanhPho.Ex_EditValueToInt64() != null ? lueThanhPho.Ex_EditValueToInt64() : 0;
-            Int64? quanId = lueThanhPho.Ex_EditValueToInt64() != null ? lueThanhPho.Ex_EditValueToInt64() : 0;
+            Int64? quanId = lueQuan.Ex_EditValueToInt64() != null ? lueQuan.Ex_EditValueToInt64() : 0;
             var dmHoiVien = (from p in context.QL_HOIVIEN
                              where p.HV_THUONGTRU_TP == thanhPhoId
                              && p.HV_THUONGTRU_QUAN == quanId
                              select p).ToList();
             gcGrid.DataSource = dmHoiVien;
+            _loadDataFocusRow();
+        }
+
+        private void _deleteRow()
+        {
+            QL_HOIVIEN item = gvGrid.GetFocusedRow() as QL_HOIVIEN;
+            if(item != null)
+            {
+                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.HV_TEN)) == DialogResult.Yes)
+                {
+                    Int64 HV_ID = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
+                    QL_HOIVIEN entities = (from p in context.QL_HOIVIEN where p.HV_ID == HV_ID select p).FirstOrDefault();
+                    context.QL_HOIVIEN.Remove(entities);
+                    context.SaveChanges();
+                    FormStatus = EnumFormStatus.VIEW;
+                }
+                    
+            }
+            
         }
 
         protected override bool SaveData()
@@ -262,12 +384,6 @@ namespace DauThau.UserControlCategory
                             }
                             var entity = _context.QL_HOIVIEN.Find(HV_ID);
                             _context.Entry(entity).CurrentValues.SetValues(item);
-
-                            //context.Entry(item).CurrentValues.SetValues(newEntityValues);
-                            //_context.Entry(item).State = EntityState.Modified;
-                            //_context.QL_HOIVIEN.Attach(item);
-                            break;
-                        case EnumFormStatus.DELETE:
                             break;
                         default:
                             break;
@@ -327,41 +443,7 @@ namespace DauThau.UserControlCategory
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            QL_HOIVIEN item = gvGrid.GetFocusedRow() as QL_HOIVIEN;
-            if(item != null)
-            {
-                btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = true;
-
-                txtHoTen.Text = item.HV_TEN;
-                lueGioiTinh.EditValue = item.HV_GIOI_TINH;
-                lueDanToc.EditValue = item.HV_DAN_TOC;
-                deNgaySinh.EditValue = item.HV_NGAY_SINH;
-                lueTonGiao.EditValue = item.HV_TON_GIAO_ID;
-                lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP_ID;
-                lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA_ID;
-                lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON_ID;
-                txtCMND.Text = item.HV_CMND;
-                deNgayCapCMND.EditValue = item.HV_CMND_NGAY;
-                txtNoiCapCMND.Text = item.HV_CMND_NOICAP;
-                deNgayKhuyetTat.EditValue = item.HV_KHUYETTAT_NGAY;
-                lueChucVuHoi.EditValue = item.HV_CHUCVU;
-
-                lueThuongTru_TP.EditValue = item.HV_THUONGTRU_TP;
-                lueThuongTru_Quan.EditValue = item.HV_THUONGTRU_QUAN;
-                lueThuongTru_Phuong.EditValue = item.HV_THUONGTRU_PHUONG;
-                txtThuongTru_KhuVuc.Text = item.HV_THUONGTRU_KHUVUC;
-                txtThuongTru_Duong.EditValue = item.HV_THUONGTRU_DUONG;
-
-                lueTamTru_TP.EditValue = item.HV_TAMTRU_TP;
-                lueTamTru_Quan.EditValue = item.HV_TAMTRU_QUAN;
-                lueTamTru_Phuong.EditValue = item.HV_TAMTRU_PHUONG;
-                txtTamTru_KhuVuc.Text = item.HV_TAMTRU_KHUVUC;
-                txtTamTru_Duong.EditValue = item.HV_TAMTRU_DUONG;
-
-                txtDienThoai.Text = item.HV_DIENTHOAI;
-                txtEmail.Text = item.HV_EMAIL;
-                txtDiaChiCoQuan.Text = item.HV_DIACHI_COQUAN;
-            }
+            _loadDataFocusRow();
         }
 
         private void deNgaySinh_EditValueChanged(object sender, EventArgs e)

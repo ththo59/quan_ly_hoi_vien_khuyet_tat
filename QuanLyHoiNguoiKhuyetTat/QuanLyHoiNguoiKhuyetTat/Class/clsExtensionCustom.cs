@@ -50,12 +50,22 @@ namespace DauThau.Class
 
         public static void Ex_FormatCustomDateEdit(this DateEdit de)
         {
+            de.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             de.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             de.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             de.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             de.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             de.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
             de.Properties.Mask.EditMask = "dd/MM/yyyy";
+        }
+
+        public static Nullable<Int32> Ex_EditValueToInt(this SpinEdit se)
+        {
+            if(se.EditValue == null)
+            {
+                return new Nullable<Int32>();
+            }
+            return Convert.ToInt32(se.EditValue);
         }
     }
 }

@@ -358,10 +358,25 @@
     <Compile Include="Models\DM_HUYEN.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DM_KHUYETTAT_MUCDO.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_KHUYETTAT_NGUYENNHAN.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_KHUYETTAT_TINHTRANG.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DM_NGHE_NGHIEP.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DM_PHUONGTIEN_DILAI.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DM_TINH.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_TINHTRANG_HONNHAN.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_TONGIAO.cs">

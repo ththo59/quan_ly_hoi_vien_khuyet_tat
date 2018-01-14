@@ -23,7 +23,14 @@ namespace DauThau.Class
         DM_TRINH_DO_CHUYEN_MON,
         DM_TONGIAO,
         DM_DANTOC,
-        DM_CHUCVU_HOI
+        DM_CHUCVU_HOI,
+
+        DM_KHUYETTAT_MUCDO,
+        DM_KHUYETTAT_NGUYENNHAN,
+        DM_KHUYETTAT_TINHTRANG,
+        DM_PHUONGTIEN_DILAI,
+        DM_TINHTRANG_HONNHAN
+
     }
 
     /// <summary>
