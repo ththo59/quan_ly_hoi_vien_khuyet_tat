@@ -18,6 +18,7 @@ namespace DauThau.Models
         public DM_TINH()
         {
             this.DM_HUYEN = new HashSet<DM_HUYEN>();
+            this.DM_XA = new HashSet<DM_XA>();
         }
     
         public long TINH_ID { get; set; }
@@ -27,5 +28,7 @@ namespace DauThau.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DM_HUYEN> DM_HUYEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DM_XA> DM_XA { get; set; }
     }
 }

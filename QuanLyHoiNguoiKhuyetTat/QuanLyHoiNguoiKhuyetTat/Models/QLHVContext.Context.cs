@@ -30,15 +30,17 @@ namespace DauThau.Models
         public virtual DbSet<DM_TINH> DM_TINH { get; set; }
         public virtual DbSet<DM_TRINH_DO_CHUYEN_MON> DM_TRINH_DO_CHUYEN_MON { get; set; }
         public virtual DbSet<DM_TRINH_DO_HOC_VAN> DM_TRINH_DO_HOC_VAN { get; set; }
-        public virtual DbSet<DM_XA> DM_XA { get; set; }
         public virtual DbSet<DM_CHUCVU_HOI> DM_CHUCVU_HOI { get; set; }
         public virtual DbSet<DM_DANTOC> DM_DANTOC { get; set; }
         public virtual DbSet<DM_TONGIAO> DM_TONGIAO { get; set; }
-        public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
         public virtual DbSet<DM_KHUYETTAT_MUCDO> DM_KHUYETTAT_MUCDO { get; set; }
         public virtual DbSet<DM_KHUYETTAT_NGUYENNHAN> DM_KHUYETTAT_NGUYENNHAN { get; set; }
         public virtual DbSet<DM_KHUYETTAT_TINHTRANG> DM_KHUYETTAT_TINHTRANG { get; set; }
         public virtual DbSet<DM_PHUONGTIEN_DILAI> DM_PHUONGTIEN_DILAI { get; set; }
         public virtual DbSet<DM_TINHTRANG_HONNHAN> DM_TINHTRANG_HONNHAN { get; set; }
+        public virtual DbSet<DM_DUNGCU_HOTRO> DM_DUNGCU_HOTRO { get; set; }
+        public virtual DbSet<DM_NOI_SINH_SONG> DM_NOI_SINH_SONG { get; set; }
+        public virtual DbSet<DM_XA> DM_XA { get; set; }
+        public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
     }
 }

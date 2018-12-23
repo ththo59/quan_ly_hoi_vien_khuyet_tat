@@ -355,6 +355,9 @@
     <Compile Include="Models\DM_DANTOC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DM_DUNGCU_HOTRO.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DM_HUYEN.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -368,6 +371,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_NGHE_NGHIEP.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_NOI_SINH_SONG.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_PHUONGTIEN_DILAI.cs">

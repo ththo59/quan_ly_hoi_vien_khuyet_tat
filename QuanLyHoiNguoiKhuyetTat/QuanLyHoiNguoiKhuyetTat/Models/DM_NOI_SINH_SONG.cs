@@ -12,16 +12,10 @@ namespace DauThau.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DM_XA
+    public partial class DM_NOI_SINH_SONG
     {
-        public long XA_ID { get; set; }
-        public string XA_TEN { get; set; }
-        public Nullable<long> HUYEN_ID { get; set; }
-        public Nullable<long> TINH_ID { get; set; }
-        public string XA_DIENGIAI { get; set; }
-        public Nullable<int> XA_STT { get; set; }
-    
-        public virtual DM_HUYEN DM_HUYEN { get; set; }
-        public virtual DM_TINH DM_TINH { get; set; }
+        public long NSS_ID { get; set; }
+        public string NSS_TEN { get; set; }
+        public Nullable<int> NSS_STT { get; set; }
     }
 }

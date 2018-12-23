@@ -9,6 +9,10 @@ using DevExpress.XtraEditors;
 using DauThau.Class;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid;
+using DevExpress.Utils;
+using DauThau.Models;
+using System.Linq;
+using System.Data.Entity;
 
 namespace DauThau.UserControlCategory
 {
@@ -21,65 +25,53 @@ namespace DauThau.UserControlCategory
 
         private void ucDmXa_Load(object sender, EventArgs e)
         {
-            //CommandData();
+            registerButtonArray(btnControl);
+            initData();
             FormStatus = EnumFormStatus.VIEW;
         }
 
         #region Variable
 
-        DataSet ds = new DataSet();
-        SqlDataAdapter da = new SqlDataAdapter();
-
         #endregion
 
         #region Function
 
-
-
-        void CommandData()
+        void initData()
         {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             gvGrid._SetDefaultColorRowStyle();
-            SelectData();
-
-            //INSERT
-            string _strInsert = "insert into DM_DANG_DUNG (DANGDUNG_TEN)"
-                + " values (@DANGDUNG_TEN)";
-            da.InsertCommand = new SqlCommand(_strInsert, clsConnection._conn);
-            da.InsertCommand.Parameters.Add("@DANGDUNG_TEN", SqlDbType.NVarChar, 50, "DANGDUNG_TEN");
-
-            
-            //UPDATE
-            string str_update = "update DM_DANG_DUNG set DANGDUNG_TEN=@DANGDUNG_TEN where DANGDUNG_ID=@DANGDUNG_ID";
-            da.UpdateCommand = new SqlCommand(str_update, clsConnection._conn);
-            da.UpdateCommand.Parameters.Add("@DANGDUNG_TEN", SqlDbType.NVarChar, 50, "DANGDUNG_TEN");
-            da.UpdateCommand.Parameters.Add("@DANGDUNG_ID", SqlDbType.BigInt, 10, "DANGDUNG_ID");
-            
-
-
-            //DELETE
-            string str_delete = "delete from DM_DANG_DUNG where DANGDUNG_ID=@DANGDUNG_ID";
-            da.DeleteCommand = new SqlCommand(str_delete, clsConnection._conn);
-            da.DeleteCommand.Parameters.Add("@DANGDUNG_ID", SqlDbType.BigInt, 10, "DANGDUNG_ID");
+            repLueTinh.DataSource = (from p in context.DM_TINH select p).ToList();
+            repLueHuyen.DataSource = (from p in context.DM_HUYEN select p).ToList();
+            _wait.Close();
         }
 
         void SelectData()
         {
-            ds = new DataSet();
-            da.SelectCommand = new SqlCommand("select * from DM_DANG_DUNG", clsConnection._conn);
-            da.Fill(ds, "DANG_DUNG");
-            gcGrid.DataSource = ds.Tables["DANG_DUNG"];
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            //Reload data
+            context = new QL_HOIVIEN_KTEntities();
+            context.DM_XA.Load();
+            gcGrid.DataSource = context.DM_XA.Local.ToBindingList();
+            _wait.Close();
         }
 
-        void Save()
+        protected override bool SaveData()
         {
             try
             {
-                da.Update(ds.Tables["DANG_DUNG"]);
+                WaitDialogForm _wait = new WaitDialogForm("Đang lưu dữ liệu ...", "Vui lòng đợi giây lát");
+                gvGrid.PostEditor();
+                gvGrid.UpdateCurrentRow();
+                context.SaveChanges();
+                FormStatus = EnumFormStatus.VIEW;
+                _wait.Close();
             }
             catch
             {
                 XtraMessageBox.Show("Dữ liệu đã được sử dụng bạn không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            return base.SaveData();
         }
 
         Boolean TrungTen(string value)
@@ -87,12 +79,28 @@ namespace DauThau.UserControlCategory
             value = value.ToLower();
             for (int i = 0; i < gvGrid.RowCount; i++)
             {
-                if (Convert.ToString(gvGrid.GetRowCellValue(i, colDANGDUNG_TEN.FieldName) + string.Empty).ToLower() == value && i != gvGrid.FocusedRowHandle)
+                if (Convert.ToString(gvGrid.GetRowCellValue(i, colXA_TEN.FieldName) + string.Empty).ToLower() == value && i != gvGrid.FocusedRowHandle)
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        void deleteRow()
+        {
+            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                XtraMessageBox.Show("Bạn chưa chọn dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+
+            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colXA_TEN.FieldName).ToString();
+            if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                gvGrid.DeleteSelectedRows();
+                FormStatus = EnumFormStatus.SAVE;
+            }
         }
 
         #endregion
@@ -121,9 +129,22 @@ namespace DauThau.UserControlCategory
                     gvGrid.OptionsView.ShowAutoFilterRow = false;
                     gvGrid.OptionsBehavior.Editable = true;
                 }
-
+                else if(_formStatus == EnumFormStatus.DELETE)
+                {
+                    deleteRow();
+                }
+                else if(_formStatus == EnumFormStatus.SAVE)
+                {
+                    SaveData();
+                }
+                else if(_formStatus == EnumFormStatus.CANCEL)
+                {
+                    SelectData();
+                    this.FormStatus = EnumFormStatus.VIEW;
+                }
                 else
                 {
+                    SelectData();
                     gvGrid.OptionsBehavior.Editable = false;
                     gvGrid.OptionsView.ShowAutoFilterRow = true;
                     gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
@@ -137,50 +158,30 @@ namespace DauThau.UserControlCategory
 
         #region Event Button
 
-        private void btnControl_btnEventAdd_Click(object sender, EventArgs e)
-        {
-            FormStatus = EnumFormStatus.ADD;
-        }
+ 
+        //private void btnControl_btnEventDelete_Click(object sender, EventArgs e)
+        //{
+        //    if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+        //    {
+        //        XtraMessageBox.Show("Bạn chưa chọn dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        //        return;
+        //    }
 
-        private void btnControl_btnEventCancel_Click(object sender, EventArgs e)
-        {
-            SelectData();
-            this.FormStatus = EnumFormStatus.VIEW;
-        }
+        //    string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTINH.FieldName).ToString();
+        //    if (XtraMessageBox.Show("Bạn có chắc muốn xóa đơn vị tính: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+        //    {
+        //        gvGrid.DeleteSelectedRows();
+        //        Save();
+        //        SelectData();
+        //    }
+        //}
 
-        private void btnControl_btnEventClose_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnControl_btnEventDelete_Click(object sender, EventArgs e)
-        {
-            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
-            {
-                XtraMessageBox.Show("Bạn chưa chọn dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                return;
-            }
-
-            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colDANGDUNG_TEN.FieldName).ToString();
-            if (XtraMessageBox.Show("Bạn có chắc muốn xóa đơn vị tính: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                gvGrid.DeleteSelectedRows();
-                Save();
-                SelectData();
-            }
-        }
-
-        private void btnControl_btnEventModify_Click(object sender, EventArgs e)
-        {
-            FormStatus = EnumFormStatus.MODIFY;
-        }
-
-        private void btnControl_btnEventSave_Click(object sender, EventArgs e)
-        {
-            Save();
-            SelectData();
-            this.FormStatus = EnumFormStatus.VIEW;
-        }
+        //private void btnControl_btnEventSave_Click(object sender, EventArgs e)
+        //{
+        //    Save();
+        //    SelectData();
+        //    this.FormStatus = EnumFormStatus.VIEW;
+        //}
         #endregion
 
         #region Event Grid
@@ -197,16 +198,16 @@ namespace DauThau.UserControlCategory
                 return;
             }
             e.Valid = true;
-            if (gvGrid.FocusedColumn.FieldName == colDANGDUNG_TEN.FieldName)
+            if (gvGrid.FocusedColumn.FieldName == colXA_TEN.FieldName)
             {
                 if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
                 {
-                    e.ErrorText = colDANGDUNG_TEN.Caption + " không được phép rỗng.";
+                    e.ErrorText = colXA_TEN.Caption + " không được phép rỗng.";
                     e.Valid = false;
                 }
-                else if (gvGrid._ValidationSame(colDANGDUNG_TEN,e.Value +string.Empty))
+                else if (gvGrid._ValidationSame(colXA_TEN,e.Value +string.Empty))
                 {
-                    e.ErrorText = colDANGDUNG_TEN.Caption + " không được trùng.";
+                    e.ErrorText = colXA_TEN.Caption + " không được trùng.";
                     e.Valid = false;
                 }
             }
@@ -226,9 +227,10 @@ namespace DauThau.UserControlCategory
             }
 
             e.Valid = true;
-            if (gvGrid.GetRowCellValue(e.RowHandle, colDANGDUNG_TEN.FieldName).ToString().Trim().Length == 0)
+            
+            if (gvGrid.GetRowCellValue(e.RowHandle, colXA_TEN.FieldName) + string.Empty == "")
             {
-                gvGrid.SetColumnError(gvGrid.Columns[colDANGDUNG_TEN.FieldName], colDANGDUNG_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                gvGrid.SetColumnError(gvGrid.Columns[colXA_TEN.FieldName], colXA_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
                 e.Valid = false;
             }
         }

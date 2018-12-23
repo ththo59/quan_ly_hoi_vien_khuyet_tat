@@ -99,11 +99,14 @@ namespace DauThau.Class
         }
 
 
-        public static void loadDMHuyen(LookUpEdit lue, Int64 idTinh, Boolean itemIndexFirst = true)
+        public static void loadDMHuyen(LookUpEdit lue, string tenTinh, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())
             {
-                var dmHuyen = (from p in context.DM_HUYEN orderby p.HUYEN_STT where p.TINH_ID == idTinh select p).ToList();
+                var dmHuyen = (from p in context.DM_HUYEN
+                               let tinh = p.DM_TINH
+                               orderby p.HUYEN_STT where tinh.TINH_TEN == tenTinh
+                               select p).ToList();
                 lue.Properties.DataSource = dmHuyen;
                 if (dmHuyen.Count > 0 && itemIndexFirst)
                 {
@@ -112,11 +115,14 @@ namespace DauThau.Class
             }
         }
 
-        public static void loadDMXa(LookUpEdit lue, Int64 idHuyen, Boolean itemIndexFirst = true)
+        public static void loadDMXa(LookUpEdit lue, string tenHuyen, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())
             {
-                var dm = (from p in context.DM_XA orderby p.XA_STT where p.HUYEN_ID == idHuyen select p).ToList();
+                var dm = (from p in context.DM_XA
+                          let huyen = p.DM_HUYEN
+                          orderby p.XA_STT where huyen.HUYEN_TEN == tenHuyen
+                          select p).ToList();
                 lue.Properties.DataSource = dm;
                 if (dm.Count > 0 && itemIndexFirst)
                 {

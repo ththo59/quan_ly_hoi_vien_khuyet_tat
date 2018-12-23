@@ -174,10 +174,6 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucPhieuThuChiTimKiem(), "ucPhieuThuChiTimKiem", "Tìm kiếm phiếu thu chi");
         }
 
-        
-
-        
-
         private void btnXa_ItemClick(object sender, ItemClickEventArgs e)
         {
             clsAddTab.AddTabControl(TabControlParent, new ucDmXa(), "ucDmXa", "Phường, xã");

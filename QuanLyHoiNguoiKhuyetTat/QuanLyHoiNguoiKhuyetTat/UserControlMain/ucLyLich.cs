@@ -218,14 +218,15 @@ namespace DauThau.UserControlCategory
             {
                 btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = true;
 
+                //Thông tin cá nhân
                 txtHoTen.Text = item.HV_TEN;
                 lueGioiTinh.EditValue = item.HV_GIOI_TINH;
                 lueDanToc.EditValue = item.HV_DAN_TOC;
                 deNgaySinh.EditValue = item.HV_NGAY_SINH;
-                lueTonGiao.EditValue = item.HV_TON_GIAO_ID;
-                lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP_ID;
-                lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA_ID;
-                lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON_ID;
+                lueTonGiao.EditValue = item.HV_TON_GIAO;
+                lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP;
+                lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA;
+                lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON;
                 txtCMND.Text = item.HV_CMND;
                 deNgayCapCMND.EditValue = item.HV_CMND_NGAY;
                 txtNoiCapCMND.Text = item.HV_CMND_NOICAP;
@@ -249,16 +250,16 @@ namespace DauThau.UserControlCategory
                 txtDiaChiCoQuan.Text = item.HV_DIACHI_COQUAN;
 
                 //Tab sức khỏe
-                lueTinhTrangKT.EditValue = item.HV_KT_TINHTRANG_ID;
+                lueTinhTrangKT.EditValue = item.HV_KT_TINHTRANG;
                 txtTinhTrangKTChiTiet.Text = item.HV_KT_TINHTRANG_CHITIET;
                 txtKhuyetTatKhac.Text = item.HV_KT_KHAC;
                 lueMucDoKT.EditValue = item.HV_KT_MUCDO;
-                luePhuongTienDiLai.EditValue = item.HV_PHUONGTIEN_DILAI_ID;
+                luePhuongTienDiLai.EditValue = item.HV_PHUONGTIEN_DILAI;
                 txtTinhTrangSucKhoe.Text = item.HV_TINHTRANG_SUCKHOE;
                 lueNguyenNhanKT.EditValue = item.HV_KT_NGUYENNHAN;
 
                 txtNguyenNhanChiTiet.Text = item.HV_KT_NGUYENNHAN_CHITIET;
-                lueTinhTrangHonNhan.EditValue = item.HV_TINHTRANG_HONNHAN_ID;
+                lueTinhTrangHonNhan.EditValue = item.HV_TINHTRANG_HONNHAN;
                 txtVoChong.Text = item.HV_VOCHONG;
                 seSoCon.EditValue = item.HV_SOCON;
                 txtCon1.Text = item.HV_CON1_TEN;
@@ -273,30 +274,32 @@ namespace DauThau.UserControlCategory
         
         private void _setObjectEntities(ref QL_HOIVIEN item)
         {
+            //Thông tin cá nhân
             item.HV_TEN = txtHoTen.Text;
-            item.HV_GIOI_TINH = lueGioiTinh.Ex_EditValueToInt64();
-            item.HV_DAN_TOC = lueDanToc.Ex_EditValueToInt64();
+            item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
+            item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
             item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();
-            item.HV_TON_GIAO_ID = lueTonGiao.Ex_EditValueToInt64();
-            item.HV_NGHE_NGHIEP_ID = lueNgheNghiep.Ex_EditValueToInt64();
-            item.HV_TRINHDO_VANHOA_ID = lueTrinhDoVanHoa.Ex_EditValueToInt64();
-            item.HV_TRINHDO_CHUYENMON_ID = lueTrinhDoChuyenMon.Ex_EditValueToInt64();
+            item.HV_TON_GIAO = lueTonGiao.EditValue + string.Empty;
+            item.HV_NGHE_NGHIEP = lueNgheNghiep.EditValue + string.Empty;
+            item.HV_TRINHDO_VANHOA = lueTrinhDoVanHoa.EditValue + string.Empty;
+            item.HV_TRINHDO_CHUYENMON = lueTrinhDoChuyenMon.EditValue + string.Empty;
 
             item.HV_CMND = txtCMND.Text;
             item.HV_CMND_NGAY = deNgayCapCMND.Ex_EditValueToDateTime();
             item.HV_CMND_NOICAP = txtNoiCapCMND.Text;
 
             item.HV_KHUYETTAT_NGAY = deNgayKhuyetTat.Ex_EditValueToDateTime();
+            item.HV_CHUCVU = lueChucVuHoi.EditValue + string.Empty;
 
-            item.HV_THUONGTRU_TP = lueThuongTru_TP.Ex_EditValueToInt64();
-            item.HV_THUONGTRU_QUAN = lueThuongTru_Quan.Ex_EditValueToInt64();
-            item.HV_THUONGTRU_PHUONG = lueThuongTru_Phuong.Ex_EditValueToInt64();
+            item.HV_THUONGTRU_TP = lueThuongTru_TP.EditValue + string.Empty;
+            item.HV_THUONGTRU_QUAN = lueThuongTru_Quan.EditValue + string.Empty;
+            item.HV_THUONGTRU_PHUONG = lueThuongTru_Phuong.EditValue + string.Empty;
             item.HV_THUONGTRU_KHUVUC = txtThuongTru_KhuVuc.Text;
             item.HV_THUONGTRU_DUONG = txtThuongTru_Duong.Text;
 
-            item.HV_TAMTRU_TP = lueTamTru_TP.Ex_EditValueToInt64();
-            item.HV_TAMTRU_QUAN = lueTamTru_Quan.Ex_EditValueToInt64();
-            item.HV_TAMTRU_PHUONG = lueTamTru_Phuong.Ex_EditValueToInt64();
+            item.HV_TAMTRU_TP = lueTamTru_TP.EditValue + string.Empty;
+            item.HV_TAMTRU_QUAN = lueTamTru_Quan.EditValue + string.Empty;
+            item.HV_TAMTRU_PHUONG = lueTamTru_Phuong.EditValue + string.Empty;
             item.HV_TAMTRU_KHUVUC = txtTamTru_KhuVuc.Text;
             item.HV_TAMTRU_DUONG = txtTamTru_Duong.Text;
 
@@ -305,15 +308,15 @@ namespace DauThau.UserControlCategory
             item.HV_DIACHI_COQUAN = txtDiaChiCoQuan.Text;
 
             //Tab sức khỏe
-            item.HV_KT_TINHTRANG_ID = lueTinhTrangKT.Ex_EditValueToInt64();
+            item.HV_KT_TINHTRANG = lueTinhTrangKT.EditValue + string.Empty;
             item.HV_KT_TINHTRANG_CHITIET = txtTinhTrangKTChiTiet.Text;
             item.HV_KT_KHAC = txtKhuyetTatKhac.Text;
-            item.HV_KT_MUCDO = lueMucDoKT.Ex_EditValueToInt64();
-            item.HV_PHUONGTIEN_DILAI_ID = luePhuongTienDiLai.Ex_EditValueToInt64();
+            item.HV_KT_MUCDO = lueMucDoKT.EditValue + string.Empty;
+            item.HV_PHUONGTIEN_DILAI = luePhuongTienDiLai.EditValue + string.Empty;
             item.HV_TINHTRANG_SUCKHOE = txtTinhTrangSucKhoe.Text;
-            item.HV_KT_NGUYENNHAN = lueNguyenNhanKT.Ex_EditValueToInt64();
+            item.HV_KT_NGUYENNHAN = lueNguyenNhanKT.EditValue + string.Empty;
             item.HV_KT_NGUYENNHAN_CHITIET = txtNguyenNhanChiTiet.Text;
-            item.HV_TINHTRANG_HONNHAN_ID = lueTinhTrangHonNhan.Ex_EditValueToInt64();
+            item.HV_TINHTRANG_HONNHAN = lueTinhTrangHonNhan.EditValue + string.Empty;
             item.HV_VOCHONG = txtVoChong.Text;
             item.HV_SOCON = seSoCon.Ex_EditValueToInt();
             item.HV_CON1_TEN = txtCon1.Text;
@@ -329,11 +332,11 @@ namespace DauThau.UserControlCategory
         {
             context = new QL_HOIVIEN_KTEntities();
             context.QL_HOIVIEN.Load();
-            Int64? thanhPhoId = lueThanhPho.Ex_EditValueToInt64() != null ? lueThanhPho.Ex_EditValueToInt64() : 0;
-            Int64? quanId = lueQuan.Ex_EditValueToInt64() != null ? lueQuan.Ex_EditValueToInt64() : 0;
+            string quan = lueQuan.EditValue + string.Empty;
+            string thanhpho = lueThanhPho.EditValue + string.Empty;
             var dmHoiVien = (from p in context.QL_HOIVIEN
-                             where p.HV_THUONGTRU_TP == thanhPhoId
-                             && p.HV_THUONGTRU_QUAN == quanId
+                             where p.HV_THUONGTRU_TP == thanhpho
+                             && p.HV_THUONGTRU_QUAN == quan
                              select p).ToList();
             gcGrid.DataSource = dmHoiVien;
             _loadDataFocusRow();
@@ -402,30 +405,28 @@ namespace DauThau.UserControlCategory
 
         private void lueThanhPho_EditValueChanged(object sender, EventArgs e)
         {
-            FuncCategory.loadDMHuyen(lueQuan, clsChangeType.change_int64(lueThanhPho.EditValue));
+            FuncCategory.loadDMHuyen(lueQuan, lueThanhPho.EditValue + string.Empty);
         }
 
         private void lueThuongTru_TP_EditValueChanged(object sender, EventArgs e)
         {
-            FuncCategory.loadDMHuyen(lueThuongTru_Quan, clsChangeType.change_int64(lueThuongTru_TP.EditValue));
+            FuncCategory.loadDMHuyen(lueThuongTru_Quan, lueThuongTru_TP.EditValue + string.Empty);
         }
 
         private void lueTamTru_TP_EditValueChanged(object sender, EventArgs e)
         {
-            FuncCategory.loadDMHuyen(lueTamTru_Quan, clsChangeType.change_int64(lueTamTru_TP.EditValue));
+            FuncCategory.loadDMHuyen(lueTamTru_Quan, lueTamTru_TP.EditValue + string.Empty);
         }
 
         private void lueThuongTru_Quan_EditValueChanged(object sender, EventArgs e)
         {
-            FuncCategory.loadDMXa(lueThuongTru_Phuong, clsChangeType.change_int64(lueThuongTru_Quan.EditValue));
+            FuncCategory.loadDMXa(lueThuongTru_Phuong, lueThuongTru_Quan.EditValue + string.Empty);
         }
 
         private void lueTamTru_Quan_EditValueChanged(object sender, EventArgs e)
         {
-            FuncCategory.loadDMXa(lueTamTru_Phuong, clsChangeType.change_int64(lueTamTru_Quan.EditValue));
+            FuncCategory.loadDMXa(lueTamTru_Phuong, lueTamTru_Quan.EditValue + string.Empty);
         }
-
-        #endregion
 
         private void lueQuan_EditValueChanged(object sender, EventArgs e)
         {
@@ -435,16 +436,23 @@ namespace DauThau.UserControlCategory
         private void repLueGioiTinh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             LookUpEdit lue = sender as LookUpEdit;
-            if(e.Button.Kind == ButtonPredefines.Delete)
+            if (e.Button.Kind == ButtonPredefines.Delete)
             {
                 lue.EditValue = null;
             }
         }
 
+        #endregion
+
+        #region gvGrid
+
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             _loadDataFocusRow();
         }
+
+        #endregion
+
 
         private void deNgaySinh_EditValueChanged(object sender, EventArgs e)
         {
