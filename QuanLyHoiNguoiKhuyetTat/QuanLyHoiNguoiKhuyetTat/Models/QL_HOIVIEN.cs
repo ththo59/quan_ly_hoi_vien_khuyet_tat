@@ -53,32 +53,35 @@ namespace DauThau.Models
         public string HV_VOCHONG { get; set; }
         public Nullable<int> HV_SOCON { get; set; }
         public string HV_CON1_TEN { get; set; }
-        public string HV_CON2_TEN { get; set; }
         public Nullable<System.DateTime> HV_CON1_NGAYSINH { get; set; }
+        public string HV_CON1_GIOITINH { get; set; }
+        public string HV_CON1_HOCTRUONG { get; set; }
+        public string HV_CON2_TEN { get; set; }
         public Nullable<System.DateTime> HV_CON2_NGAYSINH { get; set; }
+        public string HV_CON2_GIOITINH { get; set; }
+        public string HV_CON2_HOCTRUONG { get; set; }
         public string HV_PHONGTRAO_THETHAO { get; set; }
         public string HV_PHONGTRAO_MONGMUON { get; set; }
         public string HV_NGUYENVONG { get; set; }
-        public string HV_DUNGCU_HOTRO_ID { get; set; }
-        public string HV_DCHT_THOIDIEM_NHAN { get; set; }
+        public string HV_DUNGCU_HOTRO { get; set; }
+        public Nullable<System.DateTime> HV_DCHT_THOIDIEM_NHAN { get; set; }
         public string HV_DCHT_TU_TOCHUC { get; set; }
         public string HV_DCHT_TINHTRANG { get; set; }
-        public Nullable<bool> HV_BHXH_HANGTHANG { get; set; }
-        public Nullable<bool> HV_QUYETDINH_CONGNHAN_KT { get; set; }
-        public Nullable<bool> HV_BHYT_MIENPHI { get; set; }
-        public Nullable<bool> HV_GIAY_CHUNGNHAN_KT { get; set; }
-        public Nullable<int> HV_TIEN_BTXH_THANG { get; set; }
+        public Nullable<bool> HV_BTXH_NHAN_HANGTHANG { get; set; }
+        public Nullable<int> HV_BTXH_TIEN_HANGTHANG { get; set; }
         public string HV_BTXH_KHAC { get; set; }
+        public Nullable<bool> HV_BHYT_MIENPHI { get; set; }
+        public Nullable<bool> HV_QUYETDINH_CONGNHAN_KT { get; set; }
+        public Nullable<bool> HV_GIAY_CHUNGNHAN_KT { get; set; }
         public string HV_THE_KHUYETTAT { get; set; }
-        public Nullable<bool> HV_PHUCHOI_CHUCNANG { get; set; }
-        public Nullable<bool> HV_PHAUTHUAT { get; set; }
-        public Nullable<bool> HV_VATLY_TRILIEU { get; set; }
         public Nullable<bool> HV_GIADINH_CHINHSACH { get; set; }
-        public Nullable<long> HV_NOI_SINH_SONG_ID { get; set; }
+        public string HV_NOI_SINH_SONG { get; set; }
         public string HV_DIEUKIEN_SONG_KHAC { get; set; }
         public string HV_NHA { get; set; }
         public string HV_SONG_VOI { get; set; }
+        public string HV_SONG_VOI_CHITIET { get; set; }
         public string HV_CHAMSOC_BANTHAN { get; set; }
+        public string HV_HOTRO_BOI_NGUOIKHAC { get; set; }
         public string HV_VIECLAM { get; set; }
         public Nullable<int> HV_THUNHAP { get; set; }
         public Nullable<bool> HV_TRE_DIHOC { get; set; }

@@ -49,16 +49,32 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG, lueTinhTrangKT);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, luePhuongTienDiLai);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, lueTinhTrangHonNhan);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinhCon1);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinhCon2);
+
+            //Tab dụng cụ hỗ trợ chế độ chính sách
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DUNGCU_HOTRO, lueDungCuHoTro);
+            seTienBTXHHangThang.Ex_FormatCustomSpinEdit();
+
+            //Tab nơi ở chăm sóc bản thân
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NOI_SINH_SONG, lueNoiSinhSong);
+            chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
+            chkListSongVoi.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_SONG_VOI.Ex_ToString());
+            chkListChamSocBanThan.Ex_SetDataSource(CategoryEntitiesTable.DM_CHAMSOC_BANTHAN.Ex_ToString());
+
+            //Viec lam nhu cau
+            seThuNhapTB.Ex_FormatCustomSpinEdit();
+            chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
+            chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
 
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
-
             deNgaySinh.Ex_FormatCustomDateEdit();
             deNgayKhuyetTat.Ex_FormatCustomDateEdit();
             deNgayCapCMND.Ex_FormatCustomDateEdit();
 
             deNgaySinhCon1.Ex_FormatCustomDateEdit();
             deNgaySinhCon2.Ex_FormatCustomDateEdit();
-
+            
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
         }
@@ -249,7 +265,7 @@ namespace DauThau.UserControlCategory
                 txtEmail.Text = item.HV_EMAIL;
                 txtDiaChiCoQuan.Text = item.HV_DIACHI_COQUAN;
 
-                //Tab sức khỏe
+                //Tab sức khỏe - hôn nhân
                 lueTinhTrangKT.EditValue = item.HV_KT_TINHTRANG;
                 txtTinhTrangKTChiTiet.Text = item.HV_KT_TINHTRANG_CHITIET;
                 txtKhuyetTatKhac.Text = item.HV_KT_KHAC;
@@ -263,12 +279,46 @@ namespace DauThau.UserControlCategory
                 txtVoChong.Text = item.HV_VOCHONG;
                 seSoCon.EditValue = item.HV_SOCON;
                 txtCon1.Text = item.HV_CON1_TEN;
-                txtCon2.Text = item.HV_CON2_TEN;
                 deNgaySinhCon1.EditValue = item.HV_CON1_NGAYSINH;
+                lueGioiTinhCon1.EditValue = item.HV_CON1_GIOITINH;
+                txtHocTruong1.EditValue = item.HV_CON1_HOCTRUONG;
+
+                txtCon2.Text = item.HV_CON2_TEN;
                 deNgaySinhCon2.EditValue = item.HV_CON2_NGAYSINH;
+                lueGioiTinhCon2.EditValue = item.HV_CON2_GIOITINH;
+                txtHocTruong2.EditValue = item.HV_CON2_HOCTRUONG;
+
                 txtPhongTraoTheThao.Text = item.HV_PHONGTRAO_THETHAO;
                 txtPhongTraoMongMuon.Text = item.HV_PHONGTRAO_MONGMUON;
                 txtNguyenVong.Text = item.HV_NGUYENVONG;
+
+                //Tab chinh sách hỗ trợ
+                lueDungCuHoTro.EditValue = item.HV_DUNGCU_HOTRO;
+                deDCHT_ThoiGianNhan.EditValue = item.HV_DCHT_THOIDIEM_NHAN;
+                txtDCHT_ToChuc.EditValue = item.HV_DCHT_TU_TOCHUC;
+                txtDCHT_TinhTrang.EditValue = item.HV_DCHT_TINHTRANG;
+
+                chkNhanBHXH_HangThang.EditValue = item.HV_BTXH_NHAN_HANGTHANG??false;
+                seTienBTXHHangThang.EditValue = item.HV_BTXH_TIEN_HANGTHANG;
+                txtBTXHKhac.EditValue = item.HV_BTXH_KHAC;
+                chkNhanBHYTMienPhi.EditValue = item.HV_BHYT_MIENPHI??false;
+
+                chkNhanGiayCNXacDinhMucDoKT.EditValue = item.HV_GIAY_CHUNGNHAN_KT??false;
+                chkNhanQDCongNhanMucDoKT.EditValue = item.HV_QUYETDINH_CONGNHAN_KT??false;
+                chkGiaDinhDienChinhSach.EditValue = item.HV_GIADINH_CHINHSACH??false;
+
+                txtTheKT.Text = item.HV_THE_KHUYETTAT;
+
+                //Nơi ở chăm sóc bản thân
+                lueNoiSinhSong.EditValue = item.HV_NOI_SINH_SONG;
+                txtDieuKienSongKhac.EditValue = item.HV_DIEUKIEN_SONG_KHAC;
+                chkListNha.Ex_SetEditValueToString(item.HV_NHA);
+                chkListSongVoi.Ex_SetEditValueToString(item.HV_SONG_VOI);
+                txtSongVoiNguoiKhac.EditValue = item.HV_SONG_VOI_CHITIET;
+                chkListChamSocBanThan.Ex_SetEditValueToString(item.HV_CHAMSOC_BANTHAN);
+                txtHoTroCuaNguoiKhac.EditValue = item.HV_HOTRO_BOI_NGUOIKHAC;
+
+                //
             }
         }
         
@@ -316,16 +366,50 @@ namespace DauThau.UserControlCategory
             item.HV_TINHTRANG_SUCKHOE = txtTinhTrangSucKhoe.Text;
             item.HV_KT_NGUYENNHAN = lueNguyenNhanKT.EditValue + string.Empty;
             item.HV_KT_NGUYENNHAN_CHITIET = txtNguyenNhanChiTiet.Text;
+
             item.HV_TINHTRANG_HONNHAN = lueTinhTrangHonNhan.EditValue + string.Empty;
             item.HV_VOCHONG = txtVoChong.Text;
             item.HV_SOCON = seSoCon.Ex_EditValueToInt();
             item.HV_CON1_TEN = txtCon1.Text;
-            item.HV_CON2_TEN = txtCon2.Text;
             item.HV_CON1_NGAYSINH = deNgaySinhCon1.Ex_EditValueToDateTime();
+            item.HV_CON1_GIOITINH = lueGioiTinhCon1.EditValue + string.Empty;
+            item.HV_CON1_HOCTRUONG = txtHocTruong1.Text;
+
+            item.HV_CON2_TEN = txtCon2.Text;
             item.HV_CON2_NGAYSINH = deNgaySinhCon2.Ex_EditValueToDateTime();
+            item.HV_CON2_GIOITINH = lueGioiTinhCon2.EditValue + string.Empty;
+            item.HV_CON2_HOCTRUONG = txtHocTruong2.Text;
+
             item.HV_PHONGTRAO_THETHAO = txtPhongTraoTheThao.Text;
             item.HV_PHONGTRAO_MONGMUON = txtPhongTraoMongMuon.Text;
             item.HV_NGUYENVONG = txtNguyenVong.Text;
+
+            //Tab chinh sách hỗ trợ
+             item.HV_DUNGCU_HOTRO = lueDungCuHoTro.EditValue + string.Empty;
+            item.HV_DCHT_THOIDIEM_NHAN = deDCHT_ThoiGianNhan.Ex_EditValueToDateTime();
+            item.HV_DCHT_TU_TOCHUC = txtDCHT_ToChuc.EditValue + string.Empty;
+            item.HV_DCHT_TINHTRANG = txtDCHT_TinhTrang.EditValue + string.Empty;
+
+            item.HV_BTXH_NHAN_HANGTHANG = Convert.ToBoolean(chkNhanBHXH_HangThang.EditValue);
+            item.HV_BTXH_TIEN_HANGTHANG = seTienBTXHHangThang.Ex_EditValueToInt() ;
+            item.HV_BTXH_KHAC = txtBTXHKhac.EditValue + string.Empty;
+            item.HV_BHYT_MIENPHI = Convert.ToBoolean(chkNhanBHYTMienPhi.EditValue);
+
+            item.HV_GIAY_CHUNGNHAN_KT = Convert.ToBoolean(chkNhanGiayCNXacDinhMucDoKT.EditValue);
+            item.HV_QUYETDINH_CONGNHAN_KT = Convert.ToBoolean(chkNhanQDCongNhanMucDoKT.EditValue);
+            item.HV_GIADINH_CHINHSACH = Convert.ToBoolean(chkGiaDinhDienChinhSach.EditValue);
+
+            txtTheKT.Text = item.HV_THE_KHUYETTAT;
+
+            //tab nơi ở chăm sóc bản thân
+             item.HV_NOI_SINH_SONG = lueNoiSinhSong.EditValue + string.Empty;
+            item.HV_DIEUKIEN_SONG_KHAC = txtDieuKienSongKhac.EditValue + string.Empty ;
+            item.HV_NHA = chkListNha.Ex_GetEditValueToString();
+            item.HV_SONG_VOI = chkListSongVoi.Ex_GetEditValueToString();
+            item.HV_SONG_VOI_CHITIET = txtSongVoiNguoiKhac.EditValue + string.Empty ;
+            item.HV_CHAMSOC_BANTHAN = chkListChamSocBanThan.Ex_GetEditValueToString();
+            item.HV_HOTRO_BOI_NGUOIKHAC = txtHoTroCuaNguoiKhac.EditValue + string.Empty;
+
         }
 
         private void _loadData()

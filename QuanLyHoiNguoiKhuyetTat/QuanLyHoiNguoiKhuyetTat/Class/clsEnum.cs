@@ -29,7 +29,16 @@ namespace DauThau.Class
         DM_KHUYETTAT_NGUYENNHAN,
         DM_KHUYETTAT_TINHTRANG,
         DM_PHUONGTIEN_DILAI,
-        DM_TINHTRANG_HONNHAN
+        DM_TINHTRANG_HONNHAN,
+
+        DM_DUNGCU_HOTRO,
+        DM_NOI_SINH_SONG,
+        DM_NOI_O_NHA,
+        DM_NOI_O_SONG_VOI,
+        DM_CHAMSOC_BANTHAN,
+
+        DM_NHUCAU,
+        DM_THANHVIEN_HOI
 
     }
 

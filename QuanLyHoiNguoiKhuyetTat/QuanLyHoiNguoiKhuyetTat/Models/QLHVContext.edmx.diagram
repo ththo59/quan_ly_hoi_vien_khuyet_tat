@@ -25,6 +25,11 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_DM_XA_DM_HUYEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_DM_XA_DM_TINH" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" Width="1.5" PointX="3.375" PointY="10.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NOI_O_NHA" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_CHAMSOC_BANTHAN" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NOI_O_SONG_VOI" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NHUCAU" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI" Width="1.5" PointX="7.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

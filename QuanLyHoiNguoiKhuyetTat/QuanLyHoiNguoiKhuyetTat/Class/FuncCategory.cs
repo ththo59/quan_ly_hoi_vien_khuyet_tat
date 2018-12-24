@@ -81,6 +81,12 @@ namespace DauThau.Class
                     case CategoryEntitiesTable.DM_TINHTRANG_HONNHAN:
                         listItem = (from p in context.DM_TINHTRANG_HONNHAN orderby p.TTHN_STT select p).ToList();
                         break;
+                    case CategoryEntitiesTable.DM_DUNGCU_HOTRO:
+                        listItem = (from p in context.DM_DUNGCU_HOTRO orderby p.DCHT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_NOI_SINH_SONG:
+                        listItem = (from p in context.DM_NOI_SINH_SONG orderby p.NSS_STT select p).ToList();
+                        break;
                     default:
                         break;
                 }

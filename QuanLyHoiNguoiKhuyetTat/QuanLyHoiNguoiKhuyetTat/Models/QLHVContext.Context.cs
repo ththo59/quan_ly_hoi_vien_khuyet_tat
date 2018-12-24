@@ -42,5 +42,10 @@ namespace DauThau.Models
         public virtual DbSet<DM_NOI_SINH_SONG> DM_NOI_SINH_SONG { get; set; }
         public virtual DbSet<DM_XA> DM_XA { get; set; }
         public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
+        public virtual DbSet<DM_NOI_O_NHA> DM_NOI_O_NHA { get; set; }
+        public virtual DbSet<DM_CHAMSOC_BANTHAN> DM_CHAMSOC_BANTHAN { get; set; }
+        public virtual DbSet<DM_NOI_O_SONG_VOI> DM_NOI_O_SONG_VOI { get; set; }
+        public virtual DbSet<DM_NHUCAU> DM_NHUCAU { get; set; }
+        public virtual DbSet<DM_THANHVIEN_HOI> DM_THANHVIEN_HOI { get; set; }
     }
 }
