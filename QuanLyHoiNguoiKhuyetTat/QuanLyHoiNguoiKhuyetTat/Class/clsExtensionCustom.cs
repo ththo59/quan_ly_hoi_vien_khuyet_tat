@@ -62,14 +62,15 @@ namespace DauThau.Class
             de.Properties.Mask.EditMask = "dd/MM/yyyy";
         }
 
-        public static void Ex_FormatCustomSpinEdit(this SpinEdit de)
+        public static void Ex_FormatCustomSpinEdit(this SpinEdit se)
         {
-            de.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            de.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            de.Properties.DisplayFormat.FormatString = "#,#";
-            de.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            de.Properties.EditFormat.FormatString = "#,#";
-            de.Properties.Mask.EditMask = "n0";
+            se.Properties.TextEditStyle = TextEditStyles.Standard;
+            se.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            se.Properties.DisplayFormat.FormatString = "#,#";
+            se.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            se.Properties.EditFormat.FormatString = "#,#";
+            se.Properties.EditValueChangedFiringMode = EditValueChangedFiringMode.Default;
+            se.Properties.Mask.EditMask = "n0";
             //de.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             //de.Properties.Mask.EditMask = "#,#";
         }

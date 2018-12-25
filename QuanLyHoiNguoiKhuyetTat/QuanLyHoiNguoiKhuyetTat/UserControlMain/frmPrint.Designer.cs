@@ -98,10 +98,14 @@
             this.printPreviewBarCheckItem16 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printPreviewBarCheckItem17 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem();
             this.printControl = new DevExpress.XtraPrinting.Control.PrintControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnControl = new ControlsLib.ButtonsArray();
             ((System.ComponentModel.ISupportInitialize)(this.printBarManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // printBarManager1
@@ -382,7 +386,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.printPreviewRepositoryItemComboBox1.DropDownRows = 11;
             this.printPreviewRepositoryItemComboBox1.Name = "printPreviewRepositoryItemComboBox1";
-            this.printPreviewRepositoryItemComboBox1.UseParentBackground = true;
             // 
             // printPreviewBarItem16
             // 
@@ -549,7 +552,6 @@
             // repositoryItemProgressBar1
             // 
             this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
-            this.repositoryItemProgressBar1.UseParentBackground = true;
             // 
             // printPreviewBarItem1
             // 
@@ -599,9 +601,9 @@
             this.repositoryItemZoomTrackBar1.AllowFocused = false;
             this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.repositoryItemZoomTrackBar1.Maximum = 180;
+            this.repositoryItemZoomTrackBar1.Middle = 5;
             this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
             this.repositoryItemZoomTrackBar1.ScrollThumbStyle = DevExpress.XtraEditors.Repository.ScrollThumbStyle.ArrowDownRight;
-            this.repositoryItemZoomTrackBar1.UseParentBackground = true;
             // 
             // barDockControlTop
             // 
@@ -875,21 +877,81 @@
             // 
             // printControl
             // 
-            this.printControl.BackColor = System.Drawing.Color.Empty;
             this.printControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.printControl.ForeColor = System.Drawing.Color.Empty;
             this.printControl.IsMetric = false;
             this.printControl.Location = new System.Drawing.Point(0, 25);
             this.printControl.Name = "printControl";
             this.printControl.Size = new System.Drawing.Size(655, 361);
             this.printControl.TabIndex = 4;
-            this.printControl.TooltipFont = new System.Drawing.Font("Tahoma", 8.25F);
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnControl);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(0, 326);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(655, 60);
+            this.panelControl1.TabIndex = 33;
+            // 
+            // btnControl
+            // 
+            this.btnControl.btnAddIndex = 0;
+            this.btnControl.btnBackColor = System.Drawing.Color.Transparent;
+            this.btnControl.btnCloseIndex = 9;
+            this.btnControl.btnDeleteIndex = 2;
+            this.btnControl.btnExcelIndex = 8;
+            this.btnControl.btnModifyIndex = 1;
+            this.btnControl.btnPrintIndex = 6;
+            this.btnControl.btnReportIndex = 4;
+            this.btnControl.btnSelectIndex = 3;
+            this.btnControl.btnSize = new System.Drawing.Size(75, 32);
+            this.btnControl.btnStyleGroup = ControlsLib.ButtonsArray.StyleGroupEnum.None;
+            this.btnControl.btnViewIndex = 5;
+            this.btnControl.btnWordIndex = 7;
+            this.btnControl.ButtonAddEnabled = true;
+            this.btnControl.ButtonAddVisible = false;
+            this.btnControl.ButtonBackgroundImage = null;
+            this.btnControl.ButtonCancelEnabled = true;
+            this.btnControl.ButtonCloseEnabled = true;
+            this.btnControl.ButtonCloseVisible = true;
+            this.btnControl.ButtonDeleteEnabled = true;
+            this.btnControl.ButtonDeleteVisible = false;
+            this.btnControl.ButtonExcelEnabled = true;
+            this.btnControl.ButtonExcelVisible = false;
+            this.btnControl.ButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.btnControl.ButtonModifyEnabled = true;
+            this.btnControl.ButtonModifyText = ControlsLib.ButtonsArray.UpdateEnum.Modify;
+            this.btnControl.ButtonModifyVisible = false;
+            this.btnControl.ButtonPrintEnabled = true;
+            this.btnControl.ButtonPrintVisible = true;
+            this.btnControl.ButtonReportEnabled = true;
+            this.btnControl.ButtonReportVisible = false;
+            this.btnControl.ButtonSaveEnabled = true;
+            this.btnControl.ButtonSelectEnabled = true;
+            this.btnControl.ButtonSelectVisible = false;
+            this.btnControl.ButtonSpacing = 3;
+            this.btnControl.ButtonStyle = ControlsLib.ButtonsArray.StyleEnum.Row;
+            this.btnControl.ButtonViewEnabled = true;
+            this.btnControl.ButtonViewVisible = false;
+            this.btnControl.ButtonWordEnabled = true;
+            this.btnControl.ButtonWordVisible = false;
+            this.btnControl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnControl.FlatStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.btnControl.GroupBoxShow = false;
+            this.btnControl.Location = new System.Drawing.Point(476, 2);
+            this.btnControl.Name = "btnControl";
+            this.btnControl.Size = new System.Drawing.Size(177, 56);
+            this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
+            this.btnControl.TabIndex = 0;
+            this.btnControl.btnEventPrint_Click += new System.EventHandler(this.btnControl_btnEventPrint_Click);
+            this.btnControl.btnEventClose_Click += new System.EventHandler(this.btnControl_btnEventClose_Click);
             // 
             // frmPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 410);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.printControl);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -903,6 +965,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -977,5 +1041,7 @@
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem printPreviewBarCheckItem15;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem printPreviewBarCheckItem16;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem printPreviewBarCheckItem17;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private ControlsLib.ButtonsArray btnControl;
     }
 }

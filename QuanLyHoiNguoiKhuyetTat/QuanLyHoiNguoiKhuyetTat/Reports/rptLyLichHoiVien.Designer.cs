@@ -151,8 +151,10 @@
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow5 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.dsHoiVien1 = new DauThau.DataSets.dsHoiVien();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsHoiVien1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -224,12 +226,13 @@
             // 
             this.xrTableCell14.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
             this.xrTableCell14.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrTableCell14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_TEN")});
             this.xrTableCell14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseBorderDashStyle = false;
             this.xrTableCell14.StylePriority.UseBorders = false;
             this.xrTableCell14.StylePriority.UseFont = false;
-            this.xrTableCell14.Text = "Trần Hữu Thọ";
             this.xrTableCell14.Weight = 3.490513139060984D;
             // 
             // xrTableRow9
@@ -257,7 +260,6 @@
             this.xrTableCell27.StylePriority.UseBorderDashStyle = false;
             this.xrTableCell27.StylePriority.UseBorders = false;
             this.xrTableCell27.StylePriority.UseFont = false;
-            this.xrTableCell27.Text = "Nam";
             this.xrTableCell27.Weight = 3.5422595814930671D;
             // 
             // xrTableRow8
@@ -285,7 +287,6 @@
             this.xrTableCell23.StylePriority.UseBorderDashStyle = false;
             this.xrTableCell23.StylePriority.UseBorders = false;
             this.xrTableCell23.StylePriority.UseFont = false;
-            this.xrTableCell23.Text = "31/03/1989";
             this.xrTableCell23.Weight = 2.8921948589606243D;
             // 
             // xrTableRow7
@@ -1284,6 +1285,11 @@
             this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell15.Weight = 3.9246441718082705D;
             // 
+            // dsHoiVien1
+            // 
+            this.dsHoiVien1.DataSetName = "dsHoiVien";
+            this.dsHoiVien1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // rptLyLichHoiVien
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1291,6 +1297,8 @@
             this.TopMargin,
             this.BottomMargin,
             this.ReportHeader});
+            this.DataMember = "HOI_VIEN";
+            this.DataSource = this.dsHoiVien1;
             this.Margins = new System.Drawing.Printing.Margins(27, 27, 22, 27);
             this.PageHeight = 1169;
             this.PageWidth = 827;
@@ -1298,6 +1306,7 @@
             this.Version = "14.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsHoiVien1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1427,5 +1436,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell24;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell25;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell113;
+        private DataSets.dsHoiVien dsHoiVien1;
     }
 }

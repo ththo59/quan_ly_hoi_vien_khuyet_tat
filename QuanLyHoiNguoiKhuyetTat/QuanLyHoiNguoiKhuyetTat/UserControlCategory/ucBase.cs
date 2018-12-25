@@ -38,6 +38,7 @@ namespace DauThau.UserControlCategory
             btnControl.btnEventCancel_Click += new System.EventHandler(this.btnControl_btnEventCancel_Click);
             btnControl.btnEventClose_Click += new System.EventHandler(this.btnControl_btnEventClose_Click);
             btnControl.btnEventSave_Click += new System.EventHandler(this.btnControl_btnEventSave_Click);
+            btnControl.btnEventPrint_Click += new System.EventHandler(this.btnControl_btnEventPrint_Click);
         }
 
         protected void btnControl_btnEventClose_Click(object sender, EventArgs e)
@@ -67,6 +68,10 @@ namespace DauThau.UserControlCategory
         protected void btnControl_btnEventSave_Click(object sender, EventArgs e)
         {
             SaveData();
+        }
+        protected void btnControl_btnEventPrint_Click(object sender, EventArgs e)
+        {
+            FormStatus = EnumFormStatus.PRINT;
         }
     }
 }

@@ -227,6 +227,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDiemKTExcel.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoiVien.cs">
+      <DependentUpon>dsHoiVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoiVien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoiVien.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoSoMuaNop.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1570,6 +1578,17 @@
     </None>
     <None Include="DataSets\dsDiemKTExcel.xss">
       <DependentUpon>dsDiemKTExcel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoiVien.xsc">
+      <DependentUpon>dsHoiVien.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoiVien.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoiVien.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoiVien.xss">
+      <DependentUpon>dsHoiVien.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoSoMuaNop.xsc">
       <DependentUpon>dsHoSoMuaNop.xsd</DependentUpon>

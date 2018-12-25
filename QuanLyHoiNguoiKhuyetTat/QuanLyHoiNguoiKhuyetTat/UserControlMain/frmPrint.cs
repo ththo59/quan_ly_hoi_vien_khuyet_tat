@@ -25,5 +25,25 @@ namespace DauThau.UserControlCategoryMain
             printControl.PrintingSystem = rpt.PrintingSystem;
             rpt.CreateDocument(true);
         }
+
+        private void btnControl_btnEventPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (ReportPrintTool printTool = new ReportPrintTool(rpt))
+                {
+                    printTool.Print();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void btnControl_btnEventClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

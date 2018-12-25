@@ -17,6 +17,9 @@ using DevExpress.XtraTab;
 using System.Collections;
 using DevExpress.XtraEditors.Controls;
 using System.Data.Entity;
+using DauThau.Reports;
+using DauThau.UserControlCategoryMain;
+using DevExpress.XtraGrid;
 
 namespace DauThau.UserControlCategory
 {
@@ -64,8 +67,8 @@ namespace DauThau.UserControlCategory
 
             //Viec lam nhu cau
             seThuNhapTB.Ex_FormatCustomSpinEdit();
-            chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
-            chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
+            chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
+            chkListThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
 
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
             deNgaySinh.Ex_FormatCustomDateEdit();
@@ -99,6 +102,10 @@ namespace DauThau.UserControlCategory
                 else if (_formStatus == EnumFormStatus.DELETE)
                 {
                     _deleteRow();
+                }
+                else if (_formStatus == EnumFormStatus.PRINT)
+                {
+                    _doPrint();
                 }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {
@@ -318,7 +325,12 @@ namespace DauThau.UserControlCategory
                 chkListChamSocBanThan.Ex_SetEditValueToString(item.HV_CHAMSOC_BANTHAN);
                 txtHoTroCuaNguoiKhac.EditValue = item.HV_HOTRO_BOI_NGUOIKHAC;
 
-                //
+                //Nhu cau viec lam
+                txtCongViecDangLam.EditValue = item.HV_VIECLAM;
+                seThuNhapTB.EditValue = item.HV_THUNHAP;
+                chkTreDiHoc.EditValue = item.HV_TRE_DIHOC??false;
+                chkListNhuCau.Ex_SetEditValueToString(item.HV_NHUCAU);
+                chkListThanhVienHoi.Ex_SetEditValueToString(item.HV_THANHVIEN_HOI);
             }
         }
         
@@ -402,7 +414,7 @@ namespace DauThau.UserControlCategory
             txtTheKT.Text = item.HV_THE_KHUYETTAT;
 
             //tab nơi ở chăm sóc bản thân
-             item.HV_NOI_SINH_SONG = lueNoiSinhSong.EditValue + string.Empty;
+            item.HV_NOI_SINH_SONG = lueNoiSinhSong.EditValue + string.Empty;
             item.HV_DIEUKIEN_SONG_KHAC = txtDieuKienSongKhac.EditValue + string.Empty ;
             item.HV_NHA = chkListNha.Ex_GetEditValueToString();
             item.HV_SONG_VOI = chkListSongVoi.Ex_GetEditValueToString();
@@ -410,6 +422,12 @@ namespace DauThau.UserControlCategory
             item.HV_CHAMSOC_BANTHAN = chkListChamSocBanThan.Ex_GetEditValueToString();
             item.HV_HOTRO_BOI_NGUOIKHAC = txtHoTroCuaNguoiKhac.EditValue + string.Empty;
 
+            //Tab Nhu cầu - công việc
+            item.HV_VIECLAM = txtCongViecDangLam.EditValue + string.Empty;
+            item.HV_THUNHAP = seThuNhapTB.Ex_EditValueToInt();
+            item.HV_TRE_DIHOC = Convert.ToBoolean(chkTreDiHoc.EditValue);
+            item.HV_NHUCAU = chkListNhuCau.Ex_GetEditValueToString();
+            item.HV_THANHVIEN_HOI = chkListThanhVienHoi.Ex_GetEditValueToString();
         }
 
         private void _loadData()
@@ -442,6 +460,24 @@ namespace DauThau.UserControlCategory
                     
             }
             
+        }
+
+        private void _doPrint()
+        {
+            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                clsMessage.MessageWarning("Vui lòng chọn dòng dữ liệu.");
+                return;
+            }
+            rptLyLichHoiVien rpt = new rptLyLichHoiVien();
+            Int64 hv_id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
+            var hoivien = (from p in context.QL_HOIVIEN where p.HV_ID == hv_id select p).ToList();
+            DataTable dt = FunctionHelper.ConvertToDataTable(hoivien);
+            dt.TableName = "HOI_VIEN";
+            frmPrint frm = new frmPrint(rpt);
+            rpt.DataSource = dt;
+            rpt.DataMember = "HOI_VIEN";
+            frm.ShowDialog(); 
         }
 
         protected override bool SaveData()

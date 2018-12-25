@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHoiVien" targetNamespace="http://tempuri.org/dsHoiVien.xsd" xmlns:mstns="http://tempuri.org/dsHoiVien.xsd" xmlns="http://tempuri.org/dsHoiVien.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHoiVien" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHoiVien" msprop:Generator_UserDSName="dsHoiVien">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HOI_VIEN" msprop:Generator_TableClassName="HOI_VIENDataTable" msprop:Generator_TableVarName="tableHOI_VIEN" msprop:Generator_TablePropName="HOI_VIEN" msprop:Generator_RowDeletingName="HOI_VIENRowDeleting" msprop:Generator_RowChangingName="HOI_VIENRowChanging" msprop:Generator_RowEvHandlerName="HOI_VIENRowChangeEventHandler" msprop:Generator_RowDeletedName="HOI_VIENRowDeleted" msprop:Generator_UserTableName="HOI_VIEN" msprop:Generator_RowChangedName="HOI_VIENRowChanged" msprop:Generator_RowEvArgName="HOI_VIENRowChangeEvent" msprop:Generator_RowClassName="HOI_VIENRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HV_TEN" msprop:Generator_ColumnVarNameInTable="columnHV_TEN" msprop:Generator_ColumnPropNameInRow="HV_TEN" msprop:Generator_ColumnPropNameInTable="HV_TENColumn" msprop:Generator_UserColumnName="HV_TEN" type="xs:string" minOccurs="0" />
+              <xs:element name="HV_GIOI_TINH" msprop:Generator_ColumnVarNameInTable="columnHV_GIOI_TINH" msprop:Generator_ColumnPropNameInRow="HV_GIOI_TINH" msprop:Generator_ColumnPropNameInTable="HV_GIOI_TINHColumn" msprop:Generator_UserColumnName="HV_GIOI_TINH" type="xs:string" minOccurs="0" />
+              <xs:element name="HV_DAN_TOC" msprop:Generator_ColumnVarNameInTable="columnHV_DAN_TOC" msprop:Generator_ColumnPropNameInRow="HV_DAN_TOC" msprop:Generator_ColumnPropNameInTable="HV_DAN_TOCColumn" msprop:Generator_UserColumnName="HV_DAN_TOC" type="xs:string" minOccurs="0" />
+              <xs:element name="HV_NGAY_SINH" msprop:Generator_ColumnVarNameInTable="columnHV_NGAY_SINH" msprop:Generator_ColumnPropNameInRow="HV_NGAY_SINH" msprop:Generator_ColumnPropNameInTable="HV_NGAY_SINHColumn" msprop:Generator_UserColumnName="HV_NGAY_SINH" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="HV_TON_GIAO" msprop:Generator_ColumnVarNameInTable="columnHV_TON_GIAO" msprop:Generator_ColumnPropNameInRow="HV_TON_GIAO" msprop:Generator_ColumnPropNameInTable="HV_TON_GIAOColumn" msprop:Generator_UserColumnName="HV_TON_GIAO" type="xs:string" minOccurs="0" />
+              <xs:element name="HV_NGHE_NGHIEP" msprop:Generator_ColumnVarNameInTable="columnHV_NGHE_NGHIEP" msprop:Generator_ColumnPropNameInRow="HV_NGHE_NGHIEP" msprop:Generator_ColumnPropNameInTable="HV_NGHE_NGHIEPColumn" msprop:Generator_UserColumnName="HV_NGHE_NGHIEP" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
