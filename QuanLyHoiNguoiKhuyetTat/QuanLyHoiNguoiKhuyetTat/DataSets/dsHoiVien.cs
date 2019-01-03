@@ -2,17 +2,16 @@
 {
 }
 
+
+
 namespace DauThau.DataSets
 {
 
 
-    public partial class dsHoiVien
+    partial class dsHoiVien
     {
-    }
-}
-namespace DauThau.DataSets {
-    
-    
-    public partial class dsHoiVien {
+        partial class HOI_VIENDataTable
+        {
+        }
     }
 }

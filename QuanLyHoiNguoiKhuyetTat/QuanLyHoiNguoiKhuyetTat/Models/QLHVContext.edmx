@@ -188,6 +188,7 @@
           </Key>
           <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_IMAGE" Type="image" />
           <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="10" />
           <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGAY_SINH" Type="date" />
@@ -255,7 +256,7 @@
           <Property Name="HV_CHAMSOC_BANTHAN" Type="nvarchar" MaxLength="50" />
           <Property Name="HV_HOTRO_BOI_NGUOIKHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_VIECLAM" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_THUNHAP" Type="int" />
+          <Property Name="HV_VIECLAM_THUNHAP" Type="int" />
           <Property Name="HV_TRE_DIHOC" Type="bit" />
           <Property Name="HV_NHUCAU" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THANHVIEN_HOI" Type="nvarchar" MaxLength="250" />
@@ -427,12 +428,12 @@
             <End Role="DM_TINH" EntitySet="DM_TINH" />
             <End Role="DM_XA" EntitySet="DM_XA" />
           </AssociationSet>
-          <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
           <EntitySet Name="DM_NOI_O_NHA" EntityType="QL_HOIVIEN_KTModel.DM_NOI_O_NHA" />
           <EntitySet Name="DM_CHAMSOC_BANTHAN" EntityType="QL_HOIVIEN_KTModel.DM_CHAMSOC_BANTHAN" />
           <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="QL_HOIVIEN_KTModel.DM_NOI_O_SONG_VOI" />
           <EntitySet Name="DM_NHUCAU" EntityType="QL_HOIVIEN_KTModel.DM_NHUCAU" />
           <EntitySet Name="DM_THANHVIEN_HOI" EntityType="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI" />
+          <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -551,12 +552,53 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="DM_NOI_O_NHA">
+          <Key>
+            <PropertyRef Name="NO_NHA_ID" />
+          </Key>
+          <Property Name="NO_NHA_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NO_NHA_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NO_NHA_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_CHAMSOC_BANTHAN">
+          <Key>
+            <PropertyRef Name="CSBT_ID" />
+          </Key>
+          <Property Name="CSBT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CSBT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CSBT_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_NOI_O_SONG_VOI">
+          <Key>
+            <PropertyRef Name="NOSV_ID" />
+          </Key>
+          <Property Name="NOSV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOSV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NOSV_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_NHUCAU">
+          <Key>
+            <PropertyRef Name="NC_ID" />
+          </Key>
+          <Property Name="NC_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NC_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NC_STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_THANHVIEN_HOI">
+          <Key>
+            <PropertyRef Name="TVH_ID" />
+          </Key>
+          <Property Name="TVH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TVH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TVH_STT" Type="Int32" />
+        </EntityType>
         <EntityType Name="QL_HOIVIEN">
           <Key>
             <PropertyRef Name="HV_ID" />
           </Key>
           <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
@@ -624,50 +666,10 @@
           <Property Name="HV_CHAMSOC_BANTHAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HV_HOTRO_BOI_NGUOIKHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_VIECLAM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUNHAP" Type="Int32" />
+          <Property Name="HV_VIECLAM_THUNHAP" Type="Int32" />
           <Property Name="HV_TRE_DIHOC" Type="Boolean" />
           <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="DM_NOI_O_NHA">
-          <Key>
-            <PropertyRef Name="NO_NHA_ID" />
-          </Key>
-          <Property Name="NO_NHA_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NO_NHA_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NO_NHA_STT" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DM_CHAMSOC_BANTHAN">
-          <Key>
-            <PropertyRef Name="CSBT_ID" />
-          </Key>
-          <Property Name="CSBT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CSBT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CSBT_STT" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DM_NOI_O_SONG_VOI">
-          <Key>
-            <PropertyRef Name="NOSV_ID" />
-          </Key>
-          <Property Name="NOSV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOSV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NOSV_STT" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DM_NHUCAU">
-          <Key>
-            <PropertyRef Name="NC_ID" />
-          </Key>
-          <Property Name="NC_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NC_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NC_STT" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DM_THANHVIEN_HOI">
-          <Key>
-            <PropertyRef Name="TVH_ID" />
-          </Key>
-          <Property Name="TVH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TVH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TVH_STT" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -828,13 +830,58 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DM_NOI_O_NHA">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NOI_O_NHA">
+              <MappingFragment StoreEntitySet="DM_NOI_O_NHA">
+                <ScalarProperty Name="NO_NHA_STT" ColumnName="NO_NHA_STT" />
+                <ScalarProperty Name="NO_NHA_TEN" ColumnName="NO_NHA_TEN" />
+                <ScalarProperty Name="NO_NHA_ID" ColumnName="NO_NHA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_CHAMSOC_BANTHAN">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_CHAMSOC_BANTHAN">
+              <MappingFragment StoreEntitySet="DM_CHAMSOC_BANTHAN">
+                <ScalarProperty Name="CSBT_STT" ColumnName="CSBT_STT" />
+                <ScalarProperty Name="CSBT_TEN" ColumnName="CSBT_TEN" />
+                <ScalarProperty Name="CSBT_ID" ColumnName="CSBT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NOI_O_SONG_VOI">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NOI_O_SONG_VOI">
+              <MappingFragment StoreEntitySet="DM_NOI_O_SONG_VOI">
+                <ScalarProperty Name="NOSV_STT" ColumnName="NOSV_STT" />
+                <ScalarProperty Name="NOSV_TEN" ColumnName="NOSV_TEN" />
+                <ScalarProperty Name="NOSV_ID" ColumnName="NOSV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NHUCAU">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NHUCAU">
+              <MappingFragment StoreEntitySet="DM_NHUCAU">
+                <ScalarProperty Name="NC_STT" ColumnName="NC_STT" />
+                <ScalarProperty Name="NC_TEN" ColumnName="NC_TEN" />
+                <ScalarProperty Name="NC_ID" ColumnName="NC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_THANHVIEN_HOI">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI">
+              <MappingFragment StoreEntitySet="DM_THANHVIEN_HOI">
+                <ScalarProperty Name="TVH_STT" ColumnName="TVH_STT" />
+                <ScalarProperty Name="TVH_TEN" ColumnName="TVH_TEN" />
+                <ScalarProperty Name="TVH_ID" ColumnName="TVH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="QL_HOIVIEN">
             <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN">
               <MappingFragment StoreEntitySet="QL_HOIVIEN">
                 <ScalarProperty Name="HV_THANHVIEN_HOI" ColumnName="HV_THANHVIEN_HOI" />
                 <ScalarProperty Name="HV_NHUCAU" ColumnName="HV_NHUCAU" />
                 <ScalarProperty Name="HV_TRE_DIHOC" ColumnName="HV_TRE_DIHOC" />
-                <ScalarProperty Name="HV_THUNHAP" ColumnName="HV_THUNHAP" />
+                <ScalarProperty Name="HV_VIECLAM_THUNHAP" ColumnName="HV_VIECLAM_THUNHAP" />
                 <ScalarProperty Name="HV_VIECLAM" ColumnName="HV_VIECLAM" />
                 <ScalarProperty Name="HV_HOTRO_BOI_NGUOIKHAC" ColumnName="HV_HOTRO_BOI_NGUOIKHAC" />
                 <ScalarProperty Name="HV_CHAMSOC_BANTHAN" ColumnName="HV_CHAMSOC_BANTHAN" />
@@ -902,53 +949,9 @@
                 <ScalarProperty Name="HV_NGAY_SINH" ColumnName="HV_NGAY_SINH" />
                 <ScalarProperty Name="HV_DAN_TOC" ColumnName="HV_DAN_TOC" />
                 <ScalarProperty Name="HV_GIOI_TINH" ColumnName="HV_GIOI_TINH" />
+                <ScalarProperty Name="HV_IMAGE" ColumnName="HV_IMAGE" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_NOI_O_NHA">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NOI_O_NHA">
-              <MappingFragment StoreEntitySet="DM_NOI_O_NHA">
-                <ScalarProperty Name="NO_NHA_STT" ColumnName="NO_NHA_STT" />
-                <ScalarProperty Name="NO_NHA_TEN" ColumnName="NO_NHA_TEN" />
-                <ScalarProperty Name="NO_NHA_ID" ColumnName="NO_NHA_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_CHAMSOC_BANTHAN">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_CHAMSOC_BANTHAN">
-              <MappingFragment StoreEntitySet="DM_CHAMSOC_BANTHAN">
-                <ScalarProperty Name="CSBT_STT" ColumnName="CSBT_STT" />
-                <ScalarProperty Name="CSBT_TEN" ColumnName="CSBT_TEN" />
-                <ScalarProperty Name="CSBT_ID" ColumnName="CSBT_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_NOI_O_SONG_VOI">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NOI_O_SONG_VOI">
-              <MappingFragment StoreEntitySet="DM_NOI_O_SONG_VOI">
-                <ScalarProperty Name="NOSV_STT" ColumnName="NOSV_STT" />
-                <ScalarProperty Name="NOSV_TEN" ColumnName="NOSV_TEN" />
-                <ScalarProperty Name="NOSV_ID" ColumnName="NOSV_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_NHUCAU">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NHUCAU">
-              <MappingFragment StoreEntitySet="DM_NHUCAU">
-                <ScalarProperty Name="NC_STT" ColumnName="NC_STT" />
-                <ScalarProperty Name="NC_TEN" ColumnName="NC_TEN" />
-                <ScalarProperty Name="NC_ID" ColumnName="NC_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_THANHVIEN_HOI">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI">
-              <MappingFragment StoreEntitySet="DM_THANHVIEN_HOI">
-                <ScalarProperty Name="TVH_STT" ColumnName="TVH_STT" />
-                <ScalarProperty Name="TVH_TEN" ColumnName="TVH_TEN" />
-                <ScalarProperty Name="TVH_ID" ColumnName="TVH_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

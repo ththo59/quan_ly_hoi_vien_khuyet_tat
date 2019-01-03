@@ -20,6 +20,8 @@ using System.Data.Entity;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
 using DevExpress.XtraGrid;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace DauThau.UserControlCategory
 {
@@ -243,6 +245,7 @@ namespace DauThau.UserControlCategory
 
                 //Thông tin cá nhân
                 txtHoTen.Text = item.HV_TEN;
+                pictureAvatar.Image = convertBinaryToImage(item.HV_IMAGE);
                 lueGioiTinh.EditValue = item.HV_GIOI_TINH;
                 lueDanToc.EditValue = item.HV_DAN_TOC;
                 deNgaySinh.EditValue = item.HV_NGAY_SINH;
@@ -327,17 +330,39 @@ namespace DauThau.UserControlCategory
 
                 //Nhu cau viec lam
                 txtCongViecDangLam.EditValue = item.HV_VIECLAM;
-                seThuNhapTB.EditValue = item.HV_THUNHAP;
+                seThuNhapTB.EditValue = item.HV_VIECLAM_THUNHAP;
                 chkTreDiHoc.EditValue = item.HV_TRE_DIHOC??false;
                 chkListNhuCau.Ex_SetEditValueToString(item.HV_NHUCAU);
                 chkListThanhVienHoi.Ex_SetEditValueToString(item.HV_THANHVIEN_HOI);
             }
         }
-        
+
+        byte[] convertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
+
+        Image convertBinaryToImage(byte[] data)
+        {
+            if(data == null)
+            {
+                return Properties.Resources.noavatar;
+            }
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
         private void _setObjectEntities(ref QL_HOIVIEN item)
         {
             //Thông tin cá nhân
             item.HV_TEN = txtHoTen.Text;
+            item.HV_IMAGE = convertImageToBinary(pictureAvatar.Image);
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
             item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();
@@ -424,7 +449,7 @@ namespace DauThau.UserControlCategory
 
             //Tab Nhu cầu - công việc
             item.HV_VIECLAM = txtCongViecDangLam.EditValue + string.Empty;
-            item.HV_THUNHAP = seThuNhapTB.Ex_EditValueToInt();
+            item.HV_VIECLAM_THUNHAP = seThuNhapTB.Ex_EditValueToInt();
             item.HV_TRE_DIHOC = Convert.ToBoolean(chkTreDiHoc.EditValue);
             item.HV_NHUCAU = chkListNhuCau.Ex_GetEditValueToString();
             item.HV_THANHVIEN_HOI = chkListThanhVienHoi.Ex_GetEditValueToString();
@@ -586,6 +611,17 @@ namespace DauThau.UserControlCategory
             DateEdit date = sender as DateEdit;
             DateTime? de = date.Ex_EditValueToDateTime();
             seTongThoiGianKT.EditValue = de.HasValue ? DateTime.Now.Date.Year - de.Value.Year : new Nullable<Int64>();
+        }
+
+       
+        private void btnChonHinh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog f = new OpenFileDialog();
+            f.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            if(f.ShowDialog() == DialogResult.OK)
+            {
+                pictureAvatar.Image = Image.FromFile(f.FileName);
+            }
         }
     }
 }

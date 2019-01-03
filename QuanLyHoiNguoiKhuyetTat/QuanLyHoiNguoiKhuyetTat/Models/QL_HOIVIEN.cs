@@ -16,6 +16,7 @@ namespace DauThau.Models
     {
         public long HV_ID { get; set; }
         public string HV_TEN { get; set; }
+        public byte[] HV_IMAGE { get; set; }
         public string HV_GIOI_TINH { get; set; }
         public string HV_DAN_TOC { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
@@ -83,7 +84,7 @@ namespace DauThau.Models
         public string HV_CHAMSOC_BANTHAN { get; set; }
         public string HV_HOTRO_BOI_NGUOIKHAC { get; set; }
         public string HV_VIECLAM { get; set; }
-        public Nullable<int> HV_THUNHAP { get; set; }
+        public Nullable<int> HV_VIECLAM_THUNHAP { get; set; }
         public Nullable<bool> HV_TRE_DIHOC { get; set; }
         public string HV_NHUCAU { get; set; }
         public string HV_THANHVIEN_HOI { get; set; }

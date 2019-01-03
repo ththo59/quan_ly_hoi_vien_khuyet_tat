@@ -1670,6 +1670,7 @@
       <DependentUpon>QLHVContext.edmx</DependentUpon>
       <LastGenOutput>QLHVContext.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\noavatar.png" />
     <Content Include="staff.ico" />
     <None Include="Resources\import_taichinh.png" />
     <None Include="Resources\create_key.png" />
