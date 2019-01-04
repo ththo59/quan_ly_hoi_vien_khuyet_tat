@@ -1,0 +1,4 @@
+Host: 112.78.2.118,1433
+Database name: vksn7904_QL_HOI_VIEN_NGUOI_KT
+User name: vksn7904_QL_HOI_VIEN_NGUOI_KT
+Password: aQL_HOI_VIEN_NGUOI_KT@123
