@@ -457,7 +457,7 @@
             this.btnControl.btnPrintIndex = 6;
             this.btnControl.btnReportIndex = 4;
             this.btnControl.btnSelectIndex = 3;
-            this.btnControl.btnSize = new System.Drawing.Size(75, 32);
+            this.btnControl.btnSize = new System.Drawing.Size(110, 32);
             this.btnControl.btnStyleGroup = ControlsLib.ButtonsArray.StyleGroupEnum.None;
             this.btnControl.btnViewIndex = 5;
             this.btnControl.btnWordIndex = 7;
@@ -478,7 +478,7 @@
             this.btnControl.ButtonPrintEnabled = true;
             this.btnControl.ButtonPrintVisible = true;
             this.btnControl.ButtonReportEnabled = true;
-            this.btnControl.ButtonReportVisible = false;
+            this.btnControl.ButtonReportVisible = true;
             this.btnControl.ButtonSaveEnabled = true;
             this.btnControl.ButtonSelectEnabled = true;
             this.btnControl.ButtonSelectVisible = false;
@@ -491,9 +491,9 @@
             this.btnControl.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnControl.FlatStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.btnControl.GroupBoxShow = false;
-            this.btnControl.Location = new System.Drawing.Point(440, 2);
+            this.btnControl.Location = new System.Drawing.Point(152, 2);
             this.btnControl.Name = "btnControl";
-            this.btnControl.Size = new System.Drawing.Size(411, 56);
+            this.btnControl.Size = new System.Drawing.Size(699, 56);
             this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
             this.btnControl.TabIndex = 0;
             // 

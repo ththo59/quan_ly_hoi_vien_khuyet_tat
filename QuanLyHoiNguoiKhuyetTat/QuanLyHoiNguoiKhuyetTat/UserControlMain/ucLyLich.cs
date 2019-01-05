@@ -36,7 +36,9 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             registerButtonArray(btnControl);
-
+            //btnControl.btnReport.Image = btnControl.btnPrint.Image;
+            btnControl.btnReport.Text = "Đơn xin nhập hội";
+            btnControl.btnPrint.Text = "In lý lịch";
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThuongTru_TP);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTamTru_TP);
@@ -107,7 +109,12 @@ namespace DauThau.UserControlCategory
                 }
                 else if (_formStatus == EnumFormStatus.PRINT)
                 {
-                    _doPrint();
+                    _doPrintInLyLich();
+                }
+                else if (_formStatus == EnumFormStatus.REPORT)
+                {
+                    //in đơn xin gia nhập hội
+                    _doPrintGiaNhapHoi();
                 }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {
@@ -143,6 +150,12 @@ namespace DauThau.UserControlCategory
                     foreach (var items in layout.Controls)
                     {
                         BaseEdit item = items as BaseEdit;
+                        SimpleButton button = items as SimpleButton;
+                        if(button != null)
+                        {
+                            button.Enabled = !readOnly;
+                            continue;
+                        }
                         if (item != null)
                         {
                             item.ReadOnly = readOnly;
@@ -487,7 +500,24 @@ namespace DauThau.UserControlCategory
             
         }
 
-        private void _doPrint()
+        private void _doPrintGiaNhapHoi()
+        {
+            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                clsMessage.MessageWarning("Vui lòng chọn dòng dữ liệu.");
+                return;
+            }
+            rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
+            Int64 hv_id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
+            var hoivien = (from p in context.QL_HOIVIEN where p.HV_ID == hv_id select p).ToList();
+            DataTable dt = FunctionHelper.ConvertToDataTable(hoivien);
+            dt.TableName = "HOI_VIEN";
+            frmPrint frm = new frmPrint(rpt);
+            rpt.DataSource = dt;
+            rpt.DataMember = "HOI_VIEN";
+            frm.ShowDialog();
+        }
+        private void _doPrintInLyLich()
         {
             if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
             {
