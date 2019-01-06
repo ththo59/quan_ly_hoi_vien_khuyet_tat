@@ -120,15 +120,25 @@
             // 
             // btnControl
             // 
+            this.btnControl.btnAddIndex = 0;
             this.btnControl.btnBackColor = System.Drawing.Color.Transparent;
+            this.btnControl.btnCloseIndex = 9;
+            this.btnControl.btnDeleteIndex = 2;
+            this.btnControl.btnExcelIndex = 8;
+            this.btnControl.btnModifyIndex = 1;
+            this.btnControl.btnPrintIndex = 6;
+            this.btnControl.btnReportIndex = 4;
+            this.btnControl.btnSelectIndex = 3;
             this.btnControl.btnSize = new System.Drawing.Size(75, 36);
             this.btnControl.btnStyleGroup = ControlsLib.ButtonsArray.StyleGroupEnum.None;
+            this.btnControl.btnViewIndex = 5;
+            this.btnControl.btnWordIndex = 7;
             this.btnControl.ButtonAddEnabled = true;
             this.btnControl.ButtonAddVisible = false;
             this.btnControl.ButtonBackgroundImage = null;
             this.btnControl.ButtonCancelEnabled = true;
             this.btnControl.ButtonCloseEnabled = true;
-            this.btnControl.ButtonCloseVisible = false;
+            this.btnControl.ButtonCloseVisible = true;
             this.btnControl.ButtonDeleteEnabled = true;
             this.btnControl.ButtonDeleteVisible = false;
             this.btnControl.ButtonExcelEnabled = true;
@@ -153,12 +163,11 @@
             this.btnControl.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnControl.FlatStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.btnControl.GroupBoxShow = false;
-            this.btnControl.Location = new System.Drawing.Point(593, 0);
+            this.btnControl.Location = new System.Drawing.Point(515, 0);
             this.btnControl.Name = "btnControl";
-            this.btnControl.Size = new System.Drawing.Size(99, 60);
+            this.btnControl.Size = new System.Drawing.Size(177, 60);
             this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
             this.btnControl.TabIndex = 0;
-            this.btnControl.btnEventPrint_Click += new System.EventHandler(this.btnControl_btnEventPrint_Click);
             // 
             // printBarManager1
             // 
@@ -438,7 +447,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.printPreviewRepositoryItemComboBox1.DropDownRows = 11;
             this.printPreviewRepositoryItemComboBox1.Name = "printPreviewRepositoryItemComboBox1";
-            this.printPreviewRepositoryItemComboBox1.UseParentBackground = true;
             // 
             // printPreviewBarItem16
             // 
@@ -605,7 +613,6 @@
             // repositoryItemProgressBar1
             // 
             this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
-            this.repositoryItemProgressBar1.UseParentBackground = true;
             // 
             // printPreviewBarItem1
             // 
@@ -655,9 +662,9 @@
             this.repositoryItemZoomTrackBar1.AllowFocused = false;
             this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.repositoryItemZoomTrackBar1.Maximum = 180;
+            this.repositoryItemZoomTrackBar1.Middle = 5;
             this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
             this.repositoryItemZoomTrackBar1.ScrollThumbStyle = DevExpress.XtraEditors.Repository.ScrollThumbStyle.ArrowDownRight;
-            this.repositoryItemZoomTrackBar1.UseParentBackground = true;
             // 
             // barDockControlTop
             // 
@@ -931,15 +938,12 @@
             // 
             // printControl
             // 
-            this.printControl.BackColor = System.Drawing.Color.Empty;
             this.printControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.printControl.ForeColor = System.Drawing.Color.Empty;
             this.printControl.IsMetric = false;
             this.printControl.Location = new System.Drawing.Point(0, 25);
             this.printControl.Name = "printControl";
             this.printControl.Size = new System.Drawing.Size(692, 394);
             this.printControl.TabIndex = 25;
-            this.printControl.TooltipFont = new System.Drawing.Font("Tahoma", 8.25F);
             // 
             // ucPrint
             // 

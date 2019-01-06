@@ -21,14 +21,15 @@ namespace DauThau.Reports
             string quan = GetCurrentColumnValue("HV_THUONGTRU_QUAN") + string.Empty;
             string tp = GetCurrentColumnValue("HV_THUONGTRU_TP") + string.Empty;
             string diachi = "";
-            if(duong != "")
-            {
-                diachi += duong;
-            }
             if (khuvuc != "")
             {
                 diachi += khuvuc + ", ";
             }
+            if (duong != "")
+            {
+                diachi += duong + ", ";
+            }
+           
             if (phuong != "")
             {
                 diachi += phuong + ", ";

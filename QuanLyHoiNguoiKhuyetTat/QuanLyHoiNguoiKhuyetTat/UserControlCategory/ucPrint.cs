@@ -12,7 +12,7 @@ using System.Diagnostics;
 using DauThau.Class;
 namespace DauThau.UserControlCategory
 {
-    public partial class ucPrint : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucPrint : ucBase
     {
         XtraReport rpt = new XtraReport();
         public ucPrint(XtraReport _rpt)
@@ -24,6 +24,7 @@ namespace DauThau.UserControlCategory
         private void ucPrint_Load(object sender, EventArgs e)
         {
             LibraryDev.PermissionButton(btnControl, previewBar1);
+            registerButtonArray(btnControl);
             printControl.PrintingSystem = rpt.PrintingSystem;
             rpt.CreateDocument(true);
         }
@@ -43,15 +44,27 @@ namespace DauThau.UserControlCategory
             }
         }
 
-        private void btnControl_btnEventPrint_Click(object sender, EventArgs e)
+        protected override EnumFormStatus FormStatus
         {
-            try
+            get { return _formStatus; }
+            set
             {
-                rpt.Print();
-            }
-            catch (Exception)
-            {
+                _formStatus = value;
+                if (_formStatus == EnumFormStatus.PRINT)
+                {
+                    try
+                    {
+                        rpt.Print();
+                    }
+                    catch (Exception)
+                    {
 
+                    }
+                }else if(_formStatus == EnumFormStatus.CLOSE)
+                {
+                    this.closeTab();
+                }
+               
             }
         }
     }

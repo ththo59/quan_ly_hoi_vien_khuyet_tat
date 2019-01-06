@@ -329,7 +329,9 @@ namespace DauThau.DataSets {
             
             private global::System.Data.DataColumn columnHV_EMAIL;
             
-            private global::System.Data.DataColumn columnHV_DIACHI_COQUAN;
+            private global::System.Data.DataColumn columnHV_COQUAN;
+            
+            private global::System.Data.DataColumn columnHV_COQUAN_DIACHI;
             
             private global::System.Data.DataColumn columnHV_KT_TINHTRANG;
             
@@ -658,9 +660,17 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HV_DIACHI_COQUANColumn {
+            public global::System.Data.DataColumn HV_COQUANColumn {
                 get {
-                    return this.columnHV_DIACHI_COQUAN;
+                    return this.columnHV_COQUAN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HV_COQUAN_DIACHIColumn {
+                get {
+                    return this.columnHV_COQUAN_DIACHI;
                 }
             }
             
@@ -1095,7 +1105,8 @@ namespace DauThau.DataSets {
                         string HV_TAMTRU_TP, 
                         string HV_DIENTHOAI, 
                         string HV_EMAIL, 
-                        string HV_DIACHI_COQUAN, 
+                        string HV_COQUAN, 
+                        string HV_COQUAN_DIACHI, 
                         string HV_KT_TINHTRANG, 
                         string HV_KT_TINHTRANG_CHITIET, 
                         string HV_KT_KHAC, 
@@ -1169,7 +1180,8 @@ namespace DauThau.DataSets {
                         HV_TAMTRU_TP,
                         HV_DIENTHOAI,
                         HV_EMAIL,
-                        HV_DIACHI_COQUAN,
+                        HV_COQUAN,
+                        HV_COQUAN_DIACHI,
                         HV_KT_TINHTRANG,
                         HV_KT_TINHTRANG_CHITIET,
                         HV_KT_KHAC,
@@ -1263,7 +1275,8 @@ namespace DauThau.DataSets {
                 this.columnHV_TAMTRU_TP = base.Columns["HV_TAMTRU_TP"];
                 this.columnHV_DIENTHOAI = base.Columns["HV_DIENTHOAI"];
                 this.columnHV_EMAIL = base.Columns["HV_EMAIL"];
-                this.columnHV_DIACHI_COQUAN = base.Columns["HV_DIACHI_COQUAN"];
+                this.columnHV_COQUAN = base.Columns["HV_COQUAN"];
+                this.columnHV_COQUAN_DIACHI = base.Columns["HV_COQUAN_DIACHI"];
                 this.columnHV_KT_TINHTRANG = base.Columns["HV_KT_TINHTRANG"];
                 this.columnHV_KT_TINHTRANG_CHITIET = base.Columns["HV_KT_TINHTRANG_CHITIET"];
                 this.columnHV_KT_KHAC = base.Columns["HV_KT_KHAC"];
@@ -1365,8 +1378,10 @@ namespace DauThau.DataSets {
                 base.Columns.Add(this.columnHV_DIENTHOAI);
                 this.columnHV_EMAIL = new global::System.Data.DataColumn("HV_EMAIL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_EMAIL);
-                this.columnHV_DIACHI_COQUAN = new global::System.Data.DataColumn("HV_DIACHI_COQUAN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHV_DIACHI_COQUAN);
+                this.columnHV_COQUAN = new global::System.Data.DataColumn("HV_COQUAN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_COQUAN);
+                this.columnHV_COQUAN_DIACHI = new global::System.Data.DataColumn("HV_COQUAN_DIACHI", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_COQUAN_DIACHI);
                 this.columnHV_KT_TINHTRANG = new global::System.Data.DataColumn("HV_KT_TINHTRANG", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_KT_TINHTRANG);
                 this.columnHV_KT_TINHTRANG_CHITIET = new global::System.Data.DataColumn("HV_KT_TINHTRANG_CHITIET", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2001,17 +2016,33 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HV_DIACHI_COQUAN {
+            public string HV_COQUAN {
                 get {
                     try {
-                        return ((string)(this[this.tableHOI_VIEN.HV_DIACHI_COQUANColumn]));
+                        return ((string)(this[this.tableHOI_VIEN.HV_COQUANColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HV_DIACHI_COQUAN\' in table \'HOI_VIEN\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_COQUAN\' in table \'HOI_VIEN\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableHOI_VIEN.HV_DIACHI_COQUANColumn] = value;
+                    this[this.tableHOI_VIEN.HV_COQUANColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HV_COQUAN_DIACHI {
+                get {
+                    try {
+                        return ((string)(this[this.tableHOI_VIEN.HV_COQUAN_DIACHIColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_COQUAN_DIACHI\' in table \'HOI_VIEN\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHOI_VIEN.HV_COQUAN_DIACHIColumn] = value;
                 }
             }
             
@@ -3053,14 +3084,26 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHV_DIACHI_COQUANNull() {
-                return this.IsNull(this.tableHOI_VIEN.HV_DIACHI_COQUANColumn);
+            public bool IsHV_COQUANNull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_COQUANColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHV_DIACHI_COQUANNull() {
-                this[this.tableHOI_VIEN.HV_DIACHI_COQUANColumn] = global::System.Convert.DBNull;
+            public void SetHV_COQUANNull() {
+                this[this.tableHOI_VIEN.HV_COQUANColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHV_COQUAN_DIACHINull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_COQUAN_DIACHIColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHV_COQUAN_DIACHINull() {
+                this[this.tableHOI_VIEN.HV_COQUAN_DIACHIColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

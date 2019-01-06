@@ -41,7 +41,8 @@ namespace DauThau.Models
         public string HV_TAMTRU_TP { get; set; }
         public string HV_DIENTHOAI { get; set; }
         public string HV_EMAIL { get; set; }
-        public string HV_DIACHI_COQUAN { get; set; }
+        public string HV_COQUAN { get; set; }
+        public string HV_COQUAN_DIACHI { get; set; }
         public string HV_KT_TINHTRANG { get; set; }
         public string HV_KT_TINHTRANG_CHITIET { get; set; }
         public string HV_KT_KHAC { get; set; }

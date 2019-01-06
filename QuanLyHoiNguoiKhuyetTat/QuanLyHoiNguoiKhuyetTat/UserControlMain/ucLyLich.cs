@@ -286,7 +286,8 @@ namespace DauThau.UserControlCategory
 
                 txtDienThoai.Text = item.HV_DIENTHOAI;
                 txtEmail.Text = item.HV_EMAIL;
-                txtDiaChiCoQuan.Text = item.HV_DIACHI_COQUAN;
+                txtCoQuan.Text = item.HV_COQUAN;
+                txtDiaChiCoQuan.Text = item.HV_COQUAN_DIACHI;
 
                 //Tab sức khỏe - hôn nhân
                 lueTinhTrangKT.EditValue = item.HV_KT_TINHTRANG;
@@ -354,7 +355,10 @@ namespace DauThau.UserControlCategory
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                //img.Save(ms, ImageFormat.Jpeg);
+                //return ms.ToArray();
+                Bitmap bmp = new Bitmap(img);
+                bmp.Save(ms, ImageFormat.Jpeg);
                 return ms.ToArray();
             }
         }
@@ -405,7 +409,8 @@ namespace DauThau.UserControlCategory
 
             item.HV_DIENTHOAI = txtDienThoai.Text;
             item.HV_EMAIL = txtEmail.Text;
-            item.HV_DIACHI_COQUAN = txtDiaChiCoQuan.Text;
+            item.HV_COQUAN = txtCoQuan.Text;
+            item.HV_COQUAN_DIACHI = txtDiaChiCoQuan.Text;
 
             //Tab sức khỏe
             item.HV_KT_TINHTRANG = lueTinhTrangKT.EditValue + string.Empty;

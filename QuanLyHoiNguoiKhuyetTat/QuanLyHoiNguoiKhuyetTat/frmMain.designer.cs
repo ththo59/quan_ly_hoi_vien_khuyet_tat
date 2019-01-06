@@ -292,7 +292,6 @@
             this.btnDonGiaNhapHoi.Name = "btnDonGiaNhapHoi";
             this.btnDonGiaNhapHoi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnDonGiaNhapHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDonGiaNhapHoi_ItemClick);
             // 
             // barTinhNangKT
             // 
@@ -546,7 +545,6 @@
             this.btnBMLyLich.Name = "btnBMLyLich";
             this.btnBMLyLich.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnBMLyLich.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBMLyLich_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -1187,9 +1185,9 @@
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
+            this.ribbonPageGroup5,
             this.ribbonPageGroup10,
             this.ribbonPageGroup12,
-            this.ribbonPageGroup5,
             this.ribbonPageGroup3});
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "Quản lý";
