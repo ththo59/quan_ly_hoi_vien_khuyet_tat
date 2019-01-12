@@ -14,6 +14,13 @@ namespace DauThau.Models
     
     public partial class QL_HOIVIEN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QL_HOIVIEN()
+        {
+            this.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET = new HashSet<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET>();
+            this.QL_HOATDONG_VAYVON_CHITIET = new HashSet<QL_HOATDONG_VAYVON_CHITIET>();
+        }
+    
         public long HV_ID { get; set; }
         public string HV_TEN { get; set; }
         public byte[] HV_IMAGE { get; set; }
@@ -89,5 +96,10 @@ namespace DauThau.Models
         public Nullable<bool> HV_TRE_DIHOC { get; set; }
         public string HV_NHUCAU { get; set; }
         public string HV_THANHVIEN_HOI { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET> QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_VAYVON_CHITIET> QL_HOATDONG_VAYVON_CHITIET { get; set; }
     }
 }

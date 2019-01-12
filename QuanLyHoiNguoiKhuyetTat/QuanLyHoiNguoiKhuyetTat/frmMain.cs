@@ -94,8 +94,8 @@ namespace DauThau
                     case "btnLyLich":
                         uc = new ucLyLich();
                         break;
-                    case "btnHoatDongHoiThaoASXH":
-                        uc = new ucHoatDongHoiThaoTapHuan();
+                    case "btnTapHuan":
+                        uc = new ucHoatDongTapHuan();
                         break;
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
@@ -105,6 +105,13 @@ namespace DauThau
                         rptBM_LyLichHoiVien rpt2 = new rptBM_LyLichHoiVien();
                         uc = new ucPrint(rpt2);
                         break;
+
+                     #region Báo cáo
+                     case "btnBCLyLich":
+                        uc = new ucBCLyLich();
+                     break;
+                    #endregion
+
                     default:
                         clsMessage.MessageWarning("Vui lòng cấu hình link...");
                         return;
@@ -187,11 +194,6 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucDmXa(), "ucDmXa", "Phường, xã");
         }
 
-        private void btnBCLyLich_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            clsAddTab.AddTabControl(TabControlParent, new ucBCLyLich(), "ucBCLyLich", "In lý lịch hội viên");
-        }
-
         private void btnBCLyLichTheoDieuKien_ItemClick(object sender, ItemClickEventArgs e)
         {
             clsAddTab.AddTabControl(TabControlParent, new ucBCTheoNhieuDieuKien(), "ucBCTheoNhieuDieuKien", "Báo cáo Lý lịch hội viên theo điều kiện");
@@ -206,7 +208,5 @@ namespace DauThau
         {
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
-
-        
     }
 }

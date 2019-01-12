@@ -182,6 +182,104 @@
           <Property Name="XA_DIENGIAI" Type="nvarchar" MaxLength="250" />
           <Property Name="XA_STT" Type="int" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_DAYNGHE">
+          <Key>
+            <PropertyRef Name="DN_ID" />
+          </Key>
+          <Property Name="DN_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DN_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DN_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="DN_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="DN_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="DN_THAMGIA_SOLUONG" Type="int" />
+          <Property Name="DN_SOTIEN_HOTRO" Type="int" />
+          <Property Name="DN_HOTRO_HOTEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DN_HOTRO_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DN_HOTRO_DIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="DN_HOTRO_THULAO" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_GIAIQUYET_VIECLAM">
+          <Key>
+            <PropertyRef Name="GQVL_ID" />
+          </Key>
+          <Property Name="GQVL_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GQVL_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="GQVL_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="GQVL_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="GQVL_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="GQVL_THAMGIA_SOLUONG" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+          <Key>
+            <PropertyRef Name="GQVL_CT_ID" />
+          </Key>
+          <Property Name="GQVL_CT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GQVL_ID" Type="bigint" />
+          <Property Name="HV_ID" Type="bigint" />
+          <Property Name="GQVL_CT_THU_NHAP" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_HOITHAO">
+          <Key>
+            <PropertyRef Name="HT_ID" />
+          </Key>
+          <Property Name="HT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HT_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HT_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="HT_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="HT_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="HT_THAMGIA_SOLUONG" Type="int" />
+          <Property Name="HT_SOTIEN_HOTRO" Type="int" />
+          <Property Name="HT_HOTRO_HOTEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HT_HOTRO_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="HT_HOTRO_DIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="HT_HOTRO_THULAO" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_TAPHUAN">
+          <Key>
+            <PropertyRef Name="TH_ID" />
+          </Key>
+          <Property Name="TH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="TH_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="TH_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_THAMGIA_SOLUONG" Type="int" />
+          <Property Name="TH_SOTIEN_HOTRO" Type="int" />
+          <Property Name="TH_GIANGVIEN_HOTEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_GIANGVIEN_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_GIANGVIEN_DIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="TH_GIANGVIEN_THULAO" Type="int" />
+          <Property Name="TH_GIANGVIEN_CHIPHI_KHAC" Type="nvarchar" MaxLength="350" />
+          <Property Name="TH_GIANGVIEN_HOTEN2" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_GIANGVIEN_DIACHI2" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_GIANGVIEN_DIENTHOAI2" Type="nvarchar" MaxLength="50" />
+          <Property Name="TH_GIANGVIEN_THULAO2" Type="int" />
+          <Property Name="TH_GIANGVIEN_CHIPHI_KHAC2" Type="nvarchar" MaxLength="350" />
+          <Property Name="TH_HOTRO_HOTEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_HOTRO_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_HOTRO_DIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="TH_HOTRO_THULAO" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_VAYVON">
+          <Key>
+            <PropertyRef Name="VV_ID" />
+          </Key>
+          <Property Name="VV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="VV_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="VV_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="VV_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="VV_THAMGIA_SOLUONG" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_VAYVON_CHITIET">
+          <Key>
+            <PropertyRef Name="VV_CT_ID" />
+          </Key>
+          <Property Name="VV_CT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VV_ID" Type="bigint" />
+          <Property Name="HV_ID" Type="bigint" />
+          <Property Name="SOTIEN" Type="int" />
+        </EntityType>
         <EntityType Name="QL_HOIVIEN">
           <Key>
             <PropertyRef Name="HV_ID" />
@@ -298,6 +396,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM">
+          <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM" Type="Self.QL_HOATDONG_GIAIQUYET_VIECLAM" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Type="Self.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_GIAIQUYET_VIECLAM">
+              <PropertyRef Name="GQVL_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+              <PropertyRef Name="GQVL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN">
+          <End Role="QL_HOIVIEN" Type="Self.QL_HOIVIEN" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Type="Self.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
+          <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM" Type="Self.QL_HOATDONG_GIAIQUYET_VIECLAM" Multiplicity="1" />
+          <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM1" Type="Self.QL_HOATDONG_GIAIQUYET_VIECLAM" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_GIAIQUYET_VIECLAM">
+              <PropertyRef Name="GQVL_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_GIAIQUYET_VIECLAM1">
+              <PropertyRef Name="GQVL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON">
+          <End Role="QL_HOATDONG_VAYVON" Type="Self.QL_HOATDONG_VAYVON" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_VAYVON_CHITIET" Type="Self.QL_HOATDONG_VAYVON_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_VAYVON">
+              <PropertyRef Name="VV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VAYVON_CHITIET">
+              <PropertyRef Name="VV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN">
+          <End Role="QL_HOIVIEN" Type="Self.QL_HOIVIEN" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_VAYVON_CHITIET" Type="Self.QL_HOATDONG_VAYVON_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VAYVON_CHITIET">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QL_HOIVIEN_KTModelStoreContainer">
           <EntitySet Name="DM_CHAMSOC_BANTHAN" EntityType="Self.DM_CHAMSOC_BANTHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCVU_HOI" EntityType="Self.DM_CHUCVU_HOI" Schema="dbo" store:Type="Tables" />
@@ -320,6 +478,13 @@
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="Self.QL_HOATDONG_DAYNGHE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM" EntityType="Self.QL_HOATDONG_GIAIQUYET_VIECLAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntityType="Self.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="Self.QL_HOATDONG_HOITHAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="Self.QL_HOATDONG_TAPHUAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="Self.QL_HOATDONG_VAYVON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_VAYVON_CHITIET" EntityType="Self.QL_HOATDONG_VAYVON_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN" EntityType="Self.QL_HOIVIEN" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
             <End Role="DM_TINH" EntitySet="DM_TINH" />
@@ -332,6 +497,26 @@
           <AssociationSet Name="FK_DM_XA_DM_TINH" Association="Self.FK_DM_XA_DM_TINH">
             <End Role="DM_TINH" EntitySet="DM_TINH" />
             <End Role="DM_XA" EntitySet="DM_XA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="Self.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM">
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN" Association="Self.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="Self.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM1" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON" Association="Self.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON">
+            <End Role="QL_HOATDONG_VAYVON" EntitySet="QL_HOATDONG_VAYVON" />
+            <End Role="QL_HOATDONG_VAYVON_CHITIET" EntitySet="QL_HOATDONG_VAYVON_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN" Association="Self.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOATDONG_VAYVON_CHITIET" EntitySet="QL_HOATDONG_VAYVON_CHITIET" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -435,6 +620,33 @@
           <EntitySet Name="DM_NHUCAU" EntityType="QL_HOIVIEN_KTModel.DM_NHUCAU" />
           <EntitySet Name="DM_THANHVIEN_HOI" EntityType="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI" />
           <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
+          <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" />
+          <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM" />
+          <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" />
+          <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" />
+          <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" />
+          <EntitySet Name="QL_HOATDONG_VAYVON_CHITIET" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_CHITIET" />
+          <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM">
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM1" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON">
+            <End Role="QL_HOATDONG_VAYVON" EntitySet="QL_HOATDONG_VAYVON" />
+            <End Role="QL_HOATDONG_VAYVON_CHITIET" EntitySet="QL_HOATDONG_VAYVON_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOATDONG_VAYVON_CHITIET" EntitySet="QL_HOATDONG_VAYVON_CHITIET" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -672,7 +884,175 @@
           <Property Name="HV_TRE_DIHOC" Type="Boolean" />
           <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          <NavigationProperty Name="QL_HOATDONG_VAYVON_CHITIET" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOATDONG_VAYVON_CHITIET" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_DAYNGHE">
+          <Key>
+            <PropertyRef Name="DN_ID" />
+          </Key>
+          <Property Name="DN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DN_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="DN_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="DN_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_THAMGIA_SOLUONG" Type="Int32" />
+          <Property Name="DN_SOTIEN_HOTRO" Type="Int32" />
+          <Property Name="DN_HOTRO_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_HOTRO_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_HOTRO_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DN_HOTRO_THULAO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_GIAIQUYET_VIECLAM">
+          <Key>
+            <PropertyRef Name="GQVL_ID" />
+          </Key>
+          <Property Name="GQVL_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GQVL_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GQVL_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="GQVL_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="GQVL_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GQVL_THAMGIA_SOLUONG" Type="Int32" />
+          <NavigationProperty Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_GIAIQUYET_VIECLAM" ToRole="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" />
+          <NavigationProperty Name="QL_HOATDONG_GIAIQUYET_VIECLAM1" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_GIAIQUYET_VIECLAM" ToRole="QL_HOATDONG_GIAIQUYET_VIECLAM1" />
+          <NavigationProperty Name="QL_HOATDONG_GIAIQUYET_VIECLAM2" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_GIAIQUYET_VIECLAM1" ToRole="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+          <Key>
+            <PropertyRef Name="GQVL_CT_ID" />
+          </Key>
+          <Property Name="GQVL_CT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GQVL_ID" Type="Int64" />
+          <Property Name="HV_ID" Type="Int64" />
+          <Property Name="GQVL_CT_THU_NHAP" Type="Int32" />
+          <NavigationProperty Name="QL_HOATDONG_GIAIQUYET_VIECLAM" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" ToRole="QL_HOATDONG_GIAIQUYET_VIECLAM" />
+          <NavigationProperty Name="QL_HOIVIEN" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN" FromRole="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" ToRole="QL_HOIVIEN" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_HOITHAO">
+          <Key>
+            <PropertyRef Name="HT_ID" />
+          </Key>
+          <Property Name="HT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HT_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="HT_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="HT_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HT_THAMGIA_SOLUONG" Type="Int32" />
+          <Property Name="HT_SOTIEN_HOTRO" Type="Int32" />
+          <Property Name="HT_HOTRO_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HT_HOTRO_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HT_HOTRO_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HT_HOTRO_THULAO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_TAPHUAN">
+          <Key>
+            <PropertyRef Name="TH_ID" />
+          </Key>
+          <Property Name="TH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="TH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="TH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_THAMGIA_SOLUONG" Type="Int32" />
+          <Property Name="TH_SOTIEN_HOTRO" Type="Int32" />
+          <Property Name="TH_GIANGVIEN_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_THULAO" Type="Int32" />
+          <Property Name="TH_GIANGVIEN_CHIPHI_KHAC" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_HOTEN2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_DIACHI2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_DIENTHOAI2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_THULAO2" Type="Int32" />
+          <Property Name="TH_GIANGVIEN_CHIPHI_KHAC2" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="TH_HOTRO_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_HOTRO_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_HOTRO_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TH_HOTRO_THULAO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_VAYVON">
+          <Key>
+            <PropertyRef Name="VV_ID" />
+          </Key>
+          <Property Name="VV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VV_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VV_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="VV_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="VV_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VV_THAMGIA_SOLUONG" Type="Int32" />
+          <NavigationProperty Name="QL_HOATDONG_VAYVON_CHITIET" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON" FromRole="QL_HOATDONG_VAYVON" ToRole="QL_HOATDONG_VAYVON_CHITIET" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_VAYVON_CHITIET">
+          <Key>
+            <PropertyRef Name="VV_CT_ID" />
+          </Key>
+          <Property Name="VV_CT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VV_ID" Type="Int64" />
+          <Property Name="HV_ID" Type="Int64" />
+          <Property Name="SOTIEN" Type="Int32" />
+          <NavigationProperty Name="QL_HOATDONG_VAYVON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON" FromRole="QL_HOATDONG_VAYVON_CHITIET" ToRole="QL_HOATDONG_VAYVON" />
+          <NavigationProperty Name="QL_HOIVIEN" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN" FromRole="QL_HOATDONG_VAYVON_CHITIET" ToRole="QL_HOIVIEN" />
+        </EntityType>
+        <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM" Role="QL_HOATDONG_GIAIQUYET_VIECLAM" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_GIAIQUYET_VIECLAM">
+              <PropertyRef Name="GQVL_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+              <PropertyRef Name="GQVL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM" Role="QL_HOATDONG_GIAIQUYET_VIECLAM" Multiplicity="1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM" Role="QL_HOATDONG_GIAIQUYET_VIECLAM1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_GIAIQUYET_VIECLAM">
+              <PropertyRef Name="GQVL_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_GIAIQUYET_VIECLAM1">
+              <PropertyRef Name="GQVL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Role="QL_HOATDONG_VAYVON" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_CHITIET" Role="QL_HOATDONG_VAYVON_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_VAYVON">
+              <PropertyRef Name="VV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VAYVON_CHITIET">
+              <PropertyRef Name="VV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_CHITIET" Role="QL_HOATDONG_VAYVON_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VAYVON_CHITIET">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -955,6 +1335,111 @@
                 <ScalarProperty Name="HV_IMAGE" ColumnName="HV_IMAGE" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_DAYNGHE">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_DAYNGHE">
+                <ScalarProperty Name="DN_HOTRO_THULAO" ColumnName="DN_HOTRO_THULAO" />
+                <ScalarProperty Name="DN_HOTRO_DIENTHOAI" ColumnName="DN_HOTRO_DIENTHOAI" />
+                <ScalarProperty Name="DN_HOTRO_DIACHI" ColumnName="DN_HOTRO_DIACHI" />
+                <ScalarProperty Name="DN_HOTRO_HOTEN" ColumnName="DN_HOTRO_HOTEN" />
+                <ScalarProperty Name="DN_SOTIEN_HOTRO" ColumnName="DN_SOTIEN_HOTRO" />
+                <ScalarProperty Name="DN_THAMGIA_SOLUONG" ColumnName="DN_THAMGIA_SOLUONG" />
+                <ScalarProperty Name="DN_DIADIEM" ColumnName="DN_DIADIEM" />
+                <ScalarProperty Name="DN_THOIGIAN_KETTHUC" ColumnName="DN_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="DN_THOIGIAN_BATDAU" ColumnName="DN_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="DN_TEN" ColumnName="DN_TEN" />
+                <ScalarProperty Name="DN_ID" ColumnName="DN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_GIAIQUYET_VIECLAM">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM">
+                <ScalarProperty Name="GQVL_THAMGIA_SOLUONG" ColumnName="GQVL_THAMGIA_SOLUONG" />
+                <ScalarProperty Name="GQVL_DIADIEM" ColumnName="GQVL_DIADIEM" />
+                <ScalarProperty Name="GQVL_THOIGIAN_KETTHUC" ColumnName="GQVL_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="GQVL_THOIGIAN_BATDAU" ColumnName="GQVL_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="GQVL_TEN" ColumnName="GQVL_TEN" />
+                <ScalarProperty Name="GQVL_ID" ColumnName="GQVL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET">
+                <ScalarProperty Name="GQVL_CT_THU_NHAP" ColumnName="GQVL_CT_THU_NHAP" />
+                <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+                <ScalarProperty Name="GQVL_ID" ColumnName="GQVL_ID" />
+                <ScalarProperty Name="GQVL_CT_ID" ColumnName="GQVL_CT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_HOITHAO">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_HOITHAO">
+                <ScalarProperty Name="HT_HOTRO_THULAO" ColumnName="HT_HOTRO_THULAO" />
+                <ScalarProperty Name="HT_HOTRO_DIENTHOAI" ColumnName="HT_HOTRO_DIENTHOAI" />
+                <ScalarProperty Name="HT_HOTRO_DIACHI" ColumnName="HT_HOTRO_DIACHI" />
+                <ScalarProperty Name="HT_HOTRO_HOTEN" ColumnName="HT_HOTRO_HOTEN" />
+                <ScalarProperty Name="HT_SOTIEN_HOTRO" ColumnName="HT_SOTIEN_HOTRO" />
+                <ScalarProperty Name="HT_THAMGIA_SOLUONG" ColumnName="HT_THAMGIA_SOLUONG" />
+                <ScalarProperty Name="HT_DIADIEM" ColumnName="HT_DIADIEM" />
+                <ScalarProperty Name="HT_THOIGIAN_KETTHUC" ColumnName="HT_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="HT_THOIGIAN_BATDAU" ColumnName="HT_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="HT_TEN" ColumnName="HT_TEN" />
+                <ScalarProperty Name="HT_ID" ColumnName="HT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN">
+                <ScalarProperty Name="TH_HOTRO_THULAO" ColumnName="TH_HOTRO_THULAO" />
+                <ScalarProperty Name="TH_HOTRO_DIENTHOAI" ColumnName="TH_HOTRO_DIENTHOAI" />
+                <ScalarProperty Name="TH_HOTRO_DIACHI" ColumnName="TH_HOTRO_DIACHI" />
+                <ScalarProperty Name="TH_HOTRO_HOTEN" ColumnName="TH_HOTRO_HOTEN" />
+                <ScalarProperty Name="TH_GIANGVIEN_CHIPHI_KHAC2" ColumnName="TH_GIANGVIEN_CHIPHI_KHAC2" />
+                <ScalarProperty Name="TH_GIANGVIEN_THULAO2" ColumnName="TH_GIANGVIEN_THULAO2" />
+                <ScalarProperty Name="TH_GIANGVIEN_DIENTHOAI2" ColumnName="TH_GIANGVIEN_DIENTHOAI2" />
+                <ScalarProperty Name="TH_GIANGVIEN_DIACHI2" ColumnName="TH_GIANGVIEN_DIACHI2" />
+                <ScalarProperty Name="TH_GIANGVIEN_HOTEN2" ColumnName="TH_GIANGVIEN_HOTEN2" />
+                <ScalarProperty Name="TH_GIANGVIEN_CHIPHI_KHAC" ColumnName="TH_GIANGVIEN_CHIPHI_KHAC" />
+                <ScalarProperty Name="TH_GIANGVIEN_THULAO" ColumnName="TH_GIANGVIEN_THULAO" />
+                <ScalarProperty Name="TH_GIANGVIEN_DIENTHOAI" ColumnName="TH_GIANGVIEN_DIENTHOAI" />
+                <ScalarProperty Name="TH_GIANGVIEN_DIACHI" ColumnName="TH_GIANGVIEN_DIACHI" />
+                <ScalarProperty Name="TH_GIANGVIEN_HOTEN" ColumnName="TH_GIANGVIEN_HOTEN" />
+                <ScalarProperty Name="TH_SOTIEN_HOTRO" ColumnName="TH_SOTIEN_HOTRO" />
+                <ScalarProperty Name="TH_THAMGIA_SOLUONG" ColumnName="TH_THAMGIA_SOLUONG" />
+                <ScalarProperty Name="TH_DIADIEM" ColumnName="TH_DIADIEM" />
+                <ScalarProperty Name="TH_THOIGIAN_KETTHUC" ColumnName="TH_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="TH_THOIGIAN_BATDAU" ColumnName="TH_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="TH_TEN" ColumnName="TH_TEN" />
+                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_VAYVON">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_VAYVON">
+                <ScalarProperty Name="VV_THAMGIA_SOLUONG" ColumnName="VV_THAMGIA_SOLUONG" />
+                <ScalarProperty Name="VV_DIADIEM" ColumnName="VV_DIADIEM" />
+                <ScalarProperty Name="VV_THOIGIAN_KETTHUC" ColumnName="VV_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="VV_THOIGIAN_BATDAU" ColumnName="VV_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="VV_TEN" ColumnName="VV_TEN" />
+                <ScalarProperty Name="VV_ID" ColumnName="VV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_VAYVON_CHITIET">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_CHITIET">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_VAYVON_CHITIET">
+                <ScalarProperty Name="SOTIEN" ColumnName="SOTIEN" />
+                <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+                <ScalarProperty Name="VV_ID" ColumnName="VV_ID" />
+                <ScalarProperty Name="VV_CT_ID" ColumnName="VV_CT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

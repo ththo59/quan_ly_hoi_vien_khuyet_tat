@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="memoEdit2.EditValue" xml:space="preserve">
+  <data name="txtThongTinGiangVien.EditValue" xml:space="preserve">
     <value>Phối kết hợp với Hội NKT TPCT tổ chức hoạt động thường niên là Lễ Kỉ niệm Ngày người khuyết tật Việt Nam (18/4) và Ngày Quốc tế người khuyết tật (3/12) nhằm tạo điều kiện cho tất cả hội viên nói chung và hội viên Chi hội quận Ninh Kiều nói riêng tham gia vào những hoạt động tích cực do Hội NKT TPCT tổ chức</value>
   </data>
-  <data name="memoEdit1.EditValue" xml:space="preserve">
+  <data name="txtThongTinNguoiHoTro.EditValue" xml:space="preserve">
+    <value>Phối kết hợp với Hội NKT TPCT tổ chức hoạt động thường niên là Lễ Kỉ niệm Ngày người khuyết tật Việt Nam (18/4) và Ngày Quốc tế người khuyết tật (3/12) nhằm tạo điều kiện cho tất cả hội viên nói chung và hội viên Chi hội quận Ninh Kiều nói riêng tham gia vào những hoạt động tích cực do Hội NKT TPCT tổ chức</value>
+  </data>
+  <data name="txtNoiDung.EditValue" xml:space="preserve">
     <value>Lê Thái Thị Phương Thảo, Phan Bích Ngân, Nguyễn Kim Thanh tham gia buổi giới thiệu dự án "Nâng cao nhận thức và hành động về hòa nhập thông qua phương pháp tham gia cho trẻ em gái và phụ nữ khuyết tật tại Việt Nam" do Hội Người khuyết tật TPCT phối hợp Đại học Carleton, Canada tổ chức.</value>
   </data>
 </root>
