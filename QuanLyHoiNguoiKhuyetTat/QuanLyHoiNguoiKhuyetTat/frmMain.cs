@@ -208,5 +208,10 @@ namespace DauThau
         {
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
+
+        private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

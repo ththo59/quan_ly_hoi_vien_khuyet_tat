@@ -50,9 +50,8 @@ namespace DauThau.Models
         public virtual DbSet<QL_HOATDONG_DAYNGHE> QL_HOATDONG_DAYNGHE { get; set; }
         public virtual DbSet<QL_HOATDONG_GIAIQUYET_VIECLAM> QL_HOATDONG_GIAIQUYET_VIECLAM { get; set; }
         public virtual DbSet<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET> QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET { get; set; }
-        public virtual DbSet<QL_HOATDONG_HOITHAO> QL_HOATDONG_HOITHAO { get; set; }
-        public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
         public virtual DbSet<QL_HOATDONG_VAYVON> QL_HOATDONG_VAYVON { get; set; }
         public virtual DbSet<QL_HOATDONG_VAYVON_CHITIET> QL_HOATDONG_VAYVON_CHITIET { get; set; }
+        public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
     }
 }

@@ -30,11 +30,9 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NHUCAU" Width="1.5" PointX="12.375" PointY="0.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI" Width="1.5" PointX="7.375" PointY="12.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" Width="1.5" PointX="9.375" PointY="12.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Width="2.75" PointX="0.75" PointY="13.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM" Width="1.5" PointX="11.75" PointY="13" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Width="1.5" PointX="14" PointY="19.625" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" Width="1.5" PointX="2.75" PointY="13.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="13.75" PointY="3.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Width="1.5" PointX="9.75" PointY="29.5" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_CHITIET" Width="1.5" PointX="12" PointY="16.625" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOATDONG_GIAIQUYET_VIECLAM" />
@@ -42,6 +40,7 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="2.375" PointX="13.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

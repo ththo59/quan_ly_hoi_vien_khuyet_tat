@@ -19,21 +19,10 @@ namespace DauThau.Models
         public Nullable<System.DateTime> TH_THOIGIAN_BATDAU { get; set; }
         public Nullable<System.DateTime> TH_THOIGIAN_KETTHUC { get; set; }
         public string TH_DIADIEM { get; set; }
-        public Nullable<int> TH_THAMGIA_SOLUONG { get; set; }
-        public Nullable<int> TH_SOTIEN_HOTRO { get; set; }
-        public string TH_GIANGVIEN_HOTEN { get; set; }
-        public string TH_GIANGVIEN_DIACHI { get; set; }
-        public string TH_GIANGVIEN_DIENTHOAI { get; set; }
+        public string TH_NOIDUNG { get; set; }
+        public string TH_GIANGVIEN { get; set; }
         public Nullable<int> TH_GIANGVIEN_THULAO { get; set; }
-        public string TH_GIANGVIEN_CHIPHI_KHAC { get; set; }
-        public string TH_GIANGVIEN_HOTEN2 { get; set; }
-        public string TH_GIANGVIEN_DIACHI2 { get; set; }
-        public string TH_GIANGVIEN_DIENTHOAI2 { get; set; }
-        public Nullable<int> TH_GIANGVIEN_THULAO2 { get; set; }
-        public string TH_GIANGVIEN_CHIPHI_KHAC2 { get; set; }
-        public string TH_HOTRO_HOTEN { get; set; }
-        public string TH_HOTRO_DIACHI { get; set; }
-        public string TH_HOTRO_DIENTHOAI { get; set; }
-        public Nullable<int> TH_HOTRO_THULAO { get; set; }
+        public string TH_NGUOI_HOTRO { get; set; }
+        public Nullable<int> TH_NGUOI_HOTRO_THULAO { get; set; }
     }
 }

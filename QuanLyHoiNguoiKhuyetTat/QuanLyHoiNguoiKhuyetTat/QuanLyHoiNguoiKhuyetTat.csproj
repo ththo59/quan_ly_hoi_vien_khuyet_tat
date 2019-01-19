@@ -444,9 +444,6 @@
     <Compile Include="Models\QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QL_HOATDONG_HOITHAO.cs">
-      <DependentUpon>QLHVContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\QL_HOATDONG_TAPHUAN.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>

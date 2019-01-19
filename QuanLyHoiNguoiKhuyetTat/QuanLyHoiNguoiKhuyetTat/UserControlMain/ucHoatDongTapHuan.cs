@@ -9,6 +9,10 @@ using DevExpress.XtraEditors;
 using DauThau.Class;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid;
+using DauThau.Models;
+using System.Linq;
+using System.Data.Entity;
+using DevExpress.Utils;
 
 namespace DauThau.UserControlCategory
 {
@@ -21,44 +25,198 @@ namespace DauThau.UserControlCategory
 
         private void ucHoatDongHoiThaoTapHuan_Load(object sender, EventArgs e)
         {
-            //CommandData();
+            registerButtonArray(btnControl);
+
+            deSearchTuNgay.Ex_FormatCustomDateEdit();
+            deSearchDenNgay.Ex_FormatCustomDateEdit();
+            deTuNgay.Ex_FormatCustomDateEdit();
+            deDenNgay.Ex_FormatCustomDateEdit();
+
+            seThuLaoGV.Ex_FormatCustomSpinEdit();
+            seThuLaoHoTro.Ex_FormatCustomSpinEdit();
+            var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var nextMonth = current.AddMonths(1);
+            deSearchTuNgay.DateTime = current;
+            deSearchDenNgay.DateTime = nextMonth.AddDays(-1);
+
             FormStatus = EnumFormStatus.VIEW;
         }
 
         #region Variable
 
-        DataSet ds = new DataSet();
-        SqlDataAdapter da = new SqlDataAdapter();
-
         #endregion
 
         #region Function
 
-        void SelectData()
+        private void _statusAllControl(Boolean readOnly)
         {
-            ds = new DataSet();
-            da.SelectCommand = new SqlCommand("select * from DM_DANG_DUNG", clsConnection._conn);
-            da.Fill(ds, "DANG_DUNG");
-            gcGrid.DataSource = ds.Tables["DANG_DUNG"];
+
+            foreach (var items in layoutEdit.Controls)
+            {
+                BaseEdit item = items as BaseEdit;
+                SimpleButton button = items as SimpleButton;
+                if (button != null)
+                {
+                    button.Enabled = !readOnly;
+                    continue;
+                }
+                if (item != null)
+                {
+                    item.ReadOnly = readOnly;
+                }
+                else
+                {
+                    CheckedListBoxControl checkListBox = items as CheckedListBoxControl;
+                    if (checkListBox != null)
+                    {
+                        checkListBox.Enabled = !readOnly;
+                    }
+                }
+            }
+            deSearchTuNgay.ReadOnly = deSearchDenNgay.ReadOnly = !readOnly;
+            btnSearch.Enabled = readOnly;
+            gcGrid.Enabled = readOnly;
         }
 
-        void Save()
+        private void _clearData()
         {
-            try
+            foreach (var items in layoutEdit.Controls)
             {
-                da.Update(ds.Tables["DANG_DUNG"]);
-            }
-            catch
-            {
-                XtraMessageBox.Show("Dữ liệu đã được sử dụng bạn không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                BaseEdit item = items as BaseEdit;
+                if (item != null)
+                {
+                    item.EditValue = null;
+                }
             }
         }
 
+        private void _loadData()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            context = new QL_HOIVIEN_KTEntities();
+            context.QL_HOATDONG_TAPHUAN.Load();
+            var data = (from p in context.QL_HOATDONG_TAPHUAN
+                        where deSearchTuNgay.DateTime.Date <= p.TH_THOIGIAN_BATDAU
+                             && p.TH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
+                        select p).ToList();
+            gcGrid.DataSource = data;
+            _loadDataFocusRow();
+            _wait.Close();
+        }
+
+        private void _loadDataFocusRow()
+        {
+            _clearData();
+            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
+            if (item != null)
+            {
+                deTuNgay.EditValue = item.TH_THOIGIAN_BATDAU;
+                deDenNgay.EditValue = item.TH_THOIGIAN_KETTHUC;
+                txtTenChuongTrinh.EditValue = item.TH_TEN;
+                txtDiaDiem.EditValue = item.TH_DIADIEM;
+                txtNoiDung.EditValue = item.TH_NOIDUNG;
+                txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
+                seThuLaoGV.EditValue = item.TH_GIANGVIEN_THULAO;
+                txtThongTinNguoiHoTro.EditValue = item.TH_NGUOI_HOTRO;
+                seThuLaoHoTro.EditValue = item.TH_NGUOI_HOTRO_THULAO;
+            }
+        }
+
+        private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN item)
+        {
+            item.TH_THOIGIAN_BATDAU = deTuNgay.Ex_EditValueToDateTime();
+            item.TH_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
+            item.TH_TEN = txtTenChuongTrinh.Text ;
+            item.TH_DIADIEM = txtDiaDiem.Text;
+            item.TH_NOIDUNG = txtNoiDung.Text;
+            item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
+            item.TH_GIANGVIEN_THULAO = seThuLaoGV.Ex_EditValueToInt();
+            item.TH_NGUOI_HOTRO = txtThongTinNguoiHoTro.Text;
+            item.TH_NGUOI_HOTRO_THULAO = seThuLaoHoTro.Ex_EditValueToInt();
+        }
+
+        private Boolean _validateControl()
+        {
+            dxErrorProvider.ClearErrors();
+
+            if (txtTenChuongTrinh.Text.Trim() == string.Empty)
+            {
+                dxErrorProvider.SetError(txtTenChuongTrinh, "Vui lòng nhập họ tên");
+            }
+
+            //if (txtDiaDiem.EditValue == null)
+            //{
+            //    dxErrorProvider.SetError(lueThuongTru_Quan, "Vui lòng nhập thông tin");
+            //}
+
+            if (dxErrorProvider.HasErrors)
+            {
+                clsMessage.MessageWarning("Vui lòng nhập đầy đủ thông tin.");
+            }
+
+            return !dxErrorProvider.HasErrors;
+        }
+
+        protected override bool SaveData()
+        {
+            if (_validateControl())
+            {
+                using (var _context = new QL_HOIVIEN_KTEntities())
+                {
+                    QL_HOATDONG_TAPHUAN item;
+                    switch (_formStatus)
+                    {
+                        case EnumFormStatus.ADD:
+                            #region Add
+
+                            item = new QL_HOATDONG_TAPHUAN();
+                            _setObjectEntities(ref item);
+                            _context.QL_HOATDONG_TAPHUAN.Add(item);
+
+                            #endregion
+                            break;
+                        case EnumFormStatus.MODIFY:
+                            Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
+                            item = (from p in _context.QL_HOATDONG_TAPHUAN where p.TH_ID == id select p).FirstOrDefault<QL_HOATDONG_TAPHUAN>();
+                            if (item != null)
+                            {
+                                _setObjectEntities(ref item);
+                            }
+                            var entity = _context.QL_HOATDONG_TAPHUAN.Find(id);
+                            _context.Entry(entity).CurrentValues.SetValues(item);
+                            break;
+                        default:
+                            break;
+                    }
+                    _context.SaveChanges();
+                }
+                FormStatus = EnumFormStatus.VIEW;
+            }
+
+            return base.SaveData();
+        }
 
         #endregion
 
         #region Status
 
+        private void _deleteRow()
+        {
+            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
+            if (item != null)
+            {
+                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.TH_TEN)) == DialogResult.Yes)
+                {
+                    Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
+                    QL_HOATDONG_TAPHUAN entities = (from p in context.QL_HOATDONG_TAPHUAN where p.TH_ID == id select p).FirstOrDefault();
+                    context.QL_HOATDONG_TAPHUAN.Remove(entities);
+                    context.SaveChanges();
+                    FormStatus = EnumFormStatus.VIEW;
+                }
+
+            }
+
+        }
 
         protected override EnumFormStatus FormStatus
         {
@@ -68,36 +226,41 @@ namespace DauThau.UserControlCategory
                 _formStatus = value;
                 if (_formStatus == EnumFormStatus.ADD)
                 {
-                    gvGrid.OptionsBehavior.Editable = true;
-                    gvGrid.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                    gvGrid.ActiveFilter.Clear();
-
+                    _clearData();
+                    deTuNgay.Focus();
+                    _statusAllControl(false);
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
                 {
-                    gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                    gvGrid.ActiveFilter.Clear();
-                    gvGrid.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid.OptionsBehavior.Editable = true;
+                    deTuNgay.Focus();
+                    _statusAllControl(false);
                 }
-
+                else if (_formStatus == EnumFormStatus.DELETE)
+                {
+                    _deleteRow();
+                }
+                else if (_formStatus == EnumFormStatus.PRINT)
+                {
+                    //_doPrintInLyLich();
+                }
+                else if (_formStatus == EnumFormStatus.CLOSE)
+                {
+                    if (closeTab != null)
+                    {
+                        closeTab();
+                    }
+                }
                 else
                 {
-                    gvGrid.OptionsBehavior.Editable = false;
-                    gvGrid.OptionsView.ShowAutoFilterRow = true;
-                    gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+                    _loadData();
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
-
+                    dxErrorProvider.ClearErrors();
+                    _statusAllControl(true);
+                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
                 }
             }
         }
 
-        #endregion
-
-        #region Event Button
-
-        
         #endregion
 
         #region Event Grid
@@ -150,5 +313,15 @@ namespace DauThau.UserControlCategory
             //}
         }
         #endregion
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            _loadData();
+        }
+
+        private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            _loadDataFocusRow();
+        }
     }
 }

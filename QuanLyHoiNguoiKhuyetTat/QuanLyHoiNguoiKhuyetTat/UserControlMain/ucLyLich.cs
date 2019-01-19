@@ -522,6 +522,7 @@ namespace DauThau.UserControlCategory
             rpt.DataMember = "HOI_VIEN";
             frm.ShowDialog();
         }
+
         private void _doPrintInLyLich()
         {
             if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
