@@ -13,14 +13,17 @@ using DauThau.Models;
 using System.Linq;
 using System.Data.Entity;
 using DevExpress.Utils;
+using DevExpress.XtraLayout.Utils;
 
 namespace DauThau.UserControlCategory
 {
     public partial class ucHoatDongTapHuan : ucBase
     {
-        public ucHoatDongTapHuan()
+        private Int64 _id_loai;
+        public ucHoatDongTapHuan(Int64 id_loai)
         {
             InitializeComponent();
+            _id_loai = id_loai;
         }
 
         private void ucHoatDongHoiThaoTapHuan_Load(object sender, EventArgs e)
@@ -34,10 +37,18 @@ namespace DauThau.UserControlCategory
 
             seThuLaoGV.Ex_FormatCustomSpinEdit();
             seThuLaoHoTro.Ex_FormatCustomSpinEdit();
+            seSoLuongNguoiThamGia.Ex_FormatCustomSpinEdit();
+            seSoTienMoiNguoi.Ex_FormatCustomSpinEdit();
+
             var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var nextMonth = current.AddMonths(1);
             deSearchTuNgay.DateTime = current;
             deSearchDenNgay.DateTime = nextMonth.AddDays(-1);
+
+            lueLoaiTapHuan.Properties.DataSource = FuncCategory.loadDMTapHuan();
+            lueLoaiTapHuan.EditValue = _id_loai;
+
+            _changeLayout((CategoryTapHuan)_id_loai);
 
             FormStatus = EnumFormStatus.VIEW;
         }
@@ -47,6 +58,21 @@ namespace DauThau.UserControlCategory
         #endregion
 
         #region Function
+
+        private void _changeLayout(CategoryTapHuan enumLoai)
+        {
+            switch (enumLoai)
+            {
+                case CategoryTapHuan.TH_TAPHUAN:
+                    break;
+                case CategoryTapHuan.TH_GIAODUC:
+                    layThongTinGV.Visibility = layGiangVienThuLao.Visibility 
+                        = layNguoiHoTro.Visibility = layHoTroThuLao.Visibility = LayoutVisibility.Never;
+                    break;
+                default:
+                    break;
+            }
+        }
 
         private void _statusAllControl(Boolean readOnly)
         {
@@ -63,6 +89,7 @@ namespace DauThau.UserControlCategory
                 if (item != null)
                 {
                     item.ReadOnly = readOnly;
+                    item.EnterMoveNextControl = true;
                 }
                 else
                 {
@@ -76,6 +103,7 @@ namespace DauThau.UserControlCategory
             deSearchTuNgay.ReadOnly = deSearchDenNgay.ReadOnly = !readOnly;
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
+            seTongSoNgay.ReadOnly = true;
         }
 
         private void _clearData()
@@ -98,6 +126,7 @@ namespace DauThau.UserControlCategory
             var data = (from p in context.QL_HOATDONG_TAPHUAN
                         where deSearchTuNgay.DateTime.Date <= p.TH_THOIGIAN_BATDAU
                              && p.TH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
+                             && p.TH_LOAI_ID == _id_loai
                         select p).ToList();
             gcGrid.DataSource = data;
             _loadDataFocusRow();
@@ -112,8 +141,11 @@ namespace DauThau.UserControlCategory
             {
                 deTuNgay.EditValue = item.TH_THOIGIAN_BATDAU;
                 deDenNgay.EditValue = item.TH_THOIGIAN_KETTHUC;
+                seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.TH_TEN;
                 txtDiaDiem.EditValue = item.TH_DIADIEM;
+                seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
+                seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
                 txtNoiDung.EditValue = item.TH_NOIDUNG;
                 txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
                 seThuLaoGV.EditValue = item.TH_GIANGVIEN_THULAO;
@@ -124,10 +156,15 @@ namespace DauThau.UserControlCategory
 
         private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN item)
         {
+            item.TH_LOAI_ID = _id_loai;
             item.TH_THOIGIAN_BATDAU = deTuNgay.Ex_EditValueToDateTime();
             item.TH_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
+            item.TH_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
+
             item.TH_TEN = txtTenChuongTrinh.Text ;
             item.TH_DIADIEM = txtDiaDiem.Text;
+            item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
+            item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
             item.TH_NOIDUNG = txtNoiDung.Text;
             item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
             item.TH_GIANGVIEN_THULAO = seThuLaoGV.Ex_EditValueToInt();
@@ -144,10 +181,10 @@ namespace DauThau.UserControlCategory
                 dxErrorProvider.SetError(txtTenChuongTrinh, "Vui lòng nhập họ tên");
             }
 
-            //if (txtDiaDiem.EditValue == null)
-            //{
-            //    dxErrorProvider.SetError(lueThuongTru_Quan, "Vui lòng nhập thông tin");
-            //}
+            if (clsChangeType.change_int(seTongSoNgay.EditValue)  <= 0)
+            {
+                dxErrorProvider.SetError(deDenNgay, "Từ ngày và đến ngày không phù hợp");
+            }
 
             if (dxErrorProvider.HasErrors)
             {
@@ -261,6 +298,15 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private void _calTongSoNgay()
+        {
+            if (deTuNgay.EditValue != null && deDenNgay.EditValue != null)
+            {
+                TimeSpan diff = deDenNgay.DateTime - deTuNgay.DateTime;
+                seTongSoNgay.EditValue = diff.Days + 1;
+            }
+        }
+
         #endregion
 
         #region Event Grid
@@ -317,11 +363,22 @@ namespace DauThau.UserControlCategory
         private void btnSearch_Click(object sender, EventArgs e)
         {
             _loadData();
+            FormStatus = EnumFormStatus.VIEW;
         }
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             _loadDataFocusRow();
+        }
+
+        private void deTuNgay_EditValueChanged(object sender, EventArgs e)
+        {
+            _calTongSoNgay();
+        }
+
+        private void deDenNgay_EditValueChanged(object sender, EventArgs e)
+        {
+            _calTongSoNgay();
         }
     }
 }

@@ -42,6 +42,12 @@ namespace DauThau.Class
 
     }
 
+    enum CategoryTapHuan
+    {
+        TH_TAPHUAN = 1,
+        TH_GIAODUC
+    }
+
     /// <summary>
     /// Liệt kê các mẫu báo cáo có trong hệ thống
     /// Sử dụng:

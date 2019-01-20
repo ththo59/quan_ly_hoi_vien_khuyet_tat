@@ -35,6 +35,47 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMTapHuan()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Tập huấn"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Giáo dục"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 3,
+                NAME = "Hướng dẫn thực tập"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 4,
+                NAME = "Vận động chính sách"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 5,
+                NAME = "Truyền thông và trợ giúp pháp lý"
+            };
+            list.Add(item);
+
+            return list;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())

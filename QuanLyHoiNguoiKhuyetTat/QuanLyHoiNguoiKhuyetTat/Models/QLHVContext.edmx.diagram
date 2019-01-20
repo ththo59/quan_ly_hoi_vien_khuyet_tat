@@ -40,7 +40,7 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET_QL_HOIVIEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOATDONG_VAYVON" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_CHITIET_QL_HOIVIEN" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="2.375" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="13.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

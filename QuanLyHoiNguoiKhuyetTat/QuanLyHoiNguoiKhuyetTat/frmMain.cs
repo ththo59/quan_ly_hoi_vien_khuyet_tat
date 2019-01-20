@@ -94,9 +94,18 @@ namespace DauThau
                     case "btnLyLich":
                         uc = new ucLyLich();
                         break;
+
+                    #region Tập huấn
+
                     case "btnTapHuan":
-                        uc = new ucHoatDongTapHuan();
+                        uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TH_TAPHUAN);
                         break;
+                    case "btnGiaoDuc":
+                        uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TH_GIAODUC);
+                        break;
+
+                    #endregion
+
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         uc = new ucPrint(rpt);

@@ -15,10 +15,14 @@ namespace DauThau.Models
     public partial class QL_HOATDONG_TAPHUAN
     {
         public long TH_ID { get; set; }
+        public Nullable<long> TH_LOAI_ID { get; set; }
         public string TH_TEN { get; set; }
         public Nullable<System.DateTime> TH_THOIGIAN_BATDAU { get; set; }
         public Nullable<System.DateTime> TH_THOIGIAN_KETTHUC { get; set; }
+        public Nullable<int> TH_TONGSO_NGAY { get; set; }
         public string TH_DIADIEM { get; set; }
+        public Nullable<int> TH_SOLUONG { get; set; }
+        public Nullable<int> TH_SOTIEN_1NGUOI { get; set; }
         public string TH_NOIDUNG { get; set; }
         public string TH_GIANGVIEN { get; set; }
         public Nullable<int> TH_GIANGVIEN_THULAO { get; set; }

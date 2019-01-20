@@ -102,7 +102,7 @@
             this.btnKetQuaTrungThau = new DevExpress.XtraBars.BarButtonItem();
             this.btnBangKiemTraGiaKeKhai = new DevExpress.XtraBars.BarButtonItem();
             this.btnBangKiemTraGiaKeKhaiTrungThau = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGiaoDuc = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
@@ -277,7 +277,7 @@
             this.btnKetQuaTrungThau,
             this.btnBangKiemTraGiaKeKhai,
             this.btnBangKiemTraGiaKeKhaiTrungThau,
-            this.barButtonItem8,
+            this.btnGiaoDuc,
             this.barButtonItem9,
             this.barButtonItem10,
             this.barButtonItem15,
@@ -1203,14 +1203,14 @@
             this.btnBangKiemTraGiaKeKhaiTrungThau.Id = 132;
             this.btnBangKiemTraGiaKeKhaiTrungThau.Name = "btnBangKiemTraGiaKeKhaiTrungThau";
             // 
-            // barButtonItem8
+            // btnGiaoDuc
             // 
-            this.barButtonItem8.Caption = "Giáo dục";
-            this.barButtonItem8.Glyph = global::DauThau.Properties.Resources.Bookmaskforder;
-            this.barButtonItem8.Id = 136;
-            this.barButtonItem8.LargeWidth = 70;
-            this.barButtonItem8.Name = "barButtonItem8";
-            this.barButtonItem8.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnGiaoDuc.Caption = "Giáo dục";
+            this.btnGiaoDuc.Glyph = global::DauThau.Properties.Resources.Bookmaskforder;
+            this.btnGiaoDuc.Id = 136;
+            this.btnGiaoDuc.LargeWidth = 70;
+            this.btnGiaoDuc.Name = "btnGiaoDuc";
+            this.btnGiaoDuc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // barButtonItem9
@@ -1512,7 +1512,7 @@
             // ribbonPageGroup10
             // 
             this.ribbonPageGroup10.ItemLinks.Add(this.btnTapHuan);
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnGiaoDuc);
             this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem9);
             this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup10.ItemLinks.Add(this.btnHoatDongTimKiem);
@@ -1888,7 +1888,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem btnGiaoDuc;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
