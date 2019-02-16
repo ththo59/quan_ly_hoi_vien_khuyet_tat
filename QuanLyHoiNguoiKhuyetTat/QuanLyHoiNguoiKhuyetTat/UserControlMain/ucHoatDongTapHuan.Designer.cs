@@ -51,7 +51,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.grpSearchTitle = new DevExpress.XtraEditors.GroupControl();
             this.deSearchTuNgay = new DevExpress.XtraEditors.DateEdit();
             this.deSearchDenNgay = new DevExpress.XtraEditors.DateEdit();
             this.lueLoaiTapHuan = new DevExpress.XtraEditors.LookUpEdit();
@@ -114,8 +114,8 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grpSearchTitle)).BeginInit();
+            this.grpSearchTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deSearchTuNgay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deSearchTuNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deSearchDenNgay.Properties.CalendarTimeProperties)).BeginInit();
@@ -423,7 +423,7 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.btnSearch);
-            this.layoutControl1.Controls.Add(this.groupControl1);
+            this.layoutControl1.Controls.Add(this.grpSearchTitle);
             this.layoutControl1.Controls.Add(this.deSearchTuNgay);
             this.layoutControl1.Controls.Add(this.deSearchDenNgay);
             this.layoutControl1.Controls.Add(this.lueLoaiTapHuan);
@@ -460,17 +460,17 @@
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // groupControl1
+            // grpSearchTitle
             // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.gcGrid);
-            this.groupControl1.Location = new System.Drawing.Point(2, 92);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(325, 400);
-            this.groupControl1.TabIndex = 4;
-            this.groupControl1.Text = "Danh sách hoạt động";
+            this.grpSearchTitle.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.grpSearchTitle.AppearanceCaption.Options.UseFont = true;
+            this.grpSearchTitle.Controls.Add(this.gcGrid);
+            this.grpSearchTitle.Location = new System.Drawing.Point(2, 92);
+            this.grpSearchTitle.Margin = new System.Windows.Forms.Padding(5);
+            this.grpSearchTitle.Name = "grpSearchTitle";
+            this.grpSearchTitle.Size = new System.Drawing.Size(325, 400);
+            this.grpSearchTitle.TabIndex = 4;
+            this.grpSearchTitle.Text = "Danh sách hoạt động";
             // 
             // deSearchTuNgay
             // 
@@ -565,7 +565,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.groupControl1;
+            this.layoutControlItem3.Control = this.grpSearchTitle;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 90);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -1128,8 +1128,8 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grpSearchTitle)).EndInit();
+            this.grpSearchTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.deSearchTuNgay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deSearchTuNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deSearchDenNgay.Properties.CalendarTimeProperties)).EndInit();
@@ -1210,7 +1210,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTH_THOIGIAN_BATDAU;
         private DevExpress.XtraGrid.Columns.GridColumn colTH_THOIGIAN_KETTHUC;
         private DevExpress.XtraGrid.Columns.GridColumn colTH_TEN;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.GroupControl grpSearchTitle;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;

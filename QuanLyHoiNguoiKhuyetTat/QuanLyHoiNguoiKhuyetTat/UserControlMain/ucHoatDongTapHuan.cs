@@ -67,19 +67,24 @@ namespace DauThau.UserControlCategory
                 case CategoryTapHuan.TH_TAPHUAN:
                     layThongTinGV.Visibility = layGiangVienThuLao.Visibility
                         = layNguoiHoTro.Visibility = layHoTroThuLao.Visibility = LayoutVisibility.Always;
+                    grpSearchTitle.Text = "Danh sách hoạt động tập huấn";
                     break;
                 case CategoryTapHuan.TH_GIAODUC:
+                    grpSearchTitle.Text = "Danh sách hoạt động giáo dục";
                     break;
                 case CategoryTapHuan.HUONG_DAN_THUC_TAP:
+                    grpSearchTitle.Text = "Danh sách hoạt động hướng dẫn thực tập";
                     break;
                 case CategoryTapHuan.VAN_DONG_CHINH_SACH:
                     laySoNguoiThamGia.Visibility = laySoTienTrenNguoi.Visibility = layTongTien.Visibility = LayoutVisibility.Never;
                     layNguoiHoTro.Visibility = LayoutVisibility.Always;
                     layNguoiHoTro.Text = "Người thực hiện";
                     layDiaDiem.Text = "Nơi nhận";
+                    grpSearchTitle.Text = "Danh sách hoạt động vận động chính sách";
                     break;
                 case CategoryTapHuan.TRUYEN_THONG_PHAP_LY:
                     layDonViThucHien.Visibility = LayoutVisibility.Always;
+                    grpSearchTitle.Text = "Danh sách hoạt động truyền thông pháp lý";
                     break;
                 default:
                     break;

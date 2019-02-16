@@ -51,6 +51,19 @@ namespace DauThau.Class
         TRUYEN_THONG_PHAP_LY
     }
 
+    enum CategoryHoiThao
+    {
+        DAI_HOI = 1,
+        HOI_NGHI,
+        HOI_THAO,
+        BUOI_LE,
+        CUOC_HOP,
+        TRUYEN_THONG_DAI_CHUNG,
+        TO_CHUC_SU_KIEN,
+        TO_CHUC_VAN_NGHE,
+
+    }
+
     /// <summary>
     /// Liệt kê các mẫu báo cáo có trong hệ thống
     /// Sử dụng:

@@ -112,8 +112,33 @@ namespace DauThau
                      case "btnTruyenThongPhapLy":
                         uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TRUYEN_THONG_PHAP_LY);
                         break;
+
                     #endregion
 
+                    case "btnDaiHoi":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.DAI_HOI);
+                        break;
+                    case "btnHoiNghi":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.HOI_NGHI);
+                        break;
+                    case "btnHoiThao":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.HOI_THAO);
+                        break;
+                    case "btnBuoiLe":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.BUOI_LE);
+                        break;
+                    case "btnCuocHop":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.CUOC_HOP);
+                        break;
+                    case "btnTruyenThongDaiChung":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.TRUYEN_THONG_DAI_CHUNG);
+                        break;
+                    case "btnToChucSuKien":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.TO_CHUC_SU_KIEN);
+                        break;
+                    case "btnToChucVanNghe":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.TO_CHUC_VAN_NGHE);
+                        break;
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         uc = new ucPrint(rpt);

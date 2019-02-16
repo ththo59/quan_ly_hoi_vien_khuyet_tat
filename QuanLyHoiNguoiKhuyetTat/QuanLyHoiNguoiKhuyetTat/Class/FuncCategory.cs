@@ -76,6 +76,68 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMHoiThao()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Đại hội"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Hội nghị"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 3,
+                NAME = "Hội thảo"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 4,
+                NAME = "Buổi lễ"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 5,
+                NAME = "Cuộc họp"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 6,
+                NAME = "Truyền thông đại chúng"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 7,
+                NAME = "Tổ chức sự kiện"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 8,
+                NAME = "Tổ chức văn nghệ"
+            };
+            list.Add(item);
+
+            return list;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())
