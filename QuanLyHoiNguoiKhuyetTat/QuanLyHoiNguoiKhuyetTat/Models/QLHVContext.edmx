@@ -245,9 +245,10 @@
           <Property Name="TH_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="TH_TONGSO_NGAY" Type="int" />
           <Property Name="TH_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_NOIDUNG" Type="nvarchar(max)" />
           <Property Name="TH_SOLUONG" Type="int" />
           <Property Name="TH_SOTIEN_1NGUOI" Type="int" />
-          <Property Name="TH_NOIDUNG" Type="nvarchar(max)" />
           <Property Name="TH_GIANGVIEN" Type="nvarchar(max)" />
           <Property Name="TH_GIANGVIEN_THULAO" Type="int" />
           <Property Name="TH_NGUOI_HOTRO" Type="nvarchar(max)" />
@@ -1014,9 +1015,10 @@
           <Property Name="TH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="TH_TONGSO_NGAY" Type="Int32" />
           <Property Name="TH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TH_SOLUONG" Type="Int32" />
           <Property Name="TH_SOTIEN_1NGUOI" Type="Int32" />
-          <Property Name="TH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TH_GIANGVIEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TH_GIANGVIEN_THULAO" Type="Int32" />
           <Property Name="TH_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1375,9 +1377,10 @@
                 <ScalarProperty Name="TH_NGUOI_HOTRO" ColumnName="TH_NGUOI_HOTRO" />
                 <ScalarProperty Name="TH_GIANGVIEN_THULAO" ColumnName="TH_GIANGVIEN_THULAO" />
                 <ScalarProperty Name="TH_GIANGVIEN" ColumnName="TH_GIANGVIEN" />
-                <ScalarProperty Name="TH_NOIDUNG" ColumnName="TH_NOIDUNG" />
                 <ScalarProperty Name="TH_SOTIEN_1NGUOI" ColumnName="TH_SOTIEN_1NGUOI" />
                 <ScalarProperty Name="TH_SOLUONG" ColumnName="TH_SOLUONG" />
+                <ScalarProperty Name="TH_NOIDUNG" ColumnName="TH_NOIDUNG" />
+                <ScalarProperty Name="TH_DONVI_THUCHIEN" ColumnName="TH_DONVI_THUCHIEN" />
                 <ScalarProperty Name="TH_DIADIEM" ColumnName="TH_DIADIEM" />
                 <ScalarProperty Name="TH_TONGSO_NGAY" ColumnName="TH_TONGSO_NGAY" />
                 <ScalarProperty Name="TH_THOIGIAN_KETTHUC" ColumnName="TH_THOIGIAN_KETTHUC" />

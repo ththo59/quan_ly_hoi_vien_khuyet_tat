@@ -21,9 +21,10 @@ namespace DauThau.Models
         public Nullable<System.DateTime> TH_THOIGIAN_KETTHUC { get; set; }
         public Nullable<int> TH_TONGSO_NGAY { get; set; }
         public string TH_DIADIEM { get; set; }
+        public string TH_DONVI_THUCHIEN { get; set; }
+        public string TH_NOIDUNG { get; set; }
         public Nullable<int> TH_SOLUONG { get; set; }
         public Nullable<int> TH_SOTIEN_1NGUOI { get; set; }
-        public string TH_NOIDUNG { get; set; }
         public string TH_GIANGVIEN { get; set; }
         public Nullable<int> TH_GIANGVIEN_THULAO { get; set; }
         public string TH_NGUOI_HOTRO { get; set; }

@@ -45,7 +45,10 @@ namespace DauThau.Class
     enum CategoryTapHuan
     {
         TH_TAPHUAN = 1,
-        TH_GIAODUC
+        TH_GIAODUC,
+        HUONG_DAN_THUC_TAP,
+        VAN_DONG_CHINH_SACH,
+        TRUYEN_THONG_PHAP_LY
     }
 
     /// <summary>

@@ -1521,6 +1521,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="DataSets\dsBangChamDiem.xsc">
       <DependentUpon>dsBangChamDiem.xsd</DependentUpon>
     </None>

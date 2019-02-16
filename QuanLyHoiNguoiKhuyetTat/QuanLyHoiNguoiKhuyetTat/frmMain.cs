@@ -103,7 +103,15 @@ namespace DauThau
                     case "btnGiaoDuc":
                         uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TH_GIAODUC);
                         break;
-
+                    case "btnHuongDanThucTap":
+                        uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.HUONG_DAN_THUC_TAP);
+                        break;
+                    case "btnVanDongChinhSach":
+                        uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.VAN_DONG_CHINH_SACH);
+                        break;
+                     case "btnTruyenThongPhapLy":
+                        uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TRUYEN_THONG_PHAP_LY);
+                        break;
                     #endregion
 
                     case "btnDonGiaNhapHoi":

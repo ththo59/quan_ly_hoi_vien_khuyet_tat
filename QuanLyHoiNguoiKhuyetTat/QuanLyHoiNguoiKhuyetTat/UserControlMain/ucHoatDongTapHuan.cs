@@ -39,6 +39,7 @@ namespace DauThau.UserControlCategory
             seThuLaoHoTro.Ex_FormatCustomSpinEdit();
             seSoLuongNguoiThamGia.Ex_FormatCustomSpinEdit();
             seSoTienMoiNguoi.Ex_FormatCustomSpinEdit();
+            seTongTien.Ex_FormatCustomSpinEdit();
 
             var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var nextMonth = current.AddMonths(1);
@@ -64,10 +65,21 @@ namespace DauThau.UserControlCategory
             switch (enumLoai)
             {
                 case CategoryTapHuan.TH_TAPHUAN:
+                    layThongTinGV.Visibility = layGiangVienThuLao.Visibility
+                        = layNguoiHoTro.Visibility = layHoTroThuLao.Visibility = LayoutVisibility.Always;
                     break;
                 case CategoryTapHuan.TH_GIAODUC:
-                    layThongTinGV.Visibility = layGiangVienThuLao.Visibility 
-                        = layNguoiHoTro.Visibility = layHoTroThuLao.Visibility = LayoutVisibility.Never;
+                    break;
+                case CategoryTapHuan.HUONG_DAN_THUC_TAP:
+                    break;
+                case CategoryTapHuan.VAN_DONG_CHINH_SACH:
+                    laySoNguoiThamGia.Visibility = laySoTienTrenNguoi.Visibility = layTongTien.Visibility = LayoutVisibility.Never;
+                    layNguoiHoTro.Visibility = LayoutVisibility.Always;
+                    layNguoiHoTro.Text = "Người thực hiện";
+                    layDiaDiem.Text = "Nơi nhận";
+                    break;
+                case CategoryTapHuan.TRUYEN_THONG_PHAP_LY:
+                    layDonViThucHien.Visibility = LayoutVisibility.Always;
                     break;
                 default:
                     break;
@@ -144,6 +156,7 @@ namespace DauThau.UserControlCategory
                 seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.TH_TEN;
                 txtDiaDiem.EditValue = item.TH_DIADIEM;
+                txtDonViThucHien.EditValue = item.TH_DONVI_THUCHIEN;
                 seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
                 seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
                 txtNoiDung.EditValue = item.TH_NOIDUNG;
@@ -163,6 +176,7 @@ namespace DauThau.UserControlCategory
 
             item.TH_TEN = txtTenChuongTrinh.Text ;
             item.TH_DIADIEM = txtDiaDiem.Text;
+            item.TH_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
             item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
             item.TH_NOIDUNG = txtNoiDung.Text;
@@ -307,6 +321,14 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private void _calTongTien()
+        {
+            if(seSoLuongNguoiThamGia.EditValue != null && seSoTienMoiNguoi.EditValue != null)
+            {
+                seTongTien.EditValue = clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) * clsChangeType.change_int64(seSoTienMoiNguoi.EditValue);
+            }
+        }
+
         #endregion
 
         #region Event Grid
@@ -379,6 +401,16 @@ namespace DauThau.UserControlCategory
         private void deDenNgay_EditValueChanged(object sender, EventArgs e)
         {
             _calTongSoNgay();
+        }
+
+        private void seSoLuongNguoiThamGia_EditValueChanged(object sender, EventArgs e)
+        {
+            _calTongTien();
+        }
+
+        private void seSoTienMoiNguoi_EditValueChanged(object sender, EventArgs e)
+        {
+            _calTongTien();
         }
     }
 }
