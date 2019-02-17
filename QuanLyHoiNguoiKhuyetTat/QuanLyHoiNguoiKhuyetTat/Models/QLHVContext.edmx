@@ -182,6 +182,23 @@
           <Property Name="XA_DIENGIAI" Type="nvarchar" MaxLength="250" />
           <Property Name="XA_STT" Type="int" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_ASXH">
+          <Key>
+            <PropertyRef Name="ASXH_ID" />
+          </Key>
+          <Property Name="ASXH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASXH_LOAI_ID" Type="bigint" />
+          <Property Name="ASXH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="ASXH_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="ASXH_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="ASXH_TONGSO_NGAY" Type="int" />
+          <Property Name="ASXH_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="ASXH_SOLUONG" Type="int" />
+          <Property Name="ASXH_TONGSO_TIEN" Type="int" />
+          <Property Name="ASXH_DOITUONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="ASXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="ASXH_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_DAYNGHE">
           <Key>
             <PropertyRef Name="DN_ID" />
@@ -474,6 +491,7 @@
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_ASXH" EntityType="Self.QL_HOATDONG_ASXH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="Self.QL_HOATDONG_DAYNGHE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM" EntityType="Self.QL_HOATDONG_GIAIQUYET_VIECLAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntityType="Self.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Schema="dbo" store:Type="Tables" />
@@ -643,6 +661,7 @@
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" />
           <EntitySet Name="DM_DUNGCU_HOTRO" EntityType="QL_HOIVIEN_KTModel.DM_DUNGCU_HOTRO" />
           <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" />
+          <EntitySet Name="QL_HOATDONG_ASXH" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1045,6 +1064,23 @@
           <Property Name="HT_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HT_NGUOI_HOTRO_THULAO" Type="Int32" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_ASXH">
+          <Key>
+            <PropertyRef Name="ASXH_ID" />
+          </Key>
+          <Property Name="ASXH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASXH_LOAI_ID" Type="Int64" />
+          <Property Name="ASXH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="ASXH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="ASXH_TONGSO_NGAY" Type="Int32" />
+          <Property Name="ASXH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_SOLUONG" Type="Int32" />
+          <Property Name="ASXH_TONGSO_TIEN" Type="Int32" />
+          <Property Name="ASXH_DOITUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1428,6 +1464,24 @@
                 <ScalarProperty Name="HT_TEN" ColumnName="HT_TEN" />
                 <ScalarProperty Name="HT_LOAI_ID" ColumnName="HT_LOAI_ID" />
                 <ScalarProperty Name="HT_ID" ColumnName="HT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_ASXH">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_ASXH">
+                <ScalarProperty Name="ASXH_NOIDUNG" ColumnName="ASXH_NOIDUNG" />
+                <ScalarProperty Name="ASXH_DONVI_THUCHIEN" ColumnName="ASXH_DONVI_THUCHIEN" />
+                <ScalarProperty Name="ASXH_DOITUONG" ColumnName="ASXH_DOITUONG" />
+                <ScalarProperty Name="ASXH_TONGSO_TIEN" ColumnName="ASXH_TONGSO_TIEN" />
+                <ScalarProperty Name="ASXH_SOLUONG" ColumnName="ASXH_SOLUONG" />
+                <ScalarProperty Name="ASXH_DIADIEM" ColumnName="ASXH_DIADIEM" />
+                <ScalarProperty Name="ASXH_TONGSO_NGAY" ColumnName="ASXH_TONGSO_NGAY" />
+                <ScalarProperty Name="ASXH_THOIGIAN_KETTHUC" ColumnName="ASXH_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="ASXH_THOIGIAN_BATDAU" ColumnName="ASXH_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="ASXH_TEN" ColumnName="ASXH_TEN" />
+                <ScalarProperty Name="ASXH_LOAI_ID" ColumnName="ASXH_LOAI_ID" />
+                <ScalarProperty Name="ASXH_ID" ColumnName="ASXH_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -42,6 +42,7 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="13.375" PointY="3.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_DUNGCU_HOTRO" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" Width="1.5" PointX="4.375" PointY="13.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" Width="1.5" PointX="13.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

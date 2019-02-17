@@ -14,19 +14,21 @@ using System.Linq;
 using System.Data.Entity;
 using DevExpress.Utils;
 using DevExpress.XtraLayout.Utils;
+using static DauThau.Class.FuncCategory;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucHoatDongTapHuan : ucBase
+    public partial class ucHoatDongASXH : ucBase
     {
         private Int64 _id_loai;
-        public ucHoatDongTapHuan(Int64 id_loai)
+        public ucHoatDongASXH(Int64 id_loai)
         {
             InitializeComponent();
             _id_loai = id_loai;
         }
 
-        private void ucHoatDongHoiThaoTapHuan_Load(object sender, EventArgs e)
+        List<dynamicObject> _listDMASXH;
+        private void ucHoatDongASXH_Load(object sender, EventArgs e)
         {
             registerButtonArray(btnControl);
 
@@ -35,21 +37,20 @@ namespace DauThau.UserControlCategory
             deTuNgay.Ex_FormatCustomDateEdit();
             deDenNgay.Ex_FormatCustomDateEdit();
 
-            seThuLaoGV.Ex_FormatCustomSpinEdit();
-            seThuLaoHoTro.Ex_FormatCustomSpinEdit();
+ 
+            seTongSoTien.Ex_FormatCustomSpinEdit();
             seSoLuongNguoiThamGia.Ex_FormatCustomSpinEdit();
-            seSoTienMoiNguoi.Ex_FormatCustomSpinEdit();
-            seTongTien.Ex_FormatCustomSpinEdit();
 
             var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var nextMonth = current.AddMonths(1);
             deSearchTuNgay.DateTime = current;
             deSearchDenNgay.DateTime = nextMonth.AddDays(-1);
 
-            lueLoaiTapHuan.Properties.DataSource = FuncCategory.loadDMTapHuan();
+            _listDMASXH = FuncCategory.loadDMASXH();
+            lueLoaiTapHuan.Properties.DataSource = _listDMASXH;
             lueLoaiTapHuan.EditValue = _id_loai;
 
-            _changeLayout((CategoryTapHuan)_id_loai);
+            _changeLayout((CategoryASXH)_id_loai);
 
             FormStatus = EnumFormStatus.VIEW;
         }
@@ -60,35 +61,27 @@ namespace DauThau.UserControlCategory
 
         #region Function
 
-        private void _changeLayout(CategoryTapHuan enumLoai)
+        private void _changeLayout(CategoryASXH enumLoai)
         {
+            var dmloai = (from p in _listDMASXH where p.ID == _id_loai select p).FirstOrDefault();
+            string title = "";
+            if(dmloai != null)
+            {
+                title = dmloai.NAME;
+            }
             switch (enumLoai)
             {
-                case CategoryTapHuan.TH_TAPHUAN:
-                    layThongTinGV.Visibility = layGiangVienThuLao.Visibility
-                        = layNguoiHoTro.Visibility = layHoTroThuLao.Visibility = LayoutVisibility.Always;
-                    grpSearchTitle.Text = "Danh sách hoạt động tập huấn";
-                    break;
-                case CategoryTapHuan.TH_GIAODUC:
-                    grpSearchTitle.Text = "Danh sách hoạt động giáo dục";
-                    break;
-                case CategoryTapHuan.HUONG_DAN_THUC_TAP:
-                    grpSearchTitle.Text = "Danh sách hoạt động hướng dẫn thực tập";
-                    break;
-                case CategoryTapHuan.VAN_DONG_CHINH_SACH:
-                    laySoNguoiThamGia.Visibility = laySoTienTrenNguoi.Visibility = layTongTien.Visibility = LayoutVisibility.Never;
-                    layNguoiHoTro.Visibility = LayoutVisibility.Always;
-                    layNguoiHoTro.Text = "Người thực hiện";
-                    layDiaDiem.Text = "Nơi nhận";
-                    grpSearchTitle.Text = "Danh sách hoạt động vận động chính sách";
-                    break;
-                case CategoryTapHuan.TRUYEN_THONG_PHAP_LY:
-                    layDonViThucHien.Visibility = LayoutVisibility.Always;
-                    grpSearchTitle.Text = "Danh sách hoạt động truyền thông pháp lý";
-                    break;
+                case CategoryASXH.TANG_DUNG_CU_TRO_GIUP:
+                    grpSearchTitle.Text = "Danh sách tặng dụng cụ trợ giúp";
+                    return;
+                case CategoryASXH.HO_TRO_HOI_VIEN_KHO_KHAN:
+                    grpSearchTitle.Text = "Danh sách hỗ trợ học viên khó khăn";
+                    return;
                 default:
                     break;
             }
+
+            grpSearchTitle.Text = "Danh sách " + title.ToLower();
         }
 
         private void _statusAllControl(Boolean readOnly)
@@ -139,11 +132,11 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
-            context.QL_HOATDONG_TAPHUAN.Load();
-            var data = (from p in context.QL_HOATDONG_TAPHUAN
-                        where deSearchTuNgay.DateTime.Date <= p.TH_THOIGIAN_BATDAU
-                             && p.TH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
-                             && p.TH_LOAI_ID == _id_loai
+            context.QL_HOATDONG_ASXH.Load();
+            var data = (from p in context.QL_HOATDONG_ASXH
+                        where deSearchTuNgay.DateTime.Date <= p.ASXH_THOIGIAN_BATDAU
+                             && p.ASXH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
+                             && p.ASXH_LOAI_ID == _id_loai
                         select p).ToList();
             gcGrid.DataSource = data;
             _loadDataFocusRow();
@@ -153,42 +146,38 @@ namespace DauThau.UserControlCategory
         private void _loadDataFocusRow()
         {
             _clearData();
-            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
+            QL_HOATDONG_ASXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_ASXH;
             if (item != null)
             {
-                deTuNgay.EditValue = item.TH_THOIGIAN_BATDAU;
-                deDenNgay.EditValue = item.TH_THOIGIAN_KETTHUC;
-                seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
-                txtTenChuongTrinh.EditValue = item.TH_TEN;
-                txtDiaDiem.EditValue = item.TH_DIADIEM;
-                txtDonViThucHien.EditValue = item.TH_DONVI_THUCHIEN;
-                seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
-                seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
-                txtNoiDung.EditValue = item.TH_NOIDUNG;
-                txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
-                seThuLaoGV.EditValue = item.TH_GIANGVIEN_THULAO;
-                txtThongTinNguoiHoTro.EditValue = item.TH_NGUOI_HOTRO;
-                seThuLaoHoTro.EditValue = item.TH_NGUOI_HOTRO_THULAO;
+                deTuNgay.EditValue = item.ASXH_THOIGIAN_BATDAU;
+                deDenNgay.EditValue = item.ASXH_THOIGIAN_KETTHUC;
+                seTongSoNgay.EditValue = item.ASXH_TONGSO_NGAY;
+                txtTenChuongTrinh.EditValue = item.ASXH_TEN;
+                txtDiaDiem.EditValue = item.ASXH_DIADIEM;
+                txtDonViThucHien.EditValue = item.ASXH_DONVI_THUCHIEN;
+
+                seSoLuongNguoiThamGia.EditValue = item.ASXH_SOLUONG;
+                seTongSoTien.EditValue = item.ASXH_TONGSO_TIEN;
+
+                txtDoiTuong.EditValue = item.ASXH_DOITUONG;
+                txtNoiDung.EditValue = item.ASXH_NOIDUNG;
             }
         }
 
-        private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN item)
+        private void _setObjectEntities(ref QL_HOATDONG_ASXH item)
         {
-            item.TH_LOAI_ID = _id_loai;
-            item.TH_THOIGIAN_BATDAU = deTuNgay.Ex_EditValueToDateTime();
-            item.TH_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
-            item.TH_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
+            item.ASXH_LOAI_ID = _id_loai;
+            item.ASXH_THOIGIAN_BATDAU = deTuNgay.Ex_EditValueToDateTime();
+            item.ASXH_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
+            item.ASXH_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
+            item.ASXH_TONGSO_TIEN = seTongSoTien.Ex_EditValueToInt();
 
-            item.TH_TEN = txtTenChuongTrinh.Text ;
-            item.TH_DIADIEM = txtDiaDiem.Text;
-            item.TH_DONVI_THUCHIEN = txtDonViThucHien.Text;
-            item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
-            item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
-            item.TH_NOIDUNG = txtNoiDung.Text;
-            item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
-            item.TH_GIANGVIEN_THULAO = seThuLaoGV.Ex_EditValueToInt();
-            item.TH_NGUOI_HOTRO = txtThongTinNguoiHoTro.Text;
-            item.TH_NGUOI_HOTRO_THULAO = seThuLaoHoTro.Ex_EditValueToInt();
+            item.ASXH_TEN = txtTenChuongTrinh.Text ;
+            item.ASXH_DIADIEM = txtDiaDiem.Text;
+            item.ASXH_DONVI_THUCHIEN = txtDonViThucHien.Text;
+            item.ASXH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
+            item.ASXH_DOITUONG = txtDoiTuong.Text;
+            item.ASXH_NOIDUNG = txtNoiDung.Text;
         }
 
         private Boolean _validateControl()
@@ -219,27 +208,29 @@ namespace DauThau.UserControlCategory
             {
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOATDONG_TAPHUAN item;
+                    QL_HOATDONG_ASXH item;
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
+
                             #region Add
 
-                            item = new QL_HOATDONG_TAPHUAN();
+                            item = new QL_HOATDONG_ASXH();
                             _setObjectEntities(ref item);
-                            _context.QL_HOATDONG_TAPHUAN.Add(item);
+                            _context.QL_HOATDONG_ASXH.Add(item);
 
                             #endregion
+
                             break;
                         case EnumFormStatus.MODIFY:
-                            Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
-                            item = (from p in _context.QL_HOATDONG_TAPHUAN where p.TH_ID == id select p).FirstOrDefault<QL_HOATDONG_TAPHUAN>();
+                            Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+                            item = (from p in _context.QL_HOATDONG_ASXH where p.ASXH_ID == id select p).FirstOrDefault<QL_HOATDONG_ASXH>();
                             if (item != null)
                             {
                                 _setObjectEntities(ref item);
                             }
-                            var entity = _context.QL_HOATDONG_TAPHUAN.Find(id);
-                            if(entity != null)
+                            var entity = _context.QL_HOATDONG_ASXH.Find(id);
+                            if (entity != null)
                             {
                                 _context.Entry(entity).CurrentValues.SetValues(item);
                             }
@@ -262,14 +253,14 @@ namespace DauThau.UserControlCategory
 
         private void _deleteRow()
         {
-            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
+            QL_HOATDONG_ASXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_ASXH;
             if (item != null)
             {
-                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.TH_TEN)) == DialogResult.Yes)
+                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.ASXH_TEN)) == DialogResult.Yes)
                 {
-                    Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
-                    QL_HOATDONG_TAPHUAN entities = (from p in context.QL_HOATDONG_TAPHUAN where p.TH_ID == id select p).FirstOrDefault();
-                    context.QL_HOATDONG_TAPHUAN.Remove(entities);
+                    Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+                    QL_HOATDONG_ASXH entities = (from p in context.QL_HOATDONG_ASXH where p.ASXH_ID == id select p).FirstOrDefault();
+                    context.QL_HOATDONG_ASXH.Remove(entities);
                     context.SaveChanges();
                     FormStatus = EnumFormStatus.VIEW;
                 }
@@ -330,13 +321,7 @@ namespace DauThau.UserControlCategory
             }
         }
 
-        private void _calTongTien()
-        {
-            if(seSoLuongNguoiThamGia.EditValue != null && seSoTienMoiNguoi.EditValue != null)
-            {
-                seTongTien.EditValue = clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) * clsChangeType.change_int64(seSoTienMoiNguoi.EditValue);
-            }
-        }
+
 
         #endregion
 
@@ -412,14 +397,6 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-        private void seSoLuongNguoiThamGia_EditValueChanged(object sender, EventArgs e)
-        {
-            _calTongTien();
-        }
-
-        private void seSoTienMoiNguoi_EditValueChanged(object sender, EventArgs e)
-        {
-            _calTongTien();
-        }
+      
     }
 }

@@ -64,6 +64,20 @@ namespace DauThau.Class
 
     }
 
+    enum CategoryASXH
+    {
+        GIAI_PHAU_CHINH_HINH = 1,
+        TANG_QUA,
+        TANG_DUNG_CU_TRO_GIUP,
+        HOC_BONG,
+        BHYT,
+        HO_TRO_HOI_VIEN_KHO_KHAN,
+        THAM_VIENG_HUU_SU,
+        DAM_CUOI,
+        CAT_NHA,
+        SUA_NHA
+    }
+
     /// <summary>
     /// Liệt kê các mẫu báo cáo có trong hệ thống
     /// Sử dụng:

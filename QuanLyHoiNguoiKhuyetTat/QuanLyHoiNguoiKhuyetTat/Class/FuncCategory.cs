@@ -138,6 +138,82 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMASXH()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Giải phẫu chỉnh hình"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Tặng quà"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 3,
+                NAME = "Tặng dụng cụ trợ giúp (xe lăn, xe lắc, nạng, nẹp)"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 4,
+                NAME = "Học bổng"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 5,
+                NAME = "Bảo hiểm y tế"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 6,
+                NAME = "Hỗ trợ Hội viên gặp khó khăn và người có bệnh hiểm nghèo"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 7,
+                NAME = "Thăm viếng hữu sự"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 8,
+                NAME = "Đám cưới"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 9,
+                NAME = "Cất nhà"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 10,
+                NAME = "Sửa nhà"
+            };
+            list.Add(item);
+
+            return list;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())

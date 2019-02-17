@@ -115,6 +115,8 @@ namespace DauThau
 
                     #endregion
 
+                    #region Đại hội - hội nghị
+
                     case "btnDaiHoi":
                         uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.DAI_HOI);
                         break;
@@ -139,6 +141,44 @@ namespace DauThau
                     case "btnToChucVanNghe":
                         uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.TO_CHUC_VAN_NGHE);
                         break;
+
+                    #endregion
+
+                    #region ASXH
+
+                    case "btnGiaiPhauChinhHinh":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.GIAI_PHAU_CHINH_HINH);
+                        break;
+
+                    case "btnTangQua":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.TANG_QUA);
+                        break;
+                    case "btnTangDungCuTroGiup":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.TANG_DUNG_CU_TRO_GIUP);
+                        break;
+                    case "btnHocBong":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.HOC_BONG);
+                        break;
+                    case "btnBHYT":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.BHYT);
+                        break;
+                    case "btnHoTroHoiVienKK":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.HO_TRO_HOI_VIEN_KHO_KHAN);
+                        break;
+                    case "btnThamVieng":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.THAM_VIENG_HUU_SU);
+                        break;
+                    case "btnDamCuoi":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.DAM_CUOI);
+                        break;
+                    case "btnCatNha":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.CAT_NHA);
+                        break;
+                    case "btnSuaNha":
+                        uc = new ucHoatDongASXH((Int64)CategoryASXH.SUA_NHA);
+                        break;
+
+                    #endregion
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         uc = new ucPrint(rpt);
