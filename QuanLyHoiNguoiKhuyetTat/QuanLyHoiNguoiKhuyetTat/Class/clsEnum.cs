@@ -78,6 +78,16 @@ namespace DauThau.Class
         SUA_NHA
     }
 
+    enum CategoryHNXH
+    {
+        GIAO_LUU = 1,
+        LIEN_HOAN,
+        DON_KHACH,
+        THAM_QUAN_DU_LICH,
+        VAN_NGHE,
+        THE_THAO,
+    }
+
     /// <summary>
     /// Liệt kê các mẫu báo cáo có trong hệ thống
     /// Sử dụng:

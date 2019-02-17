@@ -214,6 +214,54 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMHNXH()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Giao lưu"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Liên hoan"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 3,
+                NAME = "Đón khách"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 4,
+                NAME = "Tham quan du lịch"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 5,
+                NAME = "Văn nghệ"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 6,
+                NAME = "Thể thao"
+            };
+            list.Add(item);
+
+            return list;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())

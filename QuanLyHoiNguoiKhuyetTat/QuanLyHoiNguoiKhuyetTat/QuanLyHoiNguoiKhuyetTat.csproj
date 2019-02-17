@@ -447,6 +447,9 @@
     <Compile Include="Models\QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_HNXH.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_HOITHAO.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -769,6 +772,12 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoatDong.Designer.cs">
       <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongHNXH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongHNXH.Designer.cs">
+      <DependentUpon>ucHoatDongHNXH.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucHoatDongASXH.cs">
       <SubType>UserControl</SubType>
@@ -1350,6 +1359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoatDong.resx">
       <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongHNXH.resx">
+      <DependentUpon>ucHoatDongHNXH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucHoatDongASXH.resx">
       <DependentUpon>ucHoatDongASXH.cs</DependentUpon>

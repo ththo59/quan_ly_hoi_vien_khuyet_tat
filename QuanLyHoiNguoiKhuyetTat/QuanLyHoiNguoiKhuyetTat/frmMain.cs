@@ -179,6 +179,29 @@ namespace DauThau
                         break;
 
                     #endregion
+
+                    #region Hòa nhập xã hội
+                    case "btnGiaoLuu":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.GIAO_LUU);
+                        break;
+                    case "btnLienHoan":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.LIEN_HOAN);
+                        break;
+                    case "btnDonKhach":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.DON_KHACH);
+                        break;
+                    case "btnThamQuanDuLich":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.THAM_QUAN_DU_LICH);
+                        break;
+                    case "btnVanNghe":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.VAN_NGHE);
+                        break;
+                    case "btnTheThao":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.THE_THAO);
+                        break;
+
+                    #endregion
+
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         uc = new ucPrint(rpt);

@@ -127,12 +127,12 @@
             this.btnCatNha = new DevExpress.XtraBars.BarButtonItem();
             this.btnSuaNha = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLienHoan = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGiaoLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDonKhach = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThamQuanDuLich = new DevExpress.XtraBars.BarButtonItem();
+            this.btnVanNghe = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTheThao = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
@@ -302,12 +302,12 @@
             this.btnCatNha,
             this.btnSuaNha,
             this.barSubItem7,
-            this.barButtonItem32,
-            this.barButtonItem33,
-            this.barButtonItem34,
-            this.barButtonItem35,
-            this.barButtonItem36,
-            this.barButtonItem37,
+            this.btnLienHoan,
+            this.btnGiaoLuu,
+            this.btnDonKhach,
+            this.btnThamQuanDuLich,
+            this.btnVanNghe,
+            this.btnTheThao,
             this.barSubItem8,
             this.barButtonItem38,
             this.barButtonItem39,
@@ -1402,51 +1402,51 @@
             this.barSubItem7.Id = 169;
             this.barSubItem7.LargeWidth = 100;
             this.barSubItem7.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem35),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLienHoan),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnGiaoLuu),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDonKhach),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnThamQuanDuLich),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnVanNghe),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnTheThao)});
             this.barSubItem7.Name = "barSubItem7";
             this.barSubItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barButtonItem32
+            // btnLienHoan
             // 
-            this.barButtonItem32.Caption = "Liên Hoan";
-            this.barButtonItem32.Id = 170;
-            this.barButtonItem32.Name = "barButtonItem32";
+            this.btnLienHoan.Caption = "Liên Hoan";
+            this.btnLienHoan.Id = 170;
+            this.btnLienHoan.Name = "btnLienHoan";
             // 
-            // barButtonItem33
+            // btnGiaoLuu
             // 
-            this.barButtonItem33.Caption = "Giao lưu";
-            this.barButtonItem33.Id = 171;
-            this.barButtonItem33.Name = "barButtonItem33";
+            this.btnGiaoLuu.Caption = "Giao lưu";
+            this.btnGiaoLuu.Id = 171;
+            this.btnGiaoLuu.Name = "btnGiaoLuu";
             // 
-            // barButtonItem34
+            // btnDonKhach
             // 
-            this.barButtonItem34.Caption = "Đón khách";
-            this.barButtonItem34.Id = 172;
-            this.barButtonItem34.Name = "barButtonItem34";
+            this.btnDonKhach.Caption = "Đón khách";
+            this.btnDonKhach.Id = 172;
+            this.btnDonKhach.Name = "btnDonKhach";
             // 
-            // barButtonItem35
+            // btnThamQuanDuLich
             // 
-            this.barButtonItem35.Caption = "Tham quan du lịch";
-            this.barButtonItem35.Id = 173;
-            this.barButtonItem35.Name = "barButtonItem35";
+            this.btnThamQuanDuLich.Caption = "Tham quan du lịch";
+            this.btnThamQuanDuLich.Id = 173;
+            this.btnThamQuanDuLich.Name = "btnThamQuanDuLich";
             // 
-            // barButtonItem36
+            // btnVanNghe
             // 
-            this.barButtonItem36.Caption = "Văn nghệ";
-            this.barButtonItem36.Id = 174;
-            this.barButtonItem36.Name = "barButtonItem36";
+            this.btnVanNghe.Caption = "Văn nghệ";
+            this.btnVanNghe.Id = 174;
+            this.btnVanNghe.Name = "btnVanNghe";
             // 
-            // barButtonItem37
+            // btnTheThao
             // 
-            this.barButtonItem37.Caption = "Thể thao";
-            this.barButtonItem37.Id = 175;
-            this.barButtonItem37.Name = "barButtonItem37";
+            this.btnTheThao.Caption = "Thể thao";
+            this.btnTheThao.Id = 175;
+            this.btnTheThao.Name = "btnTheThao";
             // 
             // barSubItem8
             // 
@@ -1924,12 +1924,12 @@
         private DevExpress.XtraBars.BarButtonItem btnCatNha;
         private DevExpress.XtraBars.BarButtonItem btnSuaNha;
         private DevExpress.XtraBars.BarSubItem barSubItem7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem32;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem33;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem34;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem35;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem36;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem37;
+        private DevExpress.XtraBars.BarButtonItem btnLienHoan;
+        private DevExpress.XtraBars.BarButtonItem btnGiaoLuu;
+        private DevExpress.XtraBars.BarButtonItem btnDonKhach;
+        private DevExpress.XtraBars.BarButtonItem btnThamQuanDuLich;
+        private DevExpress.XtraBars.BarButtonItem btnVanNghe;
+        private DevExpress.XtraBars.BarButtonItem btnTheThao;
         private DevExpress.XtraBars.BarSubItem barSubItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem38;
         private DevExpress.XtraBars.BarButtonItem barButtonItem39;

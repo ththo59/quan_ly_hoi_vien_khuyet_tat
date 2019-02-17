@@ -235,6 +235,22 @@
           <Property Name="HV_ID" Type="bigint" />
           <Property Name="GQVL_CT_THU_NHAP" Type="int" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_HNXH">
+          <Key>
+            <PropertyRef Name="HNXH_ID" />
+          </Key>
+          <Property Name="HNXH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HNXH_LOAI_ID" Type="bigint" />
+          <Property Name="HNXH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HNXH_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="HNXH_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="HNXH_TONGSO_NGAY" Type="int" />
+          <Property Name="HNXH_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="HNXH_SOLUONG" Type="int" />
+          <Property Name="HNXH_TONGSO_TIEN" Type="int" />
+          <Property Name="HNXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HNXH_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_HOITHAO">
           <Key>
             <PropertyRef Name="HT_ID" />
@@ -495,6 +511,7 @@
           <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="Self.QL_HOATDONG_DAYNGHE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM" EntityType="Self.QL_HOATDONG_GIAIQUYET_VIECLAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" EntityType="Self.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_HNXH" EntityType="Self.QL_HOATDONG_HNXH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="Self.QL_HOATDONG_HOITHAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="Self.QL_HOATDONG_TAPHUAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="Self.QL_HOATDONG_VAYVON" Schema="dbo" store:Type="Tables" />
@@ -662,6 +679,7 @@
           <EntitySet Name="DM_DUNGCU_HOTRO" EntityType="QL_HOIVIEN_KTModel.DM_DUNGCU_HOTRO" />
           <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" />
           <EntitySet Name="QL_HOATDONG_ASXH" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" />
+          <EntitySet Name="QL_HOATDONG_HNXH" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1081,6 +1099,22 @@
           <Property Name="ASXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ASXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_HNXH">
+          <Key>
+            <PropertyRef Name="HNXH_ID" />
+          </Key>
+          <Property Name="HNXH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HNXH_LOAI_ID" Type="Int64" />
+          <Property Name="HNXH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HNXH_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="HNXH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="HNXH_TONGSO_NGAY" Type="Int32" />
+          <Property Name="HNXH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HNXH_SOLUONG" Type="Int32" />
+          <Property Name="HNXH_TONGSO_TIEN" Type="Int32" />
+          <Property Name="HNXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HNXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1482,6 +1516,23 @@
                 <ScalarProperty Name="ASXH_TEN" ColumnName="ASXH_TEN" />
                 <ScalarProperty Name="ASXH_LOAI_ID" ColumnName="ASXH_LOAI_ID" />
                 <ScalarProperty Name="ASXH_ID" ColumnName="ASXH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_HNXH">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_HNXH">
+                <ScalarProperty Name="HNXH_NOIDUNG" ColumnName="HNXH_NOIDUNG" />
+                <ScalarProperty Name="HNXH_DONVI_THUCHIEN" ColumnName="HNXH_DONVI_THUCHIEN" />
+                <ScalarProperty Name="HNXH_TONGSO_TIEN" ColumnName="HNXH_TONGSO_TIEN" />
+                <ScalarProperty Name="HNXH_SOLUONG" ColumnName="HNXH_SOLUONG" />
+                <ScalarProperty Name="HNXH_DIADIEM" ColumnName="HNXH_DIADIEM" />
+                <ScalarProperty Name="HNXH_TONGSO_NGAY" ColumnName="HNXH_TONGSO_NGAY" />
+                <ScalarProperty Name="HNXH_THOIGIAN_KETTHUC" ColumnName="HNXH_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="HNXH_THOIGIAN_BATDAU" ColumnName="HNXH_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="HNXH_TEN" ColumnName="HNXH_TEN" />
+                <ScalarProperty Name="HNXH_LOAI_ID" ColumnName="HNXH_LOAI_ID" />
+                <ScalarProperty Name="HNXH_ID" ColumnName="HNXH_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
