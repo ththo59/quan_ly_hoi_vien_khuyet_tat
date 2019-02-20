@@ -19,7 +19,6 @@ namespace DauThau.Models
         public Nullable<long> HV_ID { get; set; }
         public Nullable<int> GQVL_CT_THU_NHAP { get; set; }
     
-        public virtual QL_HOATDONG_GIAIQUYET_VIECLAM QL_HOATDONG_GIAIQUYET_VIECLAM { get; set; }
         public virtual QL_HOIVIEN QL_HOIVIEN { get; set; }
     }
 }

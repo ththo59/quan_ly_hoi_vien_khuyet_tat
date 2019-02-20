@@ -18,7 +18,6 @@ namespace DauThau.Models
         public QL_HOIVIEN()
         {
             this.QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET = new HashSet<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET>();
-            this.QL_HOATDONG_VAYVON_CHITIET = new HashSet<QL_HOATDONG_VAYVON_CHITIET>();
         }
     
         public long HV_ID { get; set; }
@@ -99,7 +98,5 @@ namespace DauThau.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET> QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QL_HOATDONG_VAYVON_CHITIET> QL_HOATDONG_VAYVON_CHITIET { get; set; }
     }
 }

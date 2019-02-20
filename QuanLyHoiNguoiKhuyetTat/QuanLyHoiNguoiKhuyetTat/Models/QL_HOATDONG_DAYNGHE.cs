@@ -19,11 +19,13 @@ namespace DauThau.Models
         public Nullable<System.DateTime> DN_THOIGIAN_BATDAU { get; set; }
         public Nullable<System.DateTime> DN_THOIGIAN_KETTHUC { get; set; }
         public string DN_DIADIEM { get; set; }
-        public Nullable<int> DN_THAMGIA_SOLUONG { get; set; }
-        public Nullable<int> DN_SOTIEN_HOTRO { get; set; }
-        public string DN_HOTRO_HOTEN { get; set; }
-        public string DN_HOTRO_DIACHI { get; set; }
-        public string DN_HOTRO_DIENTHOAI { get; set; }
-        public Nullable<int> DN_HOTRO_THULAO { get; set; }
+        public string DN_NGHE { get; set; }
+        public string DN_DONVI_THUCHIEN { get; set; }
+        public Nullable<int> DN_SOLUONG { get; set; }
+        public Nullable<int> DN_SOLUONG_NU { get; set; }
+        public Nullable<int> DN_TONGTIEN { get; set; }
+        public string DN_DOITUONG_THAMGIA { get; set; }
+        public string DN_NOIDUNG { get; set; }
+        public string DN_NGUOI_HOTRO { get; set; }
     }
 }

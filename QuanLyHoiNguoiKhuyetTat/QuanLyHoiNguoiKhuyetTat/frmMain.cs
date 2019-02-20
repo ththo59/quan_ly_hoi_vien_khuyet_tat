@@ -202,6 +202,21 @@ namespace DauThau
 
                     #endregion
 
+                    #region Việc làm
+                    case "btnDayNghe":
+                        uc = new ucHoatDongDayNghe();
+                        break;
+                    case "btnGioiThieuViecLam":
+                        uc = new ucHoatDongViecLam((Int64)CategoryHNXH.GIAO_LUU);
+                        break;
+                    case "btnGiaiQuyetViecLam":
+                        uc = new ucHoatDongViecLam((Int64)CategoryHNXH.GIAO_LUU);
+                        break;
+                    case "btnVayVon":
+                        uc = new ucHoatDongVayVon((Int64)CategoryHNXH.GIAO_LUU);
+                        break;
+                    #endregion
+
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         uc = new ucPrint(rpt);

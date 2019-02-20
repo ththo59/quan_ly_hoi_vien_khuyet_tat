@@ -441,9 +441,6 @@
     <Compile Include="Models\QL_HOATDONG_DAYNGHE.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QL_HOATDONG_GIAIQUYET_VIECLAM.cs">
-      <DependentUpon>QLHVContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -459,7 +456,7 @@
     <Compile Include="Models\QL_HOATDONG_VAYVON.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QL_HOATDONG_VAYVON_CHITIET.cs">
+    <Compile Include="Models\QL_HOATDONG_VIECLAM.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOIVIEN.cs">
@@ -772,6 +769,24 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoatDong.Designer.cs">
       <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongDayNghe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongDayNghe.Designer.cs">
+      <DependentUpon>ucHoatDongDayNghe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongVayVon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongVayVon.Designer.cs">
+      <DependentUpon>ucHoatDongVayVon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongViecLam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongViecLam.Designer.cs">
+      <DependentUpon>ucHoatDongViecLam.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucHoatDongHNXH.cs">
       <SubType>UserControl</SubType>
@@ -1359,6 +1374,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoatDong.resx">
       <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongDayNghe.resx">
+      <DependentUpon>ucHoatDongDayNghe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongVayVon.resx">
+      <DependentUpon>ucHoatDongVayVon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongViecLam.resx">
+      <DependentUpon>ucHoatDongViecLam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucHoatDongHNXH.resx">
       <DependentUpon>ucHoatDongHNXH.cs</DependentUpon>

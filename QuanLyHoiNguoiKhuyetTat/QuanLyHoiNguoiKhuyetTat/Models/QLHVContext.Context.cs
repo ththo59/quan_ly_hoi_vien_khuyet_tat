@@ -46,15 +46,14 @@ namespace DauThau.Models
         public virtual DbSet<DM_NHUCAU> DM_NHUCAU { get; set; }
         public virtual DbSet<DM_THANHVIEN_HOI> DM_THANHVIEN_HOI { get; set; }
         public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
-        public virtual DbSet<QL_HOATDONG_DAYNGHE> QL_HOATDONG_DAYNGHE { get; set; }
-        public virtual DbSet<QL_HOATDONG_GIAIQUYET_VIECLAM> QL_HOATDONG_GIAIQUYET_VIECLAM { get; set; }
         public virtual DbSet<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET> QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET { get; set; }
-        public virtual DbSet<QL_HOATDONG_VAYVON> QL_HOATDONG_VAYVON { get; set; }
-        public virtual DbSet<QL_HOATDONG_VAYVON_CHITIET> QL_HOATDONG_VAYVON_CHITIET { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
         public virtual DbSet<DM_DUNGCU_HOTRO> DM_DUNGCU_HOTRO { get; set; }
         public virtual DbSet<QL_HOATDONG_HOITHAO> QL_HOATDONG_HOITHAO { get; set; }
         public virtual DbSet<QL_HOATDONG_ASXH> QL_HOATDONG_ASXH { get; set; }
         public virtual DbSet<QL_HOATDONG_HNXH> QL_HOATDONG_HNXH { get; set; }
+        public virtual DbSet<QL_HOATDONG_DAYNGHE> QL_HOATDONG_DAYNGHE { get; set; }
+        public virtual DbSet<QL_HOATDONG_VAYVON> QL_HOATDONG_VAYVON { get; set; }
+        public virtual DbSet<QL_HOATDONG_VIECLAM> QL_HOATDONG_VIECLAM { get; set; }
     }
 }
