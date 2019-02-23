@@ -88,6 +88,12 @@ namespace DauThau.Class
         THE_THAO,
     }
 
+    enum CategoryViecLam
+    {
+        GIOI_THIEU_VIEC_LAM = 1,
+        GIAI_QUYET_VIEC_LAM
+    }
+
     /// <summary>
     /// Liệt kê các mẫu báo cáo có trong hệ thống
     /// Sử dụng:

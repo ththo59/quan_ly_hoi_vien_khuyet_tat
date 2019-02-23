@@ -38,7 +38,6 @@ namespace DauThau.Models
         public virtual DbSet<DM_KHUYETTAT_TINHTRANG> DM_KHUYETTAT_TINHTRANG { get; set; }
         public virtual DbSet<DM_PHUONGTIEN_DILAI> DM_PHUONGTIEN_DILAI { get; set; }
         public virtual DbSet<DM_TINHTRANG_HONNHAN> DM_TINHTRANG_HONNHAN { get; set; }
-        public virtual DbSet<DM_NOI_SINH_SONG> DM_NOI_SINH_SONG { get; set; }
         public virtual DbSet<DM_XA> DM_XA { get; set; }
         public virtual DbSet<DM_NOI_O_NHA> DM_NOI_O_NHA { get; set; }
         public virtual DbSet<DM_CHAMSOC_BANTHAN> DM_CHAMSOC_BANTHAN { get; set; }
@@ -46,14 +45,14 @@ namespace DauThau.Models
         public virtual DbSet<DM_NHUCAU> DM_NHUCAU { get; set; }
         public virtual DbSet<DM_THANHVIEN_HOI> DM_THANHVIEN_HOI { get; set; }
         public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
-        public virtual DbSet<QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET> QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
         public virtual DbSet<DM_DUNGCU_HOTRO> DM_DUNGCU_HOTRO { get; set; }
         public virtual DbSet<QL_HOATDONG_HOITHAO> QL_HOATDONG_HOITHAO { get; set; }
         public virtual DbSet<QL_HOATDONG_ASXH> QL_HOATDONG_ASXH { get; set; }
         public virtual DbSet<QL_HOATDONG_HNXH> QL_HOATDONG_HNXH { get; set; }
         public virtual DbSet<QL_HOATDONG_DAYNGHE> QL_HOATDONG_DAYNGHE { get; set; }
-        public virtual DbSet<QL_HOATDONG_VAYVON> QL_HOATDONG_VAYVON { get; set; }
+        public virtual DbSet<DM_NOI_SINH_SONG> DM_NOI_SINH_SONG { get; set; }
         public virtual DbSet<QL_HOATDONG_VIECLAM> QL_HOATDONG_VIECLAM { get; set; }
+        public virtual DbSet<QL_HOATDONG_VAYVON> QL_HOATDONG_VAYVON { get; set; }
     }
 }

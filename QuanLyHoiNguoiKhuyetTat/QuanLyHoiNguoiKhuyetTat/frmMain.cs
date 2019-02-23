@@ -207,13 +207,13 @@ namespace DauThau
                         uc = new ucHoatDongDayNghe();
                         break;
                     case "btnGioiThieuViecLam":
-                        uc = new ucHoatDongViecLam((Int64)CategoryHNXH.GIAO_LUU);
+                        uc = new ucHoatDongViecLam((Int64)CategoryViecLam.GIOI_THIEU_VIEC_LAM);
                         break;
                     case "btnGiaiQuyetViecLam":
-                        uc = new ucHoatDongViecLam((Int64)CategoryHNXH.GIAO_LUU);
+                        uc = new ucHoatDongViecLam((Int64)CategoryViecLam.GIAI_QUYET_VIEC_LAM);
                         break;
                     case "btnVayVon":
-                        uc = new ucHoatDongVayVon((Int64)CategoryHNXH.GIAO_LUU);
+                        uc = new ucHoatDongVayVon();
                         break;
                     #endregion
 

@@ -15,10 +15,11 @@ namespace DauThau.Models
     public partial class QL_HOATDONG_VIECLAM
     {
         public long VL_ID { get; set; }
-        public Nullable<int> VL_LOAI_ID { get; set; }
+        public Nullable<long> VL_LOAI_ID { get; set; }
         public string VL_TEN { get; set; }
         public Nullable<System.DateTime> VL_THOIGIAN_BATDAU { get; set; }
         public Nullable<System.DateTime> VL_THOIGIAN_KETTHUC { get; set; }
+        public Nullable<int> VL_TONGSO_NGAY { get; set; }
         public string VL_DIADIEM { get; set; }
         public string VL_DONVI_GIOITHIEU { get; set; }
         public Nullable<int> VL_SOLUONG { get; set; }

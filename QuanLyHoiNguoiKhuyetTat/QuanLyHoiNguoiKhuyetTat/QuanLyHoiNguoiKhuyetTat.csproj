@@ -441,9 +441,6 @@
     <Compile Include="Models\QL_HOATDONG_DAYNGHE.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QL_HOATDONG_GIAIQUYET_VIECLAM_CHITIET.cs">
-      <DependentUpon>QLHVContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\QL_HOATDONG_HNXH.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -1582,6 +1579,7 @@
     </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="DataSets\dsBangChamDiem.xsc">
       <DependentUpon>dsBangChamDiem.xsd</DependentUpon>
     </None>

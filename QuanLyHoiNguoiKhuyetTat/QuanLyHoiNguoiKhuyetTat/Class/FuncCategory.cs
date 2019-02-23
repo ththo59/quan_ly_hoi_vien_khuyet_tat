@@ -262,6 +262,26 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMViecLam()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Giới thiệu việc làm"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Giải quyết việc làm"
+            };
+            list.Add(item);
+            return list;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())

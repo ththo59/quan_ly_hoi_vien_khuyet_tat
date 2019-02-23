@@ -18,6 +18,7 @@ namespace DauThau.Models
         public string DN_TEN { get; set; }
         public Nullable<System.DateTime> DN_THOIGIAN_BATDAU { get; set; }
         public Nullable<System.DateTime> DN_THOIGIAN_KETTHUC { get; set; }
+        public Nullable<int> DN_TONGSO_NGAY { get; set; }
         public string DN_DIADIEM { get; set; }
         public string DN_NGHE { get; set; }
         public string DN_DONVI_THUCHIEN { get; set; }

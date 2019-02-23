@@ -36,16 +36,13 @@ namespace DauThau.UserControlCategory
             deDenNgay.Ex_FormatCustomDateEdit();
 
  
-            seTongSoTien.Ex_FormatCustomSpinEdit();
+            seTongKinhPhi.Ex_FormatCustomSpinEdit();
             seSoLuongNguoiThamGia.Ex_FormatCustomSpinEdit();
 
             var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var nextMonth = current.AddMonths(1);
             deSearchTuNgay.DateTime = current;
             deSearchDenNgay.DateTime = nextMonth.AddDays(-1);
-
-            _listDM = FuncCategory.loadDMHNXH();
-            lueLoaiTapHuan.Properties.DataSource = _listDM;
 
             FormStatus = EnumFormStatus.VIEW;
         }
@@ -104,10 +101,10 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
-            context.QL_HOATDONG_HNXH.Load();
-            var data = (from p in context.QL_HOATDONG_HNXH
-                        where deSearchTuNgay.DateTime.Date <= p.HNXH_THOIGIAN_BATDAU
-                             && p.HNXH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
+            context.QL_HOATDONG_DAYNGHE.Load();
+            var data = (from p in context.QL_HOATDONG_DAYNGHE
+                        where deSearchTuNgay.DateTime.Date <= p.DN_THOIGIAN_BATDAU
+                             && p.DN_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
                         select p).ToList();
             gcGrid.DataSource = data;
             _loadDataFocusRow();
@@ -117,34 +114,47 @@ namespace DauThau.UserControlCategory
         private void _loadDataFocusRow()
         {
             _clearData();
-            QL_HOATDONG_HNXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_HNXH;
+            QL_HOATDONG_DAYNGHE item = gvGrid.GetFocusedRow() as QL_HOATDONG_DAYNGHE;
             if (item != null)
             {
-                deTuNgay.EditValue = item.HNXH_THOIGIAN_BATDAU;
-                deDenNgay.EditValue = item.HNXH_THOIGIAN_KETTHUC;
-                seTongSoNgay.EditValue = item.HNXH_TONGSO_NGAY;
-                txtTenChuongTrinh.EditValue = item.HNXH_TEN;
-                txtDiaDiem.EditValue = item.HNXH_DIADIEM;
-                txtDonViThucHien.EditValue = item.HNXH_DONVI_THUCHIEN;
+                deTuNgay.EditValue = item.DN_THOIGIAN_BATDAU;
+                deDenNgay.EditValue = item.DN_THOIGIAN_KETTHUC;
+                seTongSoNgay.EditValue = item.DN_TONGSO_NGAY;
+                
+                txtTenChuongTrinh.EditValue = item.DN_TEN;
+                txtNgheDay.EditValue = item.DN_NGHE;
+                txtDiaDiem.EditValue = item.DN_DIADIEM;
+                txtDayTuNguon.EditValue = item.DN_DONVI_THUCHIEN;
 
-                seSoLuongNguoiThamGia.EditValue = item.HNXH_SOLUONG;
-                seTongSoTien.EditValue = item.HNXH_TONGSO_TIEN;
-                txtNoiDung.EditValue = item.HNXH_NOIDUNG;
+                seSoLuongNguoiThamGia.EditValue = item.DN_SOLUONG;
+                seSoluongNu.EditValue = item.DN_SOLUONG_NU;
+                seTongKinhPhi.EditValue = item.DN_TONGTIEN;
+
+                txtDoiTuong.EditValue = item.DN_DOITUONG_THAMGIA;
+                txtNoiDung.EditValue = item.DN_NOIDUNG;
+                txtHoTro.EditValue = item.DN_NGUOI_HOTRO;
             }
         }
 
-        private void _setObjectEntities(ref QL_HOATDONG_HNXH item)
+        private void _setObjectEntities(ref QL_HOATDONG_DAYNGHE item)
         {
-            item.HNXH_THOIGIAN_BATDAU = deTuNgay.Ex_EditValueToDateTime();
-            item.HNXH_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
-            item.HNXH_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
-            item.HNXH_TONGSO_TIEN = seTongSoTien.Ex_EditValueToInt();
+            item.DN_THOIGIAN_BATDAU = deTuNgay.Ex_EditValueToDateTime();
+            item.DN_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
+            item.DN_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
+            
 
-            item.HNXH_TEN = txtTenChuongTrinh.Text ;
-            item.HNXH_DIADIEM = txtDiaDiem.Text;
-            item.HNXH_DONVI_THUCHIEN = txtDonViThucHien.Text;
-            item.HNXH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
-            item.HNXH_NOIDUNG = txtNoiDung.Text;
+            item.DN_TEN = txtTenChuongTrinh.Text ;
+            item.DN_NGHE = txtNgheDay.Text;
+            item.DN_DIADIEM = txtDiaDiem.Text;
+            item.DN_DONVI_THUCHIEN = txtDayTuNguon.Text;
+
+            item.DN_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
+            item.DN_SOLUONG_NU = seSoluongNu.Ex_EditValueToInt();
+            item.DN_TONGTIEN = seTongKinhPhi.Ex_EditValueToInt();
+
+            item.DN_NOIDUNG = txtNoiDung.Text;
+            item.DN_DOITUONG_THAMGIA = txtDoiTuong.Text;
+            item.DN_NGUOI_HOTRO = txtHoTro.Text;
         }
 
         private Boolean _validateControl()
@@ -161,6 +171,11 @@ namespace DauThau.UserControlCategory
                 dxErrorProvider.SetError(deDenNgay, "Từ ngày và đến ngày không phù hợp");
             }
 
+            if (clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) < clsChangeType.change_int64(seSoluongNu.EditValue))
+            {
+                dxErrorProvider.SetError(seSoluongNu, "Số lượng nữ không phù hợp.");
+            }
+
             if (dxErrorProvider.HasErrors)
             {
                 clsMessage.MessageWarning("Vui lòng nhập đầy đủ thông tin.");
@@ -175,28 +190,28 @@ namespace DauThau.UserControlCategory
             {
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOATDONG_HNXH item;
+                    QL_HOATDONG_DAYNGHE item;
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
 
                             #region Add
 
-                            item = new QL_HOATDONG_HNXH();
+                            item = new QL_HOATDONG_DAYNGHE();
                             _setObjectEntities(ref item);
-                            _context.QL_HOATDONG_HNXH.Add(item);
+                            _context.QL_HOATDONG_DAYNGHE.Add(item);
 
                             #endregion
 
                             break;
                         case EnumFormStatus.MODIFY:
                             Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
-                            item = (from p in _context.QL_HOATDONG_HNXH where p.HNXH_ID == id select p).FirstOrDefault<QL_HOATDONG_HNXH>();
+                            item = (from p in _context.QL_HOATDONG_DAYNGHE where p.DN_ID == id select p).FirstOrDefault<QL_HOATDONG_DAYNGHE>();
                             if (item != null)
                             {
                                 _setObjectEntities(ref item);
                             }
-                            var entity = _context.QL_HOATDONG_HNXH.Find(id);
+                            var entity = _context.QL_HOATDONG_DAYNGHE.Find(id);
                             if (entity != null)
                             {
                                 _context.Entry(entity).CurrentValues.SetValues(item);
@@ -220,14 +235,14 @@ namespace DauThau.UserControlCategory
 
         private void _deleteRow()
         {
-            QL_HOATDONG_HNXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_HNXH;
+            QL_HOATDONG_DAYNGHE item = gvGrid.GetFocusedRow() as QL_HOATDONG_DAYNGHE;
             if (item != null)
             {
-                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.HNXH_TEN)) == DialogResult.Yes)
+                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.DN_TEN)) == DialogResult.Yes)
                 {
                     Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
-                    QL_HOATDONG_HNXH entities = (from p in context.QL_HOATDONG_HNXH where p.HNXH_ID == id select p).FirstOrDefault();
-                    context.QL_HOATDONG_HNXH.Remove(entities);
+                    QL_HOATDONG_DAYNGHE entities = (from p in context.QL_HOATDONG_DAYNGHE where p.DN_ID == id select p).FirstOrDefault();
+                    context.QL_HOATDONG_DAYNGHE.Remove(entities);
                     context.SaveChanges();
                     FormStatus = EnumFormStatus.VIEW;
                 }
@@ -364,6 +379,5 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
     }
 }

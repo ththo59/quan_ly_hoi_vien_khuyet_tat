@@ -18,11 +18,12 @@ namespace DauThau.Models
         public string VV_TEN { get; set; }
         public Nullable<System.DateTime> VV_THOIGIAN_BATDAU { get; set; }
         public Nullable<System.DateTime> VV_THOIGIAN_KETTHUC { get; set; }
+        public Nullable<int> VV_TONGSO_NGAY { get; set; }
         public string VV_DIADIEM { get; set; }
         public Nullable<int> VV_SOLUONG { get; set; }
         public Nullable<int> VV_SOLUONG_NU { get; set; }
         public string VV_NGUON_VAY { get; set; }
-        public string VV_TIEN_VAY { get; set; }
+        public Nullable<int> VV_TIEN_VAY { get; set; }
         public Nullable<System.DateTime> VV_THOIGIAN_TRA { get; set; }
         public string VV_PHUONGTHUC_TRA { get; set; }
         public string VV_DOITUONG { get; set; }
