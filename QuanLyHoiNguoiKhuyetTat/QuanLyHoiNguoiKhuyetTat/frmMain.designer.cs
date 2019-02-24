@@ -146,7 +146,6 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -783,7 +782,6 @@
             this.btnBCLyLichTheoDieuKien.Name = "btnBCLyLichTheoDieuKien";
             this.btnBCLyLichTheoDieuKien.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnBCLyLichTheoDieuKien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBCLyLichTheoDieuKien_ItemClick);
             // 
             // btnNapExcels
             // 
@@ -1282,7 +1280,6 @@
             this.btnHoiThao.Caption = "Hội thảo";
             this.btnHoiThao.Id = 148;
             this.btnHoiThao.Name = "btnHoiThao";
-            this.btnHoiThao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // btnBuoiLe
             // 
@@ -1544,7 +1541,6 @@
             // 
             this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
-            this.ribbonPageGroup12,
             this.ribbonPageGroup4,
             this.ribbonPageGroup8,
             this.ribbonPageGroup6});
@@ -1559,17 +1555,12 @@
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Hội viên";
             // 
-            // ribbonPageGroup12
-            // 
-            this.ribbonPageGroup12.ItemLinks.Add(this.btnPhieuThu);
-            this.ribbonPageGroup12.ItemLinks.Add(this.btnPhieuChi);
-            this.ribbonPageGroup12.ItemLinks.Add(this.btnTimKiemPhieuThuChi);
-            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.Text = "Chi phí";
-            // 
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBCHoatDong);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnPhieuThu);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnPhieuChi);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnTimKiemPhieuThuChi);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Hoạt động";
@@ -1896,7 +1887,6 @@
         private DevExpress.XtraBars.BarButtonItem btnBangKiemTraGiaKeKhai;
         private DevExpress.XtraBars.BarButtonItem btnBangKiemTraGiaKeKhaiTrungThau;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btnGiaoDuc;
         private DevExpress.XtraBars.BarButtonItem btnHuongDanThucTap;

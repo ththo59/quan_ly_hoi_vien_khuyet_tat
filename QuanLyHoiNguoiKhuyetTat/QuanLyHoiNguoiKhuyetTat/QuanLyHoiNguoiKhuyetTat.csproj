@@ -851,6 +851,12 @@
     <Compile Include="UserControlMain\ucBCLyLich.Designer.cs">
       <DependentUpon>ucBCLyLich.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMain\ucSanPhamTheoPhanI_II - Copy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucSanPhamTheoPhanI_II - Copy.Designer.cs">
+      <DependentUpon>ucSanPhamTheoPhanI_II - Copy.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucSPUuDai.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -941,11 +947,11 @@
     <Compile Include="UserControlMain\ucKhongTTVuotKeHoach.Designer.cs">
       <DependentUpon>ucKhongTTVuotKeHoach.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlMain\ucSanPhamTheoPhanI_II.cs">
+    <Compile Include="UserControlMain\ucBaoCaoHoiVienTheoDieuKien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlMain\ucSanPhamTheoPhanI_II.Designer.cs">
-      <DependentUpon>ucSanPhamTheoPhanI_II.cs</DependentUpon>
+    <Compile Include="UserControlMain\ucBaoCaoHoiVienTheoDieuKien.Designer.cs">
+      <DependentUpon>ucBaoCaoHoiVienTheoDieuKien.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucTrungThauCongTy.cs">
       <SubType>UserControl</SubType>
@@ -1414,6 +1420,9 @@
     <EmbeddedResource Include="UserControlMain\ucBCLyLich.resx">
       <DependentUpon>ucBCLyLich.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucSanPhamTheoPhanI_II - Copy.resx">
+      <DependentUpon>ucSanPhamTheoPhanI_II - Copy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucSPUuDai.resx">
       <DependentUpon>ucSPUuDai.cs</DependentUpon>
     </EmbeddedResource>
@@ -1459,8 +1468,8 @@
     <EmbeddedResource Include="UserControlMain\ucKhongTTVuotKeHoach.resx">
       <DependentUpon>ucKhongTTVuotKeHoach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlMain\ucSanPhamTheoPhanI_II.resx">
-      <DependentUpon>ucSanPhamTheoPhanI_II.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlMain\ucBaoCaoHoiVienTheoDieuKien.resx">
+      <DependentUpon>ucBaoCaoHoiVienTheoDieuKien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucTrungThauCongTy.resx">
       <DependentUpon>ucTrungThauCongTy.cs</DependentUpon>

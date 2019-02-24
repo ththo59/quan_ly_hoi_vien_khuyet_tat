@@ -16,8 +16,8 @@ namespace DauThau.Class
         public static string pParentHospital = "SỞ Y TẾ TỈNH KON TUM";
         public static string pStoreDanhGiaHoSoDuThau = "sp_DanhGiaHoSoDuThau";
 #else
-        public static string pHospital = "BỆNH VIỆN QUÂN Y 121";
-        public static string pParentHospital = "CỤC HẬU CẦN QUÂN KHU 9";
+        public static string pHospital = "CHI HỘI NGƯỜI KHUYẾT TẬT QUẬN NINH KIỀU";
+        public static string pParentHospital = "HỘI NKT TP CẦN THƠ";
         public static string pStoreDanhGiaHoSoDuThau = "sp_DanhGiaHoSoDuThau_BV121";
 #endif
 

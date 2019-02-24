@@ -25,7 +25,6 @@ namespace DauThau.UserControlCategory
             InitializeComponent();
         }
 
-        List<dynamicObject> _listDM;
         private void ucHoatDongVayVon_Load(object sender, EventArgs e)
         {
             registerButtonArray(btnControl);
