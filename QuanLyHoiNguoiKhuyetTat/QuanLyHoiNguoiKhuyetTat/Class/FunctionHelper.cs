@@ -475,6 +475,19 @@ namespace DauThau.Class
             return ds;
         }
 
+        public static string formatFromDateToDate(DateTime? fromDate, DateTime? ToDate)
+        {
+            string strFormat = "";
+            if (fromDate.HasValue)
+            {
+                strFormat = fromDate.Value.ToString("dd/MM/yyyy");
+            }
+            if (ToDate.HasValue)
+            {
+                strFormat+= " - " + ToDate.Value.ToString("dd/MM/yyyy");
+            }
+            return strFormat;
+        }
         /// <summary>
         /// List to DataTable
         /// </summary>

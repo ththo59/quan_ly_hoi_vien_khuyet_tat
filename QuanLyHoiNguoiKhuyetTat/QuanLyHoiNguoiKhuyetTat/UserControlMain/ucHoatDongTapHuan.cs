@@ -14,6 +14,9 @@ using System.Linq;
 using System.Data.Entity;
 using DevExpress.Utils;
 using DevExpress.XtraLayout.Utils;
+using DauThau.UserControlCategoryMain;
+using DauThau.Reports;
+using DevExpress.XtraReports.UI;
 
 namespace DauThau.UserControlCategory
 {
@@ -256,10 +259,6 @@ namespace DauThau.UserControlCategory
             return base.SaveData();
         }
 
-        #endregion
-
-        #region Status
-
         private void _deleteRow()
         {
             QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
@@ -277,6 +276,56 @@ namespace DauThau.UserControlCategory
             }
 
         }
+
+        private void _print()
+        {
+            rptBCHoatDongTapHuan rpt = new rptBCHoatDongTapHuan();
+            CategoryTapHuan enumLoai = (CategoryTapHuan)_id_loai;
+            //switch (enumLoai)
+            //{
+            //    case CategoryTapHuan.TH_TAPHUAN:
+                    var data = (from p in context.QL_HOATDONG_TAPHUAN
+                                where deSearchTuNgay.DateTime.Date <= p.TH_THOIGIAN_BATDAU
+                                     && p.TH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
+                                     && p.TH_LOAI_ID == _id_loai
+                                select p).ToList();
+                    List<clsHoatDongTapHuan> listTapHuan = new List<clsHoatDongTapHuan>();
+                    foreach (QL_HOATDONG_TAPHUAN row in data)
+                    {
+                        clsHoatDongTapHuan item = new clsHoatDongTapHuan();
+                        item.TH_TEN = row.TH_TEN;
+                        item.TH_THOIGIAN = FunctionHelper.formatFromDateToDate(row.TH_THOIGIAN_BATDAU, row.TH_THOIGIAN_KETTHUC);
+                        item.TH_DIADIEM = row.TH_DIADIEM;
+                        item.TH_DONVI_THUCHIEN = row.TH_DONVI_THUCHIEN;
+                        item.TH_SOLUONG = row.TH_SOLUONG;
+                        item.TH_TONGTIEN = (row.TH_SOLUONG ?? 0) * (row.TH_SOTIEN_1NGUOI ?? 0);
+                        item.TH_NOIDUNG = row.TH_NOIDUNG;
+                        listTapHuan.Add(item);
+                    }
+                    DataTable dataTapHuan = FunctionHelper.ConvertToDataTable(listTapHuan);
+                    dataTapHuan.TableName = "HoatDongTapHuan";
+
+                    rpt.pLeftHeader.Value = clsParameter.pHospital;
+                    rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+                    rpt.pTitle.Value = lueLoaiTapHuan.Text.ToUpper();
+                    rpt.pTuNgayDenNgay.Value = FunctionHelper.formatFromDateToDate(deTuNgay.DateTime, deDenNgay.DateTime);
+                    //rpt.pTitleFooter.Value = ReportHelper.getTitleFooter(LoaiBaoCao.BM10);
+                    //rpt.pValueFooter.Value = ReportHelper.getValueFooter(LoaiBaoCao.BM10);
+
+                    rpt.DataSource = dataTapHuan;
+                    rpt.DataMember = "HoatDongTapHuan";
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            frmPrint f = new frmPrint(rpt);
+            f.ShowDialog();
+        }
+
+        #endregion
+
+        #region Status
 
         protected override EnumFormStatus FormStatus
         {
@@ -301,7 +350,7 @@ namespace DauThau.UserControlCategory
                 }
                 else if (_formStatus == EnumFormStatus.PRINT)
                 {
-                    //_doPrintInLyLich();
+                    _print();
                 }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {

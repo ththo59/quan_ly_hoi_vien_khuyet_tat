@@ -164,6 +164,7 @@
     <Compile Include="Class\clsExtensionCustom.cs" />
     <Compile Include="Class\clsMessage.cs" />
     <Compile Include="Class\clsParameter.cs" />
+    <Compile Include="Class\clsPrint.cs" />
     <Compile Include="Class\clsStatus.cs" />
     <Compile Include="Class\DataTableHelper.cs" />
     <Compile Include="Class\DevExpress.Library.cs" />
@@ -226,6 +227,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDiemKTExcel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongTapHuan.cs">
+      <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongTapHuan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\dsHoiVien.cs">
       <DependentUpon>dsHoiVien.xsd</DependentUpon>
@@ -490,6 +499,12 @@
     </Compile>
     <Compile Include="Reports\rptBM_LyLichHoiVien.Designer.cs">
       <DependentUpon>rptBM_LyLichHoiVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongTapHuan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongTapHuan.designer.cs">
+      <DependentUpon>rptBCHoatDongTapHuan.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptLyLichHoiVien.cs">
       <SubType>Component</SubType>
@@ -1228,6 +1243,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\rpt.resx">
+      <DependentUpon>rpt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBM_DonGiaNhapHoi.resx">
       <DependentUpon>rptBM_DonGiaNhapHoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -1242,6 +1260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBM_LyLichHoiVien.resx">
       <DependentUpon>rptBM_LyLichHoiVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongTapHuan.resx">
+      <DependentUpon>rptBCHoatDongTapHuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptLyLichHoiVien.resx">
       <DependentUpon>rptLyLichHoiVien.cs</DependentUpon>
@@ -1665,6 +1686,17 @@
     </None>
     <None Include="DataSets\dsDiemKTExcel.xss">
       <DependentUpon>dsDiemKTExcel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongTapHuan.xsc">
+      <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongTapHuan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongTapHuan.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongTapHuan.xss">
+      <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoiVien.xsc">
       <DependentUpon>dsHoiVien.xsd</DependentUpon>
