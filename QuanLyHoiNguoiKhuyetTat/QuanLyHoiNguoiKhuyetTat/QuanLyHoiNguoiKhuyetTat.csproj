@@ -233,6 +233,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoatDongASXH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoatDongDayNghe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongDayNghe.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoatDongHNXH.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -250,6 +255,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongViecLam.cs">
+      <DependentUpon>dsHoatDongViecLam.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongViecLam.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongViecLam.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\dsHoiVien.cs">
       <DependentUpon>dsHoiVien.xsd</DependentUpon>
@@ -1764,6 +1777,17 @@
     <None Include="DataSets\dsHoatDongASXH.xss">
       <DependentUpon>dsHoatDongASXH.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\dsHoatDongDayNghe.xsc">
+      <DependentUpon>dsHoatDongDayNghe.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongDayNghe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongDayNghe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongDayNghe.xss">
+      <DependentUpon>dsHoatDongDayNghe.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\dsHoatDongHNXH.xsc">
       <DependentUpon>dsHoatDongHNXH.xsd</DependentUpon>
     </None>
@@ -1796,6 +1820,17 @@
     </None>
     <None Include="DataSets\dsHoatDongTapHuan.xss">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongViecLam.xsc">
+      <DependentUpon>dsHoatDongViecLam.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongViecLam.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongViecLam.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongViecLam.xss">
+      <DependentUpon>dsHoatDongViecLam.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoiVien.xsc">
       <DependentUpon>dsHoiVien.xsd</DependentUpon>

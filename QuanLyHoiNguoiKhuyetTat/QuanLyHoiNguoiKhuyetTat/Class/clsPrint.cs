@@ -48,4 +48,28 @@ namespace DauThau.Class
         public int? HNXH_SOLUONG { get; set; }
         public int? HNXH_TONGSO_TIEN { get; set; }
     }
+
+    public class clsHoatDongDayNghe
+    {
+        public string DN_NGHE { get; set; }
+        public string DN_THOIGIAN { get; set; }
+        public string DN_DIADIEM { get; set; }
+        public string DN_DONVI_THUCHIEN { get; set; }
+        public string DN_NU_TONGSO { get; set; }
+        public int? DN_TONGTIEN { get; set; }
+        public string DN_NOIDUNG { get; set; }
+        public string DN_DOITUONG_THAMGIA { get; set; }
+    }
+
+    public class clsHoatDongViecLam
+    {
+        public string VL_TEN { get; set; }
+        public string VL_THOIGIAN { get; set; }
+        public string VL_DIADIEM { get; set; }
+        public string VL_DONVI_GIOITHIEU { get; set; }
+        public string VL_NU_TONGSO{ get; set; }
+        public int? VL_THUNHAP_THANG { get; set; }
+        public string VL_DOITUONG { get; set; }
+        public string VL_NOIDUNG { get; set; }
+    }
 }

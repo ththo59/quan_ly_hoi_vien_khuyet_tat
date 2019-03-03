@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHoatDongDayNghe" targetNamespace="http://tempuri.org/dsHoatDongDayNghe.xsd" xmlns:mstns="http://tempuri.org/dsHoatDongDayNghe.xsd" xmlns="http://tempuri.org/dsHoatDongDayNghe.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHoatDongDayNghe" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHoatDongDayNghe" msprop:Generator_UserDSName="dsHoatDongDayNghe">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HoatDongDayNghe" msprop:Generator_TableClassName="HoatDongDayNgheDataTable" msprop:Generator_TableVarName="tableHoatDongDayNghe" msprop:Generator_TablePropName="HoatDongDayNghe" msprop:Generator_RowDeletingName="HoatDongDayNgheRowDeleting" msprop:Generator_RowChangingName="HoatDongDayNgheRowChanging" msprop:Generator_RowEvHandlerName="HoatDongDayNgheRowChangeEventHandler" msprop:Generator_RowDeletedName="HoatDongDayNgheRowDeleted" msprop:Generator_UserTableName="HoatDongDayNghe" msprop:Generator_RowChangedName="HoatDongDayNgheRowChanged" msprop:Generator_RowEvArgName="HoatDongDayNgheRowChangeEvent" msprop:Generator_RowClassName="HoatDongDayNgheRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DN_TEN" msprop:Generator_ColumnVarNameInTable="columnDN_TEN" msprop:Generator_ColumnPropNameInRow="DN_TEN" msprop:Generator_ColumnPropNameInTable="DN_TENColumn" msprop:Generator_UserColumnName="DN_TEN" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_THOIGIAN" msprop:Generator_ColumnVarNameInTable="columnDN_THOIGIAN" msprop:Generator_ColumnPropNameInRow="DN_THOIGIAN" msprop:Generator_ColumnPropNameInTable="DN_THOIGIANColumn" msprop:Generator_UserColumnName="DN_THOIGIAN" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_DIADIEM" msprop:Generator_ColumnVarNameInTable="columnDN_DIADIEM" msprop:Generator_ColumnPropNameInRow="DN_DIADIEM" msprop:Generator_ColumnPropNameInTable="DN_DIADIEMColumn" msprop:Generator_UserColumnName="DN_DIADIEM" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_NGHE" msprop:Generator_ColumnVarNameInTable="columnDN_NGHE" msprop:Generator_ColumnPropNameInRow="DN_NGHE" msprop:Generator_ColumnPropNameInTable="DN_NGHEColumn" msprop:Generator_UserColumnName="DN_NGHE" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_DONVI_THUCHIEN" msprop:Generator_ColumnVarNameInTable="columnDN_DONVI_THUCHIEN" msprop:Generator_ColumnPropNameInRow="DN_DONVI_THUCHIEN" msprop:Generator_ColumnPropNameInTable="DN_DONVI_THUCHIENColumn" msprop:Generator_UserColumnName="DN_DONVI_THUCHIEN" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_SOLUONG" msprop:Generator_ColumnVarNameInTable="columnDN_SOLUONG" msprop:Generator_ColumnPropNameInRow="DN_SOLUONG" msprop:Generator_ColumnPropNameInTable="DN_SOLUONGColumn" msprop:Generator_UserColumnName="DN_SOLUONG" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_TONGTIEN" msprop:Generator_ColumnVarNameInTable="columnDN_TONGTIEN" msprop:Generator_ColumnPropNameInRow="DN_TONGTIEN" msprop:Generator_ColumnPropNameInTable="DN_TONGTIENColumn" msprop:Generator_UserColumnName="DN_TONGTIEN" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_SOLUONG_NU" msprop:Generator_ColumnVarNameInTable="columnDN_SOLUONG_NU" msprop:Generator_ColumnPropNameInRow="DN_SOLUONG_NU" msprop:Generator_ColumnPropNameInTable="DN_SOLUONG_NUColumn" msprop:Generator_UserColumnName="DN_SOLUONG_NU" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_DOITUONG_THAMGIA" msprop:Generator_ColumnVarNameInTable="columnDN_DOITUONG_THAMGIA" msprop:Generator_ColumnPropNameInRow="DN_DOITUONG_THAMGIA" msprop:Generator_ColumnPropNameInTable="DN_DOITUONG_THAMGIAColumn" msprop:Generator_UserColumnName="DN_DOITUONG_THAMGIA" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_NOIDUNG" msprop:Generator_ColumnVarNameInTable="columnDN_NOIDUNG" msprop:Generator_ColumnPropNameInRow="DN_NOIDUNG" msprop:Generator_ColumnPropNameInTable="DN_NOIDUNGColumn" msprop:Generator_UserColumnName="DN_NOIDUNG" type="xs:string" minOccurs="0" />
+              <xs:element name="DN_NU_TONGSO" msprop:Generator_ColumnVarNameInTable="columnDN_NU_TONGSO" msprop:Generator_ColumnPropNameInRow="DN_NU_TONGSO" msprop:Generator_ColumnPropNameInTable="DN_NU_TONGSOColumn" msprop:Generator_UserColumnName="DN_NU_TONGSO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
