@@ -308,7 +308,7 @@ namespace DauThau.UserControlCategory
                     rpt.pLeftHeader.Value = clsParameter.pHospital;
                     rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
                     rpt.pTitle.Value = lueLoaiTapHuan.Text.ToUpper();
-                    rpt.pTuNgayDenNgay.Value = FunctionHelper.formatFromDateToDate(deTuNgay.DateTime, deDenNgay.DateTime);
+                    rpt.pTuNgayDenNgay.Value = FunctionHelper.formatFromDateToDate(deSearchTuNgay.DateTime, deSearchDenNgay.DateTime);
                     //rpt.pTitleFooter.Value = ReportHelper.getTitleFooter(LoaiBaoCao.BM10);
                     //rpt.pValueFooter.Value = ReportHelper.getValueFooter(LoaiBaoCao.BM10);
 
@@ -365,7 +365,7 @@ namespace DauThau.UserControlCategory
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
-                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
+                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = gvGrid.RowCount > 0;
                 }
             }
         }

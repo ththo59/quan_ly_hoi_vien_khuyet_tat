@@ -228,6 +228,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDiemKTExcel.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoatDongASXH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongASXH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongHNXH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongHNXH.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongHoiThao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongHoiThao.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoatDongTapHuan.cs">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
     </Compile>
@@ -470,6 +485,42 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptBCHoatDongVayVon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongVayVon.designer.cs">
+      <DependentUpon>rptBCHoatDongVayVon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongDayNghe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongDayNghe.designer.cs">
+      <DependentUpon>rptBCHoatDongDayNghe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongViecLam.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongViecLam.designer.cs">
+      <DependentUpon>rptBCHoatDongViecLam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongHNXH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongHNXH.designer.cs">
+      <DependentUpon>rptBCHoatDongHNXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongASXH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongASXH.designer.cs">
+      <DependentUpon>rptBCHoatDongASXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongHoiThao.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongHoiThao.designer.cs">
+      <DependentUpon>rptBCHoatDongHoiThao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBM_DonGiaNhapHoi.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1246,6 +1297,24 @@
     <EmbeddedResource Include="Reports\rpt.resx">
       <DependentUpon>rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongVayVon.resx">
+      <DependentUpon>rptBCHoatDongVayVon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongDayNghe.resx">
+      <DependentUpon>rptBCHoatDongDayNghe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongViecLam.resx">
+      <DependentUpon>rptBCHoatDongViecLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongHNXH.resx">
+      <DependentUpon>rptBCHoatDongHNXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongASXH.resx">
+      <DependentUpon>rptBCHoatDongASXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongHoiThao.resx">
+      <DependentUpon>rptBCHoatDongHoiThao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBM_DonGiaNhapHoi.resx">
       <DependentUpon>rptBM_DonGiaNhapHoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -1607,9 +1676,6 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
     <None Include="DataSets\dsBangChamDiem.xsc">
       <DependentUpon>dsBangChamDiem.xsd</DependentUpon>
     </None>
@@ -1686,6 +1752,39 @@
     </None>
     <None Include="DataSets\dsDiemKTExcel.xss">
       <DependentUpon>dsDiemKTExcel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongASXH.xsc">
+      <DependentUpon>dsHoatDongASXH.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongASXH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongASXH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongASXH.xss">
+      <DependentUpon>dsHoatDongASXH.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongHNXH.xsc">
+      <DependentUpon>dsHoatDongHNXH.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongHNXH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongHNXH.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongHNXH.xss">
+      <DependentUpon>dsHoatDongHNXH.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongHoiThao.xsc">
+      <DependentUpon>dsHoatDongHoiThao.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongHoiThao.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongHoiThao.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongHoiThao.xss">
+      <DependentUpon>dsHoatDongHoiThao.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoatDongTapHuan.xsc">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>

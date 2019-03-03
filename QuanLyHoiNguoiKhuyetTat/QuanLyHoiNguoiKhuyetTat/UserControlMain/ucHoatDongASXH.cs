@@ -15,6 +15,8 @@ using System.Data.Entity;
 using DevExpress.Utils;
 using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
+using DauThau.Reports;
+using DauThau.UserControlCategoryMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -60,6 +62,62 @@ namespace DauThau.UserControlCategory
         #endregion
 
         #region Function
+
+        private void _print()
+        {
+            rptBCHoatDongASXH rpt = new rptBCHoatDongASXH();
+            var data = (from p in context.QL_HOATDONG_ASXH
+                        where deSearchTuNgay.DateTime.Date <= p.ASXH_THOIGIAN_BATDAU
+                             && p.ASXH_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
+                             && p.ASXH_LOAI_ID == _id_loai
+                        select p).ToList();
+            List<clsHoatDongASXH> lists = new List<clsHoatDongASXH>();
+            foreach (QL_HOATDONG_ASXH row in data)
+            {
+                clsHoatDongASXH item = new clsHoatDongASXH();
+                item.ASXH_TEN = row.ASXH_TEN;
+                item.ASXH_THOIGIAN = FunctionHelper.formatFromDateToDate(row.ASXH_THOIGIAN_BATDAU, row.ASXH_THOIGIAN_KETTHUC);
+                item.ASXH_DIADIEM = row.ASXH_DIADIEM;
+                item.ASXH_DONVI_THUCHIEN = row.ASXH_DONVI_THUCHIEN;
+                item.ASXH_SOLUONG = row.ASXH_SOLUONG;
+                item.ASXH_TONGSO_TIEN = row.ASXH_TONGSO_TIEN;
+                item.ASXH_NOIDUNG = row.ASXH_NOIDUNG;
+                item.ASXH_DOITUONG = row.ASXH_DOITUONG;
+                lists.Add(item);
+            }
+            DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
+            dataPrint.TableName = "HoatDongASXH";
+
+            rpt.pLeftHeader.Value = clsParameter.pHospital;
+            rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+            rpt.pTitle.Value = lueLoaiTapHuan.Text.ToUpper();
+            rpt.pTuNgayDenNgay.Value = FunctionHelper.formatFromDateToDate(deSearchTuNgay.DateTime, deSearchDenNgay.DateTime);
+            //rpt.pTitleFooter.Value = ReportHelper.getTitleFooter(LoaiBaoCao.BM10);
+            //rpt.pValueFooter.Value = ReportHelper.getValueFooter(LoaiBaoCao.BM10);
+
+            rpt.DataSource = dataPrint;
+            rpt.DataMember = "HoatDongASXH";
+            frmPrint f = new frmPrint(rpt);
+            f.ShowDialog();
+        }
+
+        private void _deleteRow()
+        {
+            QL_HOATDONG_ASXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_ASXH;
+            if (item != null)
+            {
+                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.ASXH_TEN)) == DialogResult.Yes)
+                {
+                    Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+                    QL_HOATDONG_ASXH entities = (from p in context.QL_HOATDONG_ASXH where p.ASXH_ID == id select p).FirstOrDefault();
+                    context.QL_HOATDONG_ASXH.Remove(entities);
+                    context.SaveChanges();
+                    FormStatus = EnumFormStatus.VIEW;
+                }
+
+            }
+
+        }
 
         private void _changeLayout(CategoryASXH enumLoai)
         {
@@ -251,23 +309,6 @@ namespace DauThau.UserControlCategory
 
         #region Status
 
-        private void _deleteRow()
-        {
-            QL_HOATDONG_ASXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_ASXH;
-            if (item != null)
-            {
-                if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.ASXH_TEN)) == DialogResult.Yes)
-                {
-                    Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
-                    QL_HOATDONG_ASXH entities = (from p in context.QL_HOATDONG_ASXH where p.ASXH_ID == id select p).FirstOrDefault();
-                    context.QL_HOATDONG_ASXH.Remove(entities);
-                    context.SaveChanges();
-                    FormStatus = EnumFormStatus.VIEW;
-                }
-
-            }
-
-        }
 
         protected override EnumFormStatus FormStatus
         {
@@ -292,7 +333,7 @@ namespace DauThau.UserControlCategory
                 }
                 else if (_formStatus == EnumFormStatus.PRINT)
                 {
-                    //_doPrintInLyLich();
+                    _print();
                 }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {
@@ -307,7 +348,7 @@ namespace DauThau.UserControlCategory
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
-                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
+                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = gvGrid.RowCount > 0;
                 }
             }
         }

@@ -1490,6 +1490,7 @@
             this.barButtonItem42.Caption = "Hội chợ, giới thiệu sản phẩm, triễn lãm, thi tay nghề";
             this.barButtonItem42.Id = 181;
             this.barButtonItem42.Name = "barButtonItem42";
+            this.barButtonItem42.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // ribbonPage5
             // 
