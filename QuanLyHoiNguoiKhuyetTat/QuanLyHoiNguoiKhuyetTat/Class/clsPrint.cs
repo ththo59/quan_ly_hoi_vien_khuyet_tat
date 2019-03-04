@@ -72,4 +72,16 @@ namespace DauThau.Class
         public string VL_DOITUONG { get; set; }
         public string VL_NOIDUNG { get; set; }
     }
+
+    public class clsHoatDongVayVon
+    {
+        public string VV_TEN { get; set; }
+        public string VV_THOIGIAN { get; set; }
+        public string VV_DIADIEM { get; set; }
+        public string VV_NGUON_VAY { get; set; }
+        public string VV_NU_TONGSO { get; set; }
+        public int? VV_TIEN_VAY { get; set; }
+        public string VV_DOITUONG { get; set; }
+        public string VV_NOIDUNG { get; set; }
+    }
 }

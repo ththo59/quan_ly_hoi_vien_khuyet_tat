@@ -256,6 +256,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoatDongVayVon.cs">
+      <DependentUpon>dsHoatDongVayVon.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongVayVon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongVayVon.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoatDongViecLam.cs">
       <DependentUpon>dsHoatDongViecLam.xsd</DependentUpon>
     </Compile>
@@ -1820,6 +1828,17 @@
     </None>
     <None Include="DataSets\dsHoatDongTapHuan.xss">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongVayVon.xsc">
+      <DependentUpon>dsHoatDongVayVon.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongVayVon.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongVayVon.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongVayVon.xss">
+      <DependentUpon>dsHoatDongVayVon.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoatDongViecLam.xsc">
       <DependentUpon>dsHoatDongViecLam.xsd</DependentUpon>

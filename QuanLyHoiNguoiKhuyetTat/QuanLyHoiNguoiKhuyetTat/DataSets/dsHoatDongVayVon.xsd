@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHoatDongVayVon" targetNamespace="http://tempuri.org/dsHoatDongVayVon.xsd" xmlns:mstns="http://tempuri.org/dsHoatDongVayVon.xsd" xmlns="http://tempuri.org/dsHoatDongVayVon.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHoatDongVayVon" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHoatDongVayVon" msprop:Generator_UserDSName="dsHoatDongVayVon">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HoatDongVayVon" msprop:Generator_TableClassName="HoatDongVayVonDataTable" msprop:Generator_TableVarName="tableHoatDongVayVon" msprop:Generator_TablePropName="HoatDongVayVon" msprop:Generator_RowDeletingName="HoatDongVayVonRowDeleting" msprop:Generator_RowChangingName="HoatDongVayVonRowChanging" msprop:Generator_RowEvHandlerName="HoatDongVayVonRowChangeEventHandler" msprop:Generator_RowDeletedName="HoatDongVayVonRowDeleted" msprop:Generator_UserTableName="HoatDongVayVon" msprop:Generator_RowChangedName="HoatDongVayVonRowChanged" msprop:Generator_RowEvArgName="HoatDongVayVonRowChangeEvent" msprop:Generator_RowClassName="HoatDongVayVonRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VV_TEN" msprop:Generator_ColumnVarNameInTable="columnVV_TEN" msprop:Generator_ColumnPropNameInRow="VV_TEN" msprop:Generator_ColumnPropNameInTable="VV_TENColumn" msprop:Generator_UserColumnName="VV_TEN" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_THOIGIAN" msprop:Generator_ColumnVarNameInTable="columnVV_THOIGIAN" msprop:Generator_ColumnPropNameInRow="VV_THOIGIAN" msprop:Generator_ColumnPropNameInTable="VV_THOIGIANColumn" msprop:Generator_UserColumnName="VV_THOIGIAN" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_DIADIEM" msprop:Generator_ColumnVarNameInTable="columnVV_DIADIEM" msprop:Generator_ColumnPropNameInRow="VV_DIADIEM" msprop:Generator_ColumnPropNameInTable="VV_DIADIEMColumn" msprop:Generator_UserColumnName="VV_DIADIEM" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_NGUON_VAY" msprop:Generator_ColumnVarNameInTable="columnVV_NGUON_VAY" msprop:Generator_ColumnPropNameInRow="VV_NGUON_VAY" msprop:Generator_ColumnPropNameInTable="VV_NGUON_VAYColumn" msprop:Generator_UserColumnName="VV_NGUON_VAY" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_NU_TONGSO" msprop:Generator_ColumnVarNameInTable="columnVV_NU_TONGSO" msprop:Generator_ColumnPropNameInRow="VV_NU_TONGSO" msprop:Generator_ColumnPropNameInTable="VV_NU_TONGSOColumn" msprop:Generator_UserColumnName="VV_NU_TONGSO" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_TIEN_VAY" msprop:Generator_ColumnVarNameInTable="columnVV_TIEN_VAY" msprop:Generator_ColumnPropNameInRow="VV_TIEN_VAY" msprop:Generator_ColumnPropNameInTable="VV_TIEN_VAYColumn" msprop:Generator_UserColumnName="VV_TIEN_VAY" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_DOITUONG" msprop:Generator_ColumnVarNameInTable="columnVV_DOITUONG" msprop:Generator_ColumnPropNameInRow="VV_DOITUONG" msprop:Generator_ColumnPropNameInTable="VV_DOITUONGColumn" msprop:Generator_UserColumnName="VV_DOITUONG" type="xs:string" minOccurs="0" />
+              <xs:element name="VV_NOIDUNG" msprop:Generator_ColumnVarNameInTable="columnVV_NOIDUNG" msprop:Generator_ColumnPropNameInRow="VV_NOIDUNG" msprop:Generator_ColumnPropNameInTable="VV_NOIDUNGColumn" msprop:Generator_UserColumnName="VV_NOIDUNG" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
