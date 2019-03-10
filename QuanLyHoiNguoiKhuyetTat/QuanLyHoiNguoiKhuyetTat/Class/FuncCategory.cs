@@ -365,6 +365,10 @@ namespace DauThau.Class
                 {
                     lue.ItemIndex = 0;
                 }
+                else
+                {
+                    lue.EditValue = null;
+                }
             }
         }
 
@@ -381,6 +385,11 @@ namespace DauThau.Class
                 {
                     lue.ItemIndex = 0;
                 }
+                else
+                {
+                    lue.EditValue = null;
+                }
+                
             }
         }
     }

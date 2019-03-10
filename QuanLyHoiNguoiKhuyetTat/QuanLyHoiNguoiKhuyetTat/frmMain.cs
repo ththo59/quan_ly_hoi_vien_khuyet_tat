@@ -217,12 +217,16 @@ namespace DauThau
                         break;
                     #endregion
 
-                    #region Báo cáo
+                    #region Báo cáo hội viên
 
                     case "btnBCLyLichTheoDieuKien":
                         uc = new ucBaoCaoHoiVienTheoDieuKien();
                         break;
-                        
+
+                    case "btnTongSoNKTTheoPhuong":
+                        uc = new ucBCHoiVienTongNKTTheoPhuong();
+                        break;
+
                     #endregion
 
                     case "btnDonGiaNhapHoi":
@@ -241,7 +245,7 @@ namespace DauThau
                     #endregion
 
                     default:
-                        clsMessage.MessageWarning("Vui lòng cấu hình link...");
+                        clsMessage.MessageWarning("Chức năng chưa được cấu hình");
                         return;
                 }
                 clsAddTab.AddTabControl(TabControlParent, uc, item.Name, item.Caption, this);
@@ -331,7 +335,5 @@ namespace DauThau
         {
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
-
-
     }
 }
