@@ -512,6 +512,12 @@
     <Compile Include="Reports\rptBCHoiVien_NKTTheoDangTat.designer.cs">
       <DependentUpon>rptBCHoiVien_NKTTheoDangTat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTCoViecLam.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTCoViecLam.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTCoViecLam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoPhuong.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -871,6 +877,12 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.Designer.cs">
       <DependentUpon>ucBCHoiVienTongNKTTheoDangTat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTCoViecLam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTCoViecLam.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTCoViecLam.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.cs">
       <SubType>UserControl</SubType>
@@ -1328,7 +1340,6 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1344,6 +1355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoDangTat.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoDangTat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTCoViecLam.resx">
+      <DependentUpon>rptBCHoiVien_NKTCoViecLam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoPhuong.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoPhuong.cs</DependentUpon>
@@ -1521,6 +1535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoDangTat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTCoViecLam.resx">
+      <DependentUpon>ucBCHoiVienTongNKTCoViecLam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoPhuong.cs</DependentUpon>
