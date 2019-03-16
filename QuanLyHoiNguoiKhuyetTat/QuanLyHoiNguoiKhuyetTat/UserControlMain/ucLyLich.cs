@@ -375,6 +375,35 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private string _getFullAddress(LookUpEdit lueTp, LookUpEdit lueQuan, LookUpEdit luePhuong, TextEdit txtDuong, TextEdit txtKhuVuc) {
+            string address = txtKhuVuc.Text;
+            
+            if(txtDuong.Text != "")
+            {
+                address = address != "" ? address + ", " : address;
+                address += txtDuong.Text;
+            }
+
+            if (luePhuong.Text != "")
+            {
+                address = address != "" ? address + ", " : address;
+                address += luePhuong.Text;
+            }
+
+            if (lueQuan.Text != "")
+            {
+                address = address != "" ? address + ", " : address;
+                address += lueQuan.Text;
+            }
+
+            if (lueTp.Text != "")
+            {
+                address = address != "" ? address + ", " : address;
+                address += lueTp.Text;
+            }
+            return address;
+        }
+
         private void _setObjectEntities(ref QL_HOIVIEN item)
         {
             //Thông tin cá nhân
@@ -386,6 +415,7 @@ namespace DauThau.UserControlCategory
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
             item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();
+            item.HV_TUOI = seTuoi.Text;
             item.HV_TON_GIAO = lueTonGiao.EditValue + string.Empty;
             item.HV_NGHE_NGHIEP = lueNgheNghiep.EditValue + string.Empty;
             item.HV_TRINHDO_VANHOA = lueTrinhDoVanHoa.EditValue + string.Empty;
@@ -403,12 +433,14 @@ namespace DauThau.UserControlCategory
             item.HV_THUONGTRU_PHUONG = lueThuongTru_Phuong.EditValue + string.Empty;
             item.HV_THUONGTRU_KHUVUC = txtThuongTru_KhuVuc.Text;
             item.HV_THUONGTRU_DUONG = txtThuongTru_Duong.Text;
+            item.HV_THUONGTRU_DIACHI = _getFullAddress(lueThuongTru_TP, lueThuongTru_Quan, lueThuongTru_Phuong, txtThuongTru_Duong, txtThuongTru_KhuVuc);
 
             item.HV_TAMTRU_TP = lueTamTru_TP.EditValue + string.Empty;
             item.HV_TAMTRU_QUAN = lueTamTru_Quan.EditValue + string.Empty;
             item.HV_TAMTRU_PHUONG = lueTamTru_Phuong.EditValue + string.Empty;
             item.HV_TAMTRU_KHUVUC = txtTamTru_KhuVuc.Text;
             item.HV_TAMTRU_DUONG = txtTamTru_Duong.Text;
+            item.HV_TAMTRU_DIACHI = _getFullAddress(lueTamTru_TP, lueTamTru_Quan, lueTamTru_Phuong, txtTamTru_Duong, txtTamTru_KhuVuc);
 
             item.HV_DIENTHOAI = txtDienThoai.Text;
             item.HV_EMAIL = txtEmail.Text;
@@ -642,7 +674,11 @@ namespace DauThau.UserControlCategory
         {
             DateEdit date = sender as DateEdit;
             DateTime? de = date.Ex_EditValueToDateTime();
-            seTuoi.EditValue = de.HasValue ? DateTime.Now.Date.Year - de.Value.Year : new Nullable<Int64>();
+            if (de.HasValue) {
+                int year = DateTime.Now.Date.Year - de.Value.Year;
+                year = year == 0 ? 1 : year;
+                seTuoi.EditValue = de.HasValue ? year : new Nullable<Int64>();
+            }
         }
 
         private void deNgayKhuyetTat_EditValueChanged(object sender, EventArgs e)

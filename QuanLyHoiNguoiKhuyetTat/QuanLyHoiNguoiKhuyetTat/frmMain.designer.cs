@@ -78,7 +78,7 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.btnDiemKT_OK = new DevExpress.XtraBars.BarButtonItem();
-            this.btnTongHopSPDuThau = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTongSoNKTCoViecLam = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -90,7 +90,7 @@
             this.btnConfig = new DevExpress.XtraBars.BarSubItem();
             this.btnConfigSignature = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXetThauKT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTongSoNKTTheoDangTat = new DevExpress.XtraBars.BarButtonItem();
             this.btnGroupVuotGiaKH = new DevExpress.XtraBars.BarSubItem();
             this.btnKhong_TT_VuotGiaKH_GiaTriVuot = new DevExpress.XtraBars.BarButtonItem();
             this.btnKhongTT_Khac = new DevExpress.XtraBars.BarSubItem();
@@ -256,7 +256,7 @@
             this.barButtonItem3,
             this.barSubItem2,
             this.btnDiemKT_OK,
-            this.btnTongHopSPDuThau,
+            this.btnTongSoNKTCoViecLam,
             this.barButtonItem4,
             this.barEditItem1,
             this.barSubItem3,
@@ -267,7 +267,7 @@
             this.btnConfig,
             this.barButtonItem7,
             this.btnConfigSignature,
-            this.btnXetThauKT,
+            this.btnTongSoNKTTheoDangTat,
             this.btnGroupVuotGiaKH,
             this.btnKhong_TT_VuotGiaKH_GiaTriVuot,
             this.btnKhongTT_Khac,
@@ -1014,15 +1014,14 @@
             this.btnDiemKT_OK.Id = 107;
             this.btnDiemKT_OK.Name = "btnDiemKT_OK";
             // 
-            // btnTongHopSPDuThau
+            // btnTongSoNKTCoViecLam
             // 
-            this.btnTongHopSPDuThau.Caption = "Tổng số NKT có việc làm";
-            this.btnTongHopSPDuThau.Enabled = false;
-            this.btnTongHopSPDuThau.Glyph = global::DauThau.Properties.Resources.Android_Setting;
-            this.btnTongHopSPDuThau.Id = 108;
-            this.btnTongHopSPDuThau.LargeWidth = 80;
-            this.btnTongHopSPDuThau.Name = "btnTongHopSPDuThau";
-            this.btnTongHopSPDuThau.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnTongSoNKTCoViecLam.Caption = "Tổng số NKT có việc làm";
+            this.btnTongSoNKTCoViecLam.Glyph = global::DauThau.Properties.Resources.Android_Setting;
+            this.btnTongSoNKTCoViecLam.Id = 108;
+            this.btnTongSoNKTCoViecLam.LargeWidth = 80;
+            this.btnTongSoNKTCoViecLam.Name = "btnTongSoNKTCoViecLam";
+            this.btnTongSoNKTCoViecLam.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // barButtonItem4
@@ -1108,15 +1107,14 @@
             this.barButtonItem7.Id = 117;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
-            // btnXetThauKT
+            // btnTongSoNKTTheoDangTat
             // 
-            this.btnXetThauKT.Caption = "Tổng số NKT theo dạng tật";
-            this.btnXetThauKT.Enabled = false;
-            this.btnXetThauKT.Glyph = global::DauThau.Properties.Resources.checklist;
-            this.btnXetThauKT.Id = 119;
-            this.btnXetThauKT.LargeWidth = 80;
-            this.btnXetThauKT.Name = "btnXetThauKT";
-            this.btnXetThauKT.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnTongSoNKTTheoDangTat.Caption = "Tổng số NKT theo dạng tật";
+            this.btnTongSoNKTTheoDangTat.Glyph = global::DauThau.Properties.Resources.checklist;
+            this.btnTongSoNKTTheoDangTat.Id = 119;
+            this.btnTongSoNKTTheoDangTat.LargeWidth = 80;
+            this.btnTongSoNKTTheoDangTat.Name = "btnTongSoNKTTheoDangTat";
+            this.btnTongSoNKTTheoDangTat.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // btnGroupVuotGiaKH
@@ -1590,8 +1588,8 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBCLyLich);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnBCLyLichTheoDieuKien);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTTheoPhuong);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnXetThauKT);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnTongHopSPDuThau);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTTheoDangTat);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTCoViecLam);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem14);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem9);
@@ -1893,7 +1891,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
         private DevExpress.XtraBars.BarButtonItem btnDiemKT_OK;
-        private DevExpress.XtraBars.BarButtonItem btnTongHopSPDuThau;
+        private DevExpress.XtraBars.BarButtonItem btnTongSoNKTCoViecLam;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
@@ -1905,7 +1903,7 @@
         private DevExpress.XtraBars.BarSubItem btnConfig;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem btnConfigSignature;
-        private DevExpress.XtraBars.BarButtonItem btnXetThauKT;
+        private DevExpress.XtraBars.BarButtonItem btnTongSoNKTTheoDangTat;
         private DevExpress.XtraBars.BarSubItem btnGroupVuotGiaKH;
         private DevExpress.XtraBars.BarButtonItem btnKhong_TT_VuotGiaKH_GiaTriVuot;
         private DevExpress.XtraBars.BarSubItem btnKhongTT_Khac;

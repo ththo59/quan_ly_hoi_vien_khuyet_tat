@@ -20,6 +20,7 @@ namespace DauThau.Models
         public string HV_GIOI_TINH { get; set; }
         public string HV_DAN_TOC { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
+        public string HV_TUOI { get; set; }
         public string HV_TON_GIAO { get; set; }
         public string HV_NGHE_NGHIEP { get; set; }
         public string HV_TRINHDO_VANHOA { get; set; }
@@ -29,16 +30,18 @@ namespace DauThau.Models
         public string HV_CMND_NOICAP { get; set; }
         public Nullable<System.DateTime> HV_KHUYETTAT_NGAY { get; set; }
         public string HV_CHUCVU { get; set; }
-        public string HV_THUONGTRU_DUONG { get; set; }
         public string HV_THUONGTRU_KHUVUC { get; set; }
+        public string HV_THUONGTRU_DUONG { get; set; }
         public string HV_THUONGTRU_PHUONG { get; set; }
         public string HV_THUONGTRU_QUAN { get; set; }
         public string HV_THUONGTRU_TP { get; set; }
-        public string HV_TAMTRU_DUONG { get; set; }
+        public string HV_THUONGTRU_DIACHI { get; set; }
         public string HV_TAMTRU_KHUVUC { get; set; }
+        public string HV_TAMTRU_DUONG { get; set; }
         public string HV_TAMTRU_PHUONG { get; set; }
         public string HV_TAMTRU_QUAN { get; set; }
         public string HV_TAMTRU_TP { get; set; }
+        public string HV_TAMTRU_DIACHI { get; set; }
         public string HV_DIENTHOAI { get; set; }
         public string HV_EMAIL { get; set; }
         public string HV_COQUAN { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace DauThau.UserControlCategory
 {
-    partial class ucBCHoiVienTongNKTTheoPhuong
+    partial class ucBCHoiVienTongNKTTheoDangTat
     {
         /// <summary> 
         /// Required designer variable.
@@ -1137,7 +1137,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "ucBCHoiVienTongNKTTheoPhuong";
             this.Size = new System.Drawing.Size(1074, 503);
-            this.Load += new System.EventHandler(this.ucBCHoiVienTongNKTTheoPhuong_Load);
+            this.Load += new System.EventHandler(this.ucBCHoiVienTongNKTTheoDangTat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.printBarManager1)).EndInit();

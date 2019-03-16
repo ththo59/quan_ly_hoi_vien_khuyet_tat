@@ -506,6 +506,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptBCHoiVien_NKTTheoDangTat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTheoDangTat.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTTheoDangTat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoPhuong.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -859,6 +865,12 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoatDong.Designer.cs">
       <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTTheoDangTat.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.cs">
       <SubType>UserControl</SubType>
@@ -1330,6 +1342,9 @@
     <EmbeddedResource Include="Reports\rpt.resx">
       <DependentUpon>rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoDangTat.resx">
+      <DependentUpon>rptBCHoiVien_NKTTheoDangTat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoPhuong.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoPhuong.cs</DependentUpon>
     </EmbeddedResource>
@@ -1503,6 +1518,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoatDong.resx">
       <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.resx">
+      <DependentUpon>ucBCHoiVienTongNKTTheoDangTat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoPhuong.cs</DependentUpon>
