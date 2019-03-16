@@ -1,0 +1,157 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Text;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
+using System.Diagnostics;
+using DauThau.Class;
+using DauThau.Reports;
+using DevExpress.Utils;
+using DauThau.Models;
+using System.Linq;
+using System.Data.Entity;
+
+namespace DauThau.UserControlCategory
+{
+    public partial class ucBCHoiVienTongNKTTheoNamNu : ucBase
+    {
+        XtraReport rptGlobal = new XtraReport();
+        public ucBCHoiVienTongNKTTheoNamNu()
+        {
+            InitializeComponent();
+        }
+
+        private void ucBCHoiVienTongNKTTheoNamNu_Load(object sender, EventArgs e)
+        {
+            registerButtonArray(btnControl);
+
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
+            LibraryDev.PermissionButton(btnControl, previewBar1);
+            lueThanhPho.Properties.PopupFormMinSize = lueThanhPho.Size;
+        }
+
+        #region Function
+
+        private void _print()
+        {
+            try
+            {
+                rptGlobal.Print();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        class reportTongSoNamNu
+        {
+            public string Phuong { get; set; }
+            public int Nam { get; set; }
+            public int Nu { get; set; }
+        }
+        private void _loadData()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            context = new QL_HOIVIEN_KTEntities();
+            context.QL_HOIVIEN.Load();
+            string strPhuong = luePhuong.EditValue + string.Empty;
+            var data = (from p in context.QL_HOIVIEN
+                        where strPhuong != "" ? p.HV_THUONGTRU_PHUONG == strPhuong : true
+                        group p by p.HV_THUONGTRU_PHUONG into g
+                        select new reportTongSoNamNu {
+                            Phuong = g.Key,
+                            Nam = g.Count(s => s.HV_GIOI_TINH == "Nam"),
+                            Nu = g.Count(s => s.HV_GIOI_TINH == "Nữ"),
+                        }).ToList();
+
+            rptBCHoiVien_NKTNamNu rpt = new rptBCHoiVien_NKTNamNu();
+            string tableName = "HOI_VIEN";
+            DataTable dataPrint = FunctionHelper.ConvertToDataTable(data);
+            dataPrint.TableName = tableName;
+
+            rpt.pLeftHeader.Value = clsParameter.pHospital;
+            rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+            rpt.pTitle.Value = lueQuan.Text;
+            //rpt.pTitleFooter.Value = ReportHelper.getTitleFooter(LoaiBaoCao.BM10);
+            //rpt.pValueFooter.Value = ReportHelper.getValueFooter(LoaiBaoCao.BM10);
+
+            rpt.DataSource = dataPrint;
+            rpt.DataMember = tableName;
+            printControl.PrintingSystem = rpt.PrintingSystem;
+            rpt.CreateDocument(true);
+
+            rptGlobal = rpt;
+            _wait.Close();
+        }
+
+        #endregion
+
+        protected override EnumFormStatus FormStatus
+        {
+            get { return _formStatus; }
+            set
+            {
+                _formStatus = value;
+                if (_formStatus == EnumFormStatus.PRINT)
+                {
+                    _print();
+                }
+                else if (_formStatus == EnumFormStatus.CLOSE)
+                {
+                    if (closeTab != null)
+                    {
+                        closeTab();
+                    }
+                }
+                else if (_formStatus == EnumFormStatus.REPORT)
+                {
+                    _loadData();
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void StartProcess(string path)
+        {
+            try
+            {
+                Process proc = new Process();
+                proc.StartInfo.FileName = path;
+                proc.Start();
+                proc.WaitForInputIdle();
+            }
+            catch (Exception)
+            {
+                // SimpleMessage.ShowSimpleMessage(ex, "In danh sách dự trù");
+            }
+        }
+
+        private void lueThanhPho_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMHuyen(lueQuan, lueThanhPho.EditValue + string.Empty);
+        }
+
+        private void lueQuan_EditValueChanged(object sender, EventArgs e)
+        {
+            FuncCategory.loadDMXa(luePhuong, lueQuan.EditValue + string.Empty);
+            luePhuong.EditValue = null;
+        }
+
+        private void luePhuong_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)
+            {
+                luePhuong.EditValue = null;
+            }
+        }
+    }
+}

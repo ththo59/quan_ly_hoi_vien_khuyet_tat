@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHoiVienNamNu" targetNamespace="http://tempuri.org/dsHoiVienNamNu.xsd" xmlns:mstns="http://tempuri.org/dsHoiVienNamNu.xsd" xmlns="http://tempuri.org/dsHoiVienNamNu.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHoiVienNamNu" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHoiVienNamNu" msprop:Generator_UserDSName="dsHoiVienNamNu">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HOI_VIEN" msprop:Generator_TableClassName="HOI_VIENDataTable" msprop:Generator_TableVarName="tableHOI_VIEN" msprop:Generator_TablePropName="HOI_VIEN" msprop:Generator_RowDeletingName="HOI_VIENRowDeleting" msprop:Generator_RowChangingName="HOI_VIENRowChanging" msprop:Generator_RowEvHandlerName="HOI_VIENRowChangeEventHandler" msprop:Generator_RowDeletedName="HOI_VIENRowDeleted" msprop:Generator_UserTableName="HOI_VIEN" msprop:Generator_RowChangedName="HOI_VIENRowChanged" msprop:Generator_RowEvArgName="HOI_VIENRowChangeEvent" msprop:Generator_RowClassName="HOI_VIENRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Phuong" msprop:Generator_ColumnVarNameInTable="columnPhuong" msprop:Generator_ColumnPropNameInRow="Phuong" msprop:Generator_ColumnPropNameInTable="PhuongColumn" msprop:Generator_UserColumnName="Phuong" type="xs:string" minOccurs="0" />
+              <xs:element name="Nam" msprop:Generator_ColumnVarNameInTable="columnNam" msprop:Generator_ColumnPropNameInRow="Nam" msprop:Generator_ColumnPropNameInTable="NamColumn" msprop:Generator_UserColumnName="Nam" type="xs:long" minOccurs="0" />
+              <xs:element name="Nu" msprop:Generator_ColumnVarNameInTable="columnNu" msprop:Generator_ColumnPropNameInRow="Nu" msprop:Generator_ColumnPropNameInTable="NuColumn" msprop:Generator_UserColumnName="Nu" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

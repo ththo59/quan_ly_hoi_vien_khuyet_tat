@@ -280,6 +280,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoiVien.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoiVienNamNu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoiVienNamNu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoSoMuaNop.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -517,6 +522,18 @@
     </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTCoViecLam.designer.cs">
       <DependentUpon>rptBCHoiVien_NKTCoViecLam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTNamNu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTNamNu.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTNamNu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTheoTrinhDoHocVan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTheoTrinhDoHocVan.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTTheoTrinhDoHocVan.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoPhuong.cs">
       <SubType>Component</SubType>
@@ -883,6 +900,18 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTCoViecLam.Designer.cs">
       <DependentUpon>ucBCHoiVienTongNKTCoViecLam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTTheoNamNu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTrinhDoHocVan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTrinhDoHocVan.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTTheoTrinhDoHocVan.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.cs">
       <SubType>UserControl</SubType>
@@ -1340,6 +1369,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1358,6 +1388,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTCoViecLam.resx">
       <DependentUpon>rptBCHoiVien_NKTCoViecLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTNamNu.resx">
+      <DependentUpon>rptBCHoiVien_NKTNamNu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoTrinhDoHocVan.resx">
+      <DependentUpon>rptBCHoiVien_NKTTheoTrinhDoHocVan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoPhuong.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoPhuong.cs</DependentUpon>
@@ -1538,6 +1574,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTCoViecLam.resx">
       <DependentUpon>ucBCHoiVienTongNKTCoViecLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.resx">
+      <DependentUpon>ucBCHoiVienTongNKTTheoNamNu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoTrinhDoHocVan.resx">
+      <DependentUpon>ucBCHoiVienTongNKTTheoTrinhDoHocVan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoPhuong.cs</DependentUpon>
@@ -1914,6 +1956,17 @@
     </None>
     <None Include="DataSets\dsHoiVien.xss">
       <DependentUpon>dsHoiVien.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoiVienNamNu.xsc">
+      <DependentUpon>dsHoiVienNamNu.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoiVienNamNu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoiVienNamNu.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoiVienNamNu.xss">
+      <DependentUpon>dsHoiVienNamNu.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoSoMuaNop.xsc">
       <DependentUpon>dsHoSoMuaNop.xsd</DependentUpon>
