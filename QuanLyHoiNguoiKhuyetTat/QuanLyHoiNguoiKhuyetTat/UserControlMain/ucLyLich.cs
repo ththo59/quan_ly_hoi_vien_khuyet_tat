@@ -415,7 +415,7 @@ namespace DauThau.UserControlCategory
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
             item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();
-            item.HV_TUOI = seTuoi.Text;
+            item.HV_TUOI = seTuoi.Ex_EditValueToInt();
             item.HV_TON_GIAO = lueTonGiao.EditValue + string.Empty;
             item.HV_NGHE_NGHIEP = lueNgheNghiep.EditValue + string.Empty;
             item.HV_TRINHDO_VANHOA = lueTrinhDoVanHoa.EditValue + string.Empty;

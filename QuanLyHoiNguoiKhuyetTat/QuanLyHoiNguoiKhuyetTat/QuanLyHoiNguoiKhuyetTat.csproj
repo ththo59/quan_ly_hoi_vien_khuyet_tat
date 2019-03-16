@@ -907,6 +907,12 @@
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.Designer.cs">
       <DependentUpon>ucBCHoiVienTongNKTTheoNamNu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTTheoTuoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTrinhDoHocVan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1577,6 +1583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoNamNu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.resx">
+      <DependentUpon>ucBCHoiVienTongNKTTheoTuoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoTrinhDoHocVan.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoTrinhDoHocVan.cs</DependentUpon>

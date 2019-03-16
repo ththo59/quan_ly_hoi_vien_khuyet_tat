@@ -319,7 +319,7 @@
           <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="10" />
           <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGAY_SINH" Type="date" />
-          <Property Name="HV_TUOI" Type="nvarchar" MaxLength="10" />
+          <Property Name="HV_TUOI" Type="int" />
           <Property Name="HV_TON_GIAO" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGHE_NGHIEP" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_TRINHDO_VANHOA" Type="nvarchar" MaxLength="250" />
@@ -908,7 +908,7 @@
           <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
-          <Property Name="HV_TUOI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TUOI" Type="Int32" />
           <Property Name="HV_TON_GIAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGHE_NGHIEP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_TRINHDO_VANHOA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />

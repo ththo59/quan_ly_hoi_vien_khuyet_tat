@@ -20,7 +20,7 @@ namespace DauThau.Models
         public string HV_GIOI_TINH { get; set; }
         public string HV_DAN_TOC { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
-        public string HV_TUOI { get; set; }
+        public Nullable<int> HV_TUOI { get; set; }
         public string HV_TON_GIAO { get; set; }
         public string HV_NGHE_NGHIEP { get; set; }
         public string HV_TRINHDO_VANHOA { get; set; }

@@ -139,7 +139,7 @@
             this.btnVayVon = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem42 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTongSoNKTTheoHocVan = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSoTreKTTheoTuoi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTongSoNamNu = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -316,7 +316,7 @@
             this.barButtonItem42,
             this.btnTangDungCuTroGiup,
             this.btnTongSoNKTTheoHocVan,
-            this.barButtonItem9,
+            this.btnSoTreKTTheoTuoi,
             this.barButtonItem10,
             this.btnTongSoNamNu});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
@@ -1497,14 +1497,13 @@
             this.btnTongSoNKTTheoHocVan.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barButtonItem9
+            // btnSoTreKTTheoTuoi
             // 
-            this.barButtonItem9.Caption = "Số trẻ KT từ 0-8 tuổi đi học";
-            this.barButtonItem9.Enabled = false;
-            this.barButtonItem9.Glyph = global::DauThau.Properties.Resources.dvt;
-            this.barButtonItem9.Id = 186;
-            this.barButtonItem9.Name = "barButtonItem9";
-            this.barButtonItem9.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnSoTreKTTheoTuoi.Caption = "Số trẻ KT từ 0-8 tuổi đi học";
+            this.btnSoTreKTTheoTuoi.Glyph = global::DauThau.Properties.Resources.dvt;
+            this.btnSoTreKTTheoTuoi.Id = 186;
+            this.btnSoTreKTTheoTuoi.Name = "btnSoTreKTTheoTuoi";
+            this.btnSoTreKTTheoTuoi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // barButtonItem10
@@ -1590,7 +1589,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTCoViecLam);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTTheoHocVan);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNamNu);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnSoTreKTTheoTuoi);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
@@ -1953,7 +1952,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem42;
         private DevExpress.XtraBars.BarButtonItem btnTangDungCuTroGiup;
         private DevExpress.XtraBars.BarButtonItem btnTongSoNKTTheoHocVan;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem btnSoTreKTTheoTuoi;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem btnTongSoNamNu;
     }

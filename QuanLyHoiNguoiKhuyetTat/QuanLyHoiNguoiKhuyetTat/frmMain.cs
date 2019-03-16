@@ -234,12 +234,17 @@ namespace DauThau
                     case "btnTongSoNKTCoViecLam":
                         uc = new ucBCHoiVienTongNKTCoViecLam();
                         break;
+
                     case "btnTongSoNKTTheoHocVan":
                         uc = new ucBCHoiVienTongNKTTheoTrinhDoHocVan();
                         break;
                         
                     case "btnTongSoNamNu":
                         uc = new ucBCHoiVienTongNKTTheoNamNu();
+                        break;
+                        
+                    case "btnSoTreKTTheoTuoi":
+                        uc = new ucBCHoiVienTongNKTTheoTuoi();
                         break;
                     #endregion
 
