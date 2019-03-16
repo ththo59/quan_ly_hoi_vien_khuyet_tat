@@ -323,12 +323,12 @@ namespace DauThau
 
         private void btnXa_ItemClick(object sender, ItemClickEventArgs e)
         {
-            clsAddTab.AddTabControl(TabControlParent, new ucDmXa(), "ucDmXa", "Phường, xã");
+            //clsAddTab.AddTabControl(TabControlParent, new ucDmXa(), "ucDmXa", "Phường, xã");
         }
 
         private void btnBCHoatDong_ItemClick(object sender, ItemClickEventArgs e)
         {
-            clsAddTab.AddTabControl(TabControlParent, new ucBCHoatDong(), "ucBCHoatDong", "Báo cáo hoạt động");
+            //clsAddTab.AddTabControl(TabControlParent, new ucBCHoatDong(), "ucBCHoatDong", "Báo cáo hoạt động");
         }
 
         private void btnCP_SoQuyTienMat_ItemClick(object sender, ItemClickEventArgs e)

@@ -344,7 +344,7 @@
             // btnDonGiaNhapHoi
             // 
             this.btnDonGiaNhapHoi.Caption = "Đơn xin gia nhập hội";
-            this.btnDonGiaNhapHoi.Glyph = global::DauThau.Properties.Resources.Gavel;
+            this.btnDonGiaNhapHoi.Glyph = global::DauThau.Properties.Resources.ChecklistFile;
             this.btnDonGiaNhapHoi.Id = 3;
             this.btnDonGiaNhapHoi.LargeWidth = 70;
             this.btnDonGiaNhapHoi.Name = "btnDonGiaNhapHoi";
@@ -364,6 +364,7 @@
             // btnTrinhDoHocVan
             // 
             this.btnTrinhDoHocVan.Caption = "Trình độ học vấn";
+            this.btnTrinhDoHocVan.Enabled = false;
             this.btnTrinhDoHocVan.Glyph = global::DauThau.Properties.Resources.Earth;
             this.btnTrinhDoHocVan.Id = 10;
             this.btnTrinhDoHocVan.LargeWidth = 70;
@@ -461,6 +462,7 @@
             // btnTrinhDoChuyenMon
             // 
             this.btnTrinhDoChuyenMon.Caption = "Trình độ chuyên môn";
+            this.btnTrinhDoChuyenMon.Enabled = false;
             this.btnTrinhDoChuyenMon.Glyph = global::DauThau.Properties.Resources.dvt;
             this.btnTrinhDoChuyenMon.Id = 21;
             this.btnTrinhDoChuyenMon.LargeWidth = 70;
@@ -511,6 +513,7 @@
             // btnNgheNghiep
             // 
             this.btnNgheNghiep.Caption = "Nghề nghiệp";
+            this.btnNgheNghiep.Enabled = false;
             this.btnNgheNghiep.Glyph = global::DauThau.Properties.Resources.Android_Setting;
             this.btnNgheNghiep.Id = 27;
             this.btnNgheNghiep.LargeWidth = 70;
@@ -597,7 +600,7 @@
             // btnBMLyLich
             // 
             this.btnBMLyLich.Caption = "Biểu mẫu lý lịch";
-            this.btnBMLyLich.Glyph = global::DauThau.Properties.Resources.database_import;
+            this.btnBMLyLich.Glyph = global::DauThau.Properties.Resources.checklist;
             this.btnBMLyLich.Id = 45;
             this.btnBMLyLich.LargeWidth = 90;
             this.btnBMLyLich.Name = "btnBMLyLich";
@@ -699,6 +702,7 @@
             this.btnBCLyLich.Name = "btnBCLyLich";
             this.btnBCLyLich.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnBCLyLich.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barSubItem1
             // 
@@ -741,6 +745,7 @@
             // btnBCHoatDong
             // 
             this.btnBCHoatDong.Caption = "Tổng kết hoạt động";
+            this.btnBCHoatDong.Enabled = false;
             this.btnBCHoatDong.Id = 68;
             this.btnBCHoatDong.LargeGlyph = global::DauThau.Properties.Resources.Company;
             this.btnBCHoatDong.LargeWidth = 100;
@@ -797,13 +802,14 @@
             this.btnNapExcels.Name = "btnNapExcels";
             this.btnNapExcels.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnNapExcels.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnNapExcels.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNapExcels_ItemClick);
             // 
             // btnThongTinTacGia
             // 
             this.btnThongTinTacGia.Caption = "Thông tin tác giả";
             this.btnThongTinTacGia.Id = 81;
-            this.btnThongTinTacGia.LargeGlyph = global::DauThau.Properties.Resources.capsule;
+            this.btnThongTinTacGia.LargeGlyph = global::DauThau.Properties.Resources.Company;
             this.btnThongTinTacGia.LargeWidth = 70;
             this.btnThongTinTacGia.Name = "btnThongTinTacGia";
             this.btnThongTinTacGia.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
@@ -1011,6 +1017,7 @@
             // btnTongHopSPDuThau
             // 
             this.btnTongHopSPDuThau.Caption = "Tổng số NKT có việc làm";
+            this.btnTongHopSPDuThau.Enabled = false;
             this.btnTongHopSPDuThau.Glyph = global::DauThau.Properties.Resources.Android_Setting;
             this.btnTongHopSPDuThau.Id = 108;
             this.btnTongHopSPDuThau.LargeWidth = 80;
@@ -1077,6 +1084,7 @@
             // btnConfig
             // 
             this.btnConfig.Caption = "Cấu hình";
+            this.btnConfig.Enabled = false;
             this.btnConfig.Glyph = global::DauThau.Properties.Resources.Android_Setting;
             this.btnConfig.Id = 116;
             this.btnConfig.LargeWidth = 80;
@@ -1103,6 +1111,7 @@
             // btnXetThauKT
             // 
             this.btnXetThauKT.Caption = "Tổng số NKT theo dạng tật";
+            this.btnXetThauKT.Enabled = false;
             this.btnXetThauKT.Glyph = global::DauThau.Properties.Resources.checklist;
             this.btnXetThauKT.Id = 119;
             this.btnXetThauKT.LargeWidth = 80;
@@ -1484,6 +1493,7 @@
             // barButtonItem8
             // 
             this.barButtonItem8.Caption = "Tổng số NKT theo trình độ học vấn";
+            this.barButtonItem8.Enabled = false;
             this.barButtonItem8.Glyph = global::DauThau.Properties.Resources.Bookmaskforder;
             this.barButtonItem8.Id = 185;
             this.barButtonItem8.Name = "barButtonItem8";
@@ -1493,6 +1503,7 @@
             // barButtonItem9
             // 
             this.barButtonItem9.Caption = "Số trẻ KT từ 0-8 tuổi đi học";
+            this.barButtonItem9.Enabled = false;
             this.barButtonItem9.Glyph = global::DauThau.Properties.Resources.dvt;
             this.barButtonItem9.Id = 186;
             this.barButtonItem9.Name = "barButtonItem9";
@@ -1502,6 +1513,7 @@
             // barButtonItem10
             // 
             this.barButtonItem10.Caption = "Số trẻ KT từ 6-18 tuổi đi học";
+            this.barButtonItem10.Enabled = false;
             this.barButtonItem10.Glyph = global::DauThau.Properties.Resources.hangsx_nuocsx;
             this.barButtonItem10.Id = 187;
             this.barButtonItem10.Name = "barButtonItem10";
@@ -1511,6 +1523,7 @@
             // barButtonItem14
             // 
             this.barButtonItem14.Caption = "Tổng số nữ/nam";
+            this.barButtonItem14.Enabled = false;
             this.barButtonItem14.Glyph = global::DauThau.Properties.Resources.Control_Panel;
             this.barButtonItem14.Id = 188;
             this.barButtonItem14.LargeWidth = 80;

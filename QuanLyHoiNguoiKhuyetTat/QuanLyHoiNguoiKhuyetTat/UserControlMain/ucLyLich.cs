@@ -379,7 +379,10 @@ namespace DauThau.UserControlCategory
         {
             //Thông tin cá nhân
             item.HV_TEN = txtHoTen.Text;
-            item.HV_IMAGE = convertImageToBinary(pictureAvatar.Image);
+            if (pictureAvatar.Image != null)
+            {
+                item.HV_IMAGE = convertImageToBinary(pictureAvatar.Image);
+            }
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
             item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();

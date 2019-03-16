@@ -11,12 +11,16 @@ using DevExpress.XtraReports.UI;
 using System.Diagnostics;
 using DauThau.Class;
 using DauThau.Reports;
+using DevExpress.Utils;
+using DauThau.Models;
+using System.Linq;
+using System.Data.Entity;
 
 namespace DauThau.UserControlCategory
 {
     public partial class ucBCHoiVienTongNKTTheoPhuong : ucBase
     {
-        XtraReport rpt = new XtraReport();
+        XtraReport rptGlobal = new XtraReport();
         public ucBCHoiVienTongNKTTheoPhuong()
         {
             InitializeComponent();
@@ -27,12 +31,55 @@ namespace DauThau.UserControlCategory
             registerButtonArray(btnControl);
 
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
-            rpt = new rptLyLichHoiVien();
             LibraryDev.PermissionButton(btnControl, previewBar1);
-            printControl.PrintingSystem = rpt.PrintingSystem;
-            rpt.CreateDocument(true);
             lueThanhPho.Properties.PopupFormMinSize = lueThanhPho.Size;
         }
+
+        #region Function
+
+        private void _print()
+        {
+            try
+            {
+                rptGlobal.Print();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void _loadData()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            context = new QL_HOIVIEN_KTEntities();
+            context.QL_HOIVIEN.Load();
+            string strPhuong = luePhuong.EditValue + string.Empty;
+            var data = (from p in context.QL_HOIVIEN
+                        where strPhuong != "" ? p.HV_THUONGTRU_PHUONG == strPhuong : true
+                        select p).ToList();
+
+            rptBCHoiVien_NKTTheoPhuong rpt = new rptBCHoiVien_NKTTheoPhuong();
+            string tableName = "HOI_VIEN";
+            DataTable dataPrint = FunctionHelper.ConvertToDataTable(data);
+            dataPrint.TableName = tableName;
+
+            rpt.pLeftHeader.Value = clsParameter.pHospital;
+            rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+            rpt.pTitle.Value = lueQuan.Text;
+            //rpt.pTitleFooter.Value = ReportHelper.getTitleFooter(LoaiBaoCao.BM10);
+            //rpt.pValueFooter.Value = ReportHelper.getValueFooter(LoaiBaoCao.BM10);
+
+            rpt.DataSource = dataPrint;
+            rpt.DataMember = tableName;
+            printControl.PrintingSystem = rpt.PrintingSystem;
+            rpt.CreateDocument(true);
+
+            rptGlobal = rpt;
+            _wait.Close();
+        }
+
+        #endregion
 
         protected override EnumFormStatus FormStatus
         {
@@ -42,14 +89,7 @@ namespace DauThau.UserControlCategory
                 _formStatus = value;
                 if (_formStatus == EnumFormStatus.PRINT)
                 {
-                    try
-                    {
-                        rpt.Print();
-                    }
-                    catch (Exception)
-                    {
-
-                    }
+                    _print();
                 }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {
@@ -57,6 +97,14 @@ namespace DauThau.UserControlCategory
                     {
                         closeTab();
                     }
+                }
+                else if (_formStatus == EnumFormStatus.REPORT)
+                {
+                    _loadData();
+                }
+                else
+                {
+
                 }
             }
         }
@@ -84,6 +132,15 @@ namespace DauThau.UserControlCategory
         private void lueQuan_EditValueChanged(object sender, EventArgs e)
         {
             FuncCategory.loadDMXa(luePhuong, lueQuan.EditValue + string.Empty);
+            luePhuong.EditValue = null;
+        }
+
+        private void luePhuong_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)
+            {
+                luePhuong.EditValue = null;
+            }
         }
     }
 }
