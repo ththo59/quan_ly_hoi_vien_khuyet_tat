@@ -529,6 +529,12 @@
     <Compile Include="Reports\rptBCHoiVien_NKTNamNu.designer.cs">
       <DependentUpon>rptBCHoiVien_NKTNamNu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTThamGiaHoatDong.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTThamGiaHoatDong.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTThamGiaHoatDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoTuoi.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -912,6 +918,12 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.Designer.cs">
       <DependentUpon>ucBCHoiVienTongNKTTheoNamNu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTThamGiaHoatDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTThamGiaHoatDong.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTThamGiaHoatDong.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.cs">
       <SubType>UserControl</SubType>
@@ -1404,6 +1416,9 @@
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTNamNu.resx">
       <DependentUpon>rptBCHoiVien_NKTNamNu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTThamGiaHoatDong.resx">
+      <DependentUpon>rptBCHoiVien_NKTThamGiaHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoTuoi.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoTuoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -1592,6 +1607,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoNamNu.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoNamNu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTThamGiaHoatDong.resx">
+      <DependentUpon>ucBCHoiVienTongNKTThamGiaHoatDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoTuoi.cs</DependentUpon>

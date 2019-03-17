@@ -250,6 +250,11 @@ namespace DauThau
                     case "btnSoTreKTTu6_18":
                         uc = new ucBCHoiVienTongNKTTheoTuoi(6, 18);
                         break;
+                        
+                    case "btnSoLuongNKTThamGiaHoatDong":
+                        uc = new ucBCHoiVienTongNKTThamGiaHoatDong();
+                        break;
+
                     #endregion
 
                     case "btnDonGiaNhapHoi":
