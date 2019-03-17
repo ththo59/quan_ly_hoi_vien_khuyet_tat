@@ -21,8 +21,13 @@ namespace DauThau.UserControlCategory
     public partial class ucBCHoiVienTongNKTTheoTuoi : ucBase
     {
         XtraReport rptGlobal = new XtraReport();
-        public ucBCHoiVienTongNKTTheoTuoi()
+        int _tuTuoi = 0;
+        int _denTuoi = 0;
+
+        public ucBCHoiVienTongNKTTheoTuoi(int tuTuoi, int denTuoi)
         {
+            _tuTuoi = tuTuoi;
+            _denTuoi = denTuoi;
             InitializeComponent();
         }
 
@@ -33,6 +38,9 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
             LibraryDev.PermissionButton(btnControl, previewBar1);
             lueThanhPho.Properties.PopupFormMinSize = lueThanhPho.Size;
+            seTuTuoi.EditValue = _tuTuoi;
+            seDenTuoi.EditValue = _denTuoi;
+            _loadData();
         }
 
         #region Function
@@ -58,19 +66,24 @@ namespace DauThau.UserControlCategory
             int denTuoi = Convert.ToInt32(seDenTuoi.EditValue);
 
             string strPhuong = luePhuong.EditValue + string.Empty;
+            string strQuan = lueQuan.EditValue + string.Empty;
+            string strThanhPho = lueThanhPho.EditValue + string.Empty;
             var data = (from p in context.QL_HOIVIEN
                         where (strPhuong != "" ? p.HV_THUONGTRU_PHUONG == strPhuong : true)
+                        && (strQuan != "" ? p.HV_THUONGTRU_QUAN == strQuan : true)
+                        && (strThanhPho != "" ? p.HV_THUONGTRU_TP == strThanhPho : true)
                         && tuTuoi <= p.HV_TUOI && p.HV_TUOI <= denTuoi
-                        && p.HV_TRE_DIHOC == true
+                        && p.HV_TRE_DIHOC == chkLaTreDiHoc.Checked
                         select p).ToList();
 
-            rptBCHoiVien_NKTTheoPhuong rpt = new rptBCHoiVien_NKTTheoPhuong();
+            rptBCHoiVien_NKTTheoTuoi rpt = new rptBCHoiVien_NKTTheoTuoi();
             string tableName = "HOI_VIEN";
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(data);
             dataPrint.TableName = tableName;
 
             rpt.pLeftHeader.Value = clsParameter.pHospital;
             rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+            rpt.pTitleParent.Value = String.Format("TRẺ KHUYẾT TẬT TỪ {0} - {1} TUỔI ĐANG ĐI HỌC", seTuTuoi.Text, seDenTuoi.Text);
             rpt.pTitle.Value = lueQuan.Text;
             //rpt.pTitleFooter.Value = ReportHelper.getTitleFooter(LoaiBaoCao.BM10);
             //rpt.pValueFooter.Value = ReportHelper.getValueFooter(LoaiBaoCao.BM10);

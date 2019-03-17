@@ -33,6 +33,7 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
             LibraryDev.PermissionButton(btnControl, previewBar1);
             lueThanhPho.Properties.PopupFormMinSize = lueThanhPho.Size;
+            _loadData();
         }
 
         #region Function
@@ -55,8 +56,12 @@ namespace DauThau.UserControlCategory
             context = new QL_HOIVIEN_KTEntities();
             context.QL_HOIVIEN.Load();
             string strPhuong = luePhuong.EditValue + string.Empty;
+            string strQuan = lueQuan.EditValue + string.Empty;
+            string strThanhPho = lueThanhPho.EditValue + string.Empty;
             var data = (from p in context.QL_HOIVIEN
-                        where strPhuong != "" ? p.HV_THUONGTRU_PHUONG == strPhuong : true
+                        where (strPhuong != "" ? p.HV_THUONGTRU_PHUONG == strPhuong : true)
+                        && (strQuan != "" ? p.HV_THUONGTRU_QUAN == strQuan : true)
+                        && (strThanhPho != "" ? p.HV_THUONGTRU_TP == strThanhPho : true)
                         select p).ToList();
 
             rptBCHoiVien_NKTTheoTrinhDoHocVan rpt = new rptBCHoiVien_NKTTheoTrinhDoHocVan();

@@ -529,6 +529,12 @@
     <Compile Include="Reports\rptBCHoiVien_NKTNamNu.designer.cs">
       <DependentUpon>rptBCHoiVien_NKTNamNu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTheoTuoi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTheoTuoi.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTTheoTuoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoTrinhDoHocVan.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1397,6 +1403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTNamNu.resx">
       <DependentUpon>rptBCHoiVien_NKTNamNu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoTuoi.resx">
+      <DependentUpon>rptBCHoiVien_NKTTheoTuoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoTrinhDoHocVan.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoTrinhDoHocVan.cs</DependentUpon>

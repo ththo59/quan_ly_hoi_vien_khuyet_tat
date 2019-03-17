@@ -139,8 +139,8 @@
             this.btnVayVon = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem42 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTongSoNKTTheoHocVan = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSoTreKTTheoTuoi = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSoTreKTTu0_8 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSoTreKTTu6_18 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTongSoNamNu = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -316,8 +316,8 @@
             this.barButtonItem42,
             this.btnTangDungCuTroGiup,
             this.btnTongSoNKTTheoHocVan,
-            this.btnSoTreKTTheoTuoi,
-            this.barButtonItem10,
+            this.btnSoTreKTTu0_8,
+            this.btnSoTreKTTu6_18,
             this.btnTongSoNamNu});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonMain.MaxItemId = 189;
@@ -1497,23 +1497,22 @@
             this.btnTongSoNKTTheoHocVan.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // btnSoTreKTTheoTuoi
+            // btnSoTreKTTu0_8
             // 
-            this.btnSoTreKTTheoTuoi.Caption = "Số trẻ KT từ 0-8 tuổi đi học";
-            this.btnSoTreKTTheoTuoi.Glyph = global::DauThau.Properties.Resources.dvt;
-            this.btnSoTreKTTheoTuoi.Id = 186;
-            this.btnSoTreKTTheoTuoi.Name = "btnSoTreKTTheoTuoi";
-            this.btnSoTreKTTheoTuoi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnSoTreKTTu0_8.Caption = "Số trẻ KT từ 0-8 tuổi đi học";
+            this.btnSoTreKTTu0_8.Glyph = global::DauThau.Properties.Resources.dvt;
+            this.btnSoTreKTTu0_8.Id = 186;
+            this.btnSoTreKTTu0_8.Name = "btnSoTreKTTu0_8";
+            this.btnSoTreKTTu0_8.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barButtonItem10
+            // btnSoTreKTTu6_18
             // 
-            this.barButtonItem10.Caption = "Số trẻ KT từ 6-18 tuổi đi học";
-            this.barButtonItem10.Enabled = false;
-            this.barButtonItem10.Glyph = global::DauThau.Properties.Resources.hangsx_nuocsx;
-            this.barButtonItem10.Id = 187;
-            this.barButtonItem10.Name = "barButtonItem10";
-            this.barButtonItem10.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnSoTreKTTu6_18.Caption = "Số trẻ KT từ 6-18 tuổi đi học";
+            this.btnSoTreKTTu6_18.Glyph = global::DauThau.Properties.Resources.hangsx_nuocsx;
+            this.btnSoTreKTTu6_18.Id = 187;
+            this.btnSoTreKTTu6_18.Name = "btnSoTreKTTu6_18";
+            this.btnSoTreKTTu6_18.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // btnTongSoNamNu
@@ -1589,8 +1588,8 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTCoViecLam);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNKTTheoHocVan);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnTongSoNamNu);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnSoTreKTTheoTuoi);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnSoTreKTTu0_8);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnSoTreKTTu6_18);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Hội viên";
@@ -1952,8 +1951,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem42;
         private DevExpress.XtraBars.BarButtonItem btnTangDungCuTroGiup;
         private DevExpress.XtraBars.BarButtonItem btnTongSoNKTTheoHocVan;
-        private DevExpress.XtraBars.BarButtonItem btnSoTreKTTheoTuoi;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem btnSoTreKTTu0_8;
+        private DevExpress.XtraBars.BarButtonItem btnSoTreKTTu6_18;
         private DevExpress.XtraBars.BarButtonItem btnTongSoNamNu;
     }
 }
