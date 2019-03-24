@@ -32,8 +32,8 @@
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>2019.3.12.%2a</ApplicationVersion>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>2019.3.17.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -255,6 +255,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongTongKet.cs">
+      <DependentUpon>dsHoatDongTongKet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsHoatDongTongKet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongTongKet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSets\dsHoatDongVayVon.cs">
       <DependentUpon>dsHoatDongVayVon.xsd</DependentUpon>
@@ -511,6 +519,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptBCTongKetHoatDong_NangCaoNhanThuc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCTongKetHoatDong_NangCaoNhanThuc.designer.cs">
+      <DependentUpon>rptBCTongKetHoatDong_NangCaoNhanThuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoDangTat.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -534,6 +548,18 @@
     </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTThamGiaHoatDong.designer.cs">
       <DependentUpon>rptBCHoiVien_NKTThamGiaHoatDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTCXH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTTCXH.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTTCXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTPhuNuCoGiaDinh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoiVien_NKTPhuNuCoGiaDinh.designer.cs">
+      <DependentUpon>rptBCHoiVien_NKTPhuNuCoGiaDinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBCHoiVien_NKTTheoTuoi.cs">
       <SubType>Component</SubType>
@@ -895,11 +921,11 @@
     <Compile Include="UserControlMain\ucBCChiPhi_SoQuyTienMat.Designer.cs">
       <DependentUpon>ucBCChiPhi_SoQuyTienMat.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlMain\ucBCHoatDong.cs">
+    <Compile Include="UserControlMain\ucBCHoatDongNangCaoNhanThuc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlMain\ucBCHoatDong.Designer.cs">
-      <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    <Compile Include="UserControlMain\ucBCHoatDongNangCaoNhanThuc.Designer.cs">
+      <DependentUpon>ucBCHoatDongNangCaoNhanThuc.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.cs">
       <SubType>UserControl</SubType>
@@ -924,6 +950,18 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTThamGiaHoatDong.Designer.cs">
       <DependentUpon>ucBCHoiVienTongNKTThamGiaHoatDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTCXH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTTCXH.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTTCXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTPhuNuCoGiaDinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoiVienTongNKTPhuNuCoGiaDinh.Designer.cs">
+      <DependentUpon>ucBCHoiVienTongNKTPhuNuCoGiaDinh.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.cs">
       <SubType>UserControl</SubType>
@@ -1407,6 +1445,9 @@
     <EmbeddedResource Include="Reports\rpt.resx">
       <DependentUpon>rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCTongKetHoatDong_NangCaoNhanThuc.resx">
+      <DependentUpon>rptBCTongKetHoatDong_NangCaoNhanThuc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoDangTat.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoDangTat.cs</DependentUpon>
     </EmbeddedResource>
@@ -1418,6 +1459,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTThamGiaHoatDong.resx">
       <DependentUpon>rptBCHoiVien_NKTThamGiaHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTCXH.resx">
+      <DependentUpon>rptBCHoiVien_NKTTCXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoiVien_NKTPhuNuCoGiaDinh.resx">
+      <DependentUpon>rptBCHoiVien_NKTPhuNuCoGiaDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoiVien_NKTTheoTuoi.resx">
       <DependentUpon>rptBCHoiVien_NKTTheoTuoi.cs</DependentUpon>
@@ -1596,8 +1643,8 @@
     <EmbeddedResource Include="UserControlMain\ucBCChiPhi_SoQuyTienMat.resx">
       <DependentUpon>ucBCChiPhi_SoQuyTienMat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlMain\ucBCHoatDong.resx">
-      <DependentUpon>ucBCHoatDong.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlMain\ucBCHoatDongNangCaoNhanThuc.resx">
+      <DependentUpon>ucBCHoatDongNangCaoNhanThuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoDangTat.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoDangTat.cs</DependentUpon>
@@ -1610,6 +1657,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTThamGiaHoatDong.resx">
       <DependentUpon>ucBCHoiVienTongNKTThamGiaHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTCXH.resx">
+      <DependentUpon>ucBCHoiVienTongNKTTCXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTPhuNuCoGiaDinh.resx">
+      <DependentUpon>ucBCHoiVienTongNKTPhuNuCoGiaDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoTuoi.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoTuoi.cs</DependentUpon>
@@ -1959,6 +2012,17 @@
     </None>
     <None Include="DataSets\dsHoatDongTapHuan.xss">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongTongKet.xsc">
+      <DependentUpon>dsHoatDongTongKet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongTongKet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongTongKet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongTongKet.xss">
+      <DependentUpon>dsHoatDongTongKet.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoatDongVayVon.xsc">
       <DependentUpon>dsHoatDongVayVon.xsd</DependentUpon>

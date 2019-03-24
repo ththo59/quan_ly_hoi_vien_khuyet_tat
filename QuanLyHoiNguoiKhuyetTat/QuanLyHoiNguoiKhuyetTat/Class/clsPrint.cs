@@ -84,4 +84,16 @@ namespace DauThau.Class
         public string VV_DOITUONG { get; set; }
         public string VV_NOIDUNG { get; set; }
     }
+
+    public class clsTongKetHoatDong
+    {
+        public Int64 HD_ID { get; set; }
+        public string HD_TEN { get; set; }
+        public string HD_THOIGIAN { get; set; }
+        public DateTime? HD_THOIGIAN_BATDAU { get; set; }
+        public DateTime? HD_THOIGIAN_KETTHUC { get; set; }
+        public string HD_GHICHU { get; set; }
+        public string HD_LOAI { get; set; }
+        public string HD_NOIDUNG { get; set; }
+    }
 }

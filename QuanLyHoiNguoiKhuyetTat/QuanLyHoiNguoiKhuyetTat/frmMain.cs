@@ -255,8 +255,23 @@ namespace DauThau
                         uc = new ucBCHoiVienTongNKTThamGiaHoatDong();
                         break;
 
+                    case "btnSoLuongNKTNhanTCXH":
+                        uc = new ucBCHoiVienTongNKTTCXH();
+                        break;
+
+                    case "btnPNKTCoGiaDinh":
+                        uc = new ucBCHoiVienTongNKTPhuNuCoGiaDinh();
+                        break;
+
                     #endregion
 
+                    #region Báo cáo hoạt động
+
+                    case "btnBCHoatDongNangCaoNhanThuc":
+                        uc = new ucBCHoatDongNangCaoNhanThuc();
+                        break;
+
+                    #endregion
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         uc = new ucPrint(rpt);
