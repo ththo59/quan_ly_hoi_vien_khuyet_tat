@@ -270,7 +270,10 @@ namespace DauThau
                     case "btnBCHoatDongNangCaoNhanThuc":
                         uc = new ucBCHoatDongNangCaoNhanThuc();
                         break;
-
+                        
+                    case "btnBCHoatDongAnSinhXaHoi":
+                        uc = new ucBCHoatDongASXH();
+                        break;
                     #endregion
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();

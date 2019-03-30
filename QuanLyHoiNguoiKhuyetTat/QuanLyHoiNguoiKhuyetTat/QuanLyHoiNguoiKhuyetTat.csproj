@@ -519,6 +519,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptBCTongKetHoatDong_ASXH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCTongKetHoatDong_ASXH.designer.cs">
+      <DependentUpon>rptBCTongKetHoatDong_ASXH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCTongKetHoatDong_NangCaoNhanThuc.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -920,6 +926,12 @@
     </Compile>
     <Compile Include="UserControlMain\ucBCChiPhi_SoQuyTienMat.Designer.cs">
       <DependentUpon>ucBCChiPhi_SoQuyTienMat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoatDongASXH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCHoatDongASXH.Designer.cs">
+      <DependentUpon>ucBCHoatDongASXH.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\ucBCHoatDongNangCaoNhanThuc.cs">
       <SubType>UserControl</SubType>
@@ -1445,6 +1457,9 @@
     <EmbeddedResource Include="Reports\rpt.resx">
       <DependentUpon>rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCTongKetHoatDong_ASXH.resx">
+      <DependentUpon>rptBCTongKetHoatDong_ASXH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCTongKetHoatDong_NangCaoNhanThuc.resx">
       <DependentUpon>rptBCTongKetHoatDong_NangCaoNhanThuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -1642,6 +1657,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCChiPhi_SoQuyTienMat.resx">
       <DependentUpon>ucBCChiPhi_SoQuyTienMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCHoatDongASXH.resx">
+      <DependentUpon>ucBCHoatDongASXH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoatDongNangCaoNhanThuc.resx">
       <DependentUpon>ucBCHoatDongNangCaoNhanThuc.cs</DependentUpon>

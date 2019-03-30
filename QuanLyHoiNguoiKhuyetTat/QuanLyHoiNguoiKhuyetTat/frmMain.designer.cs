@@ -146,7 +146,7 @@
             this.btnSoLuongNKTNhanTCXH = new DevExpress.XtraBars.BarButtonItem();
             this.btnPNKTCoGiaDinh = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBCHoatDongAnSinhXaHoi = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -331,7 +331,7 @@
             this.btnSoLuongNKTNhanTCXH,
             this.btnPNKTCoGiaDinh,
             this.barButtonItem8,
-            this.barButtonItem9,
+            this.btnBCHoatDongAnSinhXaHoi,
             this.barButtonItem10,
             this.barButtonItem14});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
@@ -1576,14 +1576,14 @@
             this.barButtonItem8.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barButtonItem9
+            // btnBCHoatDongAnSinhXaHoi
             // 
-            this.barButtonItem9.Caption = "Báo cáo chương trình an sinh xã hội";
-            this.barButtonItem9.Glyph = global::DauThau.Properties.Resources.Android_Setting;
-            this.barButtonItem9.Id = 198;
-            this.barButtonItem9.LargeWidth = 120;
-            this.barButtonItem9.Name = "barButtonItem9";
-            this.barButtonItem9.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnBCHoatDongAnSinhXaHoi.Caption = "Báo cáo chương trình an sinh xã hội";
+            this.btnBCHoatDongAnSinhXaHoi.Glyph = global::DauThau.Properties.Resources.Android_Setting;
+            this.btnBCHoatDongAnSinhXaHoi.Id = 198;
+            this.btnBCHoatDongAnSinhXaHoi.LargeWidth = 120;
+            this.btnBCHoatDongAnSinhXaHoi.Name = "btnBCHoatDongAnSinhXaHoi";
+            this.btnBCHoatDongAnSinhXaHoi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // barButtonItem10
@@ -1698,8 +1698,8 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBCHoatDongNangCaoNhanThuc);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnBCHoatDongAnSinhXaHoi);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem9);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem14);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
@@ -2053,7 +2053,7 @@
         private DevExpress.XtraBars.BarButtonItem btnPNKTCoGiaDinh;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem btnBCHoatDongAnSinhXaHoi;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
     }
