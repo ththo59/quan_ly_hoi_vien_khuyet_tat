@@ -117,13 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="xrTableCell55.Text" xml:space="preserve">
-    <value>            Qua tìm hiểu/ được bạn bè/ người thân giới thiệu về Hội, tôi rất mong được vào Hội để cùng học tập, chia sẻ với anh chị em trong Hội, được hòa nhập vào cộng đồng và đóng góp sức người, sức của cho Hội được vững mạnh hơn.</value>
-  </data>
-  <data name="xrTableCell56.Text" xml:space="preserve">
-    <value>           Tôi xin cam đoan những lời khai trên đây hoàn toàn đúng sự thật. Tôi xin hứa sẽ là một Hội viên gương mẫu: đảm bảo sinh hoạt, học tập, công tác nếu được giao, họp Hội và đóng Hội phí đầy đủ để góp phần giúp Hội hoạt động hiệu quả hơn.</value>
-  </data>
-  <metadata name="dsHoiVien1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="dsHoatDongTongKet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
 </root>

@@ -551,10 +551,15 @@ namespace DauThau.UserControlCategory
             Int64 hv_id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
             var hoivien = (from p in context.QL_HOIVIEN where p.HV_ID == hv_id select p).ToList();
             DataTable dt = FunctionHelper.ConvertToDataTable(hoivien);
+
             dt.TableName = "HOI_VIEN";
             frmPrint frm = new frmPrint(rpt);
             rpt.DataSource = dt;
             rpt.DataMember = "HOI_VIEN";
+
+            rpt.pLeftHeader.Value = clsParameter.pHospital;
+            rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+
             frm.ShowDialog();
         }
 

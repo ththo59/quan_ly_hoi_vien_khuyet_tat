@@ -282,10 +282,16 @@ namespace DauThau
                     case "btnBCHoatDongHNXH":
                         uc = new ucBCHoatDongHoaNhapXaHoi();
                         break;
-                        
+
+                    case "btnBCHoatDongViecLam":
+                        uc = new ucBCHoatDongViecLam();
+                        break;
+
                     #endregion
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
+                        rpt.pLeftHeader.Value = clsParameter.pHospital;
+                        rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
                         uc = new ucPrint(rpt);
                         break;
                      case "btnBMLyLich":

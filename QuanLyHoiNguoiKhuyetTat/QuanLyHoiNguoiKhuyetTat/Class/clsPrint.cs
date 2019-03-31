@@ -96,6 +96,7 @@ namespace DauThau.Class
         public string HD_LOAI { get; set; }
         public string HD_NOIDUNG { get; set; }
         public Int64 HD_SONGUOI_THAMGIA { get; set; }
+        public string HD_SONGUOI_NU_TONGSO { get; set; }
         public Int64 HD_TONGTIEN { get; set; }
         public string HD_DIADIEM { get; set; }
     }
