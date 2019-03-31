@@ -295,6 +295,12 @@ namespace DauThau.DataSets {
             
             private global::System.Data.DataColumn columnHD_THOIGIAN_KETTHUC;
             
+            private global::System.Data.DataColumn columnHD_DIADIEM;
+            
+            private global::System.Data.DataColumn columnHD_SONGUOI_THAMGIA;
+            
+            private global::System.Data.DataColumn columnHD_TONGTIEN;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TongKetHoatDongDataTable() {
@@ -394,6 +400,30 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HD_DIADIEMColumn {
+                get {
+                    return this.columnHD_DIADIEM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HD_SONGUOI_THAMGIAColumn {
+                get {
+                    return this.columnHD_SONGUOI_THAMGIA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HD_TONGTIENColumn {
+                get {
+                    return this.columnHD_TONGTIEN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +459,7 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TongKetHoatDongRow AddTongKetHoatDongRow(string HD_TEN, string HD_NOIDUNG, string HD_LOAI, string HD_GHICHU, string HD_THOIGIAN, string HD_ID, System.DateTime HD_THOIGIAN_BATDAU, System.DateTime HD_THOIGIAN_KETTHUC) {
+            public TongKetHoatDongRow AddTongKetHoatDongRow(string HD_TEN, string HD_NOIDUNG, string HD_LOAI, string HD_GHICHU, string HD_THOIGIAN, string HD_ID, System.DateTime HD_THOIGIAN_BATDAU, System.DateTime HD_THOIGIAN_KETTHUC, string HD_DIADIEM, long HD_SONGUOI_THAMGIA, long HD_TONGTIEN) {
                 TongKetHoatDongRow rowTongKetHoatDongRow = ((TongKetHoatDongRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         HD_TEN,
@@ -439,7 +469,10 @@ namespace DauThau.DataSets {
                         HD_THOIGIAN,
                         HD_ID,
                         HD_THOIGIAN_BATDAU,
-                        HD_THOIGIAN_KETTHUC};
+                        HD_THOIGIAN_KETTHUC,
+                        HD_DIADIEM,
+                        HD_SONGUOI_THAMGIA,
+                        HD_TONGTIEN};
                 rowTongKetHoatDongRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTongKetHoatDongRow);
                 return rowTongKetHoatDongRow;
@@ -470,6 +503,9 @@ namespace DauThau.DataSets {
                 this.columnHD_ID = base.Columns["HD_ID"];
                 this.columnHD_THOIGIAN_BATDAU = base.Columns["HD_THOIGIAN_BATDAU"];
                 this.columnHD_THOIGIAN_KETTHUC = base.Columns["HD_THOIGIAN_KETTHUC"];
+                this.columnHD_DIADIEM = base.Columns["HD_DIADIEM"];
+                this.columnHD_SONGUOI_THAMGIA = base.Columns["HD_SONGUOI_THAMGIA"];
+                this.columnHD_TONGTIEN = base.Columns["HD_TONGTIEN"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +527,12 @@ namespace DauThau.DataSets {
                 base.Columns.Add(this.columnHD_THOIGIAN_BATDAU);
                 this.columnHD_THOIGIAN_KETTHUC = new global::System.Data.DataColumn("HD_THOIGIAN_KETTHUC", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHD_THOIGIAN_KETTHUC);
+                this.columnHD_DIADIEM = new global::System.Data.DataColumn("HD_DIADIEM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_DIADIEM);
+                this.columnHD_SONGUOI_THAMGIA = new global::System.Data.DataColumn("HD_SONGUOI_THAMGIA", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_SONGUOI_THAMGIA);
+                this.columnHD_TONGTIEN = new global::System.Data.DataColumn("HD_TONGTIEN", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_TONGTIEN);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -761,6 +803,54 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string HD_DIADIEM {
+                get {
+                    try {
+                        return ((string)(this[this.tableTongKetHoatDong.HD_DIADIEMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HD_DIADIEM\' in table \'TongKetHoatDong\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTongKetHoatDong.HD_DIADIEMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long HD_SONGUOI_THAMGIA {
+                get {
+                    try {
+                        return ((long)(this[this.tableTongKetHoatDong.HD_SONGUOI_THAMGIAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HD_SONGUOI_THAMGIA\' in table \'TongKetHoatDong\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTongKetHoatDong.HD_SONGUOI_THAMGIAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long HD_TONGTIEN {
+                get {
+                    try {
+                        return ((long)(this[this.tableTongKetHoatDong.HD_TONGTIENColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HD_TONGTIEN\' in table \'TongKetHoatDong\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTongKetHoatDong.HD_TONGTIENColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsHD_TENNull() {
                 return this.IsNull(this.tableTongKetHoatDong.HD_TENColumn);
             }
@@ -853,6 +943,42 @@ namespace DauThau.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetHD_THOIGIAN_KETTHUCNull() {
                 this[this.tableTongKetHoatDong.HD_THOIGIAN_KETTHUCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHD_DIADIEMNull() {
+                return this.IsNull(this.tableTongKetHoatDong.HD_DIADIEMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHD_DIADIEMNull() {
+                this[this.tableTongKetHoatDong.HD_DIADIEMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHD_SONGUOI_THAMGIANull() {
+                return this.IsNull(this.tableTongKetHoatDong.HD_SONGUOI_THAMGIAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHD_SONGUOI_THAMGIANull() {
+                this[this.tableTongKetHoatDong.HD_SONGUOI_THAMGIAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHD_TONGTIENNull() {
+                return this.IsNull(this.tableTongKetHoatDong.HD_TONGTIENColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHD_TONGTIENNull() {
+                this[this.tableTongKetHoatDong.HD_TONGTIENColumn] = global::System.Convert.DBNull;
             }
         }
         

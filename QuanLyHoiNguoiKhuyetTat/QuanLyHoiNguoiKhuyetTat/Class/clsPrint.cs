@@ -13,7 +13,7 @@ namespace DauThau.Class
         public string TH_DONVI_THUCHIEN { get; set; }
         public string TH_NOIDUNG { get; set; }
         public int? TH_SOLUONG { get; set; }
-        public int TH_TONGTIEN { get; set; }
+        public Int64 TH_TONGTIEN { get; set; }
     }
 
     public class clsHoatDongHoiThao
@@ -95,5 +95,8 @@ namespace DauThau.Class
         public string HD_GHICHU { get; set; }
         public string HD_LOAI { get; set; }
         public string HD_NOIDUNG { get; set; }
+        public Int64 HD_SONGUOI_THAMGIA { get; set; }
+        public Int64 HD_TONGTIEN { get; set; }
+        public string HD_DIADIEM { get; set; }
     }
 }

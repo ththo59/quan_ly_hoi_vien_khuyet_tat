@@ -25,6 +25,7 @@ namespace DauThau.Models
         public string TH_NOIDUNG { get; set; }
         public Nullable<int> TH_SOLUONG { get; set; }
         public Nullable<int> TH_SOTIEN_1NGUOI { get; set; }
+        public Nullable<long> TH_TONGTIEN { get; set; }
         public string TH_GIANGVIEN { get; set; }
         public Nullable<int> TH_GIANGVIEN_THULAO { get; set; }
         public string TH_NGUOI_HOTRO { get; set; }

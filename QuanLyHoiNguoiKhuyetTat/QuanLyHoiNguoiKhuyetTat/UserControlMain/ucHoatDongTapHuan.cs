@@ -167,6 +167,7 @@ namespace DauThau.UserControlCategory
                 txtDonViThucHien.EditValue = item.TH_DONVI_THUCHIEN;
                 seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
                 seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
+                seTongTien.EditValue = item.TH_TONGTIEN;
                 txtNoiDung.EditValue = item.TH_NOIDUNG;
                 txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
                 seThuLaoGV.EditValue = item.TH_GIANGVIEN_THULAO;
@@ -187,6 +188,7 @@ namespace DauThau.UserControlCategory
             item.TH_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
             item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
+            item.TH_TONGTIEN = seTongTien.Ex_EditValueToInt();
             item.TH_NOIDUNG = txtNoiDung.Text;
             item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
             item.TH_GIANGVIEN_THULAO = seThuLaoGV.Ex_EditValueToInt();
@@ -298,7 +300,7 @@ namespace DauThau.UserControlCategory
                         item.TH_DIADIEM = row.TH_DIADIEM;
                         item.TH_DONVI_THUCHIEN = row.TH_DONVI_THUCHIEN;
                         item.TH_SOLUONG = row.TH_SOLUONG;
-                        item.TH_TONGTIEN = (row.TH_SOLUONG ?? 0) * (row.TH_SOTIEN_1NGUOI ?? 0);
+                        item.TH_TONGTIEN = row.TH_TONGTIEN??0;
                         item.TH_NOIDUNG = row.TH_NOIDUNG;
                         listTapHuan.Add(item);
                     }
