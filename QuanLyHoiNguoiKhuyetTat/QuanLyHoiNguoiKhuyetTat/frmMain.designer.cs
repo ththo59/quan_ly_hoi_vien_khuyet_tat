@@ -147,7 +147,7 @@
             this.btnPNKTCoGiaDinh = new DevExpress.XtraBars.BarButtonItem();
             this.btnBCNangCaoNangLucVaVanDongCS = new DevExpress.XtraBars.BarButtonItem();
             this.btnBCHoatDongAnSinhXaHoi = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBCHoatDongHNXH = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -332,7 +332,7 @@
             this.btnPNKTCoGiaDinh,
             this.btnBCNangCaoNangLucVaVanDongCS,
             this.btnBCHoatDongAnSinhXaHoi,
-            this.barButtonItem10,
+            this.btnBCHoatDongHNXH,
             this.barButtonItem14});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonMain.MaxItemId = 201;
@@ -1586,14 +1586,14 @@
             this.btnBCHoatDongAnSinhXaHoi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barButtonItem10
+            // btnBCHoatDongHNXH
             // 
-            this.barButtonItem10.Caption = "Báo cáo hoạt động hòa nhập xã hội";
-            this.barButtonItem10.Glyph = global::DauThau.Properties.Resources.Control_Panel;
-            this.barButtonItem10.Id = 199;
-            this.barButtonItem10.LargeWidth = 120;
-            this.barButtonItem10.Name = "barButtonItem10";
-            this.barButtonItem10.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnBCHoatDongHNXH.Caption = "Báo cáo hoạt động hòa nhập xã hội";
+            this.btnBCHoatDongHNXH.Glyph = global::DauThau.Properties.Resources.Control_Panel;
+            this.btnBCHoatDongHNXH.Id = 199;
+            this.btnBCHoatDongHNXH.LargeWidth = 120;
+            this.btnBCHoatDongHNXH.Name = "btnBCHoatDongHNXH";
+            this.btnBCHoatDongHNXH.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // barButtonItem14
@@ -1700,7 +1700,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBCHoatDongNangCaoNhanThuc);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBCHoatDongAnSinhXaHoi);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBCNangCaoNangLucVaVanDongCS);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnBCHoatDongHNXH);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem14);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
@@ -2054,7 +2054,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem btnBCNangCaoNangLucVaVanDongCS;
         private DevExpress.XtraBars.BarButtonItem btnBCHoatDongAnSinhXaHoi;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem btnBCHoatDongHNXH;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
     }
 }

@@ -279,6 +279,10 @@ namespace DauThau
                         uc = new ucBCHoatDongNangCaoNangLucVaVanDonChinhSach();
                         break;
 
+                    case "btnBCHoatDongHNXH":
+                        uc = new ucBCHoatDongHoaNhapXaHoi();
+                        break;
+                        
                     #endregion
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
