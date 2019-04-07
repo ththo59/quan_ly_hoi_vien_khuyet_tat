@@ -936,11 +936,23 @@
     <Compile Include="UserControlCategory\ucBase.Designer.cs">
       <DependentUpon>ucBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlCategory\ucDMChucVuHoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMChucVuHoi.Designer.cs">
+      <DependentUpon>ucDMChucVuHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlCategory\ucDMDanToc.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControlCategory\ucDMDanToc.Designer.cs">
       <DependentUpon>ucDMDanToc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMChamSocBanThan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMChamSocBanThan.Designer.cs">
+      <DependentUpon>ucDMChamSocBanThan.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlCategory\ucDMTonGiao.cs">
       <SubType>UserControl</SubType>
@@ -1718,8 +1730,14 @@
     <EmbeddedResource Include="UserControlCategory\ucBase.resx">
       <DependentUpon>ucBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMChucVuHoi.resx">
+      <DependentUpon>ucDMChucVuHoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucDMDanToc.resx">
       <DependentUpon>ucDMDanToc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMChamSocBanThan.resx">
+      <DependentUpon>ucDMChamSocBanThan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucDMTonGiao.resx">
       <DependentUpon>ucDMTonGiao.cs</DependentUpon>

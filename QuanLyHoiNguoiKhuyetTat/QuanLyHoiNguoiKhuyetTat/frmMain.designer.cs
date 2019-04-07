@@ -152,6 +152,21 @@
             this.btnVanDongChinhSach = new DevExpress.XtraBars.BarButtonItem();
             this.btnTruyenThongPhapLy = new DevExpress.XtraBars.BarButtonItem();
             this.btnTrinhDoNgoaiNgu = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
+            this.btnChamSocBanThan = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChucVuTrongHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDungCuHoTro = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNguyenNhanKT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTinhTrangKhuyetTat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhuCau = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThongTinNhaO = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNKTSongVoiAi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNoiSinhSong = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhuongTienDiLai = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThanhVienHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTinhTrangHonNhan = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDanToc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTonGiao = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -164,7 +179,6 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.PageGroupExportFile = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.PageGroupSanPham = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.PageGroupTCKT = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.lueGoiThau = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -178,21 +192,6 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.dsBangChaoGia1 = new DauThau.DataSets.dsBangChaoGia();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDanToc = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnTonGiao = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoiThau)).BeginInit();
@@ -355,20 +354,20 @@
             this.barButtonItem8,
             this.btnTrinhDoNgoaiNgu,
             this.barSubItem10,
-            this.barButtonItem9,
-            this.barButtonItem10,
+            this.btnChamSocBanThan,
+            this.btnChucVuTrongHoi,
             this.btnDanToc,
-            this.barButtonItem14,
-            this.barButtonItem15,
-            this.barButtonItem16,
-            this.barButtonItem17,
-            this.barButtonItem18,
-            this.barButtonItem19,
-            this.barButtonItem20,
-            this.barButtonItem21,
-            this.barButtonItem22,
+            this.btnDungCuHoTro,
+            this.btnNguyenNhanKT,
+            this.btnTinhTrangKhuyetTat,
+            this.btnNhuCau,
+            this.btnThongTinNhaO,
+            this.btnNKTSongVoiAi,
+            this.btnNoiSinhSong,
+            this.btnPhuongTienDiLai,
+            this.btnThanhVienHoi,
             this.btnTonGiao,
-            this.barButtonItem24});
+            this.btnTinhTrangHonNhan});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonMain.MaxItemId = 231;
             this.ribbonMain.Name = "ribbonMain";
@@ -1655,6 +1654,121 @@
             this.btnTrinhDoNgoaiNgu.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // barSubItem10
+            // 
+            this.barSubItem10.Caption = "Hội viên";
+            this.barSubItem10.Glyph = global::DauThau.Properties.Resources.ChecklistFile;
+            this.barSubItem10.Id = 215;
+            this.barSubItem10.LargeWidth = 80;
+            this.barSubItem10.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChamSocBanThan),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChucVuTrongHoi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDungCuHoTro),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnNguyenNhanKT),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnTinhTrangKhuyetTat),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnNhuCau),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnThongTinNhaO),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnNKTSongVoiAi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnNoiSinhSong),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhuongTienDiLai),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnThanhVienHoi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnTinhTrangHonNhan)});
+            this.barSubItem10.Name = "barSubItem10";
+            this.barSubItem10.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // btnChamSocBanThan
+            // 
+            this.btnChamSocBanThan.Caption = "Chăm sóc bản thân";
+            this.btnChamSocBanThan.Id = 217;
+            this.btnChamSocBanThan.Name = "btnChamSocBanThan";
+            // 
+            // btnChucVuTrongHoi
+            // 
+            this.btnChucVuTrongHoi.Caption = "Chức vụ trong hội";
+            this.btnChucVuTrongHoi.Id = 218;
+            this.btnChucVuTrongHoi.Name = "btnChucVuTrongHoi";
+            // 
+            // btnDungCuHoTro
+            // 
+            this.btnDungCuHoTro.Caption = "Dụng cụ hỗ trợ";
+            this.btnDungCuHoTro.Id = 220;
+            this.btnDungCuHoTro.Name = "btnDungCuHoTro";
+            // 
+            // btnNguyenNhanKT
+            // 
+            this.btnNguyenNhanKT.Caption = "Nguyên nhân khuyết tật";
+            this.btnNguyenNhanKT.Id = 221;
+            this.btnNguyenNhanKT.Name = "btnNguyenNhanKT";
+            // 
+            // btnTinhTrangKhuyetTat
+            // 
+            this.btnTinhTrangKhuyetTat.Caption = "Tình trạng khuyết tật";
+            this.btnTinhTrangKhuyetTat.Id = 222;
+            this.btnTinhTrangKhuyetTat.Name = "btnTinhTrangKhuyetTat";
+            // 
+            // btnNhuCau
+            // 
+            this.btnNhuCau.Caption = "Nhu cầu";
+            this.btnNhuCau.Id = 223;
+            this.btnNhuCau.Name = "btnNhuCau";
+            // 
+            // btnThongTinNhaO
+            // 
+            this.btnThongTinNhaO.Caption = "Thông tin nhà ở";
+            this.btnThongTinNhaO.Id = 224;
+            this.btnThongTinNhaO.Name = "btnThongTinNhaO";
+            // 
+            // btnNKTSongVoiAi
+            // 
+            this.btnNKTSongVoiAi.Caption = "NKT sống với ai?";
+            this.btnNKTSongVoiAi.Id = 225;
+            this.btnNKTSongVoiAi.Name = "btnNKTSongVoiAi";
+            // 
+            // btnNoiSinhSong
+            // 
+            this.btnNoiSinhSong.Caption = "Nơi sinh sống";
+            this.btnNoiSinhSong.Id = 226;
+            this.btnNoiSinhSong.Name = "btnNoiSinhSong";
+            // 
+            // btnPhuongTienDiLai
+            // 
+            this.btnPhuongTienDiLai.Caption = "Phương tiện đi lại";
+            this.btnPhuongTienDiLai.Id = 227;
+            this.btnPhuongTienDiLai.Name = "btnPhuongTienDiLai";
+            // 
+            // btnThanhVienHoi
+            // 
+            this.btnThanhVienHoi.Caption = "Thành viên hội";
+            this.btnThanhVienHoi.Id = 228;
+            this.btnThanhVienHoi.Name = "btnThanhVienHoi";
+            // 
+            // btnTinhTrangHonNhan
+            // 
+            this.btnTinhTrangHonNhan.Caption = "Tình trạng hôn nhân";
+            this.btnTinhTrangHonNhan.Id = 230;
+            this.btnTinhTrangHonNhan.Name = "btnTinhTrangHonNhan";
+            // 
+            // btnDanToc
+            // 
+            this.btnDanToc.Caption = "Dân tộc";
+            this.btnDanToc.Glyph = global::DauThau.Properties.Resources.Company;
+            this.btnDanToc.Id = 219;
+            this.btnDanToc.LargeWidth = 80;
+            this.btnDanToc.Name = "btnDanToc";
+            this.btnDanToc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // btnTonGiao
+            // 
+            this.btnTonGiao.Caption = "Tôn giáo";
+            this.btnTonGiao.Glyph = global::DauThau.Properties.Resources.Control_Panel;
+            this.btnTonGiao.Id = 229;
+            this.btnTonGiao.LargeWidth = 80;
+            this.btnTonGiao.Name = "btnTonGiao";
+            this.btnTonGiao.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
             // ribbonPage5
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1748,8 +1862,7 @@
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.PageGroupExportFile,
-            this.PageGroupSanPham,
-            this.PageGroupTCKT});
+            this.PageGroupSanPham});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Danh mục";
             // 
@@ -1774,16 +1887,6 @@
             this.PageGroupSanPham.Name = "PageGroupSanPham";
             this.PageGroupSanPham.ShowCaptionButton = false;
             this.PageGroupSanPham.Text = "Hội viên";
-            // 
-            // PageGroupTCKT
-            // 
-            this.PageGroupTCKT.ItemLinks.Add(this.btnDiemChuanNhomKT);
-            this.PageGroupTCKT.ItemLinks.Add(this.barTinhNangKT);
-            this.PageGroupTCKT.ItemLinks.Add(this.barGoiThauKyThuat);
-            this.PageGroupTCKT.Name = "PageGroupTCKT";
-            this.PageGroupTCKT.ShowCaptionButton = false;
-            this.PageGroupTCKT.Text = "Tiêu chuẩn kỹ thuật";
-            this.PageGroupTCKT.Visible = false;
             // 
             // ribbonPage4
             // 
@@ -1885,121 +1988,6 @@
             this.barButtonItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // barSubItem10
-            // 
-            this.barSubItem10.Caption = "Hội viên";
-            this.barSubItem10.Glyph = global::DauThau.Properties.Resources.ChecklistFile;
-            this.barSubItem10.Id = 215;
-            this.barSubItem10.LargeWidth = 80;
-            this.barSubItem10.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem14),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem15),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem16),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem17),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem18),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem19),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem20),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem21),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem22),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem24)});
-            this.barSubItem10.Name = "barSubItem10";
-            this.barSubItem10.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "Chăm sóc bản thân";
-            this.barButtonItem9.Id = 217;
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "Chức vụ trong hội";
-            this.barButtonItem10.Id = 218;
-            this.barButtonItem10.Name = "barButtonItem10";
-            // 
-            // btnDanToc
-            // 
-            this.btnDanToc.Caption = "Dân tộc";
-            this.btnDanToc.Glyph = global::DauThau.Properties.Resources.Company;
-            this.btnDanToc.Id = 219;
-            this.btnDanToc.LargeWidth = 80;
-            this.btnDanToc.Name = "btnDanToc";
-            this.btnDanToc.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // barButtonItem14
-            // 
-            this.barButtonItem14.Caption = "Dụng cụ hỗ trợ";
-            this.barButtonItem14.Id = 220;
-            this.barButtonItem14.Name = "barButtonItem14";
-            // 
-            // barButtonItem15
-            // 
-            this.barButtonItem15.Caption = "Nguyên nhân khuyết tật";
-            this.barButtonItem15.Id = 221;
-            this.barButtonItem15.Name = "barButtonItem15";
-            // 
-            // barButtonItem16
-            // 
-            this.barButtonItem16.Caption = "Tình trạng khuyết tật";
-            this.barButtonItem16.Id = 222;
-            this.barButtonItem16.Name = "barButtonItem16";
-            // 
-            // barButtonItem17
-            // 
-            this.barButtonItem17.Caption = "Nhu cầu";
-            this.barButtonItem17.Id = 223;
-            this.barButtonItem17.Name = "barButtonItem17";
-            // 
-            // barButtonItem18
-            // 
-            this.barButtonItem18.Caption = "Thông tin nhà ở";
-            this.barButtonItem18.Id = 224;
-            this.barButtonItem18.Name = "barButtonItem18";
-            // 
-            // barButtonItem19
-            // 
-            this.barButtonItem19.Caption = "NKT sống với ai?";
-            this.barButtonItem19.Id = 225;
-            this.barButtonItem19.Name = "barButtonItem19";
-            // 
-            // barButtonItem20
-            // 
-            this.barButtonItem20.Caption = "Nơi sinh sống";
-            this.barButtonItem20.Id = 226;
-            this.barButtonItem20.Name = "barButtonItem20";
-            // 
-            // barButtonItem21
-            // 
-            this.barButtonItem21.Caption = "Phương tiện đi lại";
-            this.barButtonItem21.Id = 227;
-            this.barButtonItem21.Name = "barButtonItem21";
-            // 
-            // barButtonItem22
-            // 
-            this.barButtonItem22.Caption = "Thành viên hội";
-            this.barButtonItem22.Id = 228;
-            this.barButtonItem22.Name = "barButtonItem22";
-            // 
-            // btnTonGiao
-            // 
-            this.btnTonGiao.Caption = "Tôn giáo";
-            this.btnTonGiao.Glyph = global::DauThau.Properties.Resources.Control_Panel;
-            this.btnTonGiao.Id = 229;
-            this.btnTonGiao.LargeWidth = 80;
-            this.btnTonGiao.Name = "btnTonGiao";
-            this.btnTonGiao.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // barButtonItem24
-            // 
-            this.barButtonItem24.Caption = "Tình trạng hôn nhân";
-            this.barButtonItem24.Id = 230;
-            this.barButtonItem24.Name = "barButtonItem24";
-            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -2058,7 +2046,6 @@
         private DevExpress.XtraBars.BarButtonItem barGoiThauKyThuat;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup PageGroupSanPham;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup PageGroupTCKT;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
@@ -2216,19 +2203,19 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem btnTrinhDoNgoaiNgu;
         private DevExpress.XtraBars.BarSubItem barSubItem10;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem14;
+        private DevExpress.XtraBars.BarButtonItem btnChamSocBanThan;
+        private DevExpress.XtraBars.BarButtonItem btnChucVuTrongHoi;
+        private DevExpress.XtraBars.BarButtonItem btnDungCuHoTro;
         private DevExpress.XtraBars.BarButtonItem btnDanToc;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem15;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem16;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem18;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
+        private DevExpress.XtraBars.BarButtonItem btnNguyenNhanKT;
+        private DevExpress.XtraBars.BarButtonItem btnTinhTrangKhuyetTat;
+        private DevExpress.XtraBars.BarButtonItem btnNhuCau;
+        private DevExpress.XtraBars.BarButtonItem btnThongTinNhaO;
+        private DevExpress.XtraBars.BarButtonItem btnNKTSongVoiAi;
+        private DevExpress.XtraBars.BarButtonItem btnNoiSinhSong;
+        private DevExpress.XtraBars.BarButtonItem btnPhuongTienDiLai;
+        private DevExpress.XtraBars.BarButtonItem btnThanhVienHoi;
+        private DevExpress.XtraBars.BarButtonItem btnTinhTrangHonNhan;
         private DevExpress.XtraBars.BarButtonItem btnTonGiao;
     }
 }
