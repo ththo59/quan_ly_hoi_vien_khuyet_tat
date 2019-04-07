@@ -16,14 +16,14 @@ using DauThau.Models;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucDMNgheNghiep : ucBase
+    public partial class ucDMTonGiao : ucBase
     {
-        public ucDMNgheNghiep()
+        public ucDMTonGiao()
         {
             InitializeComponent();
         }
 
-        private void ucDMNgheNghiep_Load(object sender, EventArgs e)
+        private void ucDMTonGiao_Load(object sender, EventArgs e)
         {
             initData();
             registerButtonArray(btnControl);
@@ -42,8 +42,8 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
-            context.DM_NGHE_NGHIEP.Load();
-            gcGrid.DataSource = context.DM_NGHE_NGHIEP.Local.ToBindingList();
+            context.DM_TONGIAO.Load();
+            gcGrid.DataSource = context.DM_TONGIAO.Local.ToBindingList();
             _wait.Close();
         }
 
@@ -55,7 +55,7 @@ namespace DauThau.UserControlCategory
                 return;
             }
 
-            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colNN_TEN.FieldName).ToString();
+            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTG_TEN.FieldName).ToString();
             if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 gvGrid.DeleteSelectedRows();
@@ -159,16 +159,16 @@ namespace DauThau.UserControlCategory
 
             
 
-            if (gvGrid.FocusedColumn.FieldName == colNN_TEN.FieldName)
+            if (gvGrid.FocusedColumn.FieldName == colTG_TEN.FieldName)
             {
                 if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
                 {
-                    e.ErrorText = colNN_TEN.Caption + " không được phép rỗng.";
+                    e.ErrorText = colTG_TEN.Caption + " không được phép rỗng.";
                     e.Valid = false;
                 }
-                else if (gvGrid._ValidationSame(colNN_TEN,e.Value +string.Empty))
+                else if (gvGrid._ValidationSame(colTG_TEN,e.Value +string.Empty))
                 {
-                    e.ErrorText = colNN_TEN.Caption + " không được trùng.";
+                    e.ErrorText = colTG_TEN.Caption + " không được trùng.";
                     e.Valid = false;
                 }
             }
@@ -188,9 +188,9 @@ namespace DauThau.UserControlCategory
             }
 
             e.Valid = true;
-            if ((gvGrid.GetRowCellValue(e.RowHandle, colNN_TEN.FieldName) + string.Empty).Trim().Length == 0)
+            if ((gvGrid.GetRowCellValue(e.RowHandle, colTG_TEN.FieldName) + string.Empty).Trim().Length == 0)
             {
-                gvGrid.SetColumnError(gvGrid.Columns[colNN_TEN.FieldName], colNN_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                gvGrid.SetColumnError(gvGrid.Columns[colTG_TEN.FieldName], colTG_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
                 e.Valid = false;
             }
         }

@@ -16,14 +16,14 @@ using DauThau.Models;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucDMNgheNghiep : ucBase
+    public partial class ucDMTrinhDoNgoaNgu : ucBase
     {
-        public ucDMNgheNghiep()
+        public ucDMTrinhDoNgoaNgu()
         {
             InitializeComponent();
         }
 
-        private void ucDMNgheNghiep_Load(object sender, EventArgs e)
+        private void ucDMTrinhDoNgoaNgu_Load(object sender, EventArgs e)
         {
             initData();
             registerButtonArray(btnControl);
@@ -42,8 +42,8 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
-            context.DM_NGHE_NGHIEP.Load();
-            gcGrid.DataSource = context.DM_NGHE_NGHIEP.Local.ToBindingList();
+            context.DM_NGOAINGU.Load();
+            gcGrid.DataSource = context.DM_NGOAINGU.Local.ToBindingList();
             _wait.Close();
         }
 

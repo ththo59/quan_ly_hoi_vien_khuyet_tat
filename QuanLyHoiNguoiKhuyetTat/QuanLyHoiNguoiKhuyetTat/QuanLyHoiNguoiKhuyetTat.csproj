@@ -936,6 +936,42 @@
     <Compile Include="UserControlCategory\ucBase.Designer.cs">
       <DependentUpon>ucBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlCategory\ucDMDanToc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMDanToc.Designer.cs">
+      <DependentUpon>ucDMDanToc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTonGiao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTonGiao.Designer.cs">
+      <DependentUpon>ucDMTonGiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTrinhDoNgoaNgu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTrinhDoNgoaNgu.Designer.cs">
+      <DependentUpon>ucDMTrinhDoNgoaNgu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTrinhDoChuyenMon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTrinhDoChuyenMon.Designer.cs">
+      <DependentUpon>ucDMTrinhDoChuyenMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMNgheNghiep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMNgheNghiep.Designer.cs">
+      <DependentUpon>ucDMNgheNghiep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTrinhDoHocVan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTrinhDoHocVan.Designer.cs">
+      <DependentUpon>ucDMTrinhDoHocVan.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucBangKiemTraGiaKeKhai.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1307,24 +1343,6 @@
     </Compile>
     <Compile Include="UserControlMain\ucUpdateDiemKTTheoSP.Designer.cs">
       <DependentUpon>ucUpdateDiemKTTheoSP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlCategory\ucDMNgheNghiep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControlCategory\ucDMNgheNghiep.Designer.cs">
-      <DependentUpon>ucDMNgheNghiep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlCategory\ucDMTrinhDoHocVan.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControlCategory\ucDMTrinhDoHocVan.Designer.cs">
-      <DependentUpon>ucDMTrinhDoHocVan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlCategory\ucDMTrinhDoChuyenMon.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControlCategory\ucDMTrinhDoChuyenMon.Designer.cs">
-      <DependentUpon>ucDMTrinhDoChuyenMon.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlCategory\ucDmXa.cs">
       <SubType>UserControl</SubType>
@@ -1700,6 +1718,24 @@
     <EmbeddedResource Include="UserControlCategory\ucBase.resx">
       <DependentUpon>ucBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMDanToc.resx">
+      <DependentUpon>ucDMDanToc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMTonGiao.resx">
+      <DependentUpon>ucDMTonGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMTrinhDoNgoaNgu.resx">
+      <DependentUpon>ucDMTrinhDoNgoaNgu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMTrinhDoChuyenMon.resx">
+      <DependentUpon>ucDMTrinhDoChuyenMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMNgheNghiep.resx">
+      <DependentUpon>ucDMNgheNghiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMTrinhDoHocVan.resx">
+      <DependentUpon>ucDMTrinhDoHocVan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBangKiemTraGiaKeKhai.resx">
       <DependentUpon>ucBangKiemTraGiaKeKhai.cs</DependentUpon>
     </EmbeddedResource>
@@ -1885,15 +1921,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucUpdateDiemKTTheoSP.resx">
       <DependentUpon>ucUpdateDiemKTTheoSP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlCategory\ucDMNgheNghiep.resx">
-      <DependentUpon>ucDMNgheNghiep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlCategory\ucDMTrinhDoHocVan.resx">
-      <DependentUpon>ucDMTrinhDoHocVan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlCategory\ucDMTrinhDoChuyenMon.resx">
-      <DependentUpon>ucDMTrinhDoChuyenMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucDmXa.resx">
       <DependentUpon>ucDmXa.cs</DependentUpon>

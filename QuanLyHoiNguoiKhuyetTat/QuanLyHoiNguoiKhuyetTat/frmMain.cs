@@ -89,8 +89,17 @@ namespace DauThau
                     case "btnNgheNghiep":
                         uc = new ucDMNgheNghiep();
                         break;
-                        #endregion
-                        
+                    case "btnTrinhDoNgoaiNgu":
+                        uc = new ucDMTrinhDoNgoaNgu();
+                        break;
+                    case "btnDanToc":
+                        uc = new ucDMDanToc();
+                        break;
+                    case "btnTonGiao":
+                        uc = new ucDMTonGiao();
+                        break;
+                    #endregion
+
                     case "btnLyLich":
                         uc = new ucLyLich();
                         break;
