@@ -104,6 +104,36 @@ namespace DauThau
                     case "btnChucVuTrongHoi":
                         uc = new ucDMChucVuHoi();
                         break;
+                    case "btnDungCuHoTro":
+                        uc = new ucDMDungCuHoTro();
+                        break;
+                    case "btnNguyenNhanKT":
+                        uc = new ucDMNguyenNhanKhuyetTat();
+                        break;
+                    case "btnTinhTrangKhuyetTat":
+                        uc = new ucDMTinhTrangKhuyetTat();
+                        break;
+                    case "btnNhuCau":
+                        uc = new ucDMNhuCau();
+                        break;
+                    case "btnThongTinNhaO":
+                        uc = new ucDMThongTinNhaO();
+                        break;
+                    case "btnNKTSongVoiAi":
+                        uc = new ucDMNKTSongVoiAi();
+                        break;
+                    case "btnNoiSinhSong":
+                        uc = new ucDMNoiSinhSong();
+                        break;
+                    case "btnPhuongTienDiLai":
+                        uc = new ucDMPhuongTienDiLai();
+                        break;
+                    case "btnThanhVienHoi":
+                        uc = new ucDMThanhVienHoi();
+                        break;
+                    case "btnTinhTrangHonNhan":
+                        uc = new ucDMTinhTrangHonNhan();
+                        break;
                     #endregion
 
                     case "btnLyLich":
