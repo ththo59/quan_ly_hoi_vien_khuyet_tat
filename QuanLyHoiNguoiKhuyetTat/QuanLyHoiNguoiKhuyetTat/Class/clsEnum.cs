@@ -38,7 +38,8 @@ namespace DauThau.Class
         DM_CHAMSOC_BANTHAN,
 
         DM_NHUCAU,
-        DM_THANHVIEN_HOI
+        DM_THANHVIEN_HOI,
+        DM_NGOAINGU
 
     }
 

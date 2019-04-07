@@ -198,12 +198,6 @@
             this.btnControl.Size = new System.Drawing.Size(333, 60);
             this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
             this.btnControl.TabIndex = 0;
-            this.btnControl.btnEventAdd_Click += new System.EventHandler(this.btnControl_btnEventAdd_Click);
-            this.btnControl.btnEventModify_Click += new System.EventHandler(this.btnControl_btnEventModify_Click);
-            this.btnControl.btnEventDelete_Click += new System.EventHandler(this.btnControl_btnEventDelete_Click);
-            this.btnControl.btnEventSave_Click += new System.EventHandler(this.btnControl_btnEventSave_Click);
-            this.btnControl.btnEventCancel_Click += new System.EventHandler(this.btnControl_btnEventCancel_Click);
-            this.btnControl.btnEventClose_Click += new System.EventHandler(this.btnControl_btnEventClose_Click);
             // 
             // panelControl1
             // 

@@ -176,6 +176,7 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.dsBangChaoGia1 = new DauThau.DataSets.dsBangChaoGia();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoiThau)).BeginInit();
@@ -334,9 +335,10 @@
             this.btnGiaoDuc,
             this.btnHuongDanThucTap,
             this.btnVanDongChinhSach,
-            this.btnTruyenThongPhapLy});
+            this.btnTruyenThongPhapLy,
+            this.barButtonItem8});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 211;
+            this.ribbonMain.MaxItemId = 212;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.PageHeaderItemLinks.Add(this.ribbonMain.ExpandCollapseItem);
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -381,7 +383,6 @@
             // btnTrinhDoHocVan
             // 
             this.btnTrinhDoHocVan.Caption = "Trình độ học vấn";
-            this.btnTrinhDoHocVan.Enabled = false;
             this.btnTrinhDoHocVan.Glyph = global::DauThau.Properties.Resources.Earth;
             this.btnTrinhDoHocVan.Id = 10;
             this.btnTrinhDoHocVan.LargeWidth = 70;
@@ -1366,7 +1367,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDonKhach),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThamQuanDuLich),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnVanNghe),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnTheThao)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnTheThao),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8)});
             this.barSubItem7.Name = "barSubItem7";
             this.barSubItem7.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -1398,14 +1400,18 @@
             // btnVanNghe
             // 
             this.btnVanNghe.Caption = "Văn nghệ";
+            this.btnVanNghe.Enabled = false;
             this.btnVanNghe.Id = 174;
             this.btnVanNghe.Name = "btnVanNghe";
+            this.btnVanNghe.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btnTheThao
             // 
             this.btnTheThao.Caption = "Thể thao";
+            this.btnTheThao.Enabled = false;
             this.btnTheThao.Id = 175;
             this.btnTheThao.Name = "btnTheThao";
+            this.btnTheThao.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barSubItem8
             // 
@@ -1829,6 +1835,12 @@
             this.barButtonItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "Lao động công ích";
+            this.barButtonItem8.Id = 211;
+            this.barButtonItem8.Name = "barButtonItem8";
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -2042,5 +2054,6 @@
         private DevExpress.XtraBars.BarButtonItem btnHuongDanThucTap;
         private DevExpress.XtraBars.BarButtonItem btnVanDongChinhSach;
         private DevExpress.XtraBars.BarButtonItem btnTruyenThongPhapLy;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
     }
 }

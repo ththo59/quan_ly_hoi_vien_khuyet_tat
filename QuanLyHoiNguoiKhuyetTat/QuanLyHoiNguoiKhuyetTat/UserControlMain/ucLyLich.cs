@@ -37,7 +37,7 @@ namespace DauThau.UserControlCategory
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             registerButtonArray(btnControl);
             //btnControl.btnReport.Image = btnControl.btnPrint.Image;
-            btnControl.btnReport.Text = "Đơn xin nhập hội";
+            btnControl.btnReport.Text = "Đơn gia nhập hội";
             btnControl.btnPrint.Text = "In lý lịch";
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThuongTru_TP);
@@ -49,6 +49,7 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN, lueTrinhDoVanHoa);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON, lueTrinhDoChuyenMon);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_CHUCVU_HOI, lueChucVuHoi);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NGOAINGU, lueNgoaiNgu);
 
             //Tab Suc khoe
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_MUCDO, lueMucDoKT);
@@ -75,13 +76,28 @@ namespace DauThau.UserControlCategory
             chkListThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
 
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
-            deNgaySinh.Ex_FormatCustomDateEdit();
-            deNgayKhuyetTat.Ex_FormatCustomDateEdit();
-            deNgayCapCMND.Ex_FormatCustomDateEdit();
 
             deNgaySinhCon1.Ex_FormatCustomDateEdit();
             deNgaySinhCon2.Ex_FormatCustomDateEdit();
+
+            //Ngay sinh
+            deNgaySinh_Nam.Properties.MaxValue = DateTime.Now.Year;
+            deNgaySinh_Thang.Properties.MaxValue = 12;
+            deNgaySinh_Thang.Properties.MinValue = 1;
+            deNgaySinh_Ngay.Properties.MaxValue = 31;
+            deNgaySinh_Ngay.Properties.MinValue = 1;
             
+            deNgayCapCMND_Thang.Properties.MaxValue = 12;
+            deNgayCapCMND_Thang.Properties.MinValue = 1;
+            deNgayCapCMND_Ngay.Properties.MaxValue = 31;
+            deNgayCapCMND_Ngay.Properties.MinValue = 1;
+
+            deNgayKhuyetTat_Nam.Properties.MaxValue = DateTime.Now.Year;
+            deNgayKhuyetTat_Thang.Properties.MaxValue = 12;
+            deNgayKhuyetTat_Thang.Properties.MinValue = 1;
+            deNgayKhuyetTat_Ngay.Properties.MaxValue = 31;
+            deNgayKhuyetTat_Ngay.Properties.MinValue = 1;
+
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
         }
@@ -151,14 +167,23 @@ namespace DauThau.UserControlCategory
                     {
                         BaseEdit item = items as BaseEdit;
                         SimpleButton button = items as SimpleButton;
-                        if(button != null)
+                        
+                        if (button != null)
                         {
                             button.Enabled = !readOnly;
                             continue;
                         }
+
+                        LookUpEdit lue = items as LookUpEdit;
+                        if(lue != null)
+                        {
+                            lue.Properties.TextEditStyle = TextEditStyles.Standard;
+                        }
+
                         if (item != null)
                         {
                             item.ReadOnly = readOnly;
+                            item.EnterMoveNextControl = true;
                         }
                         else
                         {
@@ -173,7 +198,7 @@ namespace DauThau.UserControlCategory
             }
 
             seTuoi.ReadOnly = true;
-            seTongThoiGianKT.ReadOnly = true;
+            //seTongThoiGianKT.ReadOnly = true;
             lueThanhPho.ReadOnly = lueQuan.ReadOnly = !readOnly;
             gcGrid.Enabled = readOnly;
         }
@@ -261,15 +286,35 @@ namespace DauThau.UserControlCategory
                 pictureAvatar.Image = convertBinaryToImage(item.HV_IMAGE);
                 lueGioiTinh.EditValue = item.HV_GIOI_TINH;
                 lueDanToc.EditValue = item.HV_DAN_TOC;
-                deNgaySinh.EditValue = item.HV_NGAY_SINH;
+
+                if (item.HV_NGAY_SINH.HasValue)
+                {
+                    deNgaySinh_Ngay.EditValue = item.HV_NGAY_SINH.Value.Day;
+                    deNgaySinh_Thang.EditValue = item.HV_NGAY_SINH.Value.Month;
+                    deNgaySinh_Nam.EditValue = item.HV_NGAY_SINH.Value.Year;
+                }
+
                 lueTonGiao.EditValue = item.HV_TON_GIAO;
                 lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP;
                 lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA;
                 lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON;
                 txtCMND.Text = item.HV_CMND;
-                deNgayCapCMND.EditValue = item.HV_CMND_NGAY;
+
+                if (item.HV_CMND_NGAY.HasValue)
+                {
+                    deNgayCapCMND_Ngay.EditValue = item.HV_CMND_NGAY.Value.Day;
+                    deNgayCapCMND_Thang.EditValue = item.HV_CMND_NGAY.Value.Month;
+                    deNgayCapCMND_Nam.EditValue = item.HV_CMND_NGAY.Value.Year;
+                }
+
                 txtNoiCapCMND.Text = item.HV_CMND_NOICAP;
-                deNgayKhuyetTat.EditValue = item.HV_KHUYETTAT_NGAY;
+                if (item.HV_KHUYETTAT_NGAY.HasValue)
+                {
+                    deNgayKhuyetTat_Ngay.EditValue = item.HV_KHUYETTAT_NGAY.Value.Day;
+                    deNgayKhuyetTat_Thang.EditValue = item.HV_KHUYETTAT_NGAY.Value.Month;
+                    deNgayKhuyetTat_Nam.EditValue = item.HV_KHUYETTAT_NGAY.Value.Year;
+                }
+
                 lueChucVuHoi.EditValue = item.HV_CHUCVU;
 
                 lueThuongTru_TP.EditValue = item.HV_THUONGTRU_TP;
@@ -414,7 +459,7 @@ namespace DauThau.UserControlCategory
             }
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
-            item.HV_NGAY_SINH = deNgaySinh.Ex_EditValueToDateTime();
+            item.HV_NGAY_SINH = new DateTime(deNgaySinh_Nam.Ex_EditValueToInt()??0, deNgaySinh_Thang.Ex_EditValueToInt()??0, deNgaySinh_Ngay.Ex_EditValueToInt()??0);
             item.HV_TUOI = seTuoi.Ex_EditValueToInt();
             item.HV_TON_GIAO = lueTonGiao.EditValue + string.Empty;
             item.HV_NGHE_NGHIEP = lueNgheNghiep.EditValue + string.Empty;
@@ -422,10 +467,10 @@ namespace DauThau.UserControlCategory
             item.HV_TRINHDO_CHUYENMON = lueTrinhDoChuyenMon.EditValue + string.Empty;
 
             item.HV_CMND = txtCMND.Text;
-            item.HV_CMND_NGAY = deNgayCapCMND.Ex_EditValueToDateTime();
+            item.HV_CMND_NGAY = new DateTime(deNgayCapCMND_Nam.Ex_EditValueToInt() ?? 0, deNgayCapCMND_Thang.Ex_EditValueToInt() ?? 0, deNgayCapCMND_Ngay.Ex_EditValueToInt() ?? 0);
             item.HV_CMND_NOICAP = txtNoiCapCMND.Text;
 
-            item.HV_KHUYETTAT_NGAY = deNgayKhuyetTat.Ex_EditValueToDateTime();
+            item.HV_KHUYETTAT_NGAY = new DateTime(deNgayKhuyetTat_Nam.Ex_EditValueToInt() ?? 0, deNgayKhuyetTat_Thang.Ex_EditValueToInt() ?? 0, deNgayKhuyetTat_Ngay.Ex_EditValueToInt() ?? 0);
             item.HV_CHUCVU = lueChucVuHoi.EditValue + string.Empty;
 
             item.HV_THUONGTRU_TP = lueThuongTru_TP.EditValue + string.Empty;
@@ -675,22 +720,11 @@ namespace DauThau.UserControlCategory
         #endregion
 
 
-        private void deNgaySinh_EditValueChanged(object sender, EventArgs e)
-        {
-            DateEdit date = sender as DateEdit;
-            DateTime? de = date.Ex_EditValueToDateTime();
-            if (de.HasValue) {
-                int year = DateTime.Now.Date.Year - de.Value.Year;
-                year = year == 0 ? 1 : year;
-                seTuoi.EditValue = de.HasValue ? year : new Nullable<Int64>();
-            }
-        }
-
         private void deNgayKhuyetTat_EditValueChanged(object sender, EventArgs e)
         {
             DateEdit date = sender as DateEdit;
             DateTime? de = date.Ex_EditValueToDateTime();
-            seTongThoiGianKT.EditValue = de.HasValue ? DateTime.Now.Date.Year - de.Value.Year : new Nullable<Int64>();
+            //seTongThoiGianKT.EditValue = de.HasValue ? DateTime.Now.Date.Year - de.Value.Year : new Nullable<Int64>();
         }
 
        
@@ -701,6 +735,26 @@ namespace DauThau.UserControlCategory
             if(f.ShowDialog() == DialogResult.OK)
             {
                 pictureAvatar.Image = Image.FromFile(f.FileName);
+            }
+        }
+
+        private void deNgayKhuyetTat_Nam_EditValueChanged(object sender, EventArgs e)
+        {
+            if (deNgayKhuyetTat_Nam.EditValue != null)
+            {
+                int year = DateTime.Now.Date.Year - deNgayKhuyetTat_Nam.Ex_EditValueToInt() ?? 0;
+                year = year == 0 ? 1 : year;
+                //seTongThoiGianKT.EditValue = year;
+            }
+        }
+
+        private void deNgaySinh_Nam_EditValueChanged(object sender, EventArgs e)
+        {
+            if (deNgaySinh_Nam.EditValue != null)
+            {
+                int year = DateTime.Now.Date.Year - deNgaySinh_Nam.Ex_EditValueToInt() ?? 0;
+                year = year == 0 ? 1 : year;
+                seTuoi.EditValue = year;
             }
         }
     }

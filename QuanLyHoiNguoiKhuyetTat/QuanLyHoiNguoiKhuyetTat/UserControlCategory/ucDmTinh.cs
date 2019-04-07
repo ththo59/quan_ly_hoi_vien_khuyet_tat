@@ -26,14 +26,10 @@ namespace DauThau.UserControlCategory
         private void ucDmTinh_Load(object sender, EventArgs e)
         {
             initData();
+            registerButtonArray(btnControl);
+
             FormStatus = EnumFormStatus.VIEW;
         }
-
-        #region Variable
-
-        
- 
-        #endregion
 
         #region Function
 
@@ -42,7 +38,7 @@ namespace DauThau.UserControlCategory
             gvGrid._SetDefaultColorRowStyle();
         }
 
-        void SelectData()
+        void _selectData()
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
@@ -51,7 +47,29 @@ namespace DauThau.UserControlCategory
             _wait.Close();
         }
 
-        void Save()
+        void _deleteData()
+        {
+            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                XtraMessageBox.Show("Bạn chưa chọn dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+
+            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTINH_TEN.FieldName).ToString();
+            if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                gvGrid.DeleteSelectedRows();
+                SaveData();
+            }
+        }
+
+        void _cancelData()
+        {
+            _selectData();
+            this.FormStatus = EnumFormStatus.VIEW;
+        }
+
+        protected override bool SaveData()
         {
             try
             {
@@ -66,21 +84,9 @@ namespace DauThau.UserControlCategory
             {
                 XtraMessageBox.Show("Dữ liệu đã được sử dụng bạn không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
 
-        Boolean TrungTen(string value)
-        {
-            value = value.ToLower();
-            for (int i = 0; i < gvGrid.RowCount; i++)
-            {
-                if (Convert.ToString(gvGrid.GetRowCellValue(i, colTINH_TEN.FieldName) + string.Empty).ToLower() == value && i != gvGrid.FocusedRowHandle)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return base.SaveData();
         }
-
         #endregion
 
         #region Status
@@ -98,7 +104,6 @@ namespace DauThau.UserControlCategory
                     gvGrid.OptionsView.ShowAutoFilterRow = false;
                     gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
                     gvGrid.ActiveFilter.Clear();
-
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
                 {
@@ -107,10 +112,24 @@ namespace DauThau.UserControlCategory
                     gvGrid.OptionsView.ShowAutoFilterRow = false;
                     gvGrid.OptionsBehavior.Editable = true;
                 }
-
+                else if(_formStatus == EnumFormStatus.DELETE)
+                {
+                    _deleteData();
+                }
+                else if (_formStatus == EnumFormStatus.CANCEL)
+                {
+                    _cancelData();
+                }
+                else if (_formStatus == EnumFormStatus.CLOSE)
+                {
+                    if (closeTab != null)
+                    {
+                        closeTab();
+                    }
+                }
                 else
                 {
-                    SelectData();
+                    _selectData();
                     gvGrid.OptionsBehavior.Editable = false;
                     gvGrid.OptionsView.ShowAutoFilterRow = true;
                     gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
@@ -120,55 +139,6 @@ namespace DauThau.UserControlCategory
             }
         }
 
-        #endregion
-
-        #region Event Button
-
-        private void btnControl_btnEventAdd_Click(object sender, EventArgs e)
-        {
-            FormStatus = EnumFormStatus.ADD;
-        }
-
-        private void btnControl_btnEventCancel_Click(object sender, EventArgs e)
-        {
-            SelectData();
-            this.FormStatus = EnumFormStatus.VIEW;
-        }
-
-        private void btnControl_btnEventClose_Click(object sender, EventArgs e)
-        {
-            if(closeTab != null)
-            {
-                closeTab();
-            }
-        }
-
-        private void btnControl_btnEventDelete_Click(object sender, EventArgs e)
-        {
-            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
-            {
-                XtraMessageBox.Show("Bạn chưa chọn dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                return;
-            }
-
-            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTINH_TEN.FieldName).ToString();
-            if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                gvGrid.DeleteSelectedRows();
-                Save();
-            }
-        }
-
-        private void btnControl_btnEventModify_Click(object sender, EventArgs e)
-        {
-            FormStatus = EnumFormStatus.MODIFY;
-        }
-
-        private void btnControl_btnEventSave_Click(object sender, EventArgs e)
-        {
-            Save();
-            this.FormStatus = EnumFormStatus.VIEW;
-        }
         #endregion
 
         #region Event Grid

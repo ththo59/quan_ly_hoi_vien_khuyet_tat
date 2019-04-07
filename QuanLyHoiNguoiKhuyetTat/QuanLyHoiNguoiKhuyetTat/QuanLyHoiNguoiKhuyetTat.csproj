@@ -32,7 +32,7 @@
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>2019.3.31.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -440,6 +440,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_NGHE_NGHIEP.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_NGOAINGU.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_NHUCAU.cs">
@@ -1479,6 +1482,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1948,7 +1952,9 @@
     <EmbeddedResource Include="UserControlCategory\ucYeuCauPhapLy.resx">
       <DependentUpon>ucYeuCauPhapLy.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
