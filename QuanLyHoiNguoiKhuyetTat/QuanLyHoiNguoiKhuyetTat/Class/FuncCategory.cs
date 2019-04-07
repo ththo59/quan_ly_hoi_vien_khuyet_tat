@@ -31,7 +31,7 @@ namespace DauThau.Class
                 ID = 0,
                 NAME = "Nữ"
             };
-
+            list.Add(item);
             item = new dynamicObject()
             {
                 ID = 3,

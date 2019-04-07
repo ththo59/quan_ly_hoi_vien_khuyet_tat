@@ -98,6 +98,11 @@ namespace DauThau.UserControlCategory
             deNgayKhuyetTat_Ngay.Properties.MaxValue = 31;
             deNgayKhuyetTat_Ngay.Properties.MinValue = 1;
 
+            deDCHT_ThoiGianNhan_Thang.Properties.MaxValue = 12;
+            deDCHT_ThoiGianNhan_Thang.Properties.MinValue = 1;
+            deDCHT_ThoiGianNhan_Ngay.Properties.MaxValue = 31;
+            deDCHT_ThoiGianNhan_Ngay.Properties.MinValue = 1;
+
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
         }
@@ -363,7 +368,13 @@ namespace DauThau.UserControlCategory
 
                 //Tab chinh sách hỗ trợ
                 lueDungCuHoTro.EditValue = item.HV_DUNGCU_HOTRO;
-                deDCHT_ThoiGianNhan.EditValue = item.HV_DCHT_THOIDIEM_NHAN;
+
+                if (item.HV_DCHT_THOIDIEM_NHAN.HasValue)
+                {
+                    deDCHT_ThoiGianNhan_Ngay.EditValue = item.HV_DCHT_THOIDIEM_NHAN.Value.Day;
+                    deDCHT_ThoiGianNhan_Thang.EditValue = item.HV_DCHT_THOIDIEM_NHAN.Value.Month;
+                    deDCHT_ThoiGianNhan_Nam.EditValue = item.HV_DCHT_THOIDIEM_NHAN.Value.Year;
+                }
                 txtDCHT_ToChuc.EditValue = item.HV_DCHT_TU_TOCHUC;
                 txtDCHT_TinhTrang.EditValue = item.HV_DCHT_TINHTRANG;
 
@@ -520,8 +531,8 @@ namespace DauThau.UserControlCategory
             item.HV_NGUYENVONG = txtNguyenVong.Text;
 
             //Tab chinh sách hỗ trợ
-             item.HV_DUNGCU_HOTRO = lueDungCuHoTro.EditValue + string.Empty;
-            item.HV_DCHT_THOIDIEM_NHAN = deDCHT_ThoiGianNhan.Ex_EditValueToDateTime();
+            item.HV_DUNGCU_HOTRO = lueDungCuHoTro.EditValue + string.Empty;
+            item.HV_DCHT_THOIDIEM_NHAN = new DateTime(deDCHT_ThoiGianNhan_Nam.Ex_EditValueToInt() ?? 0, deDCHT_ThoiGianNhan_Thang.Ex_EditValueToInt() ?? 0, deDCHT_ThoiGianNhan_Ngay.Ex_EditValueToInt() ?? 0);
             item.HV_DCHT_TU_TOCHUC = txtDCHT_ToChuc.EditValue + string.Empty;
             item.HV_DCHT_TINHTRANG = txtDCHT_TinhTrang.EditValue + string.Empty;
 
@@ -630,6 +641,7 @@ namespace DauThau.UserControlCategory
         {
             if (_validateControl())
             {
+                WaitDialogForm _wait = new WaitDialogForm("Đang lưu dữ liệu ...", "Vui lòng đợi giây lát");
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
                     QL_HOIVIEN item;
@@ -660,6 +672,7 @@ namespace DauThau.UserControlCategory
                     _context.SaveChanges();
                 }
                 FormStatus = EnumFormStatus.VIEW;
+                _wait.Close();
             }
 
             return base.SaveData();
