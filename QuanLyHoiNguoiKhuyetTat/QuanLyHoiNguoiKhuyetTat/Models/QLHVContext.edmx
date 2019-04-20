@@ -260,6 +260,23 @@
           <Property Name="HT_NGUOI_HOTRO" Type="nvarchar(max)" />
           <Property Name="HT_NGUOI_HOTRO_THULAO" Type="int" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_KHAC">
+          <Key>
+            <PropertyRef Name="KHAC_ID" />
+          </Key>
+          <Property Name="KHAC_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KHAC_TEN_HOATDONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="KHAC_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="KHAC_TONGSO_NGAY" Type="int" />
+          <Property Name="KHAC_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_SOLUONG" Type="int" />
+          <Property Name="KHAC_TONGSO_TIEN" Type="int" />
+          <Property Name="KHAC_DOITUONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_TAPHUAN">
           <Key>
             <PropertyRef Name="TH_ID" />
@@ -477,6 +494,7 @@
           <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="Self.QL_HOATDONG_DAYNGHE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HNXH" EntityType="Self.QL_HOATDONG_HNXH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="Self.QL_HOATDONG_HOITHAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_KHAC" EntityType="Self.QL_HOATDONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="Self.QL_HOATDONG_TAPHUAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="Self.QL_HOATDONG_VAYVON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_VIECLAM" EntityType="Self.QL_HOATDONG_VIECLAM" Schema="dbo" store:Type="Tables" />
@@ -611,6 +629,7 @@
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" />
           <EntitySet Name="DM_NGOAINGU" EntityType="QL_HOIVIEN_KTModel.DM_NGOAINGU" />
           <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
+          <EntitySet Name="QL_HOATDONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1002,6 +1021,23 @@
           <Property Name="HV_TRE_DIHOC" Type="Boolean" />
           <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_KHAC">
+          <Key>
+            <PropertyRef Name="KHAC_ID" />
+          </Key>
+          <Property Name="KHAC_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KHAC_TEN_HOATDONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="KHAC_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="KHAC_TONGSO_NGAY" Type="Int32" />
+          <Property Name="KHAC_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_SOLUONG" Type="Int32" />
+          <Property Name="KHAC_TONGSO_TIEN" Type="Int32" />
+          <Property Name="KHAC_DOITUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1433,6 +1469,24 @@
                 <ScalarProperty Name="HV_IMAGE" ColumnName="HV_IMAGE" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_KHAC">
+                <ScalarProperty Name="KHAC_NOIDUNG" ColumnName="KHAC_NOIDUNG" />
+                <ScalarProperty Name="KHAC_DONVI_THUCHIEN" ColumnName="KHAC_DONVI_THUCHIEN" />
+                <ScalarProperty Name="KHAC_DOITUONG" ColumnName="KHAC_DOITUONG" />
+                <ScalarProperty Name="KHAC_TONGSO_TIEN" ColumnName="KHAC_TONGSO_TIEN" />
+                <ScalarProperty Name="KHAC_SOLUONG" ColumnName="KHAC_SOLUONG" />
+                <ScalarProperty Name="KHAC_DIADIEM" ColumnName="KHAC_DIADIEM" />
+                <ScalarProperty Name="KHAC_TONGSO_NGAY" ColumnName="KHAC_TONGSO_NGAY" />
+                <ScalarProperty Name="KHAC_THOIGIAN_KETTHUC" ColumnName="KHAC_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="KHAC_THOIGIAN_BATDAU" ColumnName="KHAC_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="KHAC_TEN" ColumnName="KHAC_TEN" />
+                <ScalarProperty Name="KHAC_TEN_HOATDONG" ColumnName="KHAC_TEN_HOATDONG" />
+                <ScalarProperty Name="KHAC_ID" ColumnName="KHAC_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

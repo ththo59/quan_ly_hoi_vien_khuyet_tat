@@ -333,6 +333,10 @@ namespace DauThau
                         break;
 
                     #endregion
+
+                    case "btnHoatDongKhac":
+                        uc = new ucHoatDongKhac();
+                        break;
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         rpt.pLeftHeader.Value = clsParameter.pHospital;

@@ -248,6 +248,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoatDongHoiThao.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoatDongKhac.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongKhac.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoatDongTapHuan.cs">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>
     </Compile>
@@ -508,6 +513,9 @@
     <Compile Include="Models\QL_HOATDONG_HOITHAO.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_KHAC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_TAPHUAN.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -522,6 +530,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptBCHoatDongKhac.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongKhac.designer.cs">
+      <DependentUpon>rptBCHoatDongKhac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBCTongKetHoatDong_ASXH.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1140,6 +1154,12 @@
     <Compile Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.Designer.cs">
       <DependentUpon>ucBCHoiVienTongNKTTheoPhuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMain\ucHoatDongKhac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongKhac.Designer.cs">
+      <DependentUpon>ucHoatDongKhac.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucHoatDongDayNghe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1572,6 +1592,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1584,6 +1605,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\rpt.resx">
       <DependentUpon>rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongKhac.resx">
+      <DependentUpon>rptBCHoatDongKhac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCTongKetHoatDong_ASXH.resx">
       <DependentUpon>rptBCTongKetHoatDong_ASXH.cs</DependentUpon>
@@ -1890,6 +1914,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCHoiVienTongNKTTheoPhuong.resx">
       <DependentUpon>ucBCHoiVienTongNKTTheoPhuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongKhac.resx">
+      <DependentUpon>ucHoatDongKhac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucHoatDongDayNghe.resx">
       <DependentUpon>ucHoatDongDayNghe.cs</DependentUpon>
@@ -2212,6 +2239,17 @@
     </None>
     <None Include="DataSets\dsHoatDongHoiThao.xss">
       <DependentUpon>dsHoatDongHoiThao.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongKhac.xsc">
+      <DependentUpon>dsHoatDongKhac.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongKhac.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongKhac.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongKhac.xss">
+      <DependentUpon>dsHoatDongKhac.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoatDongTapHuan.xsc">
       <DependentUpon>dsHoatDongTapHuan.xsd</DependentUpon>

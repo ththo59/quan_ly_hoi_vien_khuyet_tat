@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHoatDongKhac" targetNamespace="http://tempuri.org/dsHoatDongKhac.xsd" xmlns:mstns="http://tempuri.org/dsHoatDongKhac.xsd" xmlns="http://tempuri.org/dsHoatDongKhac.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHoatDongKhac" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHoatDongKhac" msprop:Generator_UserDSName="dsHoatDongKhac">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HoatDongKhac" msprop:Generator_TableClassName="HoatDongKhacDataTable" msprop:Generator_TableVarName="tableHoatDongKhac" msprop:Generator_TablePropName="HoatDongKhac" msprop:Generator_RowDeletingName="HoatDongKhacRowDeleting" msprop:Generator_RowChangingName="HoatDongKhacRowChanging" msprop:Generator_RowEvHandlerName="HoatDongKhacRowChangeEventHandler" msprop:Generator_RowDeletedName="HoatDongKhacRowDeleted" msprop:Generator_UserTableName="HoatDongKhac" msprop:Generator_RowChangedName="HoatDongKhacRowChanged" msprop:Generator_RowEvArgName="HoatDongKhacRowChangeEvent" msprop:Generator_RowClassName="HoatDongKhacRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KHAC_TEN" msprop:Generator_ColumnVarNameInTable="columnKHAC_TEN" msprop:Generator_ColumnPropNameInRow="KHAC_TEN" msprop:Generator_ColumnPropNameInTable="KHAC_TENColumn" msprop:Generator_UserColumnName="KHAC_TEN" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_THOIGIAN" msprop:Generator_ColumnVarNameInTable="columnKHAC_THOIGIAN" msprop:Generator_ColumnPropNameInRow="KHAC_THOIGIAN" msprop:Generator_ColumnPropNameInTable="KHAC_THOIGIANColumn" msprop:Generator_UserColumnName="KHAC_THOIGIAN" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_DIADIEM" msprop:Generator_ColumnVarNameInTable="columnKHAC_DIADIEM" msprop:Generator_ColumnPropNameInRow="KHAC_DIADIEM" msprop:Generator_ColumnPropNameInTable="KHAC_DIADIEMColumn" msprop:Generator_UserColumnName="KHAC_DIADIEM" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_DONVI_THUCHIEN" msprop:Generator_ColumnVarNameInTable="columnKHAC_DONVI_THUCHIEN" msprop:Generator_ColumnPropNameInRow="KHAC_DONVI_THUCHIEN" msprop:Generator_ColumnPropNameInTable="KHAC_DONVI_THUCHIENColumn" msprop:Generator_UserColumnName="KHAC_DONVI_THUCHIEN" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_NOIDUNG" msprop:Generator_ColumnVarNameInTable="columnKHAC_NOIDUNG" msprop:Generator_ColumnPropNameInRow="KHAC_NOIDUNG" msprop:Generator_ColumnPropNameInTable="KHAC_NOIDUNGColumn" msprop:Generator_UserColumnName="KHAC_NOIDUNG" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_SOLUONG" msprop:Generator_ColumnVarNameInTable="columnKHAC_SOLUONG" msprop:Generator_ColumnPropNameInRow="KHAC_SOLUONG" msprop:Generator_ColumnPropNameInTable="KHAC_SOLUONGColumn" msprop:Generator_UserColumnName="KHAC_SOLUONG" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_TONGSO_TIEN" msprop:Generator_ColumnVarNameInTable="columnKHAC_TONGSO_TIEN" msprop:Generator_ColumnPropNameInRow="KHAC_TONGSO_TIEN" msprop:Generator_ColumnPropNameInTable="KHAC_TONGSO_TIENColumn" msprop:Generator_UserColumnName="KHAC_TONGSO_TIEN" type="xs:string" minOccurs="0" />
+              <xs:element name="KHAC_DOITUONG" msprop:Generator_ColumnVarNameInTable="columnKHAC_DOITUONG" msprop:Generator_ColumnPropNameInRow="KHAC_DOITUONG" msprop:Generator_ColumnPropNameInTable="KHAC_DOITUONGColumn" msprop:Generator_UserColumnName="KHAC_DOITUONG" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -38,6 +38,18 @@ namespace DauThau.Class
         public string ASXH_DOITUONG { get; set; }
     }
 
+    public class clsHoatDongKhac
+    {
+        public string KHAC_TEN { get; set; }
+        public string KHAC_THOIGIAN { get; set; }
+        public string KHAC_DIADIEM { get; set; }
+        public string KHAC_DONVI_THUCHIEN { get; set; }
+        public string KHAC_NOIDUNG { get; set; }
+        public int? KHAC_SOLUONG { get; set; }
+        public int? KHAC_TONGSO_TIEN { get; set; }
+        public string KHAC_DOITUONG { get; set; }
+    }
+
     public class clsHoatDongHNXH
     {
         public string HNXH_TEN { get; set; }
