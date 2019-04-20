@@ -25,6 +25,7 @@ namespace DauThau.Models
         public string HV_NGHE_NGHIEP { get; set; }
         public string HV_TRINHDO_VANHOA { get; set; }
         public string HV_TRINHDO_CHUYENMON { get; set; }
+        public string HV_NGOAINGU { get; set; }
         public string HV_CMND { get; set; }
         public Nullable<System.DateTime> HV_CMND_NGAY { get; set; }
         public string HV_CMND_NOICAP { get; set; }

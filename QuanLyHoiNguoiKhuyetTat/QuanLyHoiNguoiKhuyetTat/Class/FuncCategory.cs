@@ -341,6 +341,9 @@ namespace DauThau.Class
                     case CategoryEntitiesTable.DM_NOI_SINH_SONG:
                         listItem = (from p in context.DM_NOI_SINH_SONG orderby p.NSS_STT select p).ToList();
                         break;
+                    case CategoryEntitiesTable.DM_NGOAINGU:
+                        listItem = (from p in context.DM_NGOAINGU orderby p.NN_STT select p).ToList();
+                        break;
                     default:
                         break;
                 }

@@ -303,6 +303,8 @@ namespace DauThau.UserControlCategory
                 lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP;
                 lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA;
                 lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON;
+                lueNgoaiNgu.EditValue = item.HV_NGOAINGU;
+
                 txtCMND.Text = item.HV_CMND;
 
                 if (item.HV_CMND_NGAY.HasValue)
@@ -470,18 +472,38 @@ namespace DauThau.UserControlCategory
             }
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
-            item.HV_NGAY_SINH = new DateTime(deNgaySinh_Nam.Ex_EditValueToInt()??0, deNgaySinh_Thang.Ex_EditValueToInt()??0, deNgaySinh_Ngay.Ex_EditValueToInt()??0);
+            if(deNgaySinh_Nam.EditValue != null)
+            {
+                item.HV_NGAY_SINH = new DateTime(deNgaySinh_Nam.Ex_EditValueToInt() ?? 1, deNgaySinh_Thang.Ex_EditValueToInt() ?? 1, deNgaySinh_Ngay.Ex_EditValueToInt() ?? 0);
+            }
             item.HV_TUOI = seTuoi.Ex_EditValueToInt();
             item.HV_TON_GIAO = lueTonGiao.EditValue + string.Empty;
             item.HV_NGHE_NGHIEP = lueNgheNghiep.EditValue + string.Empty;
             item.HV_TRINHDO_VANHOA = lueTrinhDoVanHoa.EditValue + string.Empty;
             item.HV_TRINHDO_CHUYENMON = lueTrinhDoChuyenMon.EditValue + string.Empty;
+            item.HV_NGOAINGU = lueNgoaiNgu.EditValue + string.Empty;
 
             item.HV_CMND = txtCMND.Text;
-            item.HV_CMND_NGAY = new DateTime(deNgayCapCMND_Nam.Ex_EditValueToInt() ?? 0, deNgayCapCMND_Thang.Ex_EditValueToInt() ?? 0, deNgayCapCMND_Ngay.Ex_EditValueToInt() ?? 0);
+            if (deNgayCapCMND_Nam.EditValue != null && deNgayCapCMND_Nam.Ex_EditValueToInt() > 0)
+            {
+                item.HV_CMND_NGAY = new DateTime(deNgayCapCMND_Nam.Ex_EditValueToInt() ?? 1900, deNgayCapCMND_Thang.Ex_EditValueToInt() ?? 1, deNgayCapCMND_Ngay.Ex_EditValueToInt() ?? 1);
+            }
+            else
+            {
+                item.HV_CMND_NGAY = new Nullable<DateTime>();
+            }
+
             item.HV_CMND_NOICAP = txtNoiCapCMND.Text;
 
-            item.HV_KHUYETTAT_NGAY = new DateTime(deNgayKhuyetTat_Nam.Ex_EditValueToInt() ?? 0, deNgayKhuyetTat_Thang.Ex_EditValueToInt() ?? 0, deNgayKhuyetTat_Ngay.Ex_EditValueToInt() ?? 0);
+            if(deNgayKhuyetTat_Nam.EditValue != null && deNgayKhuyetTat_Nam.Ex_EditValueToInt() > 0)
+            {
+                item.HV_KHUYETTAT_NGAY = new DateTime(deNgayKhuyetTat_Nam.Ex_EditValueToInt() ?? 1900, deNgayKhuyetTat_Thang.Ex_EditValueToInt() ?? 1, deNgayKhuyetTat_Ngay.Ex_EditValueToInt() ?? 1);
+            }
+            else
+            {
+                item.HV_KHUYETTAT_NGAY = new Nullable<DateTime>();
+            }
+
             item.HV_CHUCVU = lueChucVuHoi.EditValue + string.Empty;
 
             item.HV_THUONGTRU_TP = lueThuongTru_TP.EditValue + string.Empty;
@@ -532,7 +554,15 @@ namespace DauThau.UserControlCategory
 
             //Tab chinh sách hỗ trợ
             item.HV_DUNGCU_HOTRO = lueDungCuHoTro.EditValue + string.Empty;
-            item.HV_DCHT_THOIDIEM_NHAN = new DateTime(deDCHT_ThoiGianNhan_Nam.Ex_EditValueToInt() ?? 0, deDCHT_ThoiGianNhan_Thang.Ex_EditValueToInt() ?? 0, deDCHT_ThoiGianNhan_Ngay.Ex_EditValueToInt() ?? 0);
+            if (deDCHT_ThoiGianNhan_Nam.EditValue != null && deDCHT_ThoiGianNhan_Nam.Ex_EditValueToInt() > 0)
+            {
+                item.HV_DCHT_THOIDIEM_NHAN = new DateTime(deDCHT_ThoiGianNhan_Nam.Ex_EditValueToInt() ?? 1900, deDCHT_ThoiGianNhan_Thang.Ex_EditValueToInt() ?? 1, deDCHT_ThoiGianNhan_Ngay.Ex_EditValueToInt() ?? 1);
+            }
+            else
+            {
+                item.HV_DCHT_THOIDIEM_NHAN = new Nullable<DateTime>();
+            }
+
             item.HV_DCHT_TU_TOCHUC = txtDCHT_ToChuc.EditValue + string.Empty;
             item.HV_DCHT_TINHTRANG = txtDCHT_TinhTrang.EditValue + string.Empty;
 
@@ -768,6 +798,36 @@ namespace DauThau.UserControlCategory
                 int year = DateTime.Now.Date.Year - deNgaySinh_Nam.Ex_EditValueToInt() ?? 0;
                 year = year == 0 ? 1 : year;
                 seTuoi.EditValue = year;
+            }
+        }
+
+        private void deNgayKhuyetTat_Nam_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if(e.Button.Kind == ButtonPredefines.Delete)
+            {
+                deNgayKhuyetTat_Nam.EditValue = null;
+                deNgayKhuyetTat_Thang.EditValue = null;
+                deNgayKhuyetTat_Ngay.EditValue = null;
+            }
+        }
+
+        private void deNgaySinh_Nam_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Delete)
+            {
+                deNgaySinh_Nam.EditValue = null;
+                deNgaySinh_Thang.EditValue = null;
+                deNgaySinh_Ngay.EditValue = null;
+            }
+        }
+
+        private void deDCHT_ThoiGianNhan_Nam_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Delete)
+            {
+                deDCHT_ThoiGianNhan_Nam.EditValue = null;
+                deDCHT_ThoiGianNhan_Thang.EditValue = null;
+                deDCHT_ThoiGianNhan_Ngay.EditValue = null;
             }
         }
     }

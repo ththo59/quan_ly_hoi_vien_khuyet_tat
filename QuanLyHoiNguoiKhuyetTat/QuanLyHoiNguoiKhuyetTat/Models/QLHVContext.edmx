@@ -333,6 +333,7 @@
           <Property Name="HV_NGHE_NGHIEP" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_TRINHDO_VANHOA" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_TRINHDO_CHUYENMON" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_NGOAINGU" Type="nvarchar" MaxLength="100" />
           <Property Name="HV_CMND" Type="nvarchar" MaxLength="20" />
           <Property Name="HV_CMND_NGAY" Type="date" />
           <Property Name="HV_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
@@ -607,9 +608,9 @@
             <End Role="QL_HOATDONG_VIECLAM1" EntitySet="QL_HOATDONG_VIECLAM" />
           </AssociationSet>
           <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" />
-          <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" />
           <EntitySet Name="DM_NGOAINGU" EntityType="QL_HOIVIEN_KTModel.DM_NGOAINGU" />
+          <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -889,6 +890,35 @@
           <Property Name="VV_DOITUONG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="VV_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_TAPHUAN">
+          <Key>
+            <PropertyRef Name="TH_ID" />
+          </Key>
+          <Property Name="TH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TH_LOAI_ID" Type="Int64" />
+          <Property Name="TH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="TH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="TH_TONGSO_NGAY" Type="Int32" />
+          <Property Name="TH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TH_SOLUONG" Type="Int32" />
+          <Property Name="TH_SOTIEN_1NGUOI" Type="Int32" />
+          <Property Name="TH_TONGTIEN" Type="Int64" />
+          <Property Name="TH_GIANGVIEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TH_GIANGVIEN_THULAO" Type="Int32" />
+          <Property Name="TH_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TH_NGUOI_HOTRO_THULAO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DM_NGOAINGU">
+          <Key>
+            <PropertyRef Name="NN_ID" />
+          </Key>
+          <Property Name="NN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NN_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NN_STT" Type="Int32" />
+        </EntityType>
         <EntityType Name="QL_HOIVIEN">
           <Key>
             <PropertyRef Name="HV_ID" />
@@ -904,6 +934,7 @@
           <Property Name="HV_NGHE_NGHIEP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_TRINHDO_VANHOA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_TRINHDO_CHUYENMON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGOAINGU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HV_CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="HV_CMND_NGAY" Type="DateTime" Precision="0" />
           <Property Name="HV_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -971,35 +1002,6 @@
           <Property Name="HV_TRE_DIHOC" Type="Boolean" />
           <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="QL_HOATDONG_TAPHUAN">
-          <Key>
-            <PropertyRef Name="TH_ID" />
-          </Key>
-          <Property Name="TH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TH_LOAI_ID" Type="Int64" />
-          <Property Name="TH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TH_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
-          <Property Name="TH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
-          <Property Name="TH_TONGSO_NGAY" Type="Int32" />
-          <Property Name="TH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TH_SOLUONG" Type="Int32" />
-          <Property Name="TH_SOTIEN_1NGUOI" Type="Int32" />
-          <Property Name="TH_TONGTIEN" Type="Int64" />
-          <Property Name="TH_GIANGVIEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TH_GIANGVIEN_THULAO" Type="Int32" />
-          <Property Name="TH_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TH_NGUOI_HOTRO_THULAO" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DM_NGOAINGU">
-          <Key>
-            <PropertyRef Name="NN_ID" />
-          </Key>
-          <Property Name="NN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NN_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NN_STT" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1318,6 +1320,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN">
+                <ScalarProperty Name="TH_NGUOI_HOTRO_THULAO" ColumnName="TH_NGUOI_HOTRO_THULAO" />
+                <ScalarProperty Name="TH_NGUOI_HOTRO" ColumnName="TH_NGUOI_HOTRO" />
+                <ScalarProperty Name="TH_GIANGVIEN_THULAO" ColumnName="TH_GIANGVIEN_THULAO" />
+                <ScalarProperty Name="TH_GIANGVIEN" ColumnName="TH_GIANGVIEN" />
+                <ScalarProperty Name="TH_TONGTIEN" ColumnName="TH_TONGTIEN" />
+                <ScalarProperty Name="TH_SOTIEN_1NGUOI" ColumnName="TH_SOTIEN_1NGUOI" />
+                <ScalarProperty Name="TH_SOLUONG" ColumnName="TH_SOLUONG" />
+                <ScalarProperty Name="TH_NOIDUNG" ColumnName="TH_NOIDUNG" />
+                <ScalarProperty Name="TH_DONVI_THUCHIEN" ColumnName="TH_DONVI_THUCHIEN" />
+                <ScalarProperty Name="TH_DIADIEM" ColumnName="TH_DIADIEM" />
+                <ScalarProperty Name="TH_TONGSO_NGAY" ColumnName="TH_TONGSO_NGAY" />
+                <ScalarProperty Name="TH_THOIGIAN_KETTHUC" ColumnName="TH_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="TH_THOIGIAN_BATDAU" ColumnName="TH_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="TH_TEN" ColumnName="TH_TEN" />
+                <ScalarProperty Name="TH_LOAI_ID" ColumnName="TH_LOAI_ID" />
+                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NGOAINGU">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NGOAINGU">
+              <MappingFragment StoreEntitySet="DM_NGOAINGU">
+                <ScalarProperty Name="NN_STT" ColumnName="NN_STT" />
+                <ScalarProperty Name="NN_TEN" ColumnName="NN_TEN" />
+                <ScalarProperty Name="NN_ID" ColumnName="NN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="QL_HOIVIEN">
             <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN">
               <MappingFragment StoreEntitySet="QL_HOIVIEN">
@@ -1388,6 +1421,7 @@
                 <ScalarProperty Name="HV_CMND_NOICAP" ColumnName="HV_CMND_NOICAP" />
                 <ScalarProperty Name="HV_CMND_NGAY" ColumnName="HV_CMND_NGAY" />
                 <ScalarProperty Name="HV_CMND" ColumnName="HV_CMND" />
+                <ScalarProperty Name="HV_NGOAINGU" ColumnName="HV_NGOAINGU" />
                 <ScalarProperty Name="HV_TRINHDO_CHUYENMON" ColumnName="HV_TRINHDO_CHUYENMON" />
                 <ScalarProperty Name="HV_TRINHDO_VANHOA" ColumnName="HV_TRINHDO_VANHOA" />
                 <ScalarProperty Name="HV_NGHE_NGHIEP" ColumnName="HV_NGHE_NGHIEP" />
@@ -1399,37 +1433,6 @@
                 <ScalarProperty Name="HV_IMAGE" ColumnName="HV_IMAGE" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN">
-              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN">
-                <ScalarProperty Name="TH_NGUOI_HOTRO_THULAO" ColumnName="TH_NGUOI_HOTRO_THULAO" />
-                <ScalarProperty Name="TH_NGUOI_HOTRO" ColumnName="TH_NGUOI_HOTRO" />
-                <ScalarProperty Name="TH_GIANGVIEN_THULAO" ColumnName="TH_GIANGVIEN_THULAO" />
-                <ScalarProperty Name="TH_GIANGVIEN" ColumnName="TH_GIANGVIEN" />
-                <ScalarProperty Name="TH_TONGTIEN" ColumnName="TH_TONGTIEN" />
-                <ScalarProperty Name="TH_SOTIEN_1NGUOI" ColumnName="TH_SOTIEN_1NGUOI" />
-                <ScalarProperty Name="TH_SOLUONG" ColumnName="TH_SOLUONG" />
-                <ScalarProperty Name="TH_NOIDUNG" ColumnName="TH_NOIDUNG" />
-                <ScalarProperty Name="TH_DONVI_THUCHIEN" ColumnName="TH_DONVI_THUCHIEN" />
-                <ScalarProperty Name="TH_DIADIEM" ColumnName="TH_DIADIEM" />
-                <ScalarProperty Name="TH_TONGSO_NGAY" ColumnName="TH_TONGSO_NGAY" />
-                <ScalarProperty Name="TH_THOIGIAN_KETTHUC" ColumnName="TH_THOIGIAN_KETTHUC" />
-                <ScalarProperty Name="TH_THOIGIAN_BATDAU" ColumnName="TH_THOIGIAN_BATDAU" />
-                <ScalarProperty Name="TH_TEN" ColumnName="TH_TEN" />
-                <ScalarProperty Name="TH_LOAI_ID" ColumnName="TH_LOAI_ID" />
-                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DM_NGOAINGU">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NGOAINGU">
-              <MappingFragment StoreEntitySet="DM_NGOAINGU">
-                <ScalarProperty Name="NN_STT" ColumnName="NN_STT" />
-                <ScalarProperty Name="NN_TEN" ColumnName="NN_TEN" />
-                <ScalarProperty Name="NN_ID" ColumnName="NN_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

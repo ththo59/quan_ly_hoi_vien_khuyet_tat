@@ -36,9 +36,9 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM" Width="1.5" PointX="0.75" PointY="13.75" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Width="1.5" PointX="15.375" PointY="0.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" Width="1.5" PointX="6.375" PointY="15.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="15.375" PointY="5.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NGOAINGU" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" Width="1.5" PointX="6.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
