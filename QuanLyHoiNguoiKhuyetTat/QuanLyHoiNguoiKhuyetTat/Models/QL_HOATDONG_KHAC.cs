@@ -24,6 +24,8 @@ namespace DauThau.Models
         public Nullable<int> KHAC_SOLUONG { get; set; }
         public Nullable<int> KHAC_TONGSO_TIEN { get; set; }
         public string KHAC_DOITUONG { get; set; }
+        public string KHAC_DOITUONG_ID { get; set; }
+        public string KHAC_DOITUONG_KHAC { get; set; }
         public string KHAC_DONVI_THUCHIEN { get; set; }
         public string KHAC_NOIDUNG { get; set; }
     }

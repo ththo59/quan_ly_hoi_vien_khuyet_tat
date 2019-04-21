@@ -244,7 +244,9 @@ namespace DauThau
                     case "btnTheThao":
                         uc = new ucHoatDongHNXH((Int64)CategoryHNXH.THE_THAO);
                         break;
-
+                    case "btnLaodongCongIch":
+                        uc = new ucHoatDongHNXH((Int64)CategoryHNXH.LAO_DONG_CONG_ICH);
+                        break;
                     #endregion
 
                     #region Việc làm
@@ -337,6 +339,13 @@ namespace DauThau
                     case "btnHoatDongKhac":
                         uc = new ucHoatDongKhac();
                         break;
+                    case "btnBCHoatDongKhac":
+                        uc = new ucBCHoatDongKhac();
+                        break; 
+                    case "btnSkin":
+                        uc = new ucSkin();
+                        break;
+
                     case "btnDonGiaNhapHoi":
                         rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
                         rpt.pLeftHeader.Value = clsParameter.pHospital;
@@ -429,16 +438,6 @@ namespace DauThau
         private void btnTimKiemPhieuThuChi_ItemClick(object sender, ItemClickEventArgs e)
         {
             clsAddTab.AddTabControl(TabControlParent, new ucPhieuThuChiTimKiem(), "ucPhieuThuChiTimKiem", "Tìm kiếm phiếu thu chi");
-        }
-
-        private void btnXa_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //clsAddTab.AddTabControl(TabControlParent, new ucDmXa(), "ucDmXa", "Phường, xã");
-        }
-
-        private void btnBCHoatDong_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //clsAddTab.AddTabControl(TabControlParent, new ucBCHoatDong(), "ucBCHoatDong", "Báo cáo hoạt động");
         }
 
         private void btnCP_SoQuyTienMat_ItemClick(object sender, ItemClickEventArgs e)

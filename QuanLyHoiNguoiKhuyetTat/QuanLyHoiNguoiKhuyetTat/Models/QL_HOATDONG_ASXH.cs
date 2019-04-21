@@ -23,7 +23,9 @@ namespace DauThau.Models
         public string ASXH_DIADIEM { get; set; }
         public Nullable<int> ASXH_SOLUONG { get; set; }
         public Nullable<int> ASXH_TONGSO_TIEN { get; set; }
-        public string ASXH_DOITUONG { get; set; }
+        public string ASXH_DOITUONG_TEN { get; set; }
+        public string ASXH_DOITUONG_ID { get; set; }
+        public string ASXH_DOITUONG_KHAC { get; set; }
         public string ASXH_DONVI_THUCHIEN { get; set; }
         public string ASXH_NOIDUNG { get; set; }
     }

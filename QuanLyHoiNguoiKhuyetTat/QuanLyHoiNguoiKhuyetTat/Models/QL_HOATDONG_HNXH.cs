@@ -22,6 +22,9 @@ namespace DauThau.Models
         public Nullable<int> HNXH_TONGSO_NGAY { get; set; }
         public string HNXH_DIADIEM { get; set; }
         public Nullable<int> HNXH_SOLUONG { get; set; }
+        public string HNXH_DOITUONG_TEN { get; set; }
+        public string HNXH_DOITUONG_ID { get; set; }
+        public string HNXH_DOITUONG_KHAC { get; set; }
         public Nullable<int> HNXH_TONGSO_TIEN { get; set; }
         public string HNXH_DONVI_THUCHIEN { get; set; }
         public string HNXH_NOIDUNG { get; set; }

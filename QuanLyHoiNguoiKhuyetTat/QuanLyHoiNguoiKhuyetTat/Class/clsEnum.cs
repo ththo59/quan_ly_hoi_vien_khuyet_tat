@@ -87,6 +87,7 @@ namespace DauThau.Class
         THAM_QUAN_DU_LICH,
         VAN_NGHE,
         THE_THAO,
+        LAO_DONG_CONG_ICH
     }
 
     enum CategoryViecLam

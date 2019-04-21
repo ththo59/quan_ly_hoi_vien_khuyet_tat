@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -167,6 +168,8 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
+
         }
 
         private void _clearData()
@@ -209,6 +212,10 @@ namespace DauThau.UserControlCategory
                 txtDiaDiem.EditValue = item.HNXH_DIADIEM;
                 txtDonViThucHien.EditValue = item.HNXH_DONVI_THUCHIEN;
 
+                txtDoiTuong.EditValue = item.HNXH_DOITUONG_TEN;
+                txtDoiTuongId.EditValue = item.HNXH_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.HNXH_DOITUONG_KHAC;
+
                 seSoLuongNguoiThamGia.EditValue = item.HNXH_SOLUONG;
                 seTongSoTien.EditValue = item.HNXH_TONGSO_TIEN;
                 txtNoiDung.EditValue = item.HNXH_NOIDUNG;
@@ -227,6 +234,10 @@ namespace DauThau.UserControlCategory
             item.HNXH_DIADIEM = txtDiaDiem.Text;
             item.HNXH_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.HNXH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
+
+            item.HNXH_DOITUONG_TEN = txtDoiTuong.Text;
+            item.HNXH_DOITUONG_ID = txtDoiTuongId.Text;
+            item.HNXH_DOITUONG_KHAC = txtDoiTuongKhac.Text;
             item.HNXH_NOIDUNG = txtNoiDung.Text;
         }
 
@@ -429,6 +440,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }

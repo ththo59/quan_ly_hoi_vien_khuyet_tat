@@ -25,7 +25,9 @@ namespace DauThau.Models
         public Nullable<int> VL_SOLUONG { get; set; }
         public Nullable<int> VL_SOLUONG_NU { get; set; }
         public Nullable<int> VL_THUNHAP_THANG { get; set; }
-        public string VL_DOITUONG { get; set; }
+        public string VL_DOITUONG_TEN { get; set; }
+        public string VL_DOITUONG_ID { get; set; }
+        public string VL_DOITUONG_KHAC { get; set; }
         public string VL_NOIDUNG { get; set; }
     
         public virtual QL_HOATDONG_VIECLAM QL_HOATDONG_VIECLAM1 { get; set; }

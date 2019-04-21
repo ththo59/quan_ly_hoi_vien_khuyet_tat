@@ -189,7 +189,6 @@
             this.btnControl.Size = new System.Drawing.Size(255, 60);
             this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
             this.btnControl.TabIndex = 0;
-            this.btnControl.btnEventPrint_Click += new System.EventHandler(this.btnControl_btnEventPrint_Click);
             // 
             // printBarManager1
             // 

@@ -24,6 +24,9 @@ namespace DauThau.Models
         public string HT_NOIDUNG { get; set; }
         public string HT_DONVI_THUCHIEN { get; set; }
         public Nullable<int> HT_SOLUONG { get; set; }
+        public string HT_DOITUONG_TEN { get; set; }
+        public string HT_DOITUONG_ID { get; set; }
+        public string HT_DOITUONG_KHAC { get; set; }
         public Nullable<int> HT_SOTIEN_HOTRO { get; set; }
         public string HT_NGUOI_HOTRO { get; set; }
         public Nullable<int> HT_NGUOI_HOTRO_THULAO { get; set; }

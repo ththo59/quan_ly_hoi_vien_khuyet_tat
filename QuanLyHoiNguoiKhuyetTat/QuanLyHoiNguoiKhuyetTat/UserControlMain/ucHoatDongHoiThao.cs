@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -171,6 +172,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -214,6 +216,10 @@ namespace DauThau.UserControlCategory
                 txtDonViThucHien.EditValue = item.HT_DONVI_THUCHIEN;
                 seSoLuongNguoiThamGia.EditValue = item.HT_SOLUONG;
 
+                txtDoiTuong.EditValue = item.HT_DOITUONG_TEN;
+                txtDoiTuongId.EditValue = item.HT_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.HT_DOITUONG_KHAC;
+
                 txtNoiDung.EditValue = item.HT_NOIDUNG;
 
                 txtThongTinNguoiHoTro.EditValue = item.HT_NGUOI_HOTRO;
@@ -232,6 +238,11 @@ namespace DauThau.UserControlCategory
             item.HT_DIADIEM = txtDiaDiem.Text;
             item.HT_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.HT_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
+
+            item.HT_DOITUONG_TEN = txtDoiTuong.Text;
+            item.HT_DOITUONG_ID = txtDoiTuongId.Text;
+            item.HT_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+
             item.HT_NOIDUNG = txtNoiDung.Text;
             item.HT_NGUOI_HOTRO = txtThongTinNguoiHoTro.Text;
             item.HT_NGUOI_HOTRO_THULAO = seThuLaoHoTro.Ex_EditValueToInt();
@@ -436,6 +447,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }

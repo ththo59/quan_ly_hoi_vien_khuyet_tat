@@ -28,18 +28,18 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NHUCAU" Width="1.5" PointX="12.375" PointY="0.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_THANHVIEN_HOI" Width="1.5" PointX="7.375" PointY="12.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_DUNGCU_HOTRO" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" Width="1.5" PointX="4.375" PointY="13.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" Width="1.5" PointX="13.375" PointY="8.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" Width="1.5" PointX="14.375" PointY="13.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Width="1.5" PointX="11.375" PointY="13.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NOI_SINH_SONG" Width="1.5" PointX="10.375" PointY="3.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM" Width="1.5" PointX="0.75" PointY="13.75" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Width="1.5" PointX="15.375" PointY="0.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="15.375" PointY="5.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NGOAINGU" Width="1.5" PointX="12.375" PointY="3.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" Width="1.5" PointX="6.375" PointY="15.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC" Width="1.5" PointX="8.375" PointY="15.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" Width="1.5" PointX="11.75" PointY="12.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC" Width="1.5" PointX="13.75" PointY="11.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Width="1.5" PointX="15.75" PointY="6.75" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM" Width="1.5" PointX="9.75" PointY="12.75" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

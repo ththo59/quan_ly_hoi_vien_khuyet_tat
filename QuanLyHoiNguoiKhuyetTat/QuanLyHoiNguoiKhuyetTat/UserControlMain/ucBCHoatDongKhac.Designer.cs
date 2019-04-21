@@ -1,6 +1,6 @@
 ﻿namespace DauThau.UserControlCategory
 {
-    partial class ucBCHoatDongHoaNhapXaHoi
+    partial class ucBCHoatDongKhac
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBCHoatDongNangCaoNhanThuc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucBCHoatDongASXH));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnControl = new ControlsLib.ButtonsArray();
             this.printBarManager1 = new DevExpress.XtraPrinting.Preview.PrintBarManager(this.components);
@@ -1124,7 +1124,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "ucBCHoatDongNangCaoNhanThuc";
             this.Size = new System.Drawing.Size(882, 503);
-            this.Load += new System.EventHandler(this.ucBCHoatDongHoaNhapXaHoi_Load);
+            this.Load += new System.EventHandler(this.ucBCHoatDongKhac_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.printBarManager1)).EndInit();

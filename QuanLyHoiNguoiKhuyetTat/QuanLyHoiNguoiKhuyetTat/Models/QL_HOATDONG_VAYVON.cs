@@ -26,7 +26,9 @@ namespace DauThau.Models
         public Nullable<int> VV_TIEN_VAY { get; set; }
         public Nullable<System.DateTime> VV_THOIGIAN_TRA { get; set; }
         public string VV_PHUONGTHUC_TRA { get; set; }
-        public string VV_DOITUONG { get; set; }
+        public string VV_DOITUONG_TEN { get; set; }
+        public string VV_DOITUONG_ID { get; set; }
+        public string VV_DOITUONG_KHAC { get; set; }
         public string VV_NOIDUNG { get; set; }
     }
 }

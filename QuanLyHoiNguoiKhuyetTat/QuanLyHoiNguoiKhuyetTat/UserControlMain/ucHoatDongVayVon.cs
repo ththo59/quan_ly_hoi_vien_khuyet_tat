@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -72,7 +73,7 @@ namespace DauThau.UserControlCategory
                 item.VV_NU_TONGSO = string.Format("{0}/{1}", row.VV_SOLUONG_NU, row.VV_SOLUONG);
                 item.VV_TIEN_VAY = row.VV_TIEN_VAY;
                 item.VV_NOIDUNG = row.VV_NOIDUNG;
-                item.VV_DOITUONG = row.VV_DOITUONG;
+                item.VV_DOITUONG = row.VV_DOITUONG_TEN + "; " + row.VV_DOITUONG_KHAC;
                 lists.Add(item);
             }
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
@@ -138,6 +139,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -187,7 +189,10 @@ namespace DauThau.UserControlCategory
                 deNgayTra.EditValue = item.VV_THOIGIAN_TRA;
                 txtPhuongThucTra.EditValue = item.VV_PHUONGTHUC_TRA;
 
-                txtDoiTuong.EditValue = item.VV_DOITUONG;
+                txtDoiTuong.EditValue = item.VV_DOITUONG_TEN;
+                txtDoiTuongId.EditValue = item.VV_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.VV_DOITUONG_KHAC;
+
                 txtNoiDung.EditValue = item.VV_NOIDUNG;
             }
         }
@@ -209,7 +214,10 @@ namespace DauThau.UserControlCategory
             item.VV_THOIGIAN_TRA = deNgayTra.Ex_EditValueToDateTime();
             item.VV_PHUONGTHUC_TRA = txtPhuongThucTra.Text ;
 
-            item.VV_DOITUONG = txtDoiTuong.Text;
+            item.VV_DOITUONG_TEN = txtDoiTuong.Text;
+            item.VV_DOITUONG_ID = txtDoiTuongId.Text;
+            item.VV_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+
             item.VV_NOIDUNG = txtNoiDung.Text;
         }
 
@@ -417,6 +425,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }

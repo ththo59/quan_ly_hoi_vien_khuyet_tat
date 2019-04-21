@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using DauThau.UserControlCategoryMain;
 using DauThau.Reports;
 using DevExpress.XtraReports.UI;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -69,6 +70,7 @@ namespace DauThau.UserControlCategory
             {
                 case CategoryTapHuan.TH_TAPHUAN:
                     layThongTinGV.Visibility = layGiangVienThuLao.Visibility
+                        = layThongTinGV_empty.Visibility = layNguoiHoTro_empty.Visibility
                         = layNguoiHoTro.Visibility = layHoTroThuLao.Visibility = LayoutVisibility.Always;
                     grpSearchTitle.Text = "Danh sách hoạt động tập huấn";
                     break;
@@ -124,6 +126,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -168,6 +171,11 @@ namespace DauThau.UserControlCategory
                 seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
                 seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
                 seTongTien.EditValue = item.TH_TONGTIEN;
+
+                txtDoiTuong.EditValue = item.TH_DOITUONG_TEN;
+                txtDoiTuongId.EditValue = item.TH_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.TH_DOITUONG_KHAC;
+
                 txtNoiDung.EditValue = item.TH_NOIDUNG;
                 txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
                 seThuLaoGV.EditValue = item.TH_GIANGVIEN_THULAO;
@@ -189,6 +197,11 @@ namespace DauThau.UserControlCategory
             item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
             item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
             item.TH_TONGTIEN = seTongTien.Ex_EditValueToInt();
+
+            item.TH_DOITUONG_TEN = txtDoiTuong.Text;
+            item.TH_DOITUONG_ID = txtDoiTuongId.Text;
+            item.TH_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+
             item.TH_NOIDUNG = txtNoiDung.Text;
             item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
             item.TH_GIANGVIEN_THULAO = seThuLaoGV.Ex_EditValueToInt();
@@ -471,6 +484,17 @@ namespace DauThau.UserControlCategory
         private void seSoTienMoiNguoi_EditValueChanged(object sender, EventArgs e)
         {
             _calTongTien();
+        }
+
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
         }
     }
 }

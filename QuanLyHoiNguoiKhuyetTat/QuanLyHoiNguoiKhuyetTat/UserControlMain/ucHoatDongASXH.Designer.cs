@@ -88,6 +88,12 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.txtDoiTuongId = new DevExpress.XtraEditors.MemoEdit();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtDoiTuongKhac = new DevExpress.XtraEditors.MemoEdit();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnSelectHoiVien = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
@@ -152,6 +158,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoiTuongId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoiTuongKhac.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // gcGrid
@@ -163,12 +174,12 @@
             this.gcGrid.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.gcGrid.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gcGrid.EmbeddedNavigator.TextStringFormat = "Dòng {0} / {1}";
-            this.gcGrid.Location = new System.Drawing.Point(2, 24);
+            this.gcGrid.Location = new System.Drawing.Point(2, 23);
             this.gcGrid.MainView = this.gvGrid;
             this.gcGrid.Name = "gcGrid";
             this.gcGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit1});
-            this.gcGrid.Size = new System.Drawing.Size(321, 374);
+            this.gcGrid.Size = new System.Drawing.Size(321, 375);
             this.gcGrid.TabIndex = 22;
             this.gcGrid.UseEmbeddedNavigator = true;
             this.gcGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -613,11 +624,14 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(865, 498);
+            this.panelControl3.Size = new System.Drawing.Size(866, 498);
             this.panelControl3.TabIndex = 23;
             // 
             // layoutEdit
             // 
+            this.layoutEdit.Controls.Add(this.btnSelectHoiVien);
+            this.layoutEdit.Controls.Add(this.txtDoiTuongKhac);
+            this.layoutEdit.Controls.Add(this.txtDoiTuongId);
             this.layoutEdit.Controls.Add(this.txtDoiTuong);
             this.layoutEdit.Controls.Add(this.txtNoiDung);
             this.layoutEdit.Controls.Add(this.deTuNgay);
@@ -643,7 +657,7 @@
             this.layoutEdit.OptionsPrint.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.layoutEdit.OptionsPrint.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.layoutEdit.Root = this.layoutControlGroup1;
-            this.layoutEdit.Size = new System.Drawing.Size(861, 494);
+            this.layoutEdit.Size = new System.Drawing.Size(862, 494);
             this.layoutEdit.TabIndex = 0;
             this.layoutEdit.Text = "layoutControl1";
             // 
@@ -654,18 +668,18 @@
             this.txtDoiTuong.Name = "txtDoiTuong";
             this.txtDoiTuong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtDoiTuong.Properties.Appearance.Options.UseFont = true;
-            this.txtDoiTuong.Size = new System.Drawing.Size(726, 97);
+            this.txtDoiTuong.Size = new System.Drawing.Size(592, 46);
             this.txtDoiTuong.StyleController = this.layoutEdit;
             this.txtDoiTuong.TabIndex = 6;
             // 
             // txtNoiDung
             // 
             this.txtNoiDung.EditValue = "";
-            this.txtNoiDung.Location = new System.Drawing.Point(128, 258);
+            this.txtNoiDung.Location = new System.Drawing.Point(128, 286);
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNoiDung.Properties.Appearance.Options.UseFont = true;
-            this.txtNoiDung.Size = new System.Drawing.Size(726, 229);
+            this.txtNoiDung.Size = new System.Drawing.Size(727, 201);
             this.txtNoiDung.StyleController = this.layoutEdit;
             this.txtNoiDung.TabIndex = 6;
             // 
@@ -723,7 +737,7 @@
             this.txtTenChuongTrinh.Name = "txtTenChuongTrinh";
             this.txtTenChuongTrinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTenChuongTrinh.Properties.Appearance.Options.UseFont = true;
-            this.txtTenChuongTrinh.Size = new System.Drawing.Size(726, 26);
+            this.txtTenChuongTrinh.Size = new System.Drawing.Size(727, 26);
             this.txtTenChuongTrinh.StyleController = this.layoutEdit;
             this.txtTenChuongTrinh.TabIndex = 5;
             // 
@@ -734,7 +748,7 @@
             this.txtDonViThucHien.Name = "txtDonViThucHien";
             this.txtDonViThucHien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtDonViThucHien.Properties.Appearance.Options.UseFont = true;
-            this.txtDonViThucHien.Size = new System.Drawing.Size(726, 26);
+            this.txtDonViThucHien.Size = new System.Drawing.Size(727, 26);
             this.txtDonViThucHien.StyleController = this.layoutEdit;
             this.txtDonViThucHien.TabIndex = 5;
             // 
@@ -745,7 +759,7 @@
             this.txtDiaDiem.Name = "txtDiaDiem";
             this.txtDiaDiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtDiaDiem.Properties.Appearance.Options.UseFont = true;
-            this.txtDiaDiem.Size = new System.Drawing.Size(726, 26);
+            this.txtDiaDiem.Size = new System.Drawing.Size(727, 26);
             this.txtDiaDiem.StyleController = this.layoutEdit;
             this.txtDiaDiem.TabIndex = 5;
             // 
@@ -783,7 +797,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seTongSoTien.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.seTongSoTien.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.seTongSoTien.Size = new System.Drawing.Size(294, 26);
+            this.seTongSoTien.Size = new System.Drawing.Size(295, 26);
             this.seTongSoTien.StyleController = this.layoutEdit;
             this.seTongSoTien.TabIndex = 5;
             // 
@@ -825,11 +839,14 @@
             this.layDonViThucHien,
             this.layoutControlItem6,
             this.emptySpaceItem1,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.layoutControlItem8,
+            this.layoutControlItem11,
+            this.layoutControlItem12});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(861, 494);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(862, 494);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -850,9 +867,9 @@
             // 
             this.layNoiDung.Control = this.txtNoiDung;
             this.layNoiDung.CustomizationFormText = "Nội dung";
-            this.layNoiDung.Location = new System.Drawing.Point(0, 251);
+            this.layNoiDung.Location = new System.Drawing.Point(0, 279);
             this.layNoiDung.Name = "layNoiDung";
-            this.layNoiDung.Size = new System.Drawing.Size(851, 233);
+            this.layNoiDung.Size = new System.Drawing.Size(852, 205);
             this.layNoiDung.Text = "Nội dung";
             this.layNoiDung.TextSize = new System.Drawing.Size(118, 18);
             // 
@@ -877,7 +894,7 @@
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem2.Location = new System.Drawing.Point(683, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem1";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(168, 30);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(169, 30);
             this.emptySpaceItem2.Text = "emptySpaceItem1";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -887,7 +904,7 @@
             this.layDiaDiem.CustomizationFormText = "Địa điểm";
             this.layDiaDiem.Location = new System.Drawing.Point(0, 60);
             this.layDiaDiem.Name = "layDiaDiem";
-            this.layDiaDiem.Size = new System.Drawing.Size(851, 30);
+            this.layDiaDiem.Size = new System.Drawing.Size(852, 30);
             this.layDiaDiem.Text = "Địa điểm";
             this.layDiaDiem.TextSize = new System.Drawing.Size(118, 18);
             // 
@@ -897,7 +914,7 @@
             this.layTenChuongTrinh.CustomizationFormText = "Tên chương trình";
             this.layTenChuongTrinh.Location = new System.Drawing.Point(0, 30);
             this.layTenChuongTrinh.Name = "layTenChuongTrinh";
-            this.layTenChuongTrinh.Size = new System.Drawing.Size(851, 30);
+            this.layTenChuongTrinh.Size = new System.Drawing.Size(852, 30);
             this.layTenChuongTrinh.Text = "Tên chương trình";
             this.layTenChuongTrinh.TextSize = new System.Drawing.Size(118, 18);
             // 
@@ -932,7 +949,7 @@
             this.layDonViThucHien.CustomizationFormText = "Đơn vị thực hiện";
             this.layDonViThucHien.Location = new System.Drawing.Point(0, 90);
             this.layDonViThucHien.Name = "layDonViThucHien";
-            this.layDonViThucHien.Size = new System.Drawing.Size(851, 30);
+            this.layDonViThucHien.Size = new System.Drawing.Size(852, 30);
             this.layDonViThucHien.Text = "Đơn vị tài trợ";
             this.layDonViThucHien.TextSize = new System.Drawing.Size(118, 18);
             // 
@@ -942,7 +959,7 @@
             this.layoutControlItem6.CustomizationFormText = "Tổng số tiền";
             this.layoutControlItem6.Location = new System.Drawing.Point(297, 120);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(385, 30);
+            this.layoutControlItem6.Size = new System.Drawing.Size(386, 30);
             this.layoutControlItem6.Text = "Tổng số tiền";
             this.layoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(82, 18);
@@ -952,7 +969,7 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(682, 120);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(683, 120);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(169, 30);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
@@ -963,14 +980,90 @@
             this.layoutControlItem7.Control = this.txtDoiTuong;
             this.layoutControlItem7.CustomizationFormText = "Đối tượng";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 150);
+            this.layoutControlItem7.MaxSize = new System.Drawing.Size(0, 50);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(135, 50);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(851, 101);
+            this.layoutControlItem7.Size = new System.Drawing.Size(717, 50);
+            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "Đối tượng";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(118, 18);
             // 
             // dxErrorProvider
             // 
             this.dxErrorProvider.ContainerControl = this;
+            // 
+            // txtDoiTuongId
+            // 
+            this.txtDoiTuongId.EditValue = "";
+            this.txtDoiTuongId.Location = new System.Drawing.Point(128, 207);
+            this.txtDoiTuongId.Name = "txtDoiTuongId";
+            this.txtDoiTuongId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtDoiTuongId.Properties.Appearance.Options.UseFont = true;
+            this.txtDoiTuongId.Size = new System.Drawing.Size(727, 22);
+            this.txtDoiTuongId.StyleController = this.layoutEdit;
+            this.txtDoiTuongId.TabIndex = 6;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.txtDoiTuongId;
+            this.layoutControlItem8.CustomizationFormText = "HV_ID";
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 200);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(852, 26);
+            this.layoutControlItem8.Text = "HV_ID";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(118, 18);
+            this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // txtDoiTuongKhac
+            // 
+            this.txtDoiTuongKhac.EditValue = "";
+            this.txtDoiTuongKhac.Location = new System.Drawing.Point(128, 233);
+            this.txtDoiTuongKhac.Name = "txtDoiTuongKhac";
+            this.txtDoiTuongKhac.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtDoiTuongKhac.Properties.Appearance.Options.UseFont = true;
+            this.txtDoiTuongKhac.Size = new System.Drawing.Size(727, 49);
+            this.txtDoiTuongKhac.StyleController = this.layoutEdit;
+            this.txtDoiTuongKhac.TabIndex = 6;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.txtDoiTuongKhac;
+            this.layoutControlItem11.CustomizationFormText = "Đối tượng khác";
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 226);
+            this.layoutControlItem11.MaxSize = new System.Drawing.Size(0, 53);
+            this.layoutControlItem11.MinSize = new System.Drawing.Size(135, 53);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(852, 53);
+            this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem11.Text = "Đối tượng khác";
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(118, 18);
+            // 
+            // btnSelectHoiVien
+            // 
+            this.btnSelectHoiVien.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnSelectHoiVien.Appearance.Options.UseFont = true;
+            this.btnSelectHoiVien.Image = global::DauThau.Properties.Resources.finddata;
+            this.btnSelectHoiVien.Location = new System.Drawing.Point(724, 157);
+            this.btnSelectHoiVien.Name = "btnSelectHoiVien";
+            this.btnSelectHoiVien.Size = new System.Drawing.Size(131, 46);
+            this.btnSelectHoiVien.StyleController = this.layoutEdit;
+            this.btnSelectHoiVien.TabIndex = 2;
+            this.btnSelectHoiVien.Text = "Chọn hội viên";
+            this.btnSelectHoiVien.Click += new System.EventHandler(this.btnSelectHoiVien_Click);
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.btnSelectHoiVien;
+            this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
+            this.layoutControlItem12.Location = new System.Drawing.Point(717, 150);
+            this.layoutControlItem12.MaxSize = new System.Drawing.Size(135, 0);
+            this.layoutControlItem12.MinSize = new System.Drawing.Size(135, 33);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(135, 50);
+            this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem12.Text = "layoutControlItem12";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem12.TextVisible = false;
             // 
             // ucHoatDongASXH
             // 
@@ -1046,6 +1139,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoiTuongId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoiTuongKhac.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1111,5 +1209,11 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.MemoEdit txtDoiTuong;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.SimpleButton btnSelectHoiVien;
+        private DevExpress.XtraEditors.MemoEdit txtDoiTuongKhac;
+        private DevExpress.XtraEditors.MemoEdit txtDoiTuongId;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
     }
 }

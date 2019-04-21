@@ -266,6 +266,13 @@ namespace DauThau.Class
             };
             list.Add(item);
 
+            item = new dynamicObject()
+            {
+                ID = 7,
+                NAME = "Lao động công ích"
+            };
+            list.Add(item);
+
             return list;
         }
 

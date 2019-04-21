@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -26,8 +27,7 @@ namespace DauThau.UserControlCategory
         {
             InitializeComponent();
         }
-
-        List<dynamicObject> _listDM;
+        
         private void ucHoatDongDayNghe_Load(object sender, EventArgs e)
         {
             registerButtonArray(btnControl);
@@ -74,7 +74,7 @@ namespace DauThau.UserControlCategory
                 item.DN_TONGTIEN = row.DN_TONGTIEN;
                 item.DN_NOIDUNG = row.DN_NOIDUNG;
                 item.DN_DONVI_THUCHIEN = row.DN_DONVI_THUCHIEN;
-                item.DN_DOITUONG_THAMGIA = row.DN_DOITUONG_THAMGIA;
+                item.DN_DOITUONG_THAMGIA = row.DN_DOITUONG_THAMGIA + "; " +  row.DN_DOITUONG_KHAC;
                 lists.Add(item);
             }
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
@@ -140,6 +140,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -188,6 +189,8 @@ namespace DauThau.UserControlCategory
                 seTongKinhPhi.EditValue = item.DN_TONGTIEN;
 
                 txtDoiTuong.EditValue = item.DN_DOITUONG_THAMGIA;
+                txtDoiTuongId.EditValue = item.DN_DOITUONG_THAMGIA_ID;
+                txtDoiTuongKhac.EditValue = item.DN_DOITUONG_KHAC;
                 txtNoiDung.EditValue = item.DN_NOIDUNG;
                 txtHoTro.EditValue = item.DN_NGUOI_HOTRO;
             }
@@ -211,6 +214,8 @@ namespace DauThau.UserControlCategory
 
             item.DN_NOIDUNG = txtNoiDung.Text;
             item.DN_DOITUONG_THAMGIA = txtDoiTuong.Text;
+            item.DN_DOITUONG_THAMGIA_ID = txtDoiTuongId.Text;
+            item.DN_DOITUONG_KHAC = txtDoiTuongKhac.Text;
             item.DN_NGUOI_HOTRO = txtHoTro.Text;
         }
 
@@ -420,5 +425,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }

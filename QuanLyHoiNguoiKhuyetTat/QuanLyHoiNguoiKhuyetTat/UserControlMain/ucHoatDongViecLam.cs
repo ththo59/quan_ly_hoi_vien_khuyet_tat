@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -83,7 +84,7 @@ namespace DauThau.UserControlCategory
                 item.VL_THUNHAP_THANG = row.VL_THUNHAP_THANG;
                 item.VL_NOIDUNG = row.VL_NOIDUNG;
                 item.VL_NOIDUNG = row.VL_NOIDUNG;
-                item.VL_DOITUONG = row.VL_DOITUONG;
+                item.VL_DOITUONG = row.VL_DOITUONG_TEN + "; " + row.VL_DOITUONG_KHAC;
                 lists.Add(item);
             }
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
@@ -166,6 +167,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -212,7 +214,10 @@ namespace DauThau.UserControlCategory
                 seSoLuongNu.EditValue = item.VL_SOLUONG_NU;
                 seThuNhapThang.EditValue = item.VL_THUNHAP_THANG;
 
-                txtDoiTuong.EditValue = item.VL_DOITUONG;
+                txtDoiTuong.EditValue = item.VL_DOITUONG_TEN;
+                txtDoiTuongId.EditValue = item.VL_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.VL_DOITUONG_KHAC;
+
                 txtNoiDung.EditValue = item.VL_NOIDUNG;
             }
         }
@@ -232,7 +237,10 @@ namespace DauThau.UserControlCategory
             item.VL_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
             item.VL_SOLUONG_NU = seSoLuongNu.Ex_EditValueToInt();
 
-            item.VL_DOITUONG = txtDoiTuong.Text;
+            item.VL_DOITUONG_TEN = txtDoiTuong.Text;
+            item.VL_DOITUONG_ID = txtDoiTuongId.Text;
+            item.VL_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+
             item.VL_NOIDUNG = txtNoiDung.Text;
         }
 
@@ -440,6 +448,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }

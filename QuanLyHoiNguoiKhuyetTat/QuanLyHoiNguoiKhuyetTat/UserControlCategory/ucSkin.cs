@@ -9,7 +9,7 @@ using DevExpress.XtraEditors;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucSkin : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucSkin : ucBase
     {
         public ucSkin()
         {

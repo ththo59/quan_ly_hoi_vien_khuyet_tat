@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -72,7 +73,7 @@ namespace DauThau.UserControlCategory
                 item.KHAC_SOLUONG = row.KHAC_SOLUONG;
                 item.KHAC_TONGSO_TIEN = row.KHAC_TONGSO_TIEN;
                 item.KHAC_NOIDUNG = row.KHAC_NOIDUNG;
-                item.KHAC_DOITUONG = row.KHAC_DOITUONG;
+                item.KHAC_DOITUONG = row.KHAC_DOITUONG + "; " + row.KHAC_DOITUONG_KHAC;
                 lists.Add(item);
             }
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
@@ -138,6 +139,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -184,6 +186,9 @@ namespace DauThau.UserControlCategory
                 seTongSoTien.EditValue = item.KHAC_TONGSO_TIEN;
 
                 txtDoiTuong.EditValue = item.KHAC_DOITUONG;
+                txtDoiTuongId.EditValue = item.KHAC_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.KHAC_DOITUONG_KHAC;
+                    
                 txtNoiDung.EditValue = item.KHAC_NOIDUNG;
             }
         }
@@ -200,7 +205,11 @@ namespace DauThau.UserControlCategory
             item.KHAC_DIADIEM = txtDiaDiem.Text;
             item.KHAC_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.KHAC_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
+
             item.KHAC_DOITUONG = txtDoiTuong.Text;
+            item.KHAC_DOITUONG_ID = txtDoiTuongId.Text;
+            item.KHAC_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+
             item.KHAC_NOIDUNG = txtNoiDung.Text;
         }
 
@@ -407,6 +416,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }

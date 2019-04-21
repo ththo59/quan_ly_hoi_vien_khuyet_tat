@@ -17,6 +17,7 @@ using DevExpress.XtraLayout.Utils;
 using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
+using DauThau.UserControlMain;
 
 namespace DauThau.UserControlCategory
 {
@@ -82,7 +83,7 @@ namespace DauThau.UserControlCategory
                 item.ASXH_SOLUONG = row.ASXH_SOLUONG;
                 item.ASXH_TONGSO_TIEN = row.ASXH_TONGSO_TIEN;
                 item.ASXH_NOIDUNG = row.ASXH_NOIDUNG;
-                item.ASXH_DOITUONG = row.ASXH_DOITUONG;
+                item.ASXH_DOITUONG = row.ASXH_DOITUONG_TEN + "; " + row.ASXH_DOITUONG_KHAC;
                 lists.Add(item);
             }
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
@@ -172,6 +173,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            txtDoiTuong.ReadOnly = true;
         }
 
         private void _clearData()
@@ -217,7 +219,10 @@ namespace DauThau.UserControlCategory
                 seSoLuongNguoiThamGia.EditValue = item.ASXH_SOLUONG;
                 seTongSoTien.EditValue = item.ASXH_TONGSO_TIEN;
 
-                txtDoiTuong.EditValue = item.ASXH_DOITUONG;
+                txtDoiTuong.EditValue = item.ASXH_DOITUONG_TEN;
+                txtDoiTuongId.EditValue = item.ASXH_DOITUONG_ID;
+                txtDoiTuongKhac.EditValue = item.ASXH_DOITUONG_KHAC;
+
                 txtNoiDung.EditValue = item.ASXH_NOIDUNG;
             }
         }
@@ -234,7 +239,10 @@ namespace DauThau.UserControlCategory
             item.ASXH_DIADIEM = txtDiaDiem.Text;
             item.ASXH_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.ASXH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
-            item.ASXH_DOITUONG = txtDoiTuong.Text;
+            item.ASXH_DOITUONG_TEN = txtDoiTuong.Text;
+            item.ASXH_DOITUONG_ID = txtDoiTuongId.Text;
+            item.ASXH_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+
             item.ASXH_NOIDUNG = txtNoiDung.Text;
         }
 
@@ -438,6 +446,15 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-      
+        private void btnSelectHoiVien_Click(object sender, EventArgs e)
+        {
+            frmSelectHoiVien frm = new frmSelectHoiVien();
+            frm.selectNameList = txtDoiTuong.Text;
+            frm.selectIdList = txtDoiTuongId.Text;
+            frm.ShowDialog();
+
+            txtDoiTuong.Text = frm.selectNameList;
+            txtDoiTuongId.Text = frm.selectIdList;
+        }
     }
 }
