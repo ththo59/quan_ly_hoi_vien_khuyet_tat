@@ -335,7 +335,8 @@ namespace DauThau.UserControlCategory
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
-                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
+                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = gvGrid.RowCount > 0;
+                    base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_VIECLAM);
                 }
             }
         }

@@ -9,10 +9,14 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using DauThau.Class;
 using DevExpress.XtraGrid;
+using System.Data.Entity;
+using DevExpress.Utils;
+using DauThau.Models;
+using System.Linq;
 
 namespace DauThau.UserControlCategory
 {
-    public partial class ucUser : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucUser : ucBase
     {
         public ucUser()
         {
@@ -21,217 +25,53 @@ namespace DauThau.UserControlCategory
 
         private void ucUser_Load(object sender, EventArgs e)
         {
-            
-            CommandData();
+            initData();
+            base.registerButtonArray(btnControl);
+            repLueFucnName.DataSource = FuncCategory.loadFunctionName();
             FormStatus = EnumFormStatus.VIEW;
-            gcChucNang.DataSource = FunctionHelper.LoadDM("select * from PERMISSION");
         }
 
-       
-        #region Variable
-
-        private EnumFormStatus _formStatus = EnumFormStatus.VIEW;
-        DataSet ds = new DataSet();
-        SqlDataAdapter da = new SqlDataAdapter();
-
-        string _table = "USERS";
-        #endregion
 
         #region Function
 
-
-        void InsertUsers()
-        {
-            try
-            {
-                string _strInsert = "insert into USERS (USER_NAME,PASS,KHOA,FULL_NAME)"
-               + " values (@USER_NAME,@PASS,@KHOA,@FULL_NAME)";
-                SqlCommand cmd = new SqlCommand(_strInsert, clsConnection._conn);
-                cmd.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value = txtTenDangNhap.Text;
-                cmd.Parameters.Add("@PASS", SqlDbType.NVarChar).Value =FunctionHelper.EncryptMD5(txtMatKhau.Text);
-                cmd.Parameters.Add("@KHOA", SqlDbType.Bit).Value = chkKhoa.Checked;
-                cmd.Parameters.Add("@FULL_NAME", SqlDbType.NVarChar).Value = txtHoTen.Text;
-                cmd.ExecuteNonQuery();
-                SelectData();
-            }
-            catch (Exception ex)
-            {
-                clsMessage.MessageExclamation("Hệ thống phát sinh lổi. Vui lòng kiểm tra lại." + ex.Message);
-            }
-           
-        }
-
-        void UpdateUsers()
-        {
-            try
-            {
-                string str_update=string.Empty;
-                if(txtMatKhau.Text.Trim().Length > 0)
-                  str_update = "update USERS set USER_NAME=@USER_NAME,PASS=@PASS, KHOA=@KHOA, FULL_NAME = @FULL_NAME where ID_USER=@ID_USER";
-                else
-                    str_update = "update USERS set USER_NAME=@USER_NAME, KHOA=@KHOA, FULL_NAME = @FULL_NAME where ID_USER=@ID_USER";
-
-                SqlCommand cmd = new SqlCommand(str_update, clsConnection._conn);
-                cmd.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value = txtTenDangNhap.Text;
-                if (txtMatKhau.Text.Trim().Length > 0)
-                    cmd.Parameters.Add("@PASS", SqlDbType.NVarChar).Value = FunctionHelper.EncryptMD5(txtMatKhau.Text);
-                cmd.Parameters.Add("@KHOA", SqlDbType.Bit).Value = chkKhoa.Checked;
-                cmd.Parameters.Add("@FULL_NAME", SqlDbType.NVarChar).Value = txtHoTen.Text;
-                cmd.Parameters.Add("@ID_USER", SqlDbType.BigInt).Value = clsChangeType.change_int64(gvGrid.GetFocusedRowCellValue(colID_USER));
-                cmd.ExecuteNonQuery();
-                SelectData();
-            }
-            catch (Exception ex)
-            {
-                clsMessage.MessageExclamation("Hệ thống phát sinh lổi. Vui lòng kiểm tra lại." + ex.Message);
-            }
-        }
-
-        void DeleteUsers()
-        {
-            try
-            {
-                string str_delete = "delete from USERS where ID_USER=@ID_USER";
-                SqlCommand cmd = new SqlCommand(str_delete, clsConnection._conn);
-                cmd.Parameters.Add("@ID_USER", SqlDbType.BigInt).Value = clsChangeType.change_int64(gvGrid.GetFocusedRowCellValue(colID_USER));
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                clsMessage.MessageExclamation("Hệ thống phát sinh lổi. Vui lòng kiểm tra lại." + ex.Message);
-            }
-        }
-
-        void CommandData()
+        void initData()
         {
             gvGrid._SetDefaultColorRowStyle();
-            SelectData();
-
-            //INSERT
-            string _strInsert = "insert into USERS (USER_NAME,PASS,KHOA)"
-                + " values (@USER_NAME,@PASS,@KHOA)";
-            da.InsertCommand = new SqlCommand(_strInsert, clsConnection._conn);
-            da.InsertCommand.Parameters.Add("@USER_NAME", SqlDbType.NVarChar, 50, "USER_NAME");
-            da.InsertCommand.Parameters.Add("@PASS", SqlDbType.NVarChar, 50, "PASS");
-            da.InsertCommand.Parameters.Add("@KHOA", SqlDbType.Bit, 10, "KHOA");
-            
-            //UPDATE
-            string str_update = "update USERS set USER_NAME=@USER_NAME,PASS=@PASS, KHOA=@KHOA where ID_USER=@ID_USER";
-            da.UpdateCommand = new SqlCommand(str_update, clsConnection._conn);
-            da.UpdateCommand.Parameters.Add("@USER_NAME", SqlDbType.NVarChar, 50, "USER_NAME");
-            da.UpdateCommand.Parameters.Add("@PASS", SqlDbType.NVarChar, 50, "PASS");
-            da.UpdateCommand.Parameters.Add("@KHOA", SqlDbType.Bit, 10, "KHOA");
-            da.UpdateCommand.Parameters.Add("@ID_USER", SqlDbType.BigInt, 10, "ID_USER");
-
-
-            //DELETE
-            string str_delete = "delete from USERS where ID_USER=@ID_USER";
-            da.DeleteCommand = new SqlCommand(str_delete, clsConnection._conn);
-            da.DeleteCommand.Parameters.Add("@ID_USER", SqlDbType.BigInt, 10, "ID_USER");
         }
-
-        void SelectData()
+        
+        void _clearData()
         {
-            ds = new DataSet();
-            da.SelectCommand = new SqlCommand("select * from " + _table, clsConnection._conn);
-            da.Fill(ds, _table);
-            gcGrid.DataSource = ds.Tables[_table];
+            txtUSER_FULLNAME.EditValue = txtUSER_PASS.EditValue = txtUSER_NAME.EditValue = null;
+            chkUSER_LOCK.Checked = false;
+            gcChucNang.DataSource = null;
         }
 
-        void Save()
+        void _statusAllControl(bool isEnable)
         {
-            //try
-            //{
-            //    da.Update(ds.Tables[_table]);
-            //}
-            //catch
-            //{
-            //    XtraMessageBox.Show("Dữ liệu đã được sử dụng bạn không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            if (FormStatus == EnumFormStatus.ADD)
-                InsertUsers();
-            else if (FormStatus == EnumFormStatus.MODIFY) UpdateUsers();
+            txtUSER_NAME.Enabled = txtUSER_FULLNAME.Enabled = txtUSER_PASS.Enabled = chkUSER_LOCK.Enabled = isEnable;
+            gcGrid.Enabled = gcChucNang.Enabled = !isEnable;
         }
 
-        Boolean TrungTen(string value)
+        void _selectData()
         {
-            value = value.ToLower();
-            for (int i = 0; i < gvGrid.RowCount; i++)
-            {
-                if (Convert.ToString(gvGrid.GetRowCellValue(i, colUSER_NAME.FieldName) + string.Empty).ToLower() == value && i != gvGrid.FocusedRowHandle)
-                {
-                    return true;
-                }
-            }
-            return false;
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            context = new QL_HOIVIEN_KTEntities();
+            context.QL_USERS.Load();
+            gcGrid.DataSource = context.QL_USERS.Local.ToBindingList();
+
+            _loadUserPermission();
+            _wait.Close();
         }
 
-        #endregion
-
-        #region Status
-
-
-        public EnumFormStatus FormStatus
+        void _loadUserPermission()
         {
-            get { return _formStatus; }
-            set
-            {
-                _formStatus = value;
-                if (_formStatus == EnumFormStatus.ADD)
-                {
-                    gvGrid.OptionsBehavior.Editable = false;
-                    gvGrid.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                    gvGrid.ActiveFilter.Clear();
-                    txtTenDangNhap.Enabled =txtHoTen.Enabled= txtMatKhau.Enabled = chkKhoa.Enabled = true;
-                    txtTenDangNhap.Focus();
-                    gcGrid.Enabled = false;
-                    ClearField();
-                }
-                else if (_formStatus == EnumFormStatus.MODIFY)
-                {
-                    gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                    gvGrid.ActiveFilter.Clear();
-                    gvGrid.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid.OptionsBehavior.Editable = false;
-                    txtTenDangNhap.Enabled = txtHoTen.Enabled = txtMatKhau.Enabled = chkKhoa.Enabled = true;
-                    txtTenDangNhap.Focus();
-                    gcGrid.Enabled = false;
-                }
-
-                else
-                {
-                    gvGrid.OptionsBehavior.Editable = false;
-                    gvGrid.OptionsView.ShowAutoFilterRow = true;
-                    gvGrid.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                    this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
-                    txtTenDangNhap.Enabled = txtHoTen.Enabled = txtMatKhau.Enabled = chkKhoa.Enabled = false;
-                    gcGrid.Enabled = true;
-                }
-            }
+            context = new QL_HOIVIEN_KTEntities();
+            Int64 userId = clsChangeType.change_int64(gvGrid.GetFocusedRowCellValue(colUSER_ID));
+            context.QL_USERS_PERMISSION.Load();
+            gcChucNang.DataSource = context.QL_USERS_PERMISSION.Local.ToBindingList().Where(p => p.USER_ID == userId);
         }
 
-        #endregion
-
-        #region Event Button
-
-        private void btnControl_btnEventAdd_Click(object sender, EventArgs e)
-        {
-            FormStatus = EnumFormStatus.ADD;
-        }
-
-        private void btnControl_btnEventCancel_Click(object sender, EventArgs e)
-        {
-            SelectData();
-            this.FormStatus = EnumFormStatus.VIEW;
-        }
-
-        private void btnControl_btnEventClose_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnControl_btnEventDelete_Click(object sender, EventArgs e)
+        void _deleteData()
         {
             if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
             {
@@ -239,72 +79,257 @@ namespace DauThau.UserControlCategory
                 return;
             }
 
-            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colUSER_NAME.FieldName).ToString();
-            if (XtraMessageBox.Show("Bạn có chắc muốn xóa : \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colUSER_FULLNAME.FieldName).ToString();
+            if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                //gvGrid.DeleteSelectedRows();
-                //Save();
-                DeleteUsers();
-                SelectData();
+                SaveData();
             }
         }
 
-        private void btnControl_btnEventModify_Click(object sender, EventArgs e)
+        void _cancelData()
         {
-            FormStatus = EnumFormStatus.MODIFY;
+            _selectData();
+            FormStatus = EnumFormStatus.VIEW;
         }
 
-        private void btnControl_btnEventSave_Click(object sender, EventArgs e)
+        private Boolean _validateControl()
         {
-            if (txtTenDangNhap.Text.Trim() == string.Empty)
+            dxErrorValidate.ClearErrors();
+
+            if (txtUSER_FULLNAME.Text.Trim() == string.Empty)
             {
-                clsMessage.MessageInfo("Vui lòng nhập tên đăng nhập.");
-                return;
+                dxErrorValidate.SetError(txtUSER_FULLNAME, "Vui lòng nhập họ tên");
             }
-            else if (txtHoTen.Text.Trim() == string.Empty)
+
+            if (txtUSER_NAME.Text.Trim() == string.Empty)
             {
-                clsMessage.MessageInfo("Vui lòng nhập họ tên.");
-                return;
+                dxErrorValidate.SetError(txtUSER_NAME, "Vui lòng nhập tên đăng nhập");
             }
-            else if (FormStatus == EnumFormStatus.ADD && txtMatKhau.Text.Trim() == string.Empty)
+            
+
+            if (dxErrorValidate.HasErrors)
             {
-                clsMessage.MessageInfo("Vui lòng nhập mật khẩu.");
-                return;
+                clsMessage.MessageWarning("Vui lòng nhập đầy đủ thông tin.");
             }
-                Save();
-            SelectData();
-            this.FormStatus = EnumFormStatus.VIEW;
+
+            return !dxErrorValidate.HasErrors;
         }
 
-        void BindingData()
+        private void _setObjectEntities(ref QL_USERS item)
         {
-            if (gvGrid.RowCount > 0)
-            {
-                txtTenDangNhap.Text = gvGrid.GetFocusedRowCellValue(colUSER_NAME) + string.Empty;
-                txtHoTen.Text = gvGrid.GetFocusedRowCellValue(colFULL_NAME) + string.Empty;
-                chkKhoa.Checked = clsChangeType.change_bool(gvGrid.GetFocusedRowCellValue(colKHOA));
-                txtMatKhau.Text = string.Empty;
-            }
+            item.USER_NAME = txtUSER_NAME.Text;
+            item.USER_FULLNAME = txtUSER_FULLNAME.Text;
+            item.USER_PASS = txtUSER_PASS.Text;
+            item.USER_LOCK = chkUSER_LOCK.Checked;
         }
 
-        void ClearField()
+        private void _loadDataFocusRow()
         {
-            txtTenDangNhap.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
-            chkKhoa.Checked = false;
+            _clearData();
+            QL_USERS item = gvGrid.GetFocusedRow() as QL_USERS;
+            if (item != null)
+            {
+                txtUSER_NAME.EditValue = item.USER_NAME;
+                txtUSER_FULLNAME.EditValue = item.USER_FULLNAME;
+                txtUSER_PASS.EditValue = item.USER_PASS;
+                chkUSER_LOCK.EditValue = item.USER_LOCK;
+            }
+
+            _loadUserPermission();
+        }
+
+        protected override bool SaveData()
+        {
+            if (_validateControl())
+            {
+                WaitDialogForm _wait = new WaitDialogForm("Đang lưu dữ liệu ...", "Vui lòng đợi giây lát");
+                using (var _context = new QL_HOIVIEN_KTEntities())
+                {
+                    QL_USERS item;
+                    switch (_formStatus)
+                    {
+                        case EnumFormStatus.ADD:
+
+                            item = new QL_USERS();
+                            _setObjectEntities(ref item);
+                            _context.QL_USERS.Add(item);
+
+                            var listFunc = FuncCategory.loadFunctionName();
+                            foreach (var func in listFunc)
+                            {
+                                QL_USERS_PERMISSION per = new QL_USERS_PERMISSION();
+                                per.PER_NAME = Convert.ToInt32(func.ID);
+                                per.PER_VIEW = true;
+                                per.PER_ADD = false;
+                                per.PER_MODIFY = false;
+                                per.PER_DELETE = false;
+                                per.PER_PRINT = false;
+                                per.QL_USERS = item;
+                                _context.QL_USERS_PERMISSION.Add(per);
+                            }
+
+                            break;
+
+                        case EnumFormStatus.MODIFY:
+                            Int64 userId = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colUSER_ID));
+                            item = (from p in _context.QL_USERS where p.USER_ID == userId select p).FirstOrDefault<QL_USERS>();
+                            if (item != null)
+                            {
+                                _setObjectEntities(ref item);
+                            }
+                            var entity = _context.QL_USERS.Find(userId);
+                            _context.Entry(entity).CurrentValues.SetValues(item);
+
+                            gvChucNang.PostEditor();
+                            gvChucNang.UpdateCurrentRow();
+                            context.SaveChanges();
+                            break;
+
+                        case EnumFormStatus.DELETE:
+                            Int64 deleteId = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colUSER_ID));
+                            var entitiesPermission = (from p in _context.QL_USERS_PERMISSION where p.USER_ID == deleteId select p);
+                            foreach (var per in entitiesPermission)
+                            {
+                                _context.QL_USERS_PERMISSION.Remove(per);
+                            }
+
+                            QL_USERS entities = (from p in _context.QL_USERS where p.USER_ID == deleteId select p).FirstOrDefault();
+                            _context.QL_USERS.Remove(entities);
+
+                            break;
+                        default:
+                            break;
+                    }
+                    _context.SaveChanges();
+                }
+                FormStatus = EnumFormStatus.VIEW;
+                _wait.Close();
+            }
+
+            return base.SaveData();
         }
 
         #endregion
 
+        #region Event Button
+
+
+        void ClearField()
+        {
+            txtUSER_NAME.Text = txtUSER_FULLNAME.Text = txtUSER_PASS.Text = string.Empty;
+            chkUSER_LOCK.Checked = false;
+        }
+
+        #endregion
+
+        #region Status
+
+        protected override EnumFormStatus FormStatus
+        {
+            get { return _formStatus; }
+            set
+            {
+                _formStatus = value;
+                if (_formStatus == EnumFormStatus.ADD)
+                {
+                    _clearData();
+                    _statusAllControl(true);
+                }
+                else if (_formStatus == EnumFormStatus.MODIFY)
+                {
+                    _statusAllControl(true);
+                    gcChucNang.Enabled = true;
+                }
+                else if (_formStatus == EnumFormStatus.DELETE)
+                {
+                    _deleteData();
+                }
+                else if (_formStatus == EnumFormStatus.CANCEL)
+                {
+                    _cancelData();
+                }
+                else if (_formStatus == EnumFormStatus.CLOSE)
+                {
+                    if (closeTab != null)
+                    {
+                        closeTab();
+                    }
+                }
+                else
+                {
+                    _selectData();
+                    _statusAllControl(false);
+                    dxErrorValidate.ClearErrors();
+                    this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
+
+                }
+            }
+        }
+
+        #endregion
+
+        #region Event Grid
+
+        private void gvGrid_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            e.Valid = true;
+            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            if (gvGrid.FocusedRowHandle == GridControl.NewItemRowHandle
+            && gvGrid.GetRow(GridControl.NewItemRowHandle) == null)
+            {
+                return;
+            }
+
+
+            if (gvGrid.FocusedColumn.FieldName == colUSER_FULLNAME.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colUSER_FULLNAME.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+                else if (gvGrid._ValidationSame(colUSER_FULLNAME, e.Value + string.Empty))
+                {
+                    e.ErrorText = colUSER_FULLNAME.Caption + " không được trùng.";
+                    e.Valid = false;
+                }
+            }
+
+        }
+
+        private void gvGrid_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void gvGrid_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            e.Valid = true;
+            if ((gvGrid.GetRowCellValue(e.RowHandle, colUSER_FULLNAME.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvGrid.SetColumnError(gvGrid.Columns[colUSER_FULLNAME.FieldName], colUSER_FULLNAME.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+        }
+        #endregion
+
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            BindingData();
+            _loadDataFocusRow();
         }
 
         private void gvGrid_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            BindingData();
+            _loadDataFocusRow();
         }
-
-       
     }
 }

@@ -56,6 +56,8 @@ namespace DauThau.Class
         public static String _maCongTy = string.Empty;
         public static XtraTabControl TabControlParent = new XtraTabControl();
         public static String _username = "admin" + string.Empty;
+        public static bool _isAdmin = false;
+        public static Int64 _userId;
 
         /// <summary>
         /// Control hiển thị trạng thái đang chọn đợt đấu thầu.

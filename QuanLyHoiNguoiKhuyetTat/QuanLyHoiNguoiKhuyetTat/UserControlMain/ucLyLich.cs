@@ -151,6 +151,7 @@ namespace DauThau.UserControlCategory
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
                     btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
+                    base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_LYLICH);
                 }
             }
         }

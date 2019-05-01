@@ -390,6 +390,12 @@
     <Compile Include="Forms\frmInformation.Designer.cs">
       <DependentUpon>frmInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChangePass.Designer.cs">
+      <DependentUpon>frmChangePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -526,6 +532,12 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOIVIEN.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_USERS.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_USERS_PERMISSION.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -1594,6 +1606,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInformation.resx">
       <DependentUpon>frmInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChangePass.resx">
+      <DependentUpon>frmChangePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

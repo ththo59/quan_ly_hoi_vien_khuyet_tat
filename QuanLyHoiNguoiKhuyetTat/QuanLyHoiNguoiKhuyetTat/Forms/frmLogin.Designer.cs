@@ -69,9 +69,9 @@
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.labelControl3.Location = new System.Drawing.Point(53, 26);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(325, 24);
+            this.labelControl3.Size = new System.Drawing.Size(311, 24);
             this.labelControl3.TabIndex = 19;
-            this.labelControl3.Text = "HỆ THỐNG QUẢN LÝ ĐẤU THẦU";
+            this.labelControl3.Text = "HỆ THỐNG QUẢN LÝ HỘI VIÊN";
             // 
             // btThoat
             // 
@@ -158,6 +158,7 @@
             this.linkChangeConnect.TabIndex = 22;
             this.linkChangeConnect.TabStop = true;
             this.linkChangeConnect.Text = "Thay đổi kết nối";
+            this.linkChangeConnect.Visible = false;
             this.linkChangeConnect.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkChangeConnect_LinkClicked);
             // 
             // frmLogin

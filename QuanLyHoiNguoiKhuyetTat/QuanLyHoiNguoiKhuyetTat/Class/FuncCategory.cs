@@ -16,6 +16,32 @@ namespace DauThau.Class
             public string NAME { get; set; }
         }
 
+        public static List<dynamicObject> loadFunctionName()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Lý Lịch"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Việc làm"
+            };
+            list.Add(item);
+            item = new dynamicObject()
+            {
+                ID = 3,
+                NAME = "Nâng cao nhận thức"
+            };
+
+            list.Add(item);
+            return list;
+        }
+
         public static List<dynamicObject> loadDMGioiTinh()
         {
             List<dynamicObject> list = new List<dynamicObject>();

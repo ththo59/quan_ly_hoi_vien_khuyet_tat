@@ -42,6 +42,33 @@ namespace DauThau.UserControlCategory
             btnControl.btnEventReport_Click += new System.EventHandler(this.btnControl_btnEventReport_Click);
         }
 
+        public void permissionAccessButton(ButtonsArray btnControl, Int32 enumFunc)
+        {
+            var query = (from p in context.QL_USERS_PERMISSION where p.PER_NAME == enumFunc && p.USER_ID == clsParameter._userId select p).FirstOrDefault();
+            if(query != null)
+            {
+                if (btnControl.btnAdd.Enabled)
+                {
+                    btnControl.btnAdd.Enabled = query.PER_ADD ?? false;
+                }
+                if (btnControl.btnModify.Enabled)
+                {
+                    btnControl.btnModify.Enabled = query.PER_MODIFY ?? false;
+                }
+                if (btnControl.btnDelete.Enabled)
+                {
+                    btnControl.btnDelete.Enabled = query.PER_DELETE ?? false;
+                }
+                if (btnControl.btnPrint.Enabled)
+                {
+                    btnControl.btnPrint.Enabled = query.PER_PRINT ?? false;
+                }
+                return;
+            }
+
+            btnControl.btnAdd.Enabled = btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = false;
+        }
+
         protected void btnControl_btnEventClose_Click(object sender, EventArgs e)
         {
             FormStatus = EnumFormStatus.CLOSE;

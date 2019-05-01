@@ -43,6 +43,17 @@ namespace DauThau.Class
 
     }
 
+    enum FunctionName
+    {
+        FUNC_LYLICH = 1,
+        FUNC_VIECLAM,
+        FUNC_NANGCAO_NHANTHUC,
+        FUNC_NANGCAO_NANGLUC,
+        FUNC_ANSINH_XAHOI,
+        FUNC_HOANHAP_XAHOI,
+        FUNC_HOATDONG_KHAC
+    }
+
     enum CategoryTapHuan
     {
         TH_TAPHUAN = 1,

@@ -16,9 +16,9 @@ using System.Linq;
 
 namespace DauThau.Forms
 {
-    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
+    public partial class frmChangePass : DevExpress.XtraEditors.XtraForm
     {
-        public frmLogin()
+        public frmChangePass()
         {
             InitializeComponent();
             
@@ -27,33 +27,36 @@ namespace DauThau.Forms
         private void btDangNhap_Click(object sender, EventArgs e)
         {
             _khoaQuyen = false;
-            if (txtUser.Text.Trim().Length == 0)
+            if (txtPassOld.Text.Trim().Length == 0)
             {
-                XtraMessageBox.Show("Tài khoản bạn chưa nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUser.Focus();
+                XtraMessageBox.Show("Vui lòng nhập mật khẩu cũ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassOld.Focus();
                 return;
             }
-            else if (txtPass.Text.Trim().Length == 0)
+            else if (txtPassNew.Text.Trim().Length == 0)
             {
-                XtraMessageBox.Show("Mật khẩu bạn chưa nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPass.Focus();
+                XtraMessageBox.Show("Vui lòng nhập mật khẩu mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassNew.Focus();
+                return;
+            }else if(txtPassConfirm.Text != txtPassNew.Text)
+            {
+                XtraMessageBox.Show("Vui lòng xác nhận lại mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassConfirm.Focus();
                 return;
             }
 
-            WaitDialogForm wait = new DevExpress.Utils.WaitDialogForm("Hệ thống đang kiểm tra tài khoản ...", "Vui lòng đợi trong giây lát");
-            if (!checkLogin())
+            QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
+            var query = (from p in context.QL_USERS where p.USER_NAME == clsParameter._username && p.USER_PASS == txtPassOld.Text select p).FirstOrDefault();
+            if(query == null)
             {
-                wait.Close();
-                if (_khoaQuyen)
-                    XtraMessageBox.Show("Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị hệ thống.!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else
-                    XtraMessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Mật khẩu cũ không chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassOld.Focus();
                 return;
             }
-            wait.Close();
-            this.Hide();
-            frmMain f = new frmMain();
-            f.Show();
+            query.USER_PASS = txtPassNew.Text;
+            context.SaveChanges();
+            XtraMessageBox.Show("Thay đổi mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void btThoat_Click(object sender, EventArgs e)
@@ -63,18 +66,17 @@ namespace DauThau.Forms
 
         bool checkLogin()
         {
-            if ((txtUser.Text == LibraryDev._username && txtPass.Text == LibraryDev._pass))
+            if ((txtPassOld.Text == LibraryDev._username && txtPassNew.Text == LibraryDev._pass))
             {
                 clsParameter._username = "ththo59";
                 return true;
             }
             QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
-            var query = (from p in context.QL_USERS where p.USER_NAME == txtUser.Text && p.USER_PASS == txtPass.Text select p).FirstOrDefault();
+            var query = (from p in context.QL_USERS where p.USER_NAME == txtPassOld.Text && p.USER_PASS == txtPassNew.Text select p).FirstOrDefault();
             if (query!= null)
             {
                 clsParameter._username = query.USER_NAME;
                 clsParameter._isAdmin = query.USER_ADMIN ?? false;
-                clsParameter._userId = query.USER_ID;
 
                 if (query.USER_LOCK??false)
                 {

@@ -60,6 +60,12 @@ namespace DauThau
                 }
                 items.ItemClick += new ItemClickEventHandler(this.event_ItemClick);
             }
+
+            if (!clsParameter._isAdmin)
+            {
+                btnUser.Visibility = BarItemVisibility.Never;
+            }
+            
         }
 
         private void event_ItemClick(object sender, ItemClickEventArgs e)
@@ -140,7 +146,7 @@ namespace DauThau
                         uc = new ucLyLich();
                         break;
 
-                    #region Tập huấn
+                    #region Nâng cao năng lực
 
                     case "btnTapHuan":
                         uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TH_TAPHUAN);
@@ -160,7 +166,7 @@ namespace DauThau
 
                     #endregion
 
-                    #region Đại hội - hội nghị
+                    #region Nâng cao nhận thức
 
                     case "btnDaiHoi":
                         uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.DAI_HOI);
@@ -352,9 +358,10 @@ namespace DauThau
                         rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
                         uc = new ucPrint(rpt);
                         break;
+
                      case "btnBMLyLich":
-                        rptBM_LyLichHoiVien rpt2 = new rptBM_LyLichHoiVien();
-                        uc = new ucPrint(rpt2);
+                        rptLyLichHoiVien rptHoiVien = new rptLyLichHoiVien();
+                        uc = new ucPrint(rptHoiVien);
                         break;
 
                      #region Báo cáo
@@ -363,6 +370,16 @@ namespace DauThau
                      break;
                     #endregion
 
+                    #region System
+
+                    case "btnUser":
+                        uc = new ucUser();
+                        break;
+                    case "btnThayDoiMatKhau":
+                        frmChangePass frm = new frmChangePass();
+                        frm.ShowDialog();
+                        return;
+                    #endregion
                     default:
                         clsMessage.MessageWarning("Chức năng chưa được cấu hình");
                         return;
@@ -417,8 +434,6 @@ namespace DauThau
             frmExcelsManager frm = new frmExcelsManager();
             frm.ShowDialog();
         }
-
-      
 
         private void btnHoatDongTimKiem_ItemClick(object sender, ItemClickEventArgs e)
         {

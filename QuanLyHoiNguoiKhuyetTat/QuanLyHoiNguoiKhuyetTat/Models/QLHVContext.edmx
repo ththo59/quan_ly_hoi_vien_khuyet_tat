@@ -438,6 +438,30 @@
           <Property Name="HV_NHUCAU" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THANHVIEN_HOI" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="QL_USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_FULLNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_PASS" Type="nvarchar" MaxLength="250" />
+          <Property Name="USER_LOCK" Type="bit" />
+          <Property Name="USER_ADMIN" Type="bit" />
+        </EntityType>
+        <EntityType Name="QL_USERS_PERMISSION">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="bigint" />
+          <Property Name="PER_NAME" Type="int" />
+          <Property Name="PER_VIEW" Type="bit" />
+          <Property Name="PER_ADD" Type="bit" />
+          <Property Name="PER_MODIFY" Type="bit" />
+          <Property Name="PER_DELETE" Type="bit" />
+          <Property Name="PER_PRINT" Type="bit" />
+        </EntityType>
         <Association Name="FK_DM_HUYEN_DM_TINH">
           <End Role="DM_TINH" Type="Self.DM_TINH" Multiplicity="0..1" />
           <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="*" />
@@ -486,6 +510,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QL_USERS_PERMISSION_QL_USERS">
+          <End Role="QL_USERS" Type="Self.QL_USERS" Multiplicity="0..1" />
+          <End Role="QL_USERS_PERMISSION" Type="Self.QL_USERS_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_USERS">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="QL_USERS_PERMISSION">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QL_HOIVIEN_KTModelStoreContainer">
           <EntitySet Name="DM_CHAMSOC_BANTHAN" EntityType="Self.DM_CHAMSOC_BANTHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_CHUCVU_HOI" EntityType="Self.DM_CHUCVU_HOI" Schema="dbo" store:Type="Tables" />
@@ -518,6 +554,8 @@
           <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="Self.QL_HOATDONG_VAYVON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_VIECLAM" EntityType="Self.QL_HOATDONG_VIECLAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN" EntityType="Self.QL_HOIVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_USERS" EntityType="Self.QL_USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_USERS_PERMISSION" EntityType="Self.QL_USERS_PERMISSION" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
             <End Role="DM_TINH" EntitySet="DM_TINH" />
             <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
@@ -533,6 +571,10 @@
           <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="Self.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
             <End Role="QL_HOATDONG_VIECLAM" EntitySet="QL_HOATDONG_VIECLAM" />
             <End Role="QL_HOATDONG_VIECLAM1" EntitySet="QL_HOATDONG_VIECLAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_USERS_PERMISSION_QL_USERS" Association="Self.FK_QL_USERS_PERMISSION_QL_USERS">
+            <End Role="QL_USERS" EntitySet="QL_USERS" />
+            <End Role="QL_USERS_PERMISSION" EntitySet="QL_USERS_PERMISSION" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -648,6 +690,12 @@
           <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
             <End Role="QL_HOATDONG_VIECLAM" EntitySet="QL_HOATDONG_VIECLAM" />
             <End Role="QL_HOATDONG_VIECLAM1" EntitySet="QL_HOATDONG_VIECLAM" />
+          </AssociationSet>
+          <EntitySet Name="QL_USERS" EntityType="QL_HOIVIEN_KTModel.QL_USERS" />
+          <EntitySet Name="QL_USERS_PERMISSION" EntityType="QL_HOIVIEN_KTModel.QL_USERS_PERMISSION" />
+          <AssociationSet Name="FK_QL_USERS_PERMISSION_QL_USERS" Association="QL_HOIVIEN_KTModel.FK_QL_USERS_PERMISSION_QL_USERS">
+            <End Role="QL_USERS" EntitySet="QL_USERS" />
+            <End Role="QL_USERS_PERMISSION" EntitySet="QL_USERS_PERMISSION" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
@@ -1074,6 +1122,44 @@
             </Principal>
             <Dependent Role="QL_HOATDONG_VIECLAM1">
               <PropertyRef Name="VL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_PASS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="USER_LOCK" Type="Boolean" />
+          <Property Name="USER_ADMIN" Type="Boolean" />
+          <NavigationProperty Name="QL_USERS_PERMISSION" Relationship="QL_HOIVIEN_KTModel.FK_QL_USERS_PERMISSION_QL_USERS" FromRole="QL_USERS" ToRole="QL_USERS_PERMISSION" />
+        </EntityType>
+        <EntityType Name="QL_USERS_PERMISSION">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int64" />
+          <Property Name="PER_NAME" Type="Int32" />
+          <Property Name="PER_VIEW" Type="Boolean" />
+          <Property Name="PER_ADD" Type="Boolean" />
+          <Property Name="PER_MODIFY" Type="Boolean" />
+          <Property Name="PER_DELETE" Type="Boolean" />
+          <Property Name="PER_PRINT" Type="Boolean" />
+          <NavigationProperty Name="QL_USERS" Relationship="QL_HOIVIEN_KTModel.FK_QL_USERS_PERMISSION_QL_USERS" FromRole="QL_USERS_PERMISSION" ToRole="QL_USERS" />
+        </EntityType>
+        <Association Name="FK_QL_USERS_PERMISSION_QL_USERS">
+          <End Type="QL_HOIVIEN_KTModel.QL_USERS" Role="QL_USERS" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_USERS_PERMISSION" Role="QL_USERS_PERMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_USERS">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="QL_USERS_PERMISSION">
+              <PropertyRef Name="USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1544,6 +1630,32 @@
                 <ScalarProperty Name="VL_TEN" ColumnName="VL_TEN" />
                 <ScalarProperty Name="VL_LOAI_ID" ColumnName="VL_LOAI_ID" />
                 <ScalarProperty Name="VL_ID" ColumnName="VL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_USERS">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_USERS">
+              <MappingFragment StoreEntitySet="QL_USERS">
+                <ScalarProperty Name="USER_ADMIN" ColumnName="USER_ADMIN" />
+                <ScalarProperty Name="USER_LOCK" ColumnName="USER_LOCK" />
+                <ScalarProperty Name="USER_PASS" ColumnName="USER_PASS" />
+                <ScalarProperty Name="USER_FULLNAME" ColumnName="USER_FULLNAME" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_USERS_PERMISSION">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_USERS_PERMISSION">
+              <MappingFragment StoreEntitySet="QL_USERS_PERMISSION">
+                <ScalarProperty Name="PER_PRINT" ColumnName="PER_PRINT" />
+                <ScalarProperty Name="PER_DELETE" ColumnName="PER_DELETE" />
+                <ScalarProperty Name="PER_MODIFY" ColumnName="PER_MODIFY" />
+                <ScalarProperty Name="PER_ADD" ColumnName="PER_ADD" />
+                <ScalarProperty Name="PER_VIEW" ColumnName="PER_VIEW" />
+                <ScalarProperty Name="PER_NAME" ColumnName="PER_NAME" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
