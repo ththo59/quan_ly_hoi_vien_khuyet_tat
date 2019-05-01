@@ -594,7 +594,7 @@
             // xrTableCell35
             // 
             this.xrTableCell35.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HoatDongASXH.ASXH_TONGSO_TIEN")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HoatDongKhac.KHAC_TONGSO_TIEN")});
             this.xrTableCell35.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold);
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 4, 0, 0, 100F);

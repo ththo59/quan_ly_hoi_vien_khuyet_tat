@@ -129,35 +129,35 @@ namespace DauThau.Class
                         var listItem = (from p in context.DM_NOI_O_NHA orderby p.NO_NHA_STT select p).ToArray();
                         foreach (DM_NOI_O_NHA item in listItem)
                         {
-                            chkList.Items.Add(item.NO_NHA_ID, item.NO_NHA_TEN);
+                            chkList.Items.Add(item.NO_NHA_TEN, item.NO_NHA_TEN);
                         }
                         break;
                     case CategoryEntitiesTable.DM_NOI_O_SONG_VOI:
                         var listItem2 = (from p in context.DM_NOI_O_SONG_VOI orderby p.NOSV_STT select p).ToArray();
                         foreach (DM_NOI_O_SONG_VOI item in listItem2)
                         {
-                            chkList.Items.Add(item.NOSV_ID, item.NOSV_TEN);
+                            chkList.Items.Add(item.NOSV_TEN, item.NOSV_TEN);
                         }
                         break;
                     case CategoryEntitiesTable.DM_CHAMSOC_BANTHAN:
                         var listItem3 = (from p in context.DM_CHAMSOC_BANTHAN orderby p.CSBT_STT select p).ToArray();
                         foreach (DM_CHAMSOC_BANTHAN item in listItem3)
                         {
-                            chkList.Items.Add(item.CSBT_ID, item.CSBT_TEN);
+                            chkList.Items.Add(item.CSBT_TEN, item.CSBT_TEN);
                         }
                         break;
                     case CategoryEntitiesTable.DM_NHUCAU:
                         var listItem4 = (from p in context.DM_NHUCAU orderby p.NC_STT select p).ToArray();
                         foreach (DM_NHUCAU item in listItem4)
                         {
-                            chkList.Items.Add(item.NC_ID, item.NC_TEN);
+                            chkList.Items.Add(item.NC_TEN, item.NC_TEN);
                         }
                         break;
                     case CategoryEntitiesTable.DM_THANHVIEN_HOI:
                         var listItem5 = (from p in context.DM_THANHVIEN_HOI orderby p.TVH_STT select p).ToArray();
                         foreach (DM_THANHVIEN_HOI item in listItem5)
                         {
-                            chkList.Items.Add(item.TVH_ID, item.TVH_TEN);
+                            chkList.Items.Add(item.TVH_TEN, item.TVH_TEN);
                         }
                         break;
                     default:
