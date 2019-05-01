@@ -51,7 +51,8 @@ namespace DauThau.Class
         FUNC_NANGCAO_NANGLUC,
         FUNC_ANSINH_XAHOI,
         FUNC_HOANHAP_XAHOI,
-        FUNC_HOATDONG_KHAC
+        FUNC_HOATDONG_KHAC,
+        FUNC_BC_KHAC
     }
 
     enum CategoryTapHuan

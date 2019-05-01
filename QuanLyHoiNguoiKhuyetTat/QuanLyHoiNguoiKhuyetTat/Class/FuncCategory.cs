@@ -39,6 +39,35 @@ namespace DauThau.Class
             };
 
             list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 4,
+                NAME = "Nâng cao năng lực"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 5,
+                NAME = "An sinh xã hội"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 6,
+                NAME = "Hòa nhập xã hội"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 7,
+                NAME = "Hoạt động khác"
+            };
+            list.Add(item);
+
             return list;
         }
 
