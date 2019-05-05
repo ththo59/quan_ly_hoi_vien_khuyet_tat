@@ -243,6 +243,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsHoatDongHNXH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\dsHoatDongHoiChoTrienLam.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoatDongHoiChoTrienLam.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\dsHoatDongHoiThao.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -516,6 +521,9 @@
     <Compile Include="Models\QL_HOATDONG_HNXH.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_HOICHO_TRIENLAM.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_HOITHAO.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -547,6 +555,12 @@
     </Compile>
     <Compile Include="Reports\rptBCHoatDongKhac.designer.cs">
       <DependentUpon>rptBCHoatDongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongHoiChoTrienLam.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBCHoatDongHoiChoTrienLam.designer.cs">
+      <DependentUpon>rptBCHoatDongHoiChoTrienLam.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBCTongKetHoatDong_Khac.cs">
       <SubType>Component</SubType>
@@ -1196,6 +1210,12 @@
     <Compile Include="UserControlMain\ucHoatDongDayNghe.Designer.cs">
       <DependentUpon>ucHoatDongDayNghe.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMain\ucHoatDongHoiChoTrienLam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongHoiChoTrienLam.Designer.cs">
+      <DependentUpon>ucHoatDongHoiChoTrienLam.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucHoatDongVayVon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1625,6 +1645,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -1640,6 +1661,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCHoatDongKhac.resx">
       <DependentUpon>rptBCHoatDongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBCHoatDongHoiChoTrienLam.resx">
+      <DependentUpon>rptBCHoatDongHoiChoTrienLam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBCTongKetHoatDong_Khac.resx">
       <DependentUpon>rptBCTongKetHoatDong_Khac.cs</DependentUpon>
@@ -1962,6 +1986,9 @@
     <EmbeddedResource Include="UserControlMain\ucHoatDongDayNghe.resx">
       <DependentUpon>ucHoatDongDayNghe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongHoiChoTrienLam.resx">
+      <DependentUpon>ucHoatDongHoiChoTrienLam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucHoatDongVayVon.resx">
       <DependentUpon>ucHoatDongVayVon.cs</DependentUpon>
     </EmbeddedResource>
@@ -2269,6 +2296,17 @@
     </None>
     <None Include="DataSets\dsHoatDongHNXH.xss">
       <DependentUpon>dsHoatDongHNXH.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongHoiChoTrienLam.xsc">
+      <DependentUpon>dsHoatDongHoiChoTrienLam.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\dsHoatDongHoiChoTrienLam.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoatDongHoiChoTrienLam.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\dsHoatDongHoiChoTrienLam.xss">
+      <DependentUpon>dsHoatDongHoiChoTrienLam.xsd</DependentUpon>
     </None>
     <None Include="DataSets\dsHoatDongHoiThao.xsc">
       <DependentUpon>dsHoatDongHoiThao.xsd</DependentUpon>

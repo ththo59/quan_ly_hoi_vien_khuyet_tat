@@ -14,6 +14,7 @@ namespace DauThau.Class
         {
             public Int64 ID { get; set; }
             public string NAME { get; set; }
+            public int STT { get; set; }
         }
 
         public static List<dynamicObject> loadFunctionName()
@@ -67,7 +68,6 @@ namespace DauThau.Class
                 NAME = "Hoạt động khác"
             };
             list.Add(item);
-
             return list;
         }
 
@@ -103,35 +103,40 @@ namespace DauThau.Class
             var item = new dynamicObject()
             {
                 ID = 1,
-                NAME = "Tập huấn"
+                NAME = "Tập huấn",
+                STT = 1
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 2,
-                NAME = "Giáo dục"
+                NAME = "Giáo dục",
+                STT = 2
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 3,
-                NAME = "Hướng dẫn thực tập"
+                NAME = "Hướng dẫn thực tập",
+                STT = 3
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 4,
-                NAME = "Vận động chính sách"
+                NAME = "Vận động chính sách",
+                STT = 4
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 5,
-                NAME = "Truyền thông và trợ giúp pháp lý"
+                NAME = "Truyền thông và trợ giúp pháp lý",
+                STT = 5
             };
             list.Add(item);
 
@@ -144,56 +149,64 @@ namespace DauThau.Class
             var item = new dynamicObject()
             {
                 ID = 1,
-                NAME = "Đại hội"
+                NAME = "Đại hội",
+                STT = 1
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 2,
-                NAME = "Hội nghị"
+                NAME = "Hội nghị",
+                STT = 2
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 3,
-                NAME = "Hội thảo"
+                NAME = "Hội thảo",
+                STT = 3
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 4,
-                NAME = "Buổi lễ"
+                NAME = "Buổi lễ",
+                STT = 4
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 5,
-                NAME = "Cuộc họp"
+                NAME = "Cuộc họp",
+                STT = 5
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 6,
-                NAME = "Truyền thông đại chúng"
+                NAME = "Truyền thông đại chúng",
+                STT = 6
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 7,
-                NAME = "Tổ chức sự kiện"
+                NAME = "Tổ chức sự kiện",
+                STT = 7
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 8,
-                NAME = "Tổ chức văn nghệ"
+                NAME = "Tổ chức văn nghệ",
+                STT = 8
             };
             list.Add(item);
 
@@ -206,70 +219,80 @@ namespace DauThau.Class
             var item = new dynamicObject()
             {
                 ID = 1,
-                NAME = "Giải phẫu chỉnh hình"
+                NAME = "Giải phẫu chỉnh hình",
+                STT = 1
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 2,
-                NAME = "Tặng quà"
+                NAME = "Tặng quà",
+                STT = 2
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 3,
-                NAME = "Tặng dụng cụ trợ giúp (xe lăn, xe lắc, nạng, nẹp)"
+                NAME = "Tặng dụng cụ trợ giúp (xe lăn, xe lắc, nạng, nẹp)",
+                STT = 3
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 4,
-                NAME = "Học bổng"
+                NAME = "Học bổng",
+                STT = 4
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 5,
-                NAME = "Bảo hiểm y tế"
+                NAME = "Bảo hiểm y tế",
+                STT = 5
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 6,
-                NAME = "Hỗ trợ Hội viên gặp khó khăn và người có bệnh hiểm nghèo"
+                NAME = "Hỗ trợ Hội viên gặp khó khăn và người có bệnh hiểm nghèo",
+                STT = 6
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 7,
-                NAME = "Thăm viếng hữu sự"
+                NAME = "Thăm viếng hữu sự",
+                STT = 7
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 8,
-                NAME = "Đám cưới"
+                NAME = "Đám cưới",
+                STT = 8
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 9,
-                NAME = "Cất nhà"
+                NAME = "Cất nhà",
+                STT = 9
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 10,
-                NAME = "Sửa nhà"
+                NAME = "Sửa nhà",
+                STT = 10
             };
             list.Add(item);
 
@@ -282,49 +305,56 @@ namespace DauThau.Class
             var item = new dynamicObject()
             {
                 ID = 1,
-                NAME = "Giao lưu"
+                NAME = "Giao lưu",
+                STT = 1
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 2,
-                NAME = "Liên hoan"
+                NAME = "Liên hoan",
+                STT = 2
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 3,
-                NAME = "Đón khách"
+                NAME = "Đón khách",
+                STT = 3
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 4,
-                NAME = "Tham quan du lịch"
+                NAME = "Tham quan du lịch",
+                STT = 4
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 5,
-                NAME = "Văn nghệ"
+                NAME = "Văn nghệ",
+                STT = 5
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 6,
-                NAME = "Thể thao"
+                NAME = "Thể thao",
+                STT = 6
             };
             list.Add(item);
 
             item = new dynamicObject()
             {
                 ID = 7,
-                NAME = "Lao động công ích"
+                NAME = "Lao động công ích",
+                STT = 7
             };
             list.Add(item);
 
@@ -342,12 +372,12 @@ namespace DauThau.Class
             };
             list.Add(item);
 
-            item = new dynamicObject()
-            {
-                ID = 2,
-                NAME = "Giải quyết việc làm"
-            };
-            list.Add(item);
+            //item = new dynamicObject()
+            //{
+            //    ID = 2,
+            //    NAME = "Giải quyết việc làm"
+            //};
+            //list.Add(item);
             return list;
         }
 

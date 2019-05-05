@@ -82,6 +82,7 @@ namespace DauThau.UserControlCategory
                 var dm = listDMHoiThao.Where(p => p.ID == row.HNXH_LOAI_ID).First();
                 if(dm != null)
                 {
+                    item.HD_LOAI_STT = dm.STT;
                     item.HD_LOAI = dm.NAME;
                 }
                 item.HD_NOIDUNG = row.HNXH_NOIDUNG;

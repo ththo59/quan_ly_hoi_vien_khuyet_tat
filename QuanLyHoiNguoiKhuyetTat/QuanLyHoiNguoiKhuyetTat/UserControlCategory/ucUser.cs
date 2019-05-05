@@ -237,6 +237,7 @@ namespace DauThau.UserControlCategory
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
                 {
+                    gvChucNang.OptionsBehavior.Editable = true;
                     _statusAllControl(true);
                     gcChucNang.Enabled = true;
                 }
@@ -261,7 +262,7 @@ namespace DauThau.UserControlCategory
                     _statusAllControl(false);
                     dxErrorValidate.ClearErrors();
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
-
+                    gvChucNang.OptionsBehavior.Editable = false;
                 }
             }
         }

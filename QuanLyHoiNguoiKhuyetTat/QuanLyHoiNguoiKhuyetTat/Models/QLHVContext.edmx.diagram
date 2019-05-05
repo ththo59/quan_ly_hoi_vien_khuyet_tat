@@ -43,6 +43,7 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_USERS" Width="1.5" PointX="16.375" PointY="12.125" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_USERS_PERMISSION" Width="1.5" PointX="18.625" PointY="12" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_USERS_PERMISSION_QL_USERS" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM" Width="1.5" PointX="14.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

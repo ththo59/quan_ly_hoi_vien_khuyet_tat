@@ -79,6 +79,7 @@ namespace DauThau.UserControlCategory
                 item.HD_SONGUOI_THAMGIA = row.DN_SOLUONG_NU??0;
                 item.HD_SONGUOI_NU_TONGSO = string.Format("{0}/{1}", row.DN_SOLUONG_NU, row.DN_SOLUONG);
                 item.HD_THOIGIAN = FunctionHelper.formatFromDateToDate(row.DN_THOIGIAN_BATDAU, row.DN_THOIGIAN_KETTHUC);
+                item.HD_LOAI_STT = 1;
                 item.HD_LOAI = "Việc làm";
                 item.HD_NOIDUNG = row.DN_NOIDUNG;
                 lists.Add(item);
@@ -103,9 +104,10 @@ namespace DauThau.UserControlCategory
                 item.HD_SONGUOI_THAMGIA = row.VL_SOLUONG_NU ?? 0;
                 item.HD_SONGUOI_NU_TONGSO = string.Format("{0}/{1}", row.VL_SOLUONG_NU, row.VL_SOLUONG);
                 item.HD_THOIGIAN = FunctionHelper.formatFromDateToDate(row.VL_THOIGIAN_BATDAU, row.VL_THOIGIAN_KETTHUC);
-                var dm = listDMViecLam.Where(p => p.ID == row.VL_LOAI_ID).First();
+                var dm = listDMViecLam.Where(p => p.ID == row.VL_LOAI_ID).FirstOrDefault();
                 if (dm != null)
                 {
+                    item.HD_LOAI_STT = 2;
                     item.HD_LOAI = dm.NAME;
                 }
                 item.HD_NOIDUNG = row.VL_NOIDUNG;
@@ -130,8 +132,33 @@ namespace DauThau.UserControlCategory
                 item.HD_SONGUOI_THAMGIA = row.VV_SOLUONG_NU ?? 0;
                 item.HD_SONGUOI_NU_TONGSO = string.Format("{0}/{1}", row.VV_SOLUONG_NU, row.VV_SOLUONG);
                 item.HD_THOIGIAN = FunctionHelper.formatFromDateToDate(row.VV_THOIGIAN_BATDAU, row.VV_THOIGIAN_KETTHUC);
+                item.HD_LOAI_STT = 3;
                 item.HD_LOAI = "Vay vốn nhỏ tự mưu sinh";
                 item.HD_NOIDUNG = row.VV_NOIDUNG;
+                lists.Add(item);
+            }
+
+            //hội trợ triễn lãm
+            context.QL_HOATDONG_HOICHO_TRIENLAM.Load();
+            var dataHoiCho = (from p in context.QL_HOATDONG_HOICHO_TRIENLAM
+                              where deTuNgay.DateTime.Date <= p.HC_THOIGIAN_BATDAU
+                                       && p.HC_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                              select p).ToList();
+
+            foreach (QL_HOATDONG_HOICHO_TRIENLAM row in dataHoiCho)
+            {
+                clsTongKetHoatDong item = new clsTongKetHoatDong();
+                item.HD_ID = row.HC_ID;
+                item.HD_TEN = row.HC_TEN;
+                item.HD_THOIGIAN_BATDAU = row.HC_THOIGIAN_BATDAU;
+                item.HD_THOIGIAN_KETTHUC = row.HC_THOIGIAN_KETTHUC;
+                item.HD_DIADIEM = row.HC_DIADIEM;
+                item.HD_SONGUOI_THAMGIA = row.HC_SOLUONG_NU ?? 0;
+                item.HD_SONGUOI_NU_TONGSO = string.Format("{0}/{1}", row.HC_SOLUONG_NU, row.HC_SOLUONG);
+                item.HD_THOIGIAN = FunctionHelper.formatFromDateToDate(row.HC_THOIGIAN_BATDAU, row.HC_THOIGIAN_KETTHUC);
+                item.HD_LOAI_STT = 4;
+                item.HD_LOAI = "Hội chợ triễn lãm, thi tay nghề";
+                item.HD_NOIDUNG = row.HC_NOIDUNG;
                 lists.Add(item);
             }
 

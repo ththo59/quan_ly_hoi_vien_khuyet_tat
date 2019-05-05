@@ -268,6 +268,9 @@ namespace DauThau
                     case "btnVayVon":
                         uc = new ucHoatDongVayVon();
                         break;
+                    case "btnHoiChoTrienLam":
+                        uc = new ucHoatDongHoiChoTrienLam();
+                        break;
                     #endregion
 
                     #region Báo cáo hội viên
@@ -345,9 +348,11 @@ namespace DauThau
                     case "btnHoatDongKhac":
                         uc = new ucHoatDongKhac();
                         break;
+
                     case "btnBCHoatDongKhac":
                         uc = new ucBCHoatDongKhac();
                         break; 
+
                     case "btnSkin":
                         uc = new ucSkin();
                         break;

@@ -88,7 +88,10 @@ namespace DauThau.Forms
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            #if Debug
+            txtUser.Text = "admin";
+            txtPass.Text = "admin";
+            #endif
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)

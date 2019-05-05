@@ -249,6 +249,26 @@
           <Property Name="HNXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="HNXH_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_HOICHO_TRIENLAM">
+          <Key>
+            <PropertyRef Name="HC_ID" />
+          </Key>
+          <Property Name="HC_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HC_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HC_THOIGIAN_BATDAU" Type="datetime" />
+          <Property Name="HC_THOIGIAN_KETTHUC" Type="datetime" />
+          <Property Name="HC_TONGSO_NGAY" Type="int" />
+          <Property Name="HC_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="HC_SOLUONG" Type="int" />
+          <Property Name="HC_SOLUONG_NU" Type="int" />
+          <Property Name="HC_TAITRO_DONVI" Type="nvarchar" MaxLength="250" />
+          <Property Name="HC_TAITRO_SOTEN" Type="int" />
+          <Property Name="HC_SOTIEN_SAU_BANHANG" Type="int" />
+          <Property Name="HC_DOITUONG_TEN" Type="nvarchar(max)" />
+          <Property Name="HC_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="HC_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
+          <Property Name="HC_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_HOITHAO">
           <Key>
             <PropertyRef Name="HT_ID" />
@@ -548,6 +568,7 @@
           <EntitySet Name="QL_HOATDONG_ASXH" EntityType="Self.QL_HOATDONG_ASXH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="Self.QL_HOATDONG_DAYNGHE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HNXH" EntityType="Self.QL_HOATDONG_HNXH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_HOICHO_TRIENLAM" EntityType="Self.QL_HOATDONG_HOICHO_TRIENLAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="Self.QL_HOATDONG_HOITHAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_KHAC" EntityType="Self.QL_HOATDONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="Self.QL_HOATDONG_TAPHUAN" Schema="dbo" store:Type="Tables" />
@@ -697,6 +718,7 @@
             <End Role="QL_USERS" EntitySet="QL_USERS" />
             <End Role="QL_USERS_PERMISSION" EntitySet="QL_USERS_PERMISSION" />
           </AssociationSet>
+          <EntitySet Name="QL_HOATDONG_HOICHO_TRIENLAM" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1163,6 +1185,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="QL_HOATDONG_HOICHO_TRIENLAM">
+          <Key>
+            <PropertyRef Name="HC_ID" />
+          </Key>
+          <Property Name="HC_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HC_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HC_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="HC_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="HC_TONGSO_NGAY" Type="Int32" />
+          <Property Name="HC_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HC_SOLUONG" Type="Int32" />
+          <Property Name="HC_SOLUONG_NU" Type="Int32" />
+          <Property Name="HC_TAITRO_DONVI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HC_TAITRO_SOTEN" Type="Int32" />
+          <Property Name="HC_SOTIEN_SAU_BANHANG" Type="Int32" />
+          <Property Name="HC_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HC_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HC_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1656,6 +1698,27 @@
                 <ScalarProperty Name="PER_NAME" ColumnName="PER_NAME" />
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_HOICHO_TRIENLAM">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_HOICHO_TRIENLAM">
+                <ScalarProperty Name="HC_NOIDUNG" ColumnName="HC_NOIDUNG" />
+                <ScalarProperty Name="HC_DOITUONG_KHAC" ColumnName="HC_DOITUONG_KHAC" />
+                <ScalarProperty Name="HC_DOITUONG_ID" ColumnName="HC_DOITUONG_ID" />
+                <ScalarProperty Name="HC_DOITUONG_TEN" ColumnName="HC_DOITUONG_TEN" />
+                <ScalarProperty Name="HC_SOTIEN_SAU_BANHANG" ColumnName="HC_SOTIEN_SAU_BANHANG" />
+                <ScalarProperty Name="HC_TAITRO_SOTEN" ColumnName="HC_TAITRO_SOTEN" />
+                <ScalarProperty Name="HC_TAITRO_DONVI" ColumnName="HC_TAITRO_DONVI" />
+                <ScalarProperty Name="HC_SOLUONG_NU" ColumnName="HC_SOLUONG_NU" />
+                <ScalarProperty Name="HC_SOLUONG" ColumnName="HC_SOLUONG" />
+                <ScalarProperty Name="HC_DIADIEM" ColumnName="HC_DIADIEM" />
+                <ScalarProperty Name="HC_TONGSO_NGAY" ColumnName="HC_TONGSO_NGAY" />
+                <ScalarProperty Name="HC_THOIGIAN_KETTHUC" ColumnName="HC_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="HC_THOIGIAN_BATDAU" ColumnName="HC_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="HC_TEN" ColumnName="HC_TEN" />
+                <ScalarProperty Name="HC_ID" ColumnName="HC_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

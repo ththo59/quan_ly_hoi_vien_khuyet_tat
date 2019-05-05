@@ -97,6 +97,19 @@ namespace DauThau.Class
         public string VV_NOIDUNG { get; set; }
     }
 
+    public class clsHoatDongHoiChoTrienLam
+    {
+        public string HC_TEN { get; set; }
+        public string HC_THOIGIAN { get; set; }
+        public string HC_DIADIEM { get; set; }
+        public string HC_NU_TONGSO { get; set; }
+        public string HC_TAITRO_DONVI { get; set; }
+        public int? HC_TAITRO_SOTEN { get; set; }
+        public int? HC_SOTIEN_SAU_BANHANG { get; set; }
+        public string HC_DOITUONG_TEN { get; set; }
+        public string HC_NOIDUNG { get; set; }
+    }
+
     public class clsTongKetHoatDong
     {
         public Int64 HD_ID { get; set; }
@@ -105,6 +118,7 @@ namespace DauThau.Class
         public DateTime? HD_THOIGIAN_BATDAU { get; set; }
         public DateTime? HD_THOIGIAN_KETTHUC { get; set; }
         public string HD_GHICHU { get; set; }
+        public int HD_LOAI_STT { get; set; }
         public string HD_LOAI { get; set; }
         public string HD_NOIDUNG { get; set; }
         public Int64 HD_SONGUOI_THAMGIA { get; set; }

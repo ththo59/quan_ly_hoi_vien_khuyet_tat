@@ -109,8 +109,8 @@
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell32 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell31 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.dsHoatDongTongKet1 = new DauThau.DataSets.dsHoatDongTongKet();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.dsHoatDongTongKet1 = new DauThau.DataSets.dsHoatDongTongKet();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -673,6 +673,7 @@
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable5});
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("HD_LOAI_STT", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending),
             new DevExpress.XtraReports.UI.GroupField("HD_LOAI", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader1.HeightF = 25F;
             this.GroupHeader1.Name = "GroupHeader1";
@@ -776,11 +777,6 @@
             this.xrTableCell31.Summary = xrSummary3;
             this.xrTableCell31.Weight = 1.3573615561848531D;
             // 
-            // dsHoatDongTongKet1
-            // 
-            this.dsHoatDongTongKet1.DataSetName = "dsHoatDongTongKet";
-            this.dsHoatDongTongKet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // xrTableCell14
             // 
             this.xrTableCell14.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
@@ -789,6 +785,11 @@
             this.xrTableCell14.StylePriority.UseBorders = false;
             this.xrTableCell14.StylePriority.UseFont = false;
             this.xrTableCell14.Weight = 6.7761970426549105D;
+            // 
+            // dsHoatDongTongKet1
+            // 
+            this.dsHoatDongTongKet1.DataSetName = "dsHoatDongTongKet";
+            this.dsHoatDongTongKet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rptBCTongKetHoatDong_ViecLam
             // 
