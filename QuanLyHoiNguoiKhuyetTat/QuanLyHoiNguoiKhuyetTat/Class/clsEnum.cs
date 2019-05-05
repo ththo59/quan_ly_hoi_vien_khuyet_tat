@@ -74,7 +74,7 @@ namespace DauThau.Class
         TRUYEN_THONG_DAI_CHUNG,
         TO_CHUC_SU_KIEN,
         TO_CHUC_VAN_NGHE,
-
+        TO_CHUC_THE_THAO
     }
 
     enum CategoryASXH

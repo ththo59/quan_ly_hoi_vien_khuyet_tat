@@ -129,6 +129,7 @@ namespace DauThau.UserControlCategory
             switch (enumLoai)
             {
                 case CategoryHoiThao.TO_CHUC_VAN_NGHE:
+                case CategoryHoiThao.TO_CHUC_THE_THAO:
                     layDonViThucHien.Text = "Đơn vị tài trợ";
                     break;
                 case CategoryHoiThao.TO_CHUC_SU_KIEN:

@@ -77,8 +77,8 @@ namespace DauThau.UserControlCategory
 
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
 
-            deNgaySinhCon1.Ex_FormatCustomDateEdit();
-            deNgaySinhCon2.Ex_FormatCustomDateEdit();
+            //deNgaySinhCon1_Ngay.Ex_FormatCustomDateEdit();
+            //deNgaySinhCon2_Ngay.Ex_FormatCustomDateEdit();
 
             //Ngay sinh
             deNgaySinh_Nam.Properties.MaxValue = DateTime.Now.Year;
@@ -102,6 +102,18 @@ namespace DauThau.UserControlCategory
             deDCHT_ThoiGianNhan_Thang.Properties.MinValue = 1;
             deDCHT_ThoiGianNhan_Ngay.Properties.MaxValue = 31;
             deDCHT_ThoiGianNhan_Ngay.Properties.MinValue = 1;
+
+            deNgaySinhCon1_Nam.Properties.MaxValue = DateTime.Now.Year;
+            deNgaySinhCon1_Thang.Properties.MaxValue = 12;
+            deNgaySinhCon1_Thang.Properties.MinValue = 1;
+            deNgaySinhCon1_Ngay.Properties.MaxValue = 31;
+            deNgaySinhCon1_Ngay.Properties.MinValue = 1;
+
+            deNgaySinhCon2_Nam.Properties.MaxValue = DateTime.Now.Year;
+            deNgaySinhCon2_Thang.Properties.MaxValue = 12;
+            deNgaySinhCon2_Thang.Properties.MinValue = 1;
+            deNgaySinhCon2_Ngay.Properties.MaxValue = 31;
+            deNgaySinhCon2_Ngay.Properties.MinValue = 1;
 
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
@@ -356,12 +368,24 @@ namespace DauThau.UserControlCategory
                 txtVoChong.Text = item.HV_VOCHONG;
                 seSoCon.EditValue = item.HV_SOCON;
                 txtCon1.Text = item.HV_CON1_TEN;
-                deNgaySinhCon1.EditValue = item.HV_CON1_NGAYSINH;
+                if (item.HV_CON1_NGAYSINH.HasValue)
+                {
+                    deNgaySinhCon1_Ngay.EditValue = item.HV_CON1_NGAYSINH.Value.Day;
+                    deNgaySinhCon1_Thang.EditValue = item.HV_CON1_NGAYSINH.Value.Month;
+                    deNgaySinhCon1_Nam.EditValue = item.HV_CON1_NGAYSINH.Value.Year;
+                }
+
                 lueGioiTinhCon1.EditValue = item.HV_CON1_GIOITINH;
                 txtHocTruong1.EditValue = item.HV_CON1_HOCTRUONG;
 
                 txtCon2.Text = item.HV_CON2_TEN;
-                deNgaySinhCon2.EditValue = item.HV_CON2_NGAYSINH;
+                if (item.HV_CON2_NGAYSINH.HasValue)
+                {
+                    deNgaySinhCon2_Ngay.EditValue = item.HV_CON2_NGAYSINH.Value.Day;
+                    deNgaySinhCon2_Thang.EditValue = item.HV_CON2_NGAYSINH.Value.Month;
+                    deNgaySinhCon2_Nam.EditValue = item.HV_CON2_NGAYSINH.Value.Year;
+                }
+
                 lueGioiTinhCon2.EditValue = item.HV_CON2_GIOITINH;
                 txtHocTruong2.EditValue = item.HV_CON2_HOCTRUONG;
 
@@ -540,12 +564,18 @@ namespace DauThau.UserControlCategory
             item.HV_VOCHONG = txtVoChong.Text;
             item.HV_SOCON = seSoCon.Ex_EditValueToInt();
             item.HV_CON1_TEN = txtCon1.Text;
-            item.HV_CON1_NGAYSINH = deNgaySinhCon1.Ex_EditValueToDateTime();
+            if (deNgaySinhCon1_Nam.EditValue != null)
+            {
+                item.HV_CON1_NGAYSINH = new DateTime(deNgaySinhCon1_Nam.Ex_EditValueToInt() ?? 1, deNgaySinhCon1_Thang.Ex_EditValueToInt() ?? 1, deNgaySinhCon1_Ngay.Ex_EditValueToInt() ?? 0);
+            }
             item.HV_CON1_GIOITINH = lueGioiTinhCon1.EditValue + string.Empty;
             item.HV_CON1_HOCTRUONG = txtHocTruong1.Text;
 
             item.HV_CON2_TEN = txtCon2.Text;
-            item.HV_CON2_NGAYSINH = deNgaySinhCon2.Ex_EditValueToDateTime();
+            if (deNgaySinhCon2_Nam.EditValue != null)
+            {
+                item.HV_CON2_NGAYSINH = new DateTime(deNgaySinhCon2_Nam.Ex_EditValueToInt() ?? 1, deNgaySinhCon2_Thang.Ex_EditValueToInt() ?? 1, deNgaySinhCon2_Ngay.Ex_EditValueToInt() ?? 0);
+            }
             item.HV_CON2_GIOITINH = lueGioiTinhCon2.EditValue + string.Empty;
             item.HV_CON2_HOCTRUONG = txtHocTruong2.Text;
 

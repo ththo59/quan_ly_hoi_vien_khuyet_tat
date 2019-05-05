@@ -135,7 +135,7 @@ namespace DauThau.Class
             item = new dynamicObject()
             {
                 ID = 5,
-                NAME = "Truyền thông và trợ giúp pháp lý",
+                NAME = "Trợ giúp pháp lý",
                 STT = 5
             };
             list.Add(item);
@@ -210,6 +210,13 @@ namespace DauThau.Class
             };
             list.Add(item);
 
+            item = new dynamicObject()
+            {
+                ID = 9,
+                NAME = "Tổ chức thể thao",
+                STT = 9
+            };
+            list.Add(item);
             return list;
         }
 

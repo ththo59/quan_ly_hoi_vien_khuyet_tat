@@ -192,6 +192,9 @@ namespace DauThau
                     case "btnToChucVanNghe":
                         uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.TO_CHUC_VAN_NGHE);
                         break;
+                    case "btnToChucTheThao":
+                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.TO_CHUC_THE_THAO);
+                        break;
 
                     #endregion
 

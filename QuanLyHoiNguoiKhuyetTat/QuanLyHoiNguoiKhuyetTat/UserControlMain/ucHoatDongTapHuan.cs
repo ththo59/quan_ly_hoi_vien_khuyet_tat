@@ -76,6 +76,7 @@ namespace DauThau.UserControlCategory
                     break;
                 case CategoryTapHuan.TH_GIAODUC:
                     grpSearchTitle.Text = "Danh sách hoạt động giáo dục";
+                    layThongTinGV.Visibility = layThongTinGV_empty.Visibility = LayoutVisibility.Always;
                     break;
                 case CategoryTapHuan.HUONG_DAN_THUC_TAP:
                     grpSearchTitle.Text = "Danh sách hoạt động hướng dẫn thực tập";
