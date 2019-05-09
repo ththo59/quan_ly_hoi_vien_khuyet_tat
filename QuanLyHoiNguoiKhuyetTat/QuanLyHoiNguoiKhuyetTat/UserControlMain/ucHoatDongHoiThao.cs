@@ -42,6 +42,7 @@ namespace DauThau.UserControlCategory
 
  
             seThuLaoHoTro.Ex_FormatCustomSpinEdit();
+            seSoTienHoTro.Ex_FormatCustomSpinEdit();
             seSoLuongNguoiThamGia.Ex_FormatCustomSpinEdit();
 
             var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
@@ -129,6 +130,9 @@ namespace DauThau.UserControlCategory
             switch (enumLoai)
             {
                 case CategoryHoiThao.TO_CHUC_VAN_NGHE:
+                    layTenChuongTrinh.Text = "Tên sự kiện";
+                    layDonViThucHien.Text = "Đơn vị tài trợ";
+                    break;
                 case CategoryHoiThao.TO_CHUC_THE_THAO:
                     layDonViThucHien.Text = "Đơn vị tài trợ";
                     break;
@@ -136,10 +140,11 @@ namespace DauThau.UserControlCategory
                     layDonViThucHien.Text = "Đơn vị tài trợ";
                     break;
                 default:
+                    layTenChuongTrinh.Text = "Tên " + title.ToLower();
                     break;
             }
 
-            layTenChuongTrinh.Text = "Tên " + title.ToLower() ;
+            
             grpSearchTitle.Text = "Danh sách " + title.ToLower();
         }
 
@@ -222,7 +227,7 @@ namespace DauThau.UserControlCategory
                 txtDoiTuongKhac.EditValue = item.HT_DOITUONG_KHAC;
 
                 txtNoiDung.EditValue = item.HT_NOIDUNG;
-
+                seSoTienHoTro.EditValue = item.HT_SOTIEN_HOTRO;
                 txtThongTinNguoiHoTro.EditValue = item.HT_NGUOI_HOTRO;
                 seThuLaoHoTro.EditValue = item.HT_NGUOI_HOTRO_THULAO;
             }
@@ -246,6 +251,7 @@ namespace DauThau.UserControlCategory
 
             item.HT_NOIDUNG = txtNoiDung.Text;
             item.HT_NGUOI_HOTRO = txtThongTinNguoiHoTro.Text;
+            item.HT_SOTIEN_HOTRO = seSoTienHoTro.Ex_EditValueToInt();
             item.HT_NGUOI_HOTRO_THULAO = seThuLaoHoTro.Ex_EditValueToInt();
         }
 

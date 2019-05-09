@@ -2376,7 +2376,7 @@
             this.xtraTabPage2.Controls.Add(this.layoutControl4);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(879, 614);
-            this.xtraTabPage2.Text = "Sức khỏe - hôn nhân";
+            this.xtraTabPage2.Text = "Thể trạng - hôn nhân";
             // 
             // layoutControl4
             // 

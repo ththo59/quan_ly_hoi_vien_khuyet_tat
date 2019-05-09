@@ -95,6 +95,8 @@
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layDonViThucHien = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.seSoTienHoTro = new DevExpress.XtraEditors.SpinEdit();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
@@ -165,6 +167,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layDonViThucHien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seSoTienHoTro.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // gcGrid
@@ -644,6 +648,7 @@
             this.layoutEdit.Controls.Add(this.txtDiaDiem);
             this.layoutEdit.Controls.Add(this.seThuLaoHoTro);
             this.layoutEdit.Controls.Add(this.seTongSoNgay);
+            this.layoutEdit.Controls.Add(this.seSoTienHoTro);
             this.layoutEdit.Controls.Add(this.seSoLuongNguoiThamGia);
             this.layoutEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutEdit.Location = new System.Drawing.Point(2, 2);
@@ -865,7 +870,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seSoLuongNguoiThamGia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.seSoLuongNguoiThamGia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.seSoLuongNguoiThamGia.Size = new System.Drawing.Size(699, 26);
+            this.seSoLuongNguoiThamGia.Size = new System.Drawing.Size(360, 26);
             this.seSoLuongNguoiThamGia.StyleController = this.layoutEdit;
             this.seSoLuongNguoiThamGia.TabIndex = 5;
             // 
@@ -891,7 +896,8 @@
             this.layoutControlItem7,
             this.layoutControlItem8,
             this.layoutControlItem11,
-            this.layDonViThucHien});
+            this.layDonViThucHien,
+            this.layoutControlItem12});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -995,7 +1001,7 @@
             this.laySoNguoiThamGia.CustomizationFormText = "layoutControlItem8";
             this.laySoNguoiThamGia.Location = new System.Drawing.Point(0, 120);
             this.laySoNguoiThamGia.Name = "laySoNguoiThamGia";
-            this.laySoNguoiThamGia.Size = new System.Drawing.Size(852, 30);
+            this.laySoNguoiThamGia.Size = new System.Drawing.Size(513, 30);
             this.laySoNguoiThamGia.Text = "Số người tham gia";
             this.laySoNguoiThamGia.TextSize = new System.Drawing.Size(146, 18);
             // 
@@ -1079,6 +1085,37 @@
             // 
             this.dxErrorProvider.ContainerControl = this;
             // 
+            // seSoTienHoTro
+            // 
+            this.seSoTienHoTro.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seSoTienHoTro.Location = new System.Drawing.Point(577, 127);
+            this.seSoTienHoTro.Name = "seSoTienHoTro";
+            this.seSoTienHoTro.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.seSoTienHoTro.Properties.Appearance.Options.UseFont = true;
+            this.seSoTienHoTro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seSoTienHoTro.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.seSoTienHoTro.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.seSoTienHoTro.Size = new System.Drawing.Size(278, 26);
+            this.seSoTienHoTro.StyleController = this.layoutEdit;
+            this.seSoTienHoTro.TabIndex = 5;
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.seSoTienHoTro;
+            this.layoutControlItem12.CustomizationFormText = "Kinh phí";
+            this.layoutControlItem12.Location = new System.Drawing.Point(513, 120);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(339, 30);
+            this.layoutControlItem12.Text = "Kinh phí";
+            this.layoutControlItem12.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(52, 18);
+            this.layoutControlItem12.TextToControlDistance = 5;
+            // 
             // ucHoatDongHoiThao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1159,6 +1196,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layDonViThucHien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seSoTienHoTro.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1231,5 +1270,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraEditors.SpinEdit seSoTienHoTro;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
     }
 }
