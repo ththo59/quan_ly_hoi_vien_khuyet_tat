@@ -149,7 +149,7 @@ namespace DauThau
                     #region Nâng cao năng lực
 
                     case "btnTapHuan":
-                        uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TH_TAPHUAN);
+                        uc = new ucHoatDongTapHuan2((Int64)CategoryTapHuan.TH_TAPHUAN);
                         break;
                     case "btnGiaoDuc":
                         uc = new ucHoatDongTapHuan((Int64)CategoryTapHuan.TH_GIAODUC);

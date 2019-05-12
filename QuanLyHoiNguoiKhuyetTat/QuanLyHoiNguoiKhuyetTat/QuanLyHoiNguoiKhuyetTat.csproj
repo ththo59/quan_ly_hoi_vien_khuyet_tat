@@ -1216,6 +1216,12 @@
     <Compile Include="UserControlMain\ucHoatDongHoiChoTrienLam.Designer.cs">
       <DependentUpon>ucHoatDongHoiChoTrienLam.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMain\ucHoatDongTapHuan2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucHoatDongTapHuan2.Designer.cs">
+      <DependentUpon>ucHoatDongTapHuan2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucHoatDongVayVon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1988,6 +1994,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucHoatDongHoiChoTrienLam.resx">
       <DependentUpon>ucHoatDongHoiChoTrienLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucHoatDongTapHuan2.resx">
+      <DependentUpon>ucHoatDongTapHuan2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucHoatDongVayVon.resx">
       <DependentUpon>ucHoatDongVayVon.cs</DependentUpon>
