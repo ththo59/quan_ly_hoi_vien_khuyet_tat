@@ -112,6 +112,36 @@
           <Property Name="NN_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="NN_STT" Type="int" />
         </EntityType>
+        <EntityType Name="DM_NHA_TAI_TRO">
+          <Key>
+            <PropertyRef Name="NTT_ID" />
+          </Key>
+          <Property Name="NTT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NTT_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_CANHAN_TOCHUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_LOAI" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DM_NHA_TAI_TRO_CHITIET">
+          <Key>
+            <PropertyRef Name="NTT_CT_ID" />
+          </Key>
+          <Property Name="NTT_CT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NTT_ID" Type="bigint" />
+          <Property Name="NTT_CT_HOTEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_CT_CHUCVU" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_CT_SODIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_CT_EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_CT_LOAI" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DM_NHA_TAI_TRO_LOAI">
+          <Key>
+            <PropertyRef Name="LOAI_NTT_ID" />
+          </Key>
+          <Property Name="LOAI_NTT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOAI_NTT_TEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOAI_NTT_STT" Type="int" />
+        </EntityType>
         <EntityType Name="DM_NHUCAU">
           <Key>
             <PropertyRef Name="NC_ID" />
@@ -494,6 +524,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO">
+          <End Role="DM_NHA_TAI_TRO" Type="Self.DM_NHA_TAI_TRO" Multiplicity="0..1" />
+          <End Role="DM_NHA_TAI_TRO_CHITIET" Type="Self.DM_NHA_TAI_TRO_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_NHA_TAI_TRO">
+              <PropertyRef Name="NTT_ID" />
+            </Principal>
+            <Dependent Role="DM_NHA_TAI_TRO_CHITIET">
+              <PropertyRef Name="NTT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DM_XA_DM_HUYEN">
           <End Role="DM_HUYEN" Type="Self.DM_HUYEN" Multiplicity="0..1" />
           <End Role="DM_XA" Type="Self.DM_XA" Multiplicity="*" />
@@ -556,6 +598,9 @@
           <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGOAINGU" EntityType="Self.DM_NGOAINGU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NHA_TAI_TRO" EntityType="Self.DM_NHA_TAI_TRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NHA_TAI_TRO_CHITIET" EntityType="Self.DM_NHA_TAI_TRO_CHITIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NHA_TAI_TRO_LOAI" EntityType="Self.DM_NHA_TAI_TRO_LOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHUCAU" EntityType="Self.DM_NHUCAU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_PHUONGTIEN_DILAI" EntityType="Self.DM_PHUONGTIEN_DILAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
@@ -580,6 +625,10 @@
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
             <End Role="DM_TINH" EntitySet="DM_TINH" />
             <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO" Association="Self.FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO">
+            <End Role="DM_NHA_TAI_TRO" EntitySet="DM_NHA_TAI_TRO" />
+            <End Role="DM_NHA_TAI_TRO_CHITIET" EntitySet="DM_NHA_TAI_TRO_CHITIET" />
           </AssociationSet>
           <AssociationSet Name="FK_DM_XA_DM_HUYEN" Association="Self.FK_DM_XA_DM_HUYEN">
             <End Role="DM_HUYEN" EntitySet="DM_HUYEN" />
@@ -719,6 +768,13 @@
             <End Role="QL_USERS_PERMISSION" EntitySet="QL_USERS_PERMISSION" />
           </AssociationSet>
           <EntitySet Name="QL_HOATDONG_HOICHO_TRIENLAM" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM" />
+          <EntitySet Name="DM_NHA_TAI_TRO" EntityType="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO" />
+          <EntitySet Name="DM_NHA_TAI_TRO_CHITIET" EntityType="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO_CHITIET" />
+          <AssociationSet Name="FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO" Association="QL_HOIVIEN_KTModel.FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO">
+            <End Role="DM_NHA_TAI_TRO" EntitySet="DM_NHA_TAI_TRO" />
+            <End Role="DM_NHA_TAI_TRO_CHITIET" EntitySet="DM_NHA_TAI_TRO_CHITIET" />
+          </AssociationSet>
+          <EntitySet Name="DM_NHA_TAI_TRO_LOAI" EntityType="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO_LOAI" />
         </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1204,6 +1260,50 @@
           <Property Name="HC_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_NHA_TAI_TRO">
+          <Key>
+            <PropertyRef Name="NTT_ID" />
+          </Key>
+          <Property Name="NTT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NTT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CANHAN_TOCHUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_LOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_NHA_TAI_TRO_CHITIET" Relationship="QL_HOIVIEN_KTModel.FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO" FromRole="DM_NHA_TAI_TRO" ToRole="DM_NHA_TAI_TRO_CHITIET" />
+        </EntityType>
+        <EntityType Name="DM_NHA_TAI_TRO_CHITIET">
+          <Key>
+            <PropertyRef Name="NTT_CT_ID" />
+          </Key>
+          <Property Name="NTT_CT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NTT_ID" Type="Int64" />
+          <Property Name="NTT_CT_HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CT_CHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CT_SODIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CT_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CT_LOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_NHA_TAI_TRO" Relationship="QL_HOIVIEN_KTModel.FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO" FromRole="DM_NHA_TAI_TRO_CHITIET" ToRole="DM_NHA_TAI_TRO" />
+        </EntityType>
+        <Association Name="FK_DM_NHA_TAI_TRO_CHITIET_DM_NHA_TAI_TRO">
+          <End Type="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO" Role="DM_NHA_TAI_TRO" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO_CHITIET" Role="DM_NHA_TAI_TRO_CHITIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_NHA_TAI_TRO">
+              <PropertyRef Name="NTT_ID" />
+            </Principal>
+            <Dependent Role="DM_NHA_TAI_TRO_CHITIET">
+              <PropertyRef Name="NTT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DM_NHA_TAI_TRO_LOAI">
+          <Key>
+            <PropertyRef Name="LOAI_NTT_ID" />
+          </Key>
+          <Property Name="LOAI_NTT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOAI_NTT_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOAI_NTT_STT" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1719,6 +1819,39 @@
                 <ScalarProperty Name="HC_THOIGIAN_BATDAU" ColumnName="HC_THOIGIAN_BATDAU" />
                 <ScalarProperty Name="HC_TEN" ColumnName="HC_TEN" />
                 <ScalarProperty Name="HC_ID" ColumnName="HC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NHA_TAI_TRO">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO">
+              <MappingFragment StoreEntitySet="DM_NHA_TAI_TRO">
+                <ScalarProperty Name="NTT_LOAI" ColumnName="NTT_LOAI" />
+                <ScalarProperty Name="NTT_CANHAN_TOCHUC" ColumnName="NTT_CANHAN_TOCHUC" />
+                <ScalarProperty Name="NTT_DIACHI" ColumnName="NTT_DIACHI" />
+                <ScalarProperty Name="NTT_TEN" ColumnName="NTT_TEN" />
+                <ScalarProperty Name="NTT_ID" ColumnName="NTT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NHA_TAI_TRO_CHITIET">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO_CHITIET">
+              <MappingFragment StoreEntitySet="DM_NHA_TAI_TRO_CHITIET">
+                <ScalarProperty Name="NTT_CT_LOAI" ColumnName="NTT_CT_LOAI" />
+                <ScalarProperty Name="NTT_CT_EMAIL" ColumnName="NTT_CT_EMAIL" />
+                <ScalarProperty Name="NTT_CT_SODIENTHOAI" ColumnName="NTT_CT_SODIENTHOAI" />
+                <ScalarProperty Name="NTT_CT_CHUCVU" ColumnName="NTT_CT_CHUCVU" />
+                <ScalarProperty Name="NTT_CT_HOTEN" ColumnName="NTT_CT_HOTEN" />
+                <ScalarProperty Name="NTT_ID" ColumnName="NTT_ID" />
+                <ScalarProperty Name="NTT_CT_ID" ColumnName="NTT_CT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NHA_TAI_TRO_LOAI">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO_LOAI">
+              <MappingFragment StoreEntitySet="DM_NHA_TAI_TRO_LOAI">
+                <ScalarProperty Name="LOAI_NTT_STT" ColumnName="LOAI_NTT_STT" />
+                <ScalarProperty Name="LOAI_NTT_TEN" ColumnName="LOAI_NTT_TEN" />
+                <ScalarProperty Name="LOAI_NTT_ID" ColumnName="LOAI_NTT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

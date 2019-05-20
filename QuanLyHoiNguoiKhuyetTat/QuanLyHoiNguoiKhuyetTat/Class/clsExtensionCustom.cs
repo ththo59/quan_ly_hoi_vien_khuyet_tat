@@ -160,6 +160,13 @@ namespace DauThau.Class
                             chkList.Items.Add(item.TVH_TEN, item.TVH_TEN);
                         }
                         break;
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO_LOAI:
+                        var listItem6 = (from p in context.DM_NHA_TAI_TRO_LOAI orderby p.LOAI_NTT_STT select p).ToArray();
+                        foreach (DM_NHA_TAI_TRO_LOAI item in listItem6)
+                        {
+                            chkList.Items.Add(item.LOAI_NTT_TEN, item.LOAI_NTT_TEN);
+                        }
+                        break;
                     default:
                         break;
                 }

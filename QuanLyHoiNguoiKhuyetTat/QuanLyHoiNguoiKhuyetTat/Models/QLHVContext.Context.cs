@@ -59,5 +59,8 @@ namespace DauThau.Models
         public virtual DbSet<QL_USERS> QL_USERS { get; set; }
         public virtual DbSet<QL_USERS_PERMISSION> QL_USERS_PERMISSION { get; set; }
         public virtual DbSet<QL_HOATDONG_HOICHO_TRIENLAM> QL_HOATDONG_HOICHO_TRIENLAM { get; set; }
+        public virtual DbSet<DM_NHA_TAI_TRO> DM_NHA_TAI_TRO { get; set; }
+        public virtual DbSet<DM_NHA_TAI_TRO_CHITIET> DM_NHA_TAI_TRO_CHITIET { get; set; }
+        public virtual DbSet<DM_NHA_TAI_TRO_LOAI> DM_NHA_TAI_TRO_LOAI { get; set; }
     }
 }

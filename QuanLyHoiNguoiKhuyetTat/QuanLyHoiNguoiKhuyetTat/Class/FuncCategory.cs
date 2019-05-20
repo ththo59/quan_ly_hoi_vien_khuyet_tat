@@ -97,6 +97,26 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMCaNhanToChuc()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Cá nhân"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Tổ chức"
+            };
+            list.Add(item);
+            return list;
+        }
+
+
         public static List<dynamicObject> loadDMTapHuan()
         {
             List<dynamicObject> list = new List<dynamicObject>();
@@ -442,6 +462,9 @@ namespace DauThau.Class
                         break;
                     case CategoryEntitiesTable.DM_NGOAINGU:
                         listItem = (from p in context.DM_NGOAINGU orderby p.NN_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO_LOAI:
+                        listItem = (from p in context.DM_NHA_TAI_TRO_LOAI orderby p.LOAI_NTT_STT select p).ToList();
                         break;
                     default:
                         break;

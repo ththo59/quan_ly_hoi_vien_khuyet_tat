@@ -407,6 +407,12 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmNhaTaiTro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNhaTaiTro.Designer.cs">
+      <DependentUpon>frmNhaTaiTro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmThongTinNhaThau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,15 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_NGOAINGU.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_NHA_TAI_TRO.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_NHA_TAI_TRO_CHITIET.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_NHA_TAI_TRO_LOAI.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_NHUCAU.cs">
@@ -1638,6 +1653,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNhaTaiTro.resx">
+      <DependentUpon>frmNhaTaiTro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmThongTinNhaThau.resx">
       <DependentUpon>frmThongTinNhaThau.cs</DependentUpon>

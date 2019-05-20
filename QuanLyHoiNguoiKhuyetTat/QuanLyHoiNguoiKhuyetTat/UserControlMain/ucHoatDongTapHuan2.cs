@@ -18,6 +18,7 @@ using DauThau.UserControlCategoryMain;
 using DauThau.Reports;
 using DevExpress.XtraReports.UI;
 using DauThau.UserControlMain;
+using DauThau.Forms;
 
 namespace DauThau.UserControlCategory
 {
@@ -497,6 +498,12 @@ namespace DauThau.UserControlCategory
 
             //txtDoiTuong.Text = frm.selectNameList;
             //txtDoiTuongId.Text = frm.selectIdList;
+        }
+
+        private void btnDonViTaiTro_Click(object sender, EventArgs e)
+        {
+            frmNhaTaiTro frm = new frmNhaTaiTro();
+            frm.ShowDialog();
         }
     }
 }
