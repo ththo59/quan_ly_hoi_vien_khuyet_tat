@@ -14,6 +14,12 @@ namespace DauThau.Models
     
     public partial class QL_HOATDONG_TAPHUAN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QL_HOATDONG_TAPHUAN()
+        {
+            this.QL_HOATDONG_TAPHUAN_CHITIET = new HashSet<QL_HOATDONG_TAPHUAN_CHITIET>();
+        }
+    
         public long TH_ID { get; set; }
         public Nullable<long> TH_LOAI_ID { get; set; }
         public string TH_TEN { get; set; }
@@ -33,5 +39,8 @@ namespace DauThau.Models
         public Nullable<int> TH_GIANGVIEN_THULAO { get; set; }
         public string TH_NGUOI_HOTRO { get; set; }
         public Nullable<int> TH_NGUOI_HOTRO_THULAO { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
     }
 }

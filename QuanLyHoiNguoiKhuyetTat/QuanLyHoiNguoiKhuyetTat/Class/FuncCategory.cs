@@ -116,6 +116,24 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadHoatDong()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Hoạt động hội"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Hoạt động dự án"
+            };
+            list.Add(item);
+            return list;
+        }
 
         public static List<dynamicObject> loadDMTapHuan()
         {
@@ -408,6 +426,24 @@ namespace DauThau.Class
             return list;
         }
 
+        public static object loadCategoryReturn(CategoryEntitiesTable table)
+        {
+            var listItem = (object)null;
+            using (var context = new QL_HOIVIEN_KTEntities())
+            {
+                switch (table)
+                {
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO:
+                        listItem = (from p in context.DM_NHA_TAI_TRO select p).ToList();
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            return listItem;
+        }
+
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)
         {
             using (var context = new QL_HOIVIEN_KTEntities())
@@ -466,6 +502,16 @@ namespace DauThau.Class
                     case CategoryEntitiesTable.DM_NHA_TAI_TRO_LOAI:
                         listItem = (from p in context.DM_NHA_TAI_TRO_LOAI orderby p.LOAI_NTT_STT select p).ToList();
                         break;
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO:
+                        listItem = (from p in context.DM_NHA_TAI_TRO select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_DONVI_PHUTRACH:
+                        listItem = (from p in context.DM_DONVI_PHUTRACH orderby p.DV_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_LOAI_HOATDONG:
+                        listItem = (from p in context.DM_LOAI_HOATDONG orderby p.LOAIHD_STT select p).ToList();
+                        break;
+
                     default:
                         break;
                 }

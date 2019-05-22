@@ -2,11 +2,12 @@
 
 CREATE TABLE [dbo].[DM_NHA_TAI_TRO_CHITIET](
 	[NTT_CT_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[NTT_ID] [bigint] NULL,
 	[NTT_CT_HOTEN] [nvarchar](50) NULL,
 	[NTT_CT_CHUCVU] [nvarchar](50) NULL,
 	[NTT_CT_SODIENTHOAI] [nvarchar](50) NULL,
 	[NTT_CT_EMAIL] [nvarchar](50) NULL,
-	[NTT_ID] [bigint] NULL,
+	[NTT_CT_LOAI] [nvarchar](50) NULL,
  CONSTRAINT [PK_DM_NHA_TAI_TRO_CHITIET] PRIMARY KEY CLUSTERED 
 (
 	[NTT_CT_ID] ASC

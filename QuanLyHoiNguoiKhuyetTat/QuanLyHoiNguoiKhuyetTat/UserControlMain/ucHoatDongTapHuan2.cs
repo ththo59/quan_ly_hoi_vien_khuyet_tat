@@ -54,6 +54,12 @@ namespace DauThau.UserControlCategory
             lueLoaiTapHuan.Properties.DataSource = FuncCategory.loadDMTapHuan();
             lueLoaiTapHuan.EditValue = _id_loai;
 
+            lueHoatDong.Properties.DataSource = FuncCategory.loadHoatDong();
+            lueNhaTaiTro.Properties.DataSource = FuncCategory.loadCategoryReturn(CategoryEntitiesTable.DM_NHA_TAI_TRO);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DONVI_PHUTRACH, lueDonViPhuTrach);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTinh);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_LOAI_HOATDONG, lueLoaiHoatDong);
+
             _changeLayout((CategoryTapHuan)_id_loai);
 
             FormStatus = EnumFormStatus.VIEW;
@@ -504,6 +510,7 @@ namespace DauThau.UserControlCategory
         {
             frmNhaTaiTro frm = new frmNhaTaiTro();
             frm.ShowDialog();
+            lueNhaTaiTro.Properties.DataSource = FuncCategory.loadCategoryReturn(CategoryEntitiesTable.DM_NHA_TAI_TRO);
         }
     }
 }

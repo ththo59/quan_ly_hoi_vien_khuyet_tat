@@ -407,6 +407,12 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmTapHuanChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTapHuanChiTiet.Designer.cs">
+      <DependentUpon>frmTapHuanChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmNhaTaiTro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     <Compile Include="Models\DM_DANTOC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DM_DONVI_PHUTRACH.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DM_DUNGCU_HOTRO.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -459,6 +468,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_KHUYETTAT_TINHTRANG.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DM_LOAI_HOATDONG.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DM_NGHE_NGHIEP.cs">
@@ -546,6 +558,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_TAPHUAN.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOATDONG_TAPHUAN_CHITIET.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_VAYVON.cs">
@@ -1653,6 +1668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTapHuanChiTiet.resx">
+      <DependentUpon>frmTapHuanChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmNhaTaiTro.resx">
       <DependentUpon>frmNhaTaiTro.cs</DependentUpon>

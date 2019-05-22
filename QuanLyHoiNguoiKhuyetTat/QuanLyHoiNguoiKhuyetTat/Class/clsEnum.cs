@@ -40,7 +40,10 @@ namespace DauThau.Class
         DM_NHUCAU,
         DM_THANHVIEN_HOI,
         DM_NGOAINGU,
-        DM_NHA_TAI_TRO_LOAI
+        DM_NHA_TAI_TRO,
+        DM_NHA_TAI_TRO_LOAI,
+        DM_DONVI_PHUTRACH,
+        DM_LOAI_HOATDONG
 
     }
 

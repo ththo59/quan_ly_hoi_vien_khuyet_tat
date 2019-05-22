@@ -62,5 +62,8 @@ namespace DauThau.Models
         public virtual DbSet<DM_NHA_TAI_TRO> DM_NHA_TAI_TRO { get; set; }
         public virtual DbSet<DM_NHA_TAI_TRO_CHITIET> DM_NHA_TAI_TRO_CHITIET { get; set; }
         public virtual DbSet<DM_NHA_TAI_TRO_LOAI> DM_NHA_TAI_TRO_LOAI { get; set; }
+        public virtual DbSet<DM_DONVI_PHUTRACH> DM_DONVI_PHUTRACH { get; set; }
+        public virtual DbSet<DM_LOAI_HOATDONG> DM_LOAI_HOATDONG { get; set; }
+        public virtual DbSet<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
     }
 }
