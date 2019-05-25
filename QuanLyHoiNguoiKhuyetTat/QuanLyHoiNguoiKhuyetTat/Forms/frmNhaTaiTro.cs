@@ -92,6 +92,10 @@ namespace DauThau.Forms
 
             if (txtTenToChuc.Text.Trim() == string.Empty)
             {
+                dxErrorProvider1.SetError(txtTenToChuc, "Vui lòng nhập tên tổ chức");
+            }
+            if (dxErrorProvider1.HasErrors)
+            {
                 clsMessage.MessageWarning("Vui lòng nhập đầy tên tổ chức");
                 return false;
             }

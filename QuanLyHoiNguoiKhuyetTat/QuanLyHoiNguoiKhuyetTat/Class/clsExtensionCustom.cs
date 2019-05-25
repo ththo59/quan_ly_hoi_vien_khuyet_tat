@@ -199,5 +199,21 @@ namespace DauThau.Class
             }
             return Convert.ToInt32(se.EditValue);
         }
+        public static Nullable<Int64> Ex_EditValueToInt(this LookUpEdit lue)
+        {
+            if (lue.EditValue == null)
+            {
+                return new Nullable<Int64>();
+            }
+            return Convert.ToInt64(lue.EditValue);
+        }
+        public static Nullable<Int64> Ex_EditValueToInt(this SearchLookUpEdit lue)
+        {
+            if (lue.EditValue == null)
+            {
+                return new Nullable<Int64>();
+            }
+            return Convert.ToInt64(lue.EditValue);
+        }
     }
 }

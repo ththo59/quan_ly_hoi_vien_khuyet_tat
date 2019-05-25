@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNTT_ID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -83,6 +84,7 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layHoTroThuLao = new DevExpress.XtraLayout.LayoutControlItem();
             this.layDonViThucHien2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
@@ -129,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layHoTroThuLao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layDonViThucHien2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // gcGrid
@@ -790,6 +793,10 @@
             this.layDonViThucHien2.Text = "Loại nhà tài trợ";
             this.layDonViThucHien2.TextSize = new System.Drawing.Size(114, 18);
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this;
+            // 
             // frmNhaTaiTro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -847,6 +854,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layHoTroThuLao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layDonViThucHien2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -908,5 +916,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colQL_NTT_CT_LOAI;
         private DevExpress.XtraGrid.Columns.GridColumn colQL_NTT_ID;
         private DevExpress.XtraGrid.Columns.GridColumn colNguoiDungDau_NTT_ID;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }

@@ -20,6 +20,19 @@ namespace DauThau.Class
 {
     public static class FunctionHelper
     {
+        public static bool openLink(string slink)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(slink);
+                return true;
+            }
+            catch (Exception)
+            {
+                clsMessage.MessageExclamation("Không thể mở link. Vui lòng kiểm tra lại.");
+                return false;
+            }
+        }
         /// <summary>
         /// Kiểm tra trùng giá trị của một cột trong Grid, với giá trị input
         /// </summary>

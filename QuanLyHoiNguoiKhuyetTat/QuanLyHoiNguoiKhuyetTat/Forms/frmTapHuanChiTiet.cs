@@ -22,23 +22,32 @@ namespace DauThau.Forms
 {
     public partial class frmTapHuanChiTiet : Form
     {
-        public frmTapHuanChiTiet()
+
+        public frmTapHuanChiTiet(int loai_id)
         {
             InitializeComponent();
+            _loai_id = loai_id;
         }
 
         private EnumFormStatus _formStatus = EnumFormStatus.VIEW;
         private QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
-        private BindingList<DM_NHA_TAI_TRO_CHITIET> listNguoiDungDau;
-        private BindingList<DM_NHA_TAI_TRO_CHITIET> listNguoiQuanLy;
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> data;
+        private Int64 idRowSelected;
 
-        private string constLoaiNguoiDungDau = "nguoi_dung_dau";
-        private string constLoaiNguoiQuanLy = "nguoi_quan_ly";
+        const Int64 constIdDeleted = -1;
+
+        private int _loai_id;
 
         private void frmNhaTaiTro_Load(object sender, EventArgs e)
         {
-            lueCaNhanToChuc.Properties.DataSource = FuncCategory.loadDMCaNhanToChuc();
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NHA_TAI_TRO_LOAI, lueLoaiNhaTaiTro);
+            deNgayCap_Nam.Properties.MaxValue = DateTime.Now.Year;
+            deNgayCap_Thang.Properties.MaxValue = 12;
+            deNgayCap_Thang.Properties.MinValue = 1;
+            deNgayCap_Ngay.Properties.MaxValue = 31;
+            deNgayCap_Ngay.Properties.MinValue = 1;
+            seThuLao.Ex_FormatCustomSpinEdit();
+            seChiPhiKhac.Ex_FormatCustomSpinEdit();
+
             FormStatus = EnumFormStatus.VIEW;
         }
 
@@ -47,17 +56,53 @@ namespace DauThau.Forms
         void _selectData()
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
-            context = new QL_HOIVIEN_KTEntities();
-            context.DM_NHA_TAI_TRO.Load();
-            gcGrid.DataSource = context.DM_NHA_TAI_TRO.Local.ToBindingList();
-            _loadDataRow();
+            gcGrid.DataSource = data.Where(p=> p.TH_ID != constIdDeleted);
+            _setFocusedRow();
+            _bindingData();
             _wait.Close();
         }
 
-        void _loadDataRow()
+        private void _setFocusedRow()
         {
-            Int64 id = clsChangeType.change_int64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
-            _loadDataById(id);
+            for (int i = 0; i < gvGrid.RowCount; i++)
+            {
+                Int64 id = Convert.ToInt64(gvGrid.GetRowCellValue(i, colTH_CT_ID));
+                if (id == idRowSelected)
+                {
+                    gvGrid.FocusedRowHandle = i;
+                    break;
+                }
+            }
+        }
+        void _bindingData()
+        {
+            _clearData();
+            QL_HOATDONG_TAPHUAN_CHITIET item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN_CHITIET;
+            if (item != null)
+            {
+                txtHoTen.Text = item.TH_CT_HOTEN;
+                txtEmail.Text = item.TH_CT_EMAIL;
+                txtFace.Text = item.TH_CT_FACEBOOK;
+                txtCMND.Text = item.TH_CT_CMND_SO;
+                if (item.TH_CT_CMND_NGAYCAP.HasValue)
+                {
+                    deNgayCap_Ngay.EditValue = item.TH_CT_CMND_NGAYCAP.Value.Day;
+                    deNgayCap_Thang.EditValue = item.TH_CT_CMND_NGAYCAP.Value.Month;
+                    deNgayCap_Nam.EditValue = item.TH_CT_CMND_NGAYCAP.Value.Year;
+                }
+                txtNoiCap.Text = item.TH_CT_CMND_NOICAP;
+                txtDiaChi.Text = item.TH_CT_DIACHI;
+                txtDonVi.Text = item.TH_CT_DONVI;
+                txtSoDienThoai.Text = item.TH_CT_SDT;
+                txtMaSoThue.Text = item.TH_CT_MASOTHUE;
+                txtSTK.Text = item.TH_CT_TK_SO;
+                txtTenNganHang.Text = item.TH_CT_TK_NGANHANG;
+                txtLinkTOR.Text = item.TH_CT_TOR;
+                txtLinkCV.Text = item.TH_CT_CV;
+                seThuLao.EditValue = item.TH_CT_THULAO;
+                seChiPhiKhac.EditValue = item.TH_CT_CHIPHIKHAC;
+                txtDienGiai.Text = item.TH_CT_DIENGIAI;
+            }
         }
 
         void _closeForm()
@@ -65,32 +110,10 @@ namespace DauThau.Forms
             this.Close();
         }
 
-        void _loadDataById(Int64 id)
-        {
-            context.DM_NHA_TAI_TRO.Load();
-            var query_nhatt = (from p in context.DM_NHA_TAI_TRO where p.NTT_ID == id select p).FirstOrDefault();
-            if(query_nhatt != null)
-            {
-                txtTenToChuc.Text = query_nhatt.NTT_TEN;
-                txtDiaChi.Text = query_nhatt.NTT_DIACHI;
-                lueLoaiNhaTaiTro.EditValue = query_nhatt.NTT_LOAI;
-                lueCaNhanToChuc.EditValue = query_nhatt.NTT_CANHAN_TOCHUC;
-            }
-
-            context.DM_NHA_TAI_TRO_CHITIET.Load();
-            var queryNguoiDungDau = (from p in context.DM_NHA_TAI_TRO_CHITIET where p.NTT_ID == id && p.NTT_CT_LOAI == constLoaiNguoiDungDau select p).ToList();
-            listNguoiDungDau = new BindingList<DM_NHA_TAI_TRO_CHITIET>(queryNguoiDungDau);
-            gcGrid_NguoiDungDau.DataSource = listNguoiDungDau;
-
-            var queryNguoiQuanLy = (from p in context.DM_NHA_TAI_TRO_CHITIET where p.NTT_ID == id && p.NTT_CT_LOAI == constLoaiNguoiQuanLy select p).ToList();
-            listNguoiQuanLy = new BindingList<DM_NHA_TAI_TRO_CHITIET>(queryNguoiQuanLy);
-            gcGrid_NguoiQL.DataSource = listNguoiQuanLy;
-        }
-
         private Boolean _validateControl()
         {
 
-            if (txtTenToChuc.Text.Trim() == string.Empty)
+            if (txtHoTen.Text.Trim() == string.Empty)
             {
                 clsMessage.MessageWarning("Vui lòng nhập đầy tên tổ chức");
                 return false;
@@ -98,17 +121,41 @@ namespace DauThau.Forms
             return true;
         }
 
-        private void _setObjectEntities(ref DM_NHA_TAI_TRO item)
+        private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN_CHITIET item)
         {
-            item.NTT_TEN = txtTenToChuc.Text;
-            item.NTT_DIACHI = txtDiaChi.Text;
-            item.NTT_CANHAN_TOCHUC = lueCaNhanToChuc.Text;
-            item.NTT_LOAI = lueLoaiNhaTaiTro.Text;
+            item.TH_CT_LOAI = _loai_id;
+            item.TH_CT_HOTEN = txtHoTen.Text;
+            item.TH_CT_EMAIL = txtEmail.Text;
+            item.TH_CT_FACEBOOK = txtFace.Text;
+            item.TH_CT_CMND_SO = txtCMND.Text;
+            if (deNgayCap_Nam.EditValue != null)
+            {
+                item.TH_CT_CMND_NGAYCAP = new DateTime(deNgayCap_Nam.Ex_EditValueToInt() ?? 1, deNgayCap_Thang.Ex_EditValueToInt() ?? 1, deNgayCap_Ngay.Ex_EditValueToInt() ?? 0);
+            }
+            item.TH_CT_CMND_NOICAP = txtNoiCap.Text;
+            item.TH_CT_DIACHI = txtDiaChi.Text;
+            item.TH_CT_DONVI = txtDonVi.Text;
+            item.TH_CT_SDT = txtSoDienThoai.Text;
+            item.TH_CT_MASOTHUE = txtMaSoThue.Text;
+            item.TH_CT_TK_SO = txtSTK.Text;
+            item.TH_CT_TK_NGANHANG = txtTenNganHang.Text;
+            item.TH_CT_TOR = txtLinkTOR.Text;
+            item.TH_CT_CV = txtLinkCV.Text;
+            item.TH_CT_THULAO = seThuLao.Ex_EditValueToInt();
+            item.TH_CT_CHIPHIKHAC = seChiPhiKhac.Ex_EditValueToInt();
+            item.TH_CT_DIENGIAI = txtDienGiai.Text;
         }
 
-        void clearData()
+        private void _clearData()
         {
-            txtTenToChuc.EditValue = txtDiaChi.EditValue = lueCaNhanToChuc.EditValue = lueLoaiNhaTaiTro.EditValue = null;
+            foreach (var items in layoutEdit.Controls)
+            {
+                BaseEdit item = items as BaseEdit;
+                if (item != null)
+                {
+                    item.EditValue = null;
+                }
+            }
         }
 
         private void _statusAllControl(Boolean readOnly)
@@ -156,6 +203,21 @@ namespace DauThau.Forms
             }
         }
 
+        private Int64 _maxID()
+        {
+            List<Int64> listID = new List<Int64>();
+            Int64 max_TH_CT_ID = 1;
+            if (data.Count > 0)
+            {
+                foreach (var row in data.Where(p=>p.TH_ID != constIdDeleted))
+                {
+                    listID.Add(row.TH_CT_ID);
+                }
+                max_TH_CT_ID = listID.Max() + 1;
+            }
+            return max_TH_CT_ID;
+        }
+
         private void _saveData()
         {
             if (_validateControl())
@@ -163,75 +225,42 @@ namespace DauThau.Forms
                 WaitDialogForm _wait = new WaitDialogForm("Đang lưu dữ liệu ...", "Vui lòng đợi giây lát");
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    DM_NHA_TAI_TRO item;
+                    QL_HOATDONG_TAPHUAN_CHITIET item;
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
 
-                            item = new DM_NHA_TAI_TRO();
+                            item = new QL_HOATDONG_TAPHUAN_CHITIET();
                             _setObjectEntities(ref item);
-                            _context.DM_NHA_TAI_TRO.Add(item);
-                            
-                            foreach (DM_NHA_TAI_TRO_CHITIET person in listNguoiDungDau)
-                            {
-                                person.DM_NHA_TAI_TRO = item;
-                                _context.DM_NHA_TAI_TRO_CHITIET.Add(person);
-                            }
-                            foreach (DM_NHA_TAI_TRO_CHITIET person in listNguoiQuanLy)
-                            {
-                                person.DM_NHA_TAI_TRO = item;
-                                _context.DM_NHA_TAI_TRO_CHITIET.Add(person);
-                            }
+                            idRowSelected = _maxID();
+                            item.TH_CT_ID = idRowSelected;
+                            data.Add(item);
+
                             break;
 
                         case EnumFormStatus.MODIFY:
                             Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
-                            item = (from p in _context.DM_NHA_TAI_TRO where p.NTT_ID == id select p).FirstOrDefault();
+                            item = (from p in data where p.TH_CT_ID == id select p).FirstOrDefault();
                             if (item != null)
                             {
                                 _setObjectEntities(ref item);
                             }
-                            var entity = _context.DM_NHA_TAI_TRO.Find(id);
-                            _context.Entry(entity).CurrentValues.SetValues(item);
 
-                            gvGrid_NguoiDungDau.PostEditor();
-                            gvGrid_NguoiDungDau.UpdateCurrentRow();
-
-                            gvGrid_NguoiQL.PostEditor();
-                            gvGrid_NguoiQL.UpdateCurrentRow();
-
-                            //add row
-                            foreach (DM_NHA_TAI_TRO_CHITIET person in listNguoiDungDau)
-                            {
-                                if(person.NTT_CT_ID == 0)
-                                {
-                                    person.DM_NHA_TAI_TRO = item;
-                                    _context.DM_NHA_TAI_TRO_CHITIET.Add(person);
-                                }
-                            }
-                            foreach (DM_NHA_TAI_TRO_CHITIET person in listNguoiQuanLy)
-                            {
-                                if (person.NTT_CT_ID == 0)
-                                {
-                                    person.DM_NHA_TAI_TRO = item;
-                                    _context.DM_NHA_TAI_TRO_CHITIET.Add(person);
-                                }
-                            }
-
-                            context.SaveChanges();
+                            data.Where(p => p.TH_CT_ID == id).ToList().ForEach(p => p = item);
                             break;
 
                         case EnumFormStatus.DELETE:
                             Int64 deleteId = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
-                            var entitiesNhaTaiTro = (from p in _context.DM_NHA_TAI_TRO where p.NTT_ID == deleteId select p).FirstOrDefault();
-                            if (entitiesNhaTaiTro != null) { 
-                                _context.DM_NHA_TAI_TRO.Remove(entitiesNhaTaiTro);
-                            }
-
-                            var entities = (from p in _context.DM_NHA_TAI_TRO_CHITIET where p.NTT_ID == deleteId select p);
-                            foreach (var item_delete in entities)
+                            item = (from p in data where p.TH_CT_ID == deleteId select p).FirstOrDefault();
+                            if (item != null)
                             {
-                                _context.DM_NHA_TAI_TRO_CHITIET.Remove(item_delete);
+                                if (item.TH_ID == null) {//Nếu là dòng mới thì xóa luôn
+                                    data.Remove(item);
+                                }
+                                else
+                                {
+                                    data.Where(p => p.TH_CT_ID == deleteId).ToList().ForEach(p => p.TH_ID = -1);
+                                }
                             }
 
                             break;
@@ -247,7 +276,7 @@ namespace DauThau.Forms
 
         #endregion
 
-        #region Event Button
+        #region Event Button Control
 
         private void btnControl_btnEventAdd_Click(object sender, EventArgs e)
         {
@@ -291,31 +320,11 @@ namespace DauThau.Forms
                 _formStatus = value;
                 if (_formStatus == EnumFormStatus.ADD)
                 {
-                    gvGrid_NguoiQL.OptionsBehavior.Editable = true;
-                    gvGrid_NguoiQL.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid_NguoiQL.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                    gvGrid_NguoiQL.ActiveFilter.Clear();
-
-                    gvGrid_NguoiDungDau.OptionsBehavior.Editable = true;
-                    gvGrid_NguoiDungDau.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid_NguoiDungDau.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                    gvGrid_NguoiDungDau.ActiveFilter.Clear();
-
                     _statusAllControl(false);
-                    clearData();
-                    _loadDataById(0);
+                    _clearData();
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
                 {
-                    gvGrid_NguoiQL.OptionsBehavior.Editable = true;
-                    gvGrid_NguoiQL.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid_NguoiQL.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                    gvGrid_NguoiQL.ActiveFilter.Clear();
-
-                    gvGrid_NguoiDungDau.OptionsBehavior.Editable = true;
-                    gvGrid_NguoiDungDau.OptionsView.ShowAutoFilterRow = false;
-                    gvGrid_NguoiDungDau.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                    gvGrid_NguoiDungDau.ActiveFilter.Clear();
                     _statusAllControl(false);
                 }
                 else if (_formStatus == EnumFormStatus.DELETE)
@@ -331,14 +340,6 @@ namespace DauThau.Forms
                     _selectData();
                     _statusAllControl(true);
 
-                    gvGrid_NguoiQL.OptionsBehavior.Editable = false;
-                    gvGrid_NguoiQL.OptionsView.ShowAutoFilterRow = true;
-                    gvGrid_NguoiQL.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-
-                    gvGrid_NguoiDungDau.OptionsBehavior.Editable = false;
-                    gvGrid_NguoiDungDau.OptionsView.ShowAutoFilterRow = true;
-                    gvGrid_NguoiDungDau.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
 
@@ -352,39 +353,36 @@ namespace DauThau.Forms
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _loadDataRow();
+            idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
+            _bindingData();
         }
 
         #endregion
 
-        private void gvGrid_NguoiDungDau_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        #region Event button other
+
+        private void btnLinkTOR_Click(object sender, EventArgs e)
         {
-            gvGrid_NguoiDungDau.SetFocusedRowCellValue(colNTT_CT_LOAI, constLoaiNguoiDungDau);
-            if(_formStatus == EnumFormStatus.MODIFY)
-            {
-                Int64 id = clsChangeType.change_int64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
-                gvGrid_NguoiDungDau.SetFocusedRowCellValue(colNguoiDungDau_NTT_ID, id);
-            }
+            FunctionHelper.openLink(txtLinkTOR.Text);
         }
 
-        private void gvGrid_NguoiDungDau_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void btnLinkCV_Click(object sender, EventArgs e)
         {
-            
+            FunctionHelper.openLink(txtLinkCV.Text);
         }
 
-        private void gvGrid_NguoiQL_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void btnLinkHopDong_Click(object sender, EventArgs e)
         {
-            
+            FunctionHelper.openLink(txtLinkHopDong.Text);
         }
 
-        private void gvGrid_NguoiQL_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        private void btnLinkBanCamKet_Click(object sender, EventArgs e)
         {
-            gvGrid_NguoiQL.SetFocusedRowCellValue(colQL_NTT_CT_LOAI, constLoaiNguoiQuanLy);
-            if (_formStatus == EnumFormStatus.MODIFY)
-            {
-                Int64 id = clsChangeType.change_int64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
-                gvGrid_NguoiQL.SetFocusedRowCellValue(colQL_NTT_ID, id);
-            }
+            FunctionHelper.openLink(txtLinkBanCamKet.Text);
         }
+
+        #endregion
+
+
     }
 }

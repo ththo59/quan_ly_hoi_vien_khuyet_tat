@@ -31,6 +31,15 @@ namespace DauThau.UserControlCategory
             _id_loai = id_loai;
         }
 
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listTapHuanVienChinh = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listNguoiThucHien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+
+        //Lưu ý: khi mở lần đầu tiên idRowSeleted = 0 và lấy dữ liệu dòng đầu tiên (nếu có)
+        private Int64 _idRowSelected;
+        const Int64 constIdDeleted = -1;
+
         private void ucHoatDongHoiThaoTapHuan_Load(object sender, EventArgs e)
         {
             registerButtonArray(btnControl);
@@ -54,7 +63,7 @@ namespace DauThau.UserControlCategory
             lueLoaiTapHuan.Properties.DataSource = FuncCategory.loadDMTapHuan();
             lueLoaiTapHuan.EditValue = _id_loai;
 
-            lueHoatDong.Properties.DataSource = FuncCategory.loadHoatDong();
+            lueLaHoatDong.Properties.DataSource = FuncCategory.loadHoatDong();
             lueNhaTaiTro.Properties.DataSource = FuncCategory.loadCategoryReturn(CategoryEntitiesTable.DM_NHA_TAI_TRO);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DONVI_PHUTRACH, lueDonViPhuTrach);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTinh);
@@ -149,6 +158,19 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private void _setFocusedRow()
+        {
+            for (int i = 0; i < gvGrid.RowCount; i++)
+            {
+                Int64 id = Convert.ToInt64(gvGrid.GetRowCellValue(i, colTH_ID));
+                if (id == _idRowSelected)
+                {
+                    gvGrid.FocusedRowHandle = i;
+                    break;
+                }
+            }
+        }
+
         private void _loadData()
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
@@ -160,20 +182,90 @@ namespace DauThau.UserControlCategory
                              && p.TH_LOAI_ID == _id_loai
                         select p).ToList();
             gcGrid.DataSource = data;
-            _loadDataFocusRow();
+
+            _setFocusedRow();
+            _bindingData();
+
             _wait.Close();
         }
 
-        private void _loadDataFocusRow()
+        private string _getMemoText(BindingList<QL_HOATDONG_TAPHUAN_CHITIET> data)
+        {
+            StringBuilder title = new StringBuilder();
+            foreach (var item in data.Where(p=>p.TH_ID != constIdDeleted))
+            {
+                if (item.TH_CT_DIACHI != "")
+                {
+                    title.AppendFormat("{0}({1}); ", item.TH_CT_HOTEN, item.TH_CT_DIACHI);
+                }else if(item.TH_CT_DONVI != "")
+                {
+                    title.AppendFormat("{0}({1}); ", item.TH_CT_HOTEN, item.TH_CT_DONVI);
+                }
+                else
+                {
+                    title.AppendFormat("{0}; ", item.TH_CT_HOTEN);
+                }
+                
+            }
+            return title.ToString();
+        }
+
+        private void _setMemoText(QL_HOATDONG_TAPHUAN item, CategoryTapHuanChiTietLoai enumLoai)
+        {
+            var query = context.QL_HOATDONG_TAPHUAN_CHITIET
+                    .Where(p => p.TH_CT_LOAI == (int)enumLoai && p.TH_ID == item.TH_ID).ToList();
+
+            switch (enumLoai)
+            {
+                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    listNguoiThucHien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>(query);
+                    memoNguoiThucHien.Text = _getMemoText(listNguoiThucHien);
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
+                    listTapHuanVienChinh = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>(query);
+                    memoTHVChinh.Text = _getMemoText(listTapHuanVienChinh);
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>(query);
+                    memoTHVPhu.Text = _getMemoText(listTapHuanVienPhu);
+                    break;
+                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>(query);
+                    memoPhienDichVien.Text = _getMemoText(listPhienDichVien);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void _bindingData()
         {
             _clearData();
             QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
             if (item != null)
             {
+                //Thông tin chung
                 deTuNgay.EditValue = item.TH_THOIGIAN_BATDAU;
                 deDenNgay.EditValue = item.TH_THOIGIAN_KETTHUC;
                 seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.TH_TEN;
+                lueLaHoatDong.EditValue = item.TH_LA_HOATDONG;
+                lueNhaTaiTro.EditValue = item.NTT_ID;
+                lueDonViPhuTrach.EditValue = item.TH_DONVI_PHUTRACH;
+                lueTinh.EditValue = item.TH_TINH_THUCHIEN;
+                txtHoatDongMa.EditValue = item.TH_HOATDONG_MA;
+                lueLoaiHoatDong.EditValue = item.TH_HOATDONG_LOAI;
+
+                _setMemoText(item, CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN);
+                _setMemoText(item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH);
+                _setMemoText(item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU);
+                _setMemoText(item, CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN);
+
+                //Tập huấn viên
+                txtLinkTHVHopDong.EditValue = item.TH_LINK_THV_HOPDONG;
+                txtLinkTHVBanCamKet.EditValue = item.TH_LINK_THV_BANCAMKET;
+                txtLinkTaiLieu.EditValue = item.TH_LINK_TAILIEU;
+
                 //txtDiaDiem.EditValue = item.TH_DIADIEM;
                 //txtDonViThucHien.EditValue = item.TH_DONVI_THUCHIEN;
                 //seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
@@ -199,7 +291,18 @@ namespace DauThau.UserControlCategory
             item.TH_THOIGIAN_KETTHUC = deDenNgay.Ex_EditValueToDateTime();
             item.TH_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
 
+            //Thông tin
             item.TH_TEN = txtTenChuongTrinh.Text ;
+            item.TH_LA_HOATDONG = lueLaHoatDong.Text;
+            item.NTT_ID = lueNhaTaiTro.Ex_EditValueToInt();
+            item.TH_DONVI_PHUTRACH = lueDonViPhuTrach.Text;
+            item.TH_TINH_THUCHIEN = lueTinh.Text;
+            item.TH_HOATDONG_MA = txtHoatDongMa.Text;
+            item.TH_HOATDONG_LOAI = lueLoaiHoatDong.Text;
+            item.TH_LINK_THV_HOPDONG = txtLinkTHVHopDong.Text;
+            item.TH_LINK_THV_BANCAMKET = txtLinkTHVBanCamKet.Text;
+            item.TH_LINK_TAILIEU = txtLinkTaiLieu.Text;
+
             //item.TH_DIADIEM = txtDiaDiem.Text;
             //item.TH_DONVI_THUCHIEN = txtDonViThucHien.Text;
             //item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
@@ -239,6 +342,55 @@ namespace DauThau.UserControlCategory
             return !dxErrorProvider.HasErrors;
         }
 
+        private void _initMemoData()
+        {
+            listNguoiThucHien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+            listTapHuanVienChinh = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+            listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+            listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+        }
+
+        private void _updateMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_TAPHUAN item, BindingList<QL_HOATDONG_TAPHUAN_CHITIET> list_chitiet)
+        {
+            QL_HOATDONG_TAPHUAN_CHITIET item_chitiet;
+            foreach (var person in list_chitiet)
+            {
+                if (person.TH_ID == null) //add
+                {
+                    person.QL_HOATDONG_TAPHUAN = item;
+                    _context.QL_HOATDONG_TAPHUAN_CHITIET.Add(person);
+                }
+                else if (person.TH_ID == constIdDeleted) //delete
+                {
+                    item_chitiet = (from p in _context.QL_HOATDONG_TAPHUAN_CHITIET
+                                    where p.TH_CT_ID == person.TH_CT_ID
+                                    select p).FirstOrDefault();
+                    if (item_chitiet != null)
+                    {
+                        _context.QL_HOATDONG_TAPHUAN_CHITIET.Remove(item_chitiet);
+                    }
+                }
+                else //modify
+                {
+                    var chitiet = _context.QL_HOATDONG_TAPHUAN_CHITIET.Where(p => p.TH_CT_ID == person.TH_CT_ID).FirstOrDefault();
+                    if (chitiet != null)
+                    {
+                        _context.Entry(chitiet).CurrentValues.SetValues(person);
+                    }
+                }
+            }
+        }
+
+        private void _insertMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_TAPHUAN item, BindingList<QL_HOATDONG_TAPHUAN_CHITIET> list_chitiet)
+        {
+            foreach (var row in list_chitiet)
+            {
+                row.QL_HOATDONG_TAPHUAN = item;
+                _context.QL_HOATDONG_TAPHUAN_CHITIET.Add(row);
+            }
+            _context.QL_HOATDONG_TAPHUAN.Add(item);
+        }
+
         protected override bool SaveData()
         {
             if (_validateControl())
@@ -249,14 +401,19 @@ namespace DauThau.UserControlCategory
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
-                            #region Add
 
                             item = new QL_HOATDONG_TAPHUAN();
                             _setObjectEntities(ref item);
-                            _context.QL_HOATDONG_TAPHUAN.Add(item);
 
-                            #endregion
+                            _insertMemoData(_context, item, listNguoiThucHien);
+                            _insertMemoData(_context, item, listTapHuanVienChinh);
+                            _insertMemoData(_context, item, listTapHuanVienPhu);
+                            _insertMemoData(_context, item, listPhienDichVien);
+
+                            _context.SaveChanges();
+                            _idRowSelected = item.TH_ID;
                             break;
+
                         case EnumFormStatus.MODIFY:
                             Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
                             item = (from p in _context.QL_HOATDONG_TAPHUAN where p.TH_ID == id select p).FirstOrDefault<QL_HOATDONG_TAPHUAN>();
@@ -269,7 +426,11 @@ namespace DauThau.UserControlCategory
                             {
                                 _context.Entry(entity).CurrentValues.SetValues(item);
                             }
-                            
+
+                            _updateMemoData(_context, item, listNguoiThucHien);
+                            _updateMemoData(_context, item, listTapHuanVienChinh);
+                            _updateMemoData(_context, item, listTapHuanVienPhu);
+                            _updateMemoData(_context, item, listPhienDichVien);
                             break;
                         default:
                             break;
@@ -346,6 +507,58 @@ namespace DauThau.UserControlCategory
             f.ShowDialog();
         }
 
+        private void _memoButtonClick(CategoryTapHuanChiTietLoai enumLoai)
+        {
+
+            frmTapHuanChiTiet frm = new frmTapHuanChiTiet((int)enumLoai);
+            switch (enumLoai)
+            {
+                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    frm.Text = "Người thực hiện";
+                    frm.data = listNguoiThucHien;
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
+                    frm.Text = "Tập huấn viên chính";
+                    frm.data = listTapHuanVienChinh;
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    frm.Text = "Tập huấn viên phụ";
+                    frm.data = listTapHuanVienPhu;
+                    break;
+                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    frm.Text = "Phiên dịch viên";
+                    frm.data = listPhienDichVien;
+                    break;
+                default:
+                    break;
+            }
+
+            frm.ShowDialog();
+
+            switch (enumLoai)
+            {
+                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    listNguoiThucHien = frm.data;
+                    memoNguoiThucHien.Text = _getMemoText(listNguoiThucHien);
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
+                    listTapHuanVienChinh = frm.data;
+                    memoTHVChinh.Text = _getMemoText(listTapHuanVienChinh);
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    listTapHuanVienPhu = frm.data;
+                    memoTHVPhu.Text = _getMemoText(listTapHuanVienPhu);
+                    break;
+                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    listPhienDichVien = frm.data;
+                    memoPhienDichVien.Text = _getMemoText(listPhienDichVien);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
         #endregion
 
         #region Status
@@ -359,6 +572,7 @@ namespace DauThau.UserControlCategory
                 if (_formStatus == EnumFormStatus.ADD)
                 {
                     _clearData();
+                    _initMemoData();
                     deTuNgay.Focus();
                     _statusAllControl(false);
                 }
@@ -415,64 +629,20 @@ namespace DauThau.UserControlCategory
 
         #region Event Grid
 
-        private void gvGrid_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
-            {
-                return;
-            }
-            if (gvGrid.FocusedRowHandle == GridControl.NewItemRowHandle
-            && gvGrid.GetRow(GridControl.NewItemRowHandle) == null)
-            {
-                return;
-            }
-            e.Valid = true;
-            //if (gvGrid.FocusedColumn.FieldName == colDANGDUNG_TEN.FieldName)
-            //{
-            //    if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
-            //    {
-            //        e.ErrorText = colDANGDUNG_TEN.Caption + " không được phép rỗng.";
-            //        e.Valid = false;
-            //    }
-            //    else if (gvGrid._ValidationSame(colDANGDUNG_TEN,e.Value +string.Empty))
-            //    {
-            //        e.ErrorText = colDANGDUNG_TEN.Caption + " không được trùng.";
-            //        e.Valid = false;
-            //    }
-            //}
-
+            _idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
+            _bindingData();
         }
 
-        private void gvGrid_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
-        {
-            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
-        }
-
-        private void gvGrid_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-            if (gvGrid.FocusedRowHandle == GridControl.AutoFilterRowHandle)
-            {
-                return;
-            }
-
-            e.Valid = true;
-            //if (gvGrid.GetRowCellValue(e.RowHandle, colDANGDUNG_TEN.FieldName).ToString().Trim().Length == 0)
-            //{
-            //    gvGrid.SetColumnError(gvGrid.Columns[colDANGDUNG_TEN.FieldName], colDANGDUNG_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
-            //    e.Valid = false;
-            //}
-        }
         #endregion
+
+        #region Event button
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             _loadData();
             FormStatus = EnumFormStatus.VIEW;
-        }
-
-        private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            _loadDataFocusRow();
         }
 
         private void deTuNgay_EditValueChanged(object sender, EventArgs e)
@@ -512,5 +682,45 @@ namespace DauThau.UserControlCategory
             frm.ShowDialog();
             lueNhaTaiTro.Properties.DataSource = FuncCategory.loadCategoryReturn(CategoryEntitiesTable.DM_NHA_TAI_TRO);
         }
+
+        private void btnTapHuanVienChinh_Click(object sender, EventArgs e)
+        {
+            _memoButtonClick(CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH);
+        }
+
+        private void btnNguoiThucHien_Click(object sender, EventArgs e)
+        {
+            _memoButtonClick(CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN);
+
+        }
+
+        private void btnPhienDichVien_Click(object sender, EventArgs e)
+        {
+            _memoButtonClick(CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN);
+        }
+
+        private void btnTapHuanVienPhu_Click(object sender, EventArgs e)
+        {
+            _memoButtonClick(CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU);
+        }
+
+        private void btnLinkTHVHopDong_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkTHVHopDong.Text);
+        }
+
+        private void btnLinkTHVBanCamKet_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkTHVBanCamKet.Text);
+        }
+
+        private void btnLinkTaiLieu_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkTaiLieu.Text);
+        }
+
+        #endregion
+
+
     }
 }

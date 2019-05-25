@@ -1,5 +1,4 @@
 
-
 CREATE TABLE [dbo].[QL_HOATDONG_TAPHUAN_CHITIET](
 	[TH_CT_ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[TH_ID] [bigint] NULL,

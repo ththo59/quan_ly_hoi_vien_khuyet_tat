@@ -18,6 +18,7 @@ namespace DauThau.Models
         public DM_NHA_TAI_TRO()
         {
             this.DM_NHA_TAI_TRO_CHITIET = new HashSet<DM_NHA_TAI_TRO_CHITIET>();
+            this.QL_HOATDONG_TAPHUAN = new HashSet<QL_HOATDONG_TAPHUAN>();
         }
     
         public long NTT_ID { get; set; }
@@ -28,5 +29,7 @@ namespace DauThau.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DM_NHA_TAI_TRO_CHITIET> DM_NHA_TAI_TRO_CHITIET { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
     }
 }

@@ -13,6 +13,14 @@ namespace DauThau.Class
         VTYT = 1,
         TATCA = 2
     }
+    
+    enum CategoryTapHuanChiTietLoai
+    {
+        NGUOI_THUC_HIEN = 1,
+        TAP_HUAN_VIEN_CHINH,
+        TAP_HUAN_VIEN_PHU,
+        PHIEN_DICH_VIEN
+    }
 
     enum CategoryEntitiesTable
     {
