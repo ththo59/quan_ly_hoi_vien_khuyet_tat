@@ -48,11 +48,31 @@ namespace DauThau.Forms
             seThuLao.Ex_FormatCustomSpinEdit();
             seChiPhiKhac.Ex_FormatCustomSpinEdit();
 
+            _changeLayout((CategoryTapHuanChiTietLoai)_loai_id);
             FormStatus = EnumFormStatus.VIEW;
         }
 
         #region function
 
+        void _changeLayout(CategoryTapHuanChiTietLoai enumLoai)
+        {
+            switch (enumLoai)
+            {
+                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    break;
+                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    break;
+                case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
+                    layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
+                    break;
+                default:
+                    break;
+            }
+        }
         void _selectData()
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
@@ -92,13 +112,20 @@ namespace DauThau.Forms
                 }
                 txtNoiCap.Text = item.TH_CT_CMND_NOICAP;
                 txtDiaChi.Text = item.TH_CT_DIACHI;
-                txtDonVi.Text = item.TH_CT_DONVI;
                 txtSoDienThoai.Text = item.TH_CT_SDT;
                 txtMaSoThue.Text = item.TH_CT_MASOTHUE;
                 txtSTK.Text = item.TH_CT_TK_SO;
                 txtTenNganHang.Text = item.TH_CT_TK_NGANHANG;
-                txtLinkTOR.Text = item.TH_CT_TOR;
-                txtLinkCV.Text = item.TH_CT_CV;
+
+                txtDonVi_Ten.Text = item.TH_CT_DONVI_TEN;
+                txtDonVi_SDT.EditValue = item.TH_CT_DONVI_SDT;
+                txtDonVi_DiaChi.EditValue = item.TH_CT_DONVI_DIACHI;
+                
+                txtLinkTOR.Text = item.TH_CT_LINK_TOR;
+                txtLinkCV.Text = item.TH_CT_LINK_CV;
+                txtLinkHopDong.EditValue = item.TH_CT_LINK_HOPDONG;
+                txtLinkBanCamKet.EditValue = item.TH_CT_LINK_BANCAMKET;
+
                 seThuLao.EditValue = item.TH_CT_THULAO;
                 seChiPhiKhac.EditValue = item.TH_CT_CHIPHIKHAC;
                 txtDienGiai.Text = item.TH_CT_DIENGIAI;
@@ -134,13 +161,21 @@ namespace DauThau.Forms
             }
             item.TH_CT_CMND_NOICAP = txtNoiCap.Text;
             item.TH_CT_DIACHI = txtDiaChi.Text;
-            item.TH_CT_DONVI = txtDonVi.Text;
-            item.TH_CT_SDT = txtSoDienThoai.Text;
             item.TH_CT_MASOTHUE = txtMaSoThue.Text;
             item.TH_CT_TK_SO = txtSTK.Text;
             item.TH_CT_TK_NGANHANG = txtTenNganHang.Text;
-            item.TH_CT_TOR = txtLinkTOR.Text;
-            item.TH_CT_CV = txtLinkCV.Text;
+
+            item.TH_CT_DONVI_TEN = txtDonVi_Ten.Text;
+            item.TH_CT_DONVI_DIACHI = txtDonVi_DiaChi.Text;
+            item.TH_CT_DONVI_SDT = txtDonVi_SDT.Text;
+            item.TH_CT_SDT = txtSoDienThoai.Text;
+
+            
+            item.TH_CT_LINK_TOR = txtLinkTOR.Text;
+            item.TH_CT_LINK_CV = txtLinkCV.Text;
+            item.TH_CT_LINK_HOPDONG = txtLinkHopDong.Text;
+            item.TH_CT_LINK_BANCAMKET = txtLinkBanCamKet.Text;
+
             item.TH_CT_THULAO = seThuLao.Ex_EditValueToInt();
             item.TH_CT_CHIPHIKHAC = seChiPhiKhac.Ex_EditValueToInt();
             item.TH_CT_DIENGIAI = txtDienGiai.Text;

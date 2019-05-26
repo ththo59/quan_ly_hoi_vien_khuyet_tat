@@ -24,13 +24,17 @@ namespace DauThau.Models
         public Nullable<System.DateTime> TH_CT_CMND_NGAYCAP { get; set; }
         public string TH_CT_CMND_NOICAP { get; set; }
         public string TH_CT_DIACHI { get; set; }
-        public string TH_CT_DONVI { get; set; }
+        public string TH_CT_DONVI_TEN { get; set; }
+        public string TH_CT_DONVI_DIACHI { get; set; }
+        public string TH_CT_DONVI_SDT { get; set; }
         public string TH_CT_SDT { get; set; }
         public string TH_CT_MASOTHUE { get; set; }
         public string TH_CT_TK_SO { get; set; }
         public string TH_CT_TK_NGANHANG { get; set; }
-        public string TH_CT_TOR { get; set; }
-        public string TH_CT_CV { get; set; }
+        public string TH_CT_LINK_TOR { get; set; }
+        public string TH_CT_LINK_CV { get; set; }
+        public string TH_CT_LINK_HOPDONG { get; set; }
+        public string TH_CT_LINK_BANCAMKET { get; set; }
         public Nullable<int> TH_CT_THULAO { get; set; }
         public Nullable<int> TH_CT_CHIPHIKHAC { get; set; }
         public string TH_CT_DIENGIAI { get; set; }

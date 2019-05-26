@@ -29,7 +29,7 @@ namespace DauThau.Class
             }
             catch (Exception)
             {
-                clsMessage.MessageExclamation("Không thể mở link. Vui lòng kiểm tra lại.");
+                clsMessage.MessageExclamation("Đường dẫn không phù hợp. Vui lòng kiểm tra lại.");
                 return false;
             }
         }

@@ -49,10 +49,11 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_NHA_TAI_TRO_LOAI" Width="1.5" PointX="17.375" PointY="0.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_DONVI_PHUTRACH" Width="1.5" PointX="17.75" PointY="3.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_LOAI_HOATDONG" Width="1.5" PointX="0.75" PointY="18.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" Width="2.625" PointX="17" PointY="19" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="18.625" PointY="25.5" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DM_NHA_TAI_TRO" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" Width="1.5" PointX="20.875" PointY="26" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM" Width="1.5" PointX="14.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -19,7 +19,8 @@ namespace DauThau.Class
         NGUOI_THUC_HIEN = 1,
         TAP_HUAN_VIEN_CHINH,
         TAP_HUAN_VIEN_PHU,
-        PHIEN_DICH_VIEN
+        PHIEN_DICH_VIEN,
+        DOITUONG_KHONG_KHUYETTAT
     }
 
     enum CategoryEntitiesTable
