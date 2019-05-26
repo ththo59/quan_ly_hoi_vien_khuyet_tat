@@ -18,6 +18,7 @@ namespace DauThau.Models
         public QL_HOATDONG_TAPHUAN()
         {
             this.QL_HOATDONG_TAPHUAN_CHITIET = new HashSet<QL_HOATDONG_TAPHUAN_CHITIET>();
+            this.QL_HOATDONG_TAPHUAN_DIADIEM = new HashSet<QL_HOATDONG_TAPHUAN_DIADIEM>();
         }
     
         public long TH_ID { get; set; }
@@ -35,13 +36,35 @@ namespace DauThau.Models
         public string TH_LINK_THV_HOPDONG { get; set; }
         public string TH_LINK_THV_BANCAMKET { get; set; }
         public string TH_LINK_TAILIEU { get; set; }
-        public string TH_DIADIEM { get; set; }
+        public string TH_DOITUONG_HV_ID { get; set; }
+        public string TH_DOITUONG_HV_TEN { get; set; }
+        public string TH_DOITUONG_LINK_EXCEL { get; set; }
+        public string TH_DOITUONG_LINK_SCAN { get; set; }
+        public Nullable<int> TH_DOITUONG_TONGSO { get; set; }
+        public Nullable<int> TH_DOITUONG_SL_NAM { get; set; }
+        public Nullable<int> TH_DOITUONG_SL_NU { get; set; }
+        public Nullable<int> TH_TIEN_DILAI { get; set; }
+        public Nullable<int> TH_TIEN_ANTRUA { get; set; }
+        public Nullable<int> TH_TIEN_ANNHE { get; set; }
+        public Nullable<int> TH_KT_SL_VANDONG { get; set; }
+        public Nullable<int> TH_KT_SL_NHIN { get; set; }
+        public Nullable<int> TH_KT_SL_NGHENOI { get; set; }
+        public Nullable<int> TH_KT_SL_TRITUE { get; set; }
+        public Nullable<int> TH_KT_SL_KHAC { get; set; }
+        public string TH_DIADIEM_LINK_HOPDONG { get; set; }
+        public Nullable<int> TH_TONGTIEN_DUYET { get; set; }
+        public Nullable<int> TH_TONGTIEN_THUCHIEN { get; set; }
+        public Nullable<int> TH_TONGTIEN_BAN_KEHOACH { get; set; }
+        public string TH_LINK_DUYETCHI { get; set; }
+        public string TH_LINK_KEHOACH_HOATDONG { get; set; }
+        public string TH_LINK_CHUNGTU { get; set; }
+        public string TH_CONGVAN_SO { get; set; }
+        public string TH_CONGVAN_DONVI_GUI { get; set; }
+        public string TH_CONGVAN_GUI_DONVI { get; set; }
+        public string TH_CONGVAN_LINK { get; set; }
         public string TH_DONVI_THUCHIEN { get; set; }
         public string TH_NOIDUNG { get; set; }
         public Nullable<int> TH_SOLUONG { get; set; }
-        public string TH_DOITUONG_TEN { get; set; }
-        public string TH_DOITUONG_ID { get; set; }
-        public string TH_DOITUONG_KHAC { get; set; }
         public Nullable<int> TH_SOTIEN_1NGUOI { get; set; }
         public Nullable<long> TH_TONGTIEN { get; set; }
         public string TH_GIANGVIEN { get; set; }
@@ -52,5 +75,7 @@ namespace DauThau.Models
         public virtual DM_NHA_TAI_TRO DM_NHA_TAI_TRO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_TAPHUAN_DIADIEM> QL_HOATDONG_TAPHUAN_DIADIEM { get; set; }
     }
 }

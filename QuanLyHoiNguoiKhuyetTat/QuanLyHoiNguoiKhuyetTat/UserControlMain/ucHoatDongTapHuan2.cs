@@ -19,6 +19,7 @@ using DauThau.Reports;
 using DevExpress.XtraReports.UI;
 using DauThau.UserControlMain;
 using DauThau.Forms;
+using System.Threading.Tasks;
 
 namespace DauThau.UserControlCategory
 {
@@ -36,6 +37,8 @@ namespace DauThau.UserControlCategory
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listNguoiThucHien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+        public QL_HOATDONG_TAPHUAN_DIADIEM tapHuanDiaDiem = new QL_HOATDONG_TAPHUAN_DIADIEM();
+
         //Lưu ý: khi mở lần đầu tiên idRowSeleted = 0 và lấy dữ liệu dòng đầu tiên (nếu có)
         private Int64 _idRowSelected;
         const Int64 constIdDeleted = -1;
@@ -49,16 +52,34 @@ namespace DauThau.UserControlCategory
             deTuNgay.Ex_FormatCustomDateEdit();
             deDenNgay.Ex_FormatCustomDateEdit();
 
-            //seThuLaoGV.Ex_FormatCustomSpinEdit();
-            //seThuLaoHoTro.Ex_FormatCustomSpinEdit();
-            //seSoLuongNguoiThamGia.Ex_FormatCustomSpinEdit();
-            //seSoTienMoiNguoi.Ex_FormatCustomSpinEdit();
-            //seTongTien.Ex_FormatCustomSpinEdit();
+            seTienDiLai.Ex_FormatCustomSpinEdit();
+            seTienAnTrua.Ex_FormatCustomSpinEdit();
+            seTienAnNhe.Ex_FormatCustomSpinEdit();
+            seTongSoNguoiThamDu.Ex_FormatCustomSpinEdit();
+            seSoLuongNam.Ex_FormatCustomSpinEdit();
+            seSoLuongNu.Ex_FormatCustomSpinEdit();
+
+            seTongTienDuyet.Ex_FormatCustomSpinEdit();
+            seTongTienThucHien.Ex_FormatCustomSpinEdit();
+            seTongTienTrongBanKeHoach.Ex_FormatCustomSpinEdit();
 
             var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var nextMonth = current.AddMonths(1);
             deSearchTuNgay.DateTime = current;
             deSearchDenNgay.DateTime = nextMonth.AddDays(-1);
+
+            _loadBeginData();
+        }
+
+        #region Variable
+
+        #endregion
+
+        #region Function
+
+        private void _loadBeginData()
+        {
+            _changeLayout((CategoryTapHuan)_id_loai);
 
             lueLoaiTapHuan.Properties.DataSource = FuncCategory.loadDMTapHuan();
             lueLoaiTapHuan.EditValue = _id_loai;
@@ -69,16 +90,8 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTinh);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_LOAI_HOATDONG, lueLoaiHoatDong);
 
-            _changeLayout((CategoryTapHuan)_id_loai);
-
             FormStatus = EnumFormStatus.VIEW;
         }
-
-        #region Variable
-
-        #endregion
-
-        #region Function
 
         private void _changeLayout(CategoryTapHuan enumLoai)
         {
@@ -171,6 +184,22 @@ namespace DauThau.UserControlCategory
         private void _clearData()
         {
             foreach (var items in layoutEdit.Controls)
+            {
+                BaseEdit item = items as BaseEdit;
+                if (item != null)
+                {
+                    item.EditValue = null;
+                }
+            }
+            foreach (var items in layoutEdit2.Controls)
+            {
+                BaseEdit item = items as BaseEdit;
+                if (item != null)
+                {
+                    item.EditValue = null;
+                }
+            }
+            foreach (var items in layoutEdit3.Controls)
             {
                 BaseEdit item = items as BaseEdit;
                 if (item != null)
@@ -288,26 +317,55 @@ namespace DauThau.UserControlCategory
                 _setMemoText(item, CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN);
                 _setMemoText(item, CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT);
 
+               
                 //Tập huấn viên
                 txtLinkTHVHopDong.EditValue = item.TH_LINK_THV_HOPDONG;
                 txtLinkTHVBanCamKet.EditValue = item.TH_LINK_THV_BANCAMKET;
                 txtLinkTaiLieu.EditValue = item.TH_LINK_TAILIEU;
 
-                //txtDiaDiem.EditValue = item.TH_DIADIEM;
-                //txtDonViThucHien.EditValue = item.TH_DONVI_THUCHIEN;
-                //seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
-                //seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
-                //seTongTien.EditValue = item.TH_TONGTIEN;
+                
 
-                //txtDoiTuong.EditValue = item.TH_DOITUONG_TEN;
-                //txtDoiTuongId.EditValue = item.TH_DOITUONG_ID;
-                //txtDoiTuongKhac.EditValue = item.TH_DOITUONG_KHAC;
+                memoDoiTuong.EditValue = item.TH_DOITUONG_HV_TEN;
+                memoDoiTuongId.EditValue = item.TH_DOITUONG_HV_ID;
 
-                //txtNoiDung.EditValue = item.TH_NOIDUNG;
-                //txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
-                //seThuLaoGV.EditValue = item.TH_GIANGVIEN_THULAO;
-                //txtThongTinNguoiHoTro.EditValue = item.TH_NGUOI_HOTRO;
-                //seThuLaoHoTro.EditValue = item.TH_NGUOI_HOTRO_THULAO;
+                var query = item.QL_HOATDONG_TAPHUAN_DIADIEM.FirstOrDefault();
+                tapHuanDiaDiem = query;
+                if (query != null)
+                {
+                    memoDiaDiemToChuc.Text = query.TH_DD_TEN;
+                }
+
+                txtLinkTDVExcel.EditValue = item.TH_DOITUONG_LINK_EXCEL;
+                txtLinkTDVScan.EditValue = item.TH_DOITUONG_LINK_SCAN;
+                seTongSoNguoiThamDu.EditValue = item.TH_DOITUONG_TONGSO;
+                seSoLuongNam.EditValue = item.TH_DOITUONG_SL_NAM;
+                seSoLuongNu.EditValue = item.TH_DOITUONG_SL_NU;
+                seTienDiLai.EditValue = item.TH_TIEN_DILAI;
+                seTienAnTrua.EditValue = item.TH_TIEN_ANTRUA;
+                seTienAnNhe.EditValue = item.TH_TIEN_ANNHE;
+
+                seKTKhac.EditValue = item.TH_KT_SL_KHAC;
+                seKTNgheNoi.EditValue = item.TH_KT_SL_NGHENOI;
+                seKTNhin.EditValue = item.TH_KT_SL_NHIN;
+                seKTTriTue.EditValue = item.TH_KT_SL_TRITUE;
+                seKTVanDong.EditValue = item.TH_KT_SL_VANDONG;
+
+                txtLinkHDThanhLy.EditValue = item.TH_DIADIEM_LINK_HOPDONG;
+
+                //Tài chính
+                seTongTienDuyet.EditValue = item.TH_TONGTIEN_DUYET;
+                seTongTienThucHien.EditValue = item.TH_TONGTIEN_THUCHIEN;
+                seTongTienTrongBanKeHoach.EditValue = item.TH_TONGTIEN_BAN_KEHOACH;
+                txtLinkDuyetChi.EditValue = item.TH_LINK_DUYETCHI;
+                txtLinkKeHoachHoatDong.EditValue = item.TH_LINK_KEHOACH_HOATDONG;
+                txtLinkChungTu.EditValue = item.TH_LINK_CHUNGTU;
+
+                //Công văn
+                txtCongVan_So.EditValue = item.TH_CONGVAN_SO;
+                txtCongVan_DonViGoi.EditValue = item.TH_CONGVAN_DONVI_GUI;
+                txtCongVan_GuiDonVi.EditValue = item.TH_CONGVAN_GUI_DONVI;
+                txtLinkCongVan.EditValue = item.TH_CONGVAN_LINK;
+
             }
         }
 
@@ -330,21 +388,38 @@ namespace DauThau.UserControlCategory
             item.TH_LINK_THV_BANCAMKET = txtLinkTHVBanCamKet.Text;
             item.TH_LINK_TAILIEU = txtLinkTaiLieu.Text;
 
-            //item.TH_DIADIEM = txtDiaDiem.Text;
-            //item.TH_DONVI_THUCHIEN = txtDonViThucHien.Text;
-            //item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
-            //item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
-            //item.TH_TONGTIEN = seTongTien.Ex_EditValueToInt();
+            item.TH_DOITUONG_HV_ID = memoDoiTuongId.Text;
+            item.TH_DOITUONG_HV_TEN = memoDoiTuong.Text;
+            item.TH_DOITUONG_LINK_EXCEL = txtLinkTDVExcel.Text;
+            item.TH_DOITUONG_LINK_SCAN = txtLinkTDVScan.Text;
 
-            //item.TH_DOITUONG_TEN = txtDoiTuong.Text;
-            //item.TH_DOITUONG_ID = txtDoiTuongId.Text;
-            //item.TH_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+            item.TH_DOITUONG_TONGSO = seTongSoNguoiThamDu.Ex_EditValueToInt();
+            item.TH_DOITUONG_SL_NAM = seSoLuongNam.Ex_EditValueToInt();
+            item.TH_DOITUONG_SL_NU = seSoLuongNu.Ex_EditValueToInt();
+            item.TH_TIEN_DILAI = seTienDiLai.Ex_EditValueToInt();
+            item.TH_TIEN_ANTRUA = seTienAnTrua.Ex_EditValueToInt();
+            item.TH_TIEN_ANNHE = seTienAnNhe.Ex_EditValueToInt();
 
-            //item.TH_NOIDUNG = txtNoiDung.Text;
-            //item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
-            //item.TH_GIANGVIEN_THULAO = seThuLaoGV.Ex_EditValueToInt();
-            //item.TH_NGUOI_HOTRO = txtThongTinNguoiHoTro.Text;
-            //item.TH_NGUOI_HOTRO_THULAO = seThuLaoHoTro.Ex_EditValueToInt();
+            item.TH_KT_SL_VANDONG = seKTVanDong.Ex_EditValueToInt();
+            item.TH_KT_SL_TRITUE = seKTTriTue.Ex_EditValueToInt();
+            item.TH_KT_SL_NHIN = seKTNhin.Ex_EditValueToInt();
+            item.TH_KT_SL_NGHENOI = seKTNgheNoi.Ex_EditValueToInt();
+            item.TH_KT_SL_KHAC = seKTKhac.Ex_EditValueToInt();
+
+            item.TH_DIADIEM_LINK_HOPDONG = txtLinkHDThanhLy.Text;
+
+            //Tài chính
+            item.TH_TONGTIEN_DUYET = seTongTienDuyet.Ex_EditValueToInt();
+            item.TH_TONGTIEN_THUCHIEN = seTongTienThucHien.Ex_EditValueToInt();
+            item.TH_TONGTIEN_BAN_KEHOACH = seTongTienTrongBanKeHoach.Ex_EditValueToInt();
+            item.TH_LINK_DUYETCHI = txtLinkDuyetChi.Text;
+            item.TH_LINK_KEHOACH_HOATDONG = txtLinkKeHoachHoatDong.Text;
+            item.TH_LINK_CHUNGTU = txtLinkChungTu.Text;
+
+            item.TH_CONGVAN_SO = txtCongVan_So.Text;
+            item.TH_CONGVAN_DONVI_GUI = txtCongVan_DonViGoi.Text;
+            item.TH_CONGVAN_GUI_DONVI = txtCongVan_GuiDonVi.Text;
+            item.TH_CONGVAN_LINK = txtLinkCongVan.Text;
         }
 
         private Boolean _validateControl()
@@ -375,6 +450,7 @@ namespace DauThau.UserControlCategory
             listTapHuanVienChinh = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+            tapHuanDiaDiem = new QL_HOATDONG_TAPHUAN_DIADIEM();
         }
 
         private void _updateMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_TAPHUAN item, CategoryTapHuanChiTietLoai enumLoai)
@@ -462,6 +538,38 @@ namespace DauThau.UserControlCategory
             _context.QL_HOATDONG_TAPHUAN.Add(item);
         }
 
+        private void _updateDiaDiemToChucData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_TAPHUAN item)
+        {
+            if(tapHuanDiaDiem == null)
+            {
+                return;
+            }
+            
+            if (tapHuanDiaDiem.TH_ID == null) //add
+            {
+                tapHuanDiaDiem.QL_HOATDONG_TAPHUAN = item;
+                _context.QL_HOATDONG_TAPHUAN_DIADIEM.Add(tapHuanDiaDiem);
+            }
+            else if (tapHuanDiaDiem.TH_ID == constIdDeleted) //delete
+            {
+                var item_chitiet = (from p in _context.QL_HOATDONG_TAPHUAN_DIADIEM
+                                where p.TH_DD_ID == tapHuanDiaDiem.TH_DD_ID
+                                select p).FirstOrDefault();
+                if (item_chitiet != null)
+                {
+                    _context.QL_HOATDONG_TAPHUAN_DIADIEM.Remove(item_chitiet);
+                }
+            }
+            else //modify
+            {
+                var chitiet = _context.QL_HOATDONG_TAPHUAN_DIADIEM.Where(p => p.TH_DD_ID== tapHuanDiaDiem.TH_DD_ID).FirstOrDefault();
+                if (chitiet != null)
+                {
+                    _context.Entry(chitiet).CurrentValues.SetValues(tapHuanDiaDiem);
+                }
+            }
+        }
+
         protected override bool SaveData()
         {
             try
@@ -478,11 +586,15 @@ namespace DauThau.UserControlCategory
                                 item = new QL_HOATDONG_TAPHUAN();
                                 _setObjectEntities(ref item);
 
-                                _insertMemoData(_context, item, CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN);
-                                _insertMemoData(_context, item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH);
-                                _insertMemoData(_context, item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU);
-                                _insertMemoData(_context, item, CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN);
-                                _insertMemoData(_context, item, CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT);
+                                _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN);
+                                _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH);
+                                _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU);
+                                _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN);
+                                _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT);
+
+                                _updateDiaDiemToChucData(_context, item);
+
+                                _context.QL_HOATDONG_TAPHUAN.Add(item);
 
                                 _context.SaveChanges();
                                 _idRowSelected = item.TH_ID;
@@ -506,6 +618,8 @@ namespace DauThau.UserControlCategory
                                 _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU);
                                 _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN);
                                 _updateMemoData(_context, item, CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT);
+
+                                _updateDiaDiemToChucData(_context, item);
 
                                 break;
                             default:
@@ -562,7 +676,7 @@ namespace DauThau.UserControlCategory
                         clsHoatDongTapHuan item = new clsHoatDongTapHuan();
                         item.TH_TEN = row.TH_TEN;
                         item.TH_THOIGIAN = FunctionHelper.formatFromDateToDate(row.TH_THOIGIAN_BATDAU, row.TH_THOIGIAN_KETTHUC);
-                        item.TH_DIADIEM = row.TH_DIADIEM;
+                        //item.TH_DIADIEM = row.TH_DIADIEM;
                         item.TH_DONVI_THUCHIEN = row.TH_DONVI_THUCHIEN;
                         item.TH_SOLUONG = row.TH_SOLUONG;
                         item.TH_TONGTIEN = row.TH_TONGTIEN??0;
@@ -815,9 +929,53 @@ namespace DauThau.UserControlCategory
             FunctionHelper.openLink(txtLinkTaiLieu.Text);
         }
 
+        private void btnDiaDiemToChuc_Click(object sender, EventArgs e)
+        {
+            frmTapHuanDiaDiem frm = new frmTapHuanDiaDiem();
+            frm.data = tapHuanDiaDiem;
+            frm.id_parent = _idRowSelected;
+
+            frm.ShowDialog();
+            tapHuanDiaDiem = frm.data;
+            memoDiaDiemToChuc.Text = (tapHuanDiaDiem != null && tapHuanDiaDiem.TH_ID != constIdDeleted) ? tapHuanDiaDiem.TH_DD_TEN : "";
+        }
+
+        private void btnLinkTDVExcel_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkTDVExcel.Text);
+        }
+
+        private void btnLinkTDVScan_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkTDVScan.Text);
+        }
+
+        private void btnLinkHDThanhLy_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkHDThanhLy.Text);
+        }
+
+        private void btnLinkDuyetChi_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkDuyetChi.Text);
+        }
+
+        private void btnLinkKeHoachHoatDong_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkKeHoachHoatDong.Text);
+        }
+
+        private void btnLinkChungTu_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkChungTu.Text);
+        }
+
+        private void btnLinkCongVan_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkCongVan.Text);
+        }
 
         #endregion
 
-       
     }
 }

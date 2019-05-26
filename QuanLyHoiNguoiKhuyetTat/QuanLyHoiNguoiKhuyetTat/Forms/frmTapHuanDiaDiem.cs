@@ -31,13 +31,15 @@ namespace DauThau.Forms
         private EnumFormStatus _formStatus = EnumFormStatus.VIEW;
         private QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
         public QL_HOATDONG_TAPHUAN_DIADIEM data;
+        public Int64 id_parent;
 
         const Int64 constIdDeleted = -1;
 
         private void frmNhaTaiTro_Load(object sender, EventArgs e)
         {
-
             FormStatus = EnumFormStatus.VIEW;
+            this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.Update;
+            FormStatus = EnumFormStatus.MODIFY;
         }
 
         #region function
@@ -47,6 +49,21 @@ namespace DauThau.Forms
             this.Close();
         }
 
+        private void _deleteData()
+        {
+            if(clsMessage.MessageYesNo("Bạn có chắc muốn xóa?") == DialogResult.Yes)
+            {
+                if(data.TH_ID == null)
+                {
+                    data = null;
+                }
+                else
+                {
+                    data.TH_ID = constIdDeleted;
+                }
+                _closeForm();
+            }
+        }
         private Boolean _validateControl()
         {
 
@@ -67,7 +84,7 @@ namespace DauThau.Forms
         void _bindingData()
         {
             _clearData();
-            if (data != null)
+            if (data != null && data.TH_ID != constIdDeleted)
             {
                 txtDiaDiem_Ten.Text = data.TH_DD_TEN;
                 txtDiaDiem_DiaChi.Text = data.TH_DD_DIACHI;
@@ -119,8 +136,9 @@ namespace DauThau.Forms
                     item.ReadOnly = readOnly;
                     item.EnterMoveNextControl = true;
                 }
-                
             }
+            btnLinkHopDong.Enabled = true;
+
         }
 
 
@@ -133,20 +151,19 @@ namespace DauThau.Forms
                 {
                     switch (_formStatus)
                     {
-                        case EnumFormStatus.ADD:
-
-                            data = new QL_HOATDONG_TAPHUAN_DIADIEM();
-                            _setObjectEntities(ref data);
-                            break;
-
                         case EnumFormStatus.MODIFY:
+                            if(data == null)
+                            {
+                                data = new QL_HOATDONG_TAPHUAN_DIADIEM();
+                            }
 
+                            //Trong trường hợp xóa rồi cập nhật lại thì gán lại id
+                            if(data.TH_ID == constIdDeleted)
+                            {
+                                data.TH_ID = id_parent;
+                            }
+                            
                             _setObjectEntities(ref data);
-
-                            break;
-
-                        case EnumFormStatus.DELETE:
-                            data.TH_DD_ID = constIdDeleted;
                             break;
                         default:
                             break;
@@ -154,6 +171,7 @@ namespace DauThau.Forms
                 }
                 FormStatus = EnumFormStatus.VIEW;
                 _wait.Close();
+                _closeForm();
             }
         }
 
@@ -210,7 +228,10 @@ namespace DauThau.Forms
                 {
                     _statusAllControl(false);
                 }
-                
+                else if (_formStatus == EnumFormStatus.DELETE)
+                {
+                    _deleteData();
+                }
                 else if (_formStatus == EnumFormStatus.CLOSE)
                 {
                     _closeForm();

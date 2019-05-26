@@ -167,15 +167,15 @@ namespace DauThau.UserControlCategory
                 deDenNgay.EditValue = item.TH_THOIGIAN_KETTHUC;
                 seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.TH_TEN;
-                txtDiaDiem.EditValue = item.TH_DIADIEM;
+                //txtDiaDiem.EditValue = item.TH_DIADIEM;
                 txtDonViThucHien.EditValue = item.TH_DONVI_THUCHIEN;
                 seSoLuongNguoiThamGia.EditValue = item.TH_SOLUONG;
                 seSoTienMoiNguoi.EditValue = item.TH_SOTIEN_1NGUOI;
                 seTongTien.EditValue = item.TH_TONGTIEN;
 
-                txtDoiTuong.EditValue = item.TH_DOITUONG_TEN;
-                txtDoiTuongId.EditValue = item.TH_DOITUONG_ID;
-                txtDoiTuongKhac.EditValue = item.TH_DOITUONG_KHAC;
+                //txtDoiTuong.EditValue = item.TH_DOITUONG_TEN;
+                //txtDoiTuongId.EditValue = item.TH_DOITUONG_ID;
+                //txtDoiTuongKhac.EditValue = item.TH_DOITUONG_KHAC;
 
                 txtNoiDung.EditValue = item.TH_NOIDUNG;
                 txtThongTinGiangVien.EditValue = item.TH_GIANGVIEN;
@@ -193,15 +193,15 @@ namespace DauThau.UserControlCategory
             item.TH_TONGSO_NGAY = seTongSoNgay.Ex_EditValueToInt();
 
             item.TH_TEN = txtTenChuongTrinh.Text ;
-            item.TH_DIADIEM = txtDiaDiem.Text;
+            //item.TH_DIADIEM = txtDiaDiem.Text;
             item.TH_DONVI_THUCHIEN = txtDonViThucHien.Text;
             item.TH_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
             item.TH_SOTIEN_1NGUOI = seSoTienMoiNguoi.Ex_EditValueToInt();
             item.TH_TONGTIEN = seTongTien.Ex_EditValueToInt();
 
-            item.TH_DOITUONG_TEN = txtDoiTuong.Text;
-            item.TH_DOITUONG_ID = txtDoiTuongId.Text;
-            item.TH_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+            //item.TH_DOITUONG_TEN = txtDoiTuong.Text;
+            //item.TH_DOITUONG_ID = txtDoiTuongId.Text;
+            //item.TH_DOITUONG_KHAC = txtDoiTuongKhac.Text;
 
             item.TH_NOIDUNG = txtNoiDung.Text;
             item.TH_GIANGVIEN = txtThongTinGiangVien.Text;
@@ -311,7 +311,7 @@ namespace DauThau.UserControlCategory
                         clsHoatDongTapHuan item = new clsHoatDongTapHuan();
                         item.TH_TEN = row.TH_TEN;
                         item.TH_THOIGIAN = FunctionHelper.formatFromDateToDate(row.TH_THOIGIAN_BATDAU, row.TH_THOIGIAN_KETTHUC);
-                        item.TH_DIADIEM = row.TH_DIADIEM;
+                        //item.TH_DIADIEM = row.TH_DIADIEM;
                         item.TH_DONVI_THUCHIEN = row.TH_DONVI_THUCHIEN;
                         item.TH_SOLUONG = row.TH_SOLUONG;
                         item.TH_TONGTIEN = row.TH_TONGTIEN??0;

@@ -15,6 +15,7 @@ namespace DauThau.Models
     public partial class QL_HOATDONG_TAPHUAN_DIADIEM
     {
         public long TH_DD_ID { get; set; }
+        public Nullable<long> TH_ID { get; set; }
         public string TH_DD_TEN { get; set; }
         public string TH_DD_DIACHI { get; set; }
         public string TH_DD_MST { get; set; }
@@ -22,5 +23,7 @@ namespace DauThau.Models
         public string TH_DD_STK { get; set; }
         public string TH_DD_TEN_NGANHANG { get; set; }
         public string TH_DD_LINK_HOPDONG { get; set; }
+    
+        public virtual QL_HOATDONG_TAPHUAN QL_HOATDONG_TAPHUAN { get; set; }
     }
 }
