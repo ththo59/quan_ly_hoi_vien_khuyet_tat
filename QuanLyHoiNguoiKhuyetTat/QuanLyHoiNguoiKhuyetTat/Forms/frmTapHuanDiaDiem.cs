@@ -90,8 +90,9 @@ namespace DauThau.Forms
                 txtDiaDiem_DiaChi.Text = data.TH_DD_DIACHI;
                 txtDiaDiem_MST.Text = data.TH_DD_MST;
                 txtDiaDiem_SDT.Text = data.TH_DD_SDT;
-                txtDiaDiem_STK.Text = data.TH_DD_STK;
-                txtDiaDiem_TenNganHang.Text = data.TH_DD_TEN_NGANHANG;
+                txtDiaDiem_STK.Text = data.TH_DD_TK_SO;
+                txtDiaDiem_TenNganHang.Text = data.TH_DD_TK_NGANHANG;
+                txtTenTaiKhoan.Text = data.TH_DD_TK_TEN;
                 txtLinkHopDong.Text = data.TH_DD_LINK_HOPDONG;
             }
         }
@@ -102,8 +103,9 @@ namespace DauThau.Forms
             item.TH_DD_DIACHI = txtDiaDiem_DiaChi.Text;
             item.TH_DD_MST = txtDiaDiem_MST.Text;
             item.TH_DD_SDT = txtDiaDiem_SDT.Text;
-            item.TH_DD_STK = txtDiaDiem_STK.Text;
-            item.TH_DD_TEN_NGANHANG = txtDiaDiem_TenNganHang.Text;
+            item.TH_DD_TK_SO = txtDiaDiem_STK.Text;
+            item.TH_DD_TK_NGANHANG = txtDiaDiem_TenNganHang.Text;
+            item.TH_DD_TK_TEN = txtTenTaiKhoan.Text;
             item.TH_DD_LINK_HOPDONG = txtLinkHopDong.Text;
         }
 

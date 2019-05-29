@@ -20,8 +20,9 @@ namespace DauThau.Models
         public string TH_DD_DIACHI { get; set; }
         public string TH_DD_MST { get; set; }
         public string TH_DD_SDT { get; set; }
-        public string TH_DD_STK { get; set; }
-        public string TH_DD_TEN_NGANHANG { get; set; }
+        public string TH_DD_TK_SO { get; set; }
+        public string TH_DD_TK_TEN { get; set; }
+        public string TH_DD_TK_NGANHANG { get; set; }
         public string TH_DD_LINK_HOPDONG { get; set; }
     
         public virtual QL_HOATDONG_TAPHUAN QL_HOATDONG_TAPHUAN { get; set; }

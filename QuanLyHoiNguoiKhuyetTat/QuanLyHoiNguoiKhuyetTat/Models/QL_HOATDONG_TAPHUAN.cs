@@ -36,6 +36,7 @@ namespace DauThau.Models
         public string TH_LINK_THV_HOPDONG { get; set; }
         public string TH_LINK_THV_BANCAMKET { get; set; }
         public string TH_LINK_TAILIEU { get; set; }
+        public string TH_LINK_BAOCAO_SAU_TAPHUAN { get; set; }
         public string TH_DOITUONG_HV_ID { get; set; }
         public string TH_DOITUONG_HV_TEN { get; set; }
         public string TH_DOITUONG_LINK_EXCEL { get; set; }
@@ -52,6 +53,7 @@ namespace DauThau.Models
         public Nullable<int> TH_KT_SL_TRITUE { get; set; }
         public Nullable<int> TH_KT_SL_KHAC { get; set; }
         public string TH_DIADIEM_LINK_HOPDONG { get; set; }
+        public string TH_DIADIEM_LINK_BB_THANHLY { get; set; }
         public Nullable<int> TH_TONGTIEN_DUYET { get; set; }
         public Nullable<int> TH_TONGTIEN_THUCHIEN { get; set; }
         public Nullable<int> TH_TONGTIEN_BAN_KEHOACH { get; set; }

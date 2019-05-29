@@ -18,6 +18,7 @@ namespace DauThau.Models
         public Nullable<long> TH_ID { get; set; }
         public Nullable<int> TH_CT_LOAI { get; set; }
         public string TH_CT_HOTEN { get; set; }
+        public string TH_CT_CHUCVU { get; set; }
         public string TH_CT_EMAIL { get; set; }
         public string TH_CT_FACEBOOK { get; set; }
         public string TH_CT_CMND_SO { get; set; }
@@ -31,6 +32,7 @@ namespace DauThau.Models
         public string TH_CT_MASOTHUE { get; set; }
         public string TH_CT_TK_SO { get; set; }
         public string TH_CT_TK_NGANHANG { get; set; }
+        public string TH_CT_TK_DIACHI { get; set; }
         public string TH_CT_LINK_TOR { get; set; }
         public string TH_CT_LINK_CV { get; set; }
         public string TH_CT_LINK_HOPDONG { get; set; }

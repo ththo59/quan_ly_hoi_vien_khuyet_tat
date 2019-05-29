@@ -101,6 +101,7 @@ namespace DauThau.Forms
             if (item != null)
             {
                 txtHoTen.Text = item.TH_CT_HOTEN;
+                txtChucVu.Text = item.TH_CT_CHUCVU;
                 txtEmail.Text = item.TH_CT_EMAIL;
                 txtFace.Text = item.TH_CT_FACEBOOK;
                 txtCMND.Text = item.TH_CT_CMND_SO;
@@ -116,6 +117,7 @@ namespace DauThau.Forms
                 txtMaSoThue.Text = item.TH_CT_MASOTHUE;
                 txtSTK.Text = item.TH_CT_TK_SO;
                 txtTenNganHang.Text = item.TH_CT_TK_NGANHANG;
+                txtDiaChiNganHang.Text = item.TH_CT_TK_DIACHI;
 
                 txtDonVi_Ten.Text = item.TH_CT_DONVI_TEN;
                 txtDonVi_SDT.EditValue = item.TH_CT_DONVI_SDT;
@@ -152,6 +154,7 @@ namespace DauThau.Forms
         {
             item.TH_CT_LOAI = _loai_id;
             item.TH_CT_HOTEN = txtHoTen.Text;
+            item.TH_CT_CHUCVU = txtChucVu.Text;
             item.TH_CT_EMAIL = txtEmail.Text;
             item.TH_CT_FACEBOOK = txtFace.Text;
             item.TH_CT_CMND_SO = txtCMND.Text;
@@ -164,6 +167,7 @@ namespace DauThau.Forms
             item.TH_CT_MASOTHUE = txtMaSoThue.Text;
             item.TH_CT_TK_SO = txtSTK.Text;
             item.TH_CT_TK_NGANHANG = txtTenNganHang.Text;
+            item.TH_CT_TK_DIACHI = txtDiaChiNganHang.Text;
 
             item.TH_CT_DONVI_TEN = txtDonVi_Ten.Text;
             item.TH_CT_DONVI_DIACHI = txtDonVi_DiaChi.Text;
@@ -416,8 +420,101 @@ namespace DauThau.Forms
             FunctionHelper.openLink(txtLinkBanCamKet.Text);
         }
 
+
         #endregion
 
+        private void btnXuatBanHopDong_Click(object sender, EventArgs e)
+        {
+            if (txtHoTen.Text == "")
+            {
+                clsMessage.MessageWarning("Chưa có thông tin tập huấn viên chính. Vui lòng kiểm tra lại.");
+                return;
+            }
 
+            var dataPrint = new Dictionary<string, string>()
+            {
+                {"bDiaChi", txtDiaChi.Text},
+                {"bDienThoai", txtSoDienThoai.Text},
+                {"bChucVu", txtChucVu.Text},
+                {"bTenTaiKhoan", txtHoTen.Text},
+
+                {"bSoTaiKhoan", txtSTK.Text},
+                {"bNganHang", txtTenNganHang.Text},
+                {"bDiaChiNganHang", txtDiaChiNganHang.Text},
+                {"bMaSoThue", txtMaSoThue.Text}
+            };
+
+            string fileName = "";
+            switch ((CategoryTapHuanChiTietLoai)_loai_id)
+            {
+                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    fileName = "THV_hop_dong_thue.doc";
+                    break;
+                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    fileName = "PDV_hop_dong_thue.doc";
+                    break;
+                case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
+                    layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
+                    break;
+                default:
+                    break;
+            }
+
+            if(fileName == "")
+            {
+                clsMessage.MessageInfo("Biểu mẫu chưa được cấu hình. Vui lòng kiểm tra lại");
+                return;
+            }
+
+            ExportHelper.exportWord(dataPrint, fileName);
+        }
+
+        private void btnXuatBanCamKet_Click(object sender, EventArgs e)
+        {
+            if (txtHoTen.Text == "")
+            {
+                clsMessage.MessageWarning("Chưa có thông tin tập huấn viên chính. Vui lòng kiểm tra lại.");
+                return;
+            }
+            var dataPrint = new Dictionary<string, string>()
+            {
+                {"TH_CT_HOTEN", txtHoTen.Text},
+                {"TH_CT_CMND_SO", txtCMND.Text},
+                {"TH_CT_CMND_NGAYCAP", string.Format("{0}/{1}/{2}", deNgayCap_Ngay.Text, deNgayCap_Thang.Text, deNgayCap_Nam.Text)},
+                {"TH_CT_CMND_NOICAP", txtNoiCap.Text },
+
+                {"TH_CT_DIACHI", txtDiaChi.Text},
+                {"TH_CT_DONVI_DIACHI", txtDonVi_DiaChi.Text},
+
+            };
+            string fileName = "";
+            switch ((CategoryTapHuanChiTietLoai)_loai_id)
+            {
+                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    break;
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
+                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    fileName = "THV_ban_cam_ket.doc";
+                    break;
+                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    fileName = "PDV_ban_cam_ket.doc";
+                    break;
+                case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
+                    layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
+                    break;
+                default:
+                    break;
+            }
+
+            if (fileName == "")
+            {
+                clsMessage.MessageInfo("Biểu mẫu chưa được cấu hình. Vui lòng kiểm tra lại");
+                return;
+            }
+            ExportHelper.exportWord(dataPrint, fileName);
+        }
     }
 }

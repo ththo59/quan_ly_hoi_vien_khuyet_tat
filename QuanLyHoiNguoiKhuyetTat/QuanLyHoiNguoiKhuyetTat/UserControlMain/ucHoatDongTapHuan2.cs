@@ -38,6 +38,7 @@ namespace DauThau.UserControlCategory
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public QL_HOATDONG_TAPHUAN_DIADIEM tapHuanDiaDiem = new QL_HOATDONG_TAPHUAN_DIADIEM();
+        
 
         //Lưu ý: khi mở lần đầu tiên idRowSeleted = 0 và lấy dữ liệu dòng đầu tiên (nếu có)
         private Int64 _idRowSelected;
@@ -174,6 +175,23 @@ namespace DauThau.UserControlCategory
                     item.EnterMoveNextControl = true;
                 }
             }
+
+            foreach (var items in layoutEdit4.Controls)
+            {
+                BaseEdit item = items as BaseEdit;
+                SimpleButton button = items as SimpleButton;
+                if (button != null)
+                {
+                    button.Enabled = !readOnly;
+                    continue;
+                }
+                if (item != null)
+                {
+                    item.ReadOnly = readOnly;
+                    item.EnterMoveNextControl = true;
+                }
+            }
+
             deSearchTuNgay.ReadOnly = deSearchDenNgay.ReadOnly = !readOnly;
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
@@ -200,6 +218,14 @@ namespace DauThau.UserControlCategory
                 }
             }
             foreach (var items in layoutEdit3.Controls)
+            {
+                BaseEdit item = items as BaseEdit;
+                if (item != null)
+                {
+                    item.EditValue = null;
+                }
+            }
+            foreach (var items in layoutEdit4.Controls)
             {
                 BaseEdit item = items as BaseEdit;
                 if (item != null)
@@ -322,18 +348,13 @@ namespace DauThau.UserControlCategory
                 txtLinkTHVHopDong.EditValue = item.TH_LINK_THV_HOPDONG;
                 txtLinkTHVBanCamKet.EditValue = item.TH_LINK_THV_BANCAMKET;
                 txtLinkTaiLieu.EditValue = item.TH_LINK_TAILIEU;
-
+                txtLinkBaoCaoSauTapHuan.EditValue = item.TH_LINK_BAOCAO_SAU_TAPHUAN;
                 
 
                 memoDoiTuong.EditValue = item.TH_DOITUONG_HV_TEN;
                 memoDoiTuongId.EditValue = item.TH_DOITUONG_HV_ID;
 
-                var query = item.QL_HOATDONG_TAPHUAN_DIADIEM.FirstOrDefault();
-                tapHuanDiaDiem = query;
-                if (query != null)
-                {
-                    memoDiaDiemToChuc.Text = query.TH_DD_TEN;
-                }
+                
 
                 txtLinkTDVExcel.EditValue = item.TH_DOITUONG_LINK_EXCEL;
                 txtLinkTDVScan.EditValue = item.TH_DOITUONG_LINK_SCAN;
@@ -350,7 +371,14 @@ namespace DauThau.UserControlCategory
                 seKTTriTue.EditValue = item.TH_KT_SL_TRITUE;
                 seKTVanDong.EditValue = item.TH_KT_SL_VANDONG;
 
-                txtLinkHDThanhLy.EditValue = item.TH_DIADIEM_LINK_HOPDONG;
+                var query = item.QL_HOATDONG_TAPHUAN_DIADIEM.FirstOrDefault();
+                tapHuanDiaDiem = query;
+                if (query != null)
+                {
+                    memoDiaDiemToChuc.Text = query.TH_DD_TEN;
+                }
+                txtLinkDiaDiem_HopDong.EditValue = item.TH_DIADIEM_LINK_HOPDONG;
+                txtLinkDiaDiem_BBThanhLy.EditValue = item.TH_DIADIEM_LINK_BB_THANHLY;
 
                 //Tài chính
                 seTongTienDuyet.EditValue = item.TH_TONGTIEN_DUYET;
@@ -387,6 +415,7 @@ namespace DauThau.UserControlCategory
             item.TH_LINK_THV_HOPDONG = txtLinkTHVHopDong.Text;
             item.TH_LINK_THV_BANCAMKET = txtLinkTHVBanCamKet.Text;
             item.TH_LINK_TAILIEU = txtLinkTaiLieu.Text;
+            item.TH_LINK_BAOCAO_SAU_TAPHUAN = txtLinkBaoCaoSauTapHuan.Text;
 
             item.TH_DOITUONG_HV_ID = memoDoiTuongId.Text;
             item.TH_DOITUONG_HV_TEN = memoDoiTuong.Text;
@@ -406,7 +435,8 @@ namespace DauThau.UserControlCategory
             item.TH_KT_SL_NGHENOI = seKTNgheNoi.Ex_EditValueToInt();
             item.TH_KT_SL_KHAC = seKTKhac.Ex_EditValueToInt();
 
-            item.TH_DIADIEM_LINK_HOPDONG = txtLinkHDThanhLy.Text;
+            item.TH_DIADIEM_LINK_HOPDONG = txtLinkDiaDiem_HopDong.Text;
+            item.TH_DIADIEM_LINK_BB_THANHLY = txtLinkDiaDiem_BBThanhLy.Text;
 
             //Tài chính
             item.TH_TONGTIEN_DUYET = seTongTienDuyet.Ex_EditValueToInt();
@@ -929,6 +959,11 @@ namespace DauThau.UserControlCategory
             FunctionHelper.openLink(txtLinkTaiLieu.Text);
         }
 
+        private void btnLinkBaoCaoSauTapHuan_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkBaoCaoSauTapHuan.Text);
+        }
+
         private void btnDiaDiemToChuc_Click(object sender, EventArgs e)
         {
             frmTapHuanDiaDiem frm = new frmTapHuanDiaDiem();
@@ -952,7 +987,7 @@ namespace DauThau.UserControlCategory
 
         private void btnLinkHDThanhLy_Click(object sender, EventArgs e)
         {
-            FunctionHelper.openLink(txtLinkHDThanhLy.Text);
+            FunctionHelper.openLink(txtLinkDiaDiem_HopDong.Text);
         }
 
         private void btnLinkDuyetChi_Click(object sender, EventArgs e)
@@ -977,5 +1012,45 @@ namespace DauThau.UserControlCategory
 
         #endregion
 
+        private void btnLinkDiaDiem_BBThanhLy_Click(object sender, EventArgs e)
+        {
+            FunctionHelper.openLink(txtLinkDiaDiem_BBThanhLy.Text);
+        }
+
+        private void btnPrintDiaDiem_HopDong_Click(object sender, EventArgs e)
+        {
+            if(tapHuanDiaDiem == null)
+            {
+                clsMessage.MessageExclamation("Thông tin địa điểm chưa được cập nhật. Vui lòng kiểm tra lại.");
+                return;
+            }
+            var dataPrint = new Dictionary<string, string>()
+            {
+                {"TH_DD_DIACHI", tapHuanDiaDiem.TH_DD_DIACHI},
+                {"TH_DD_SDT", tapHuanDiaDiem.TH_DD_SDT},
+                {"TH_DD_MST", tapHuanDiaDiem.TH_DD_MST},
+                {"TH_DD_TK_SO", tapHuanDiaDiem.TH_DD_TK_SO },
+                {"TH_DD_TK_TEN", tapHuanDiaDiem.TH_DD_TK_TEN}
+            };
+            ExportHelper.exportWord(dataPrint, "DiaDiemToChuc_HopDong.doc");
+        }
+
+        private void btnPrintDiaDiem_ThanhLy_Click(object sender, EventArgs e)
+        {
+            if (tapHuanDiaDiem == null)
+            {
+                clsMessage.MessageExclamation("Thông tin địa điểm chưa được cập nhật. Vui lòng kiểm tra lại.");
+                return;
+            }
+            var dataPrint = new Dictionary<string, string>()
+            {
+                {"TH_DD_DIACHI", tapHuanDiaDiem.TH_DD_DIACHI},
+                {"TH_DD_SDT", tapHuanDiaDiem.TH_DD_SDT},
+                {"TH_DD_MST", tapHuanDiaDiem.TH_DD_MST},
+                {"TH_DD_TK_SO", tapHuanDiaDiem.TH_DD_TK_SO },
+                {"TH_DD_TK_TEN", tapHuanDiaDiem.TH_DD_TK_TEN}
+            };
+            ExportHelper.exportWord(dataPrint, "DiaDiemToChuc_ThanhLy.doc");
+        }
     }
 }
