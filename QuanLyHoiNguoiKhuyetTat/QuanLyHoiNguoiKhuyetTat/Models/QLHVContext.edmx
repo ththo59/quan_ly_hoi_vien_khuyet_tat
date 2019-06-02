@@ -506,11 +506,11 @@
           <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HV_HO" Type="nvarchar" MaxLength="20" />
           <Property Name="HV_TEN" Type="nvarchar" MaxLength="20" />
-          <Property Name="HV_IMAGE" Type="image" />
           <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="10" />
           <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGAY_SINH" Type="date" />
           <Property Name="HV_TUOI" Type="int" />
+          <Property Name="HV_VAOHOI_NGAY" Type="date" />
           <Property Name="HV_TON_GIAO" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGHE_NGHIEP" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_TRINHDO_VANHOA" Type="nvarchar" MaxLength="250" />
@@ -604,6 +604,16 @@
           <Property Name="HV_ID" Type="bigint" />
           <Property Name="HP_NGAY" Type="date" />
           <Property Name="HP_PHI" Type="int" />
+        </EntityType>
+        <EntityType Name="QL_HOIVIEN_IMAGE">
+          <Key>
+            <PropertyRef Name="IMG_ID" />
+          </Key>
+          <Property Name="IMG_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HV_ID" Type="bigint" />
+          <Property Name="IMG_HOIVIEN" Type="image" />
+          <Property Name="IMG_CMND_MATTRUOC" Type="image" />
+          <Property Name="IMG_CMND_MATSAU" Type="image" />
         </EntityType>
         <EntityType Name="QL_USERS">
           <Key>
@@ -749,6 +759,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
+          <End Role="QL_HOIVIEN" Type="Self.QL_HOIVIEN" Multiplicity="0..1" />
+          <End Role="QL_HOIVIEN_IMAGE" Type="Self.QL_HOIVIEN_IMAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_IMAGE">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_QL_USERS_PERMISSION_QL_USERS">
           <End Role="QL_USERS" Type="Self.QL_USERS" Multiplicity="0..1" />
           <End Role="QL_USERS_PERMISSION" Type="Self.QL_USERS_PERMISSION" Multiplicity="*" />
@@ -803,6 +825,7 @@
           <EntitySet Name="QL_HOIVIEN" EntityType="Self.QL_HOIVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_CON" EntityType="Self.QL_HOIVIEN_CON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_HOIPHI" EntityType="Self.QL_HOIVIEN_HOIPHI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOIVIEN_IMAGE" EntityType="Self.QL_HOIVIEN_IMAGE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_USERS" EntityType="Self.QL_USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_USERS_PERMISSION" EntityType="Self.QL_USERS_PERMISSION" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
@@ -844,6 +867,10 @@
           <AssociationSet Name="FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" Association="Self.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
             <End Role="QL_HOIVIEN_HOIPHI" EntitySet="QL_HOIVIEN_HOIPHI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" Association="Self.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOIVIEN_IMAGE" EntitySet="QL_HOIVIEN_IMAGE" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_USERS_PERMISSION_QL_USERS" Association="Self.FK_QL_USERS_PERMISSION_QL_USERS">
             <End Role="QL_USERS" EntitySet="QL_USERS" />
@@ -996,6 +1023,7 @@
           <EntitySet Name="QL_HOIVIEN_CON" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_CON" />
           <EntitySet Name="QL_HOIVIEN_HOIPHI" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_HOIPHI" />
           <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
+          <EntitySet Name="QL_HOIVIEN_IMAGE" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_IMAGE" />
           <AssociationSet Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
             <End Role="QL_HOIVIEN_CON" EntitySet="QL_HOIVIEN_CON" />
@@ -1003,6 +1031,10 @@
           <AssociationSet Name="FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
             <End Role="QL_HOIVIEN_HOIPHI" EntitySet="QL_HOIVIEN_HOIPHI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOIVIEN_IMAGE" EntitySet="QL_HOIVIEN_IMAGE" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
@@ -1616,11 +1648,11 @@
           <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HV_HO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="HV_TEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="HV_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
           <Property Name="HV_TUOI" Type="Int32" />
+          <Property Name="HV_VAOHOI_NGAY" Type="DateTime" Precision="0" />
           <Property Name="HV_TON_GIAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGHE_NGHIEP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_TRINHDO_VANHOA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -1696,6 +1728,18 @@
           <Property Name="HV_GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOIVIEN_CON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_CON" />
           <NavigationProperty Name="QL_HOIVIEN_HOIPHI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_HOIPHI" />
+          <NavigationProperty Name="QL_HOIVIEN_IMAGE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_IMAGE" />
+        </EntityType>
+        <EntityType Name="QL_HOIVIEN_IMAGE">
+          <Key>
+            <PropertyRef Name="IMG_ID" />
+          </Key>
+          <Property Name="IMG_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HV_ID" Type="Int64" />
+          <Property Name="IMG_HOIVIEN" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IMG_CMND_MATTRUOC" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IMG_CMND_MATSAU" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="QL_HOIVIEN" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" FromRole="QL_HOIVIEN_IMAGE" ToRole="QL_HOIVIEN" />
         </EntityType>
         <Association Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
           <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
@@ -1717,6 +1761,18 @@
               <PropertyRef Name="HV_ID" />
             </Principal>
             <Dependent Role="QL_HOIVIEN_HOIPHI">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_IMAGE" Role="QL_HOIVIEN_IMAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_IMAGE">
               <PropertyRef Name="HV_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -2383,14 +2439,25 @@
                 <ScalarProperty Name="HV_TRINHDO_VANHOA" ColumnName="HV_TRINHDO_VANHOA" />
                 <ScalarProperty Name="HV_NGHE_NGHIEP" ColumnName="HV_NGHE_NGHIEP" />
                 <ScalarProperty Name="HV_TON_GIAO" ColumnName="HV_TON_GIAO" />
+                <ScalarProperty Name="HV_VAOHOI_NGAY" ColumnName="HV_VAOHOI_NGAY" />
                 <ScalarProperty Name="HV_TUOI" ColumnName="HV_TUOI" />
                 <ScalarProperty Name="HV_NGAY_SINH" ColumnName="HV_NGAY_SINH" />
                 <ScalarProperty Name="HV_DAN_TOC" ColumnName="HV_DAN_TOC" />
                 <ScalarProperty Name="HV_GIOI_TINH" ColumnName="HV_GIOI_TINH" />
-                <ScalarProperty Name="HV_IMAGE" ColumnName="HV_IMAGE" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_HO" ColumnName="HV_HO" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOIVIEN_IMAGE">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN_IMAGE">
+              <MappingFragment StoreEntitySet="QL_HOIVIEN_IMAGE">
+                <ScalarProperty Name="IMG_CMND_MATSAU" ColumnName="IMG_CMND_MATSAU" />
+                <ScalarProperty Name="IMG_CMND_MATTRUOC" ColumnName="IMG_CMND_MATTRUOC" />
+                <ScalarProperty Name="IMG_HOIVIEN" ColumnName="IMG_HOIVIEN" />
+                <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+                <ScalarProperty Name="IMG_ID" ColumnName="IMG_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

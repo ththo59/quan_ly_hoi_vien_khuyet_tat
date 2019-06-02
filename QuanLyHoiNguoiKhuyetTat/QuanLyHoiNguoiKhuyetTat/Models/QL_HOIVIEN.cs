@@ -19,16 +19,17 @@ namespace DauThau.Models
         {
             this.QL_HOIVIEN_CON = new HashSet<QL_HOIVIEN_CON>();
             this.QL_HOIVIEN_HOIPHI = new HashSet<QL_HOIVIEN_HOIPHI>();
+            this.QL_HOIVIEN_IMAGE = new HashSet<QL_HOIVIEN_IMAGE>();
         }
     
         public long HV_ID { get; set; }
         public string HV_HO { get; set; }
         public string HV_TEN { get; set; }
-        public byte[] HV_IMAGE { get; set; }
         public string HV_GIOI_TINH { get; set; }
         public string HV_DAN_TOC { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
         public Nullable<int> HV_TUOI { get; set; }
+        public Nullable<System.DateTime> HV_VAOHOI_NGAY { get; set; }
         public string HV_TON_GIAO { get; set; }
         public string HV_NGHE_NGHIEP { get; set; }
         public string HV_TRINHDO_VANHOA { get; set; }
@@ -107,5 +108,7 @@ namespace DauThau.Models
         public virtual ICollection<QL_HOIVIEN_CON> QL_HOIVIEN_CON { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOIVIEN_HOIPHI> QL_HOIVIEN_HOIPHI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOIVIEN_IMAGE> QL_HOIVIEN_IMAGE { get; set; }
     }
 }

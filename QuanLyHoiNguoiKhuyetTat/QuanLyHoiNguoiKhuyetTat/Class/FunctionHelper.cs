@@ -15,11 +15,38 @@ using System.Security.Cryptography;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using CuscLibrary.Offices;
 using System.ComponentModel;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace DauThau.Class
 {
     public static class FunctionHelper
     {
+
+        public static byte[] convertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                //img.Save(ms, ImageFormat.Jpeg);
+                //return ms.ToArray();
+                Bitmap bmp = new Bitmap(img);
+                bmp.Save(ms, ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
+
+        public static Image convertBinaryToImage(byte[] data)
+        {
+            if (data == null)
+            {
+                return Properties.Resources.noavatar;
+            }
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
         public static bool openLink(string slink)
         {
             try

@@ -408,6 +408,12 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmLyLich_CMND.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLyLich_CMND.Designer.cs">
+      <DependentUpon>frmLyLich_CMND.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTapHuanDiaDiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -586,6 +592,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOIVIEN_HOIPHI.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOIVIEN_IMAGE.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_USERS.cs">
@@ -1684,6 +1693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLyLich_CMND.resx">
+      <DependentUpon>frmLyLich_CMND.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTapHuanDiaDiem.resx">
       <DependentUpon>frmTapHuanDiaDiem.cs</DependentUpon>

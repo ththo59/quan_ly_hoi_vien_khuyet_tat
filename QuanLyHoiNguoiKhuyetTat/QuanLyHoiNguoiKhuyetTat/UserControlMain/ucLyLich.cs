@@ -33,6 +33,11 @@ namespace DauThau.UserControlCategory
         }
 
         private BindingList<QL_HOIVIEN_HOIPHI> _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>();
+        private BindingList<QL_HOIVIEN_CON> _listCon = new BindingList<QL_HOIVIEN_CON>();
+        private QL_HOIVIEN _hoiVien = new QL_HOIVIEN();
+        private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
+
+        private Int64 _idRowSelected;
 
         private void ucLyLich_Load(object sender, EventArgs e)
         {
@@ -59,8 +64,6 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG, lueTinhTrangKT);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, luePhuongTienDiLai);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, lueTinhTrangHonNhan);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinhCon1);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinhCon2);
 
             //Tab dụng cụ hỗ trợ chế độ chính sách
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DUNGCU_HOTRO, lueDungCuHoTro);
@@ -89,10 +92,7 @@ namespace DauThau.UserControlCategory
             deNgaySinh_Ngay.Properties.MaxValue = 31;
             deNgaySinh_Ngay.Properties.MinValue = 1;
             
-            deNgayCapCMND_Thang.Properties.MaxValue = 12;
-            deNgayCapCMND_Thang.Properties.MinValue = 1;
-            deNgayCapCMND_Ngay.Properties.MaxValue = 31;
-            deNgayCapCMND_Ngay.Properties.MinValue = 1;
+            
 
             seKhuyetTat_Nam.Properties.MaxValue = DateTime.Now.Year;
             //deNgayKhuyetTat_Thang.Properties.MaxValue = 12;
@@ -105,22 +105,20 @@ namespace DauThau.UserControlCategory
             deDCHT_ThoiGianNhan_Ngay.Properties.MaxValue = 31;
             deDCHT_ThoiGianNhan_Ngay.Properties.MinValue = 1;
 
-            deNgaySinhCon1_Nam.Properties.MaxValue = DateTime.Now.Year;
-            deNgaySinhCon1_Thang.Properties.MaxValue = 12;
-            deNgaySinhCon1_Thang.Properties.MinValue = 1;
-            deNgaySinhCon1_Ngay.Properties.MaxValue = 31;
-            deNgaySinhCon1_Ngay.Properties.MinValue = 1;
-
-            deNgaySinhCon2_Nam.Properties.MaxValue = DateTime.Now.Year;
-            deNgaySinhCon2_Thang.Properties.MaxValue = 12;
-            deNgaySinhCon2_Thang.Properties.MinValue = 1;
-            deNgaySinhCon2_Ngay.Properties.MaxValue = 31;
-            deNgaySinhCon2_Ngay.Properties.MinValue = 1;
+            seVaoHoi_Nam.Properties.MaxValue = DateTime.Now.Year;
+            seVaoHoi_Thang.Properties.MaxValue = 12;
+            seVaoHoi_Thang.Properties.MinValue = 1;
+            seVaoHoi_Ngay.Properties.MaxValue = 31;
+            seVaoHoi_Ngay.Properties.MinValue = 1;
 
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
         }
 
+
+
+
+        #region function
 
         protected override EnumFormStatus FormStatus
         {
@@ -134,8 +132,14 @@ namespace DauThau.UserControlCategory
                     gvHoiPhi.OptionsView.ShowAutoFilterRow = false;
                     gvHoiPhi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
                     gvHoiPhi.ActiveFilter.Clear();
+
+                    gvCon.OptionsBehavior.Editable = true;
+                    gvCon.OptionsView.ShowAutoFilterRow = false;
+                    gvCon.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+                    gvCon.ActiveFilter.Clear();
+
                     _clearData();
-                    _initListData();
+                    _initData();
                     _setDefaultValue();
                     _statusAllControl(false);
                 }
@@ -144,6 +148,12 @@ namespace DauThau.UserControlCategory
                     gvHoiPhi.OptionsBehavior.Editable = true;
                     gvHoiPhi.OptionsView.ShowAutoFilterRow = false;
                     gvHoiPhi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+
+                    gvCon.OptionsBehavior.Editable = true;
+                    gvCon.OptionsView.ShowAutoFilterRow = false;
+                    gvCon.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+                    gvCon.ActiveFilter.Clear();
+
                     gvHoiPhi.ActiveFilter.Clear();
                     _statusAllControl(false);
                 }
@@ -173,6 +183,10 @@ namespace DauThau.UserControlCategory
                     gvHoiPhi.OptionsView.ShowAutoFilterRow = false;
                     gvHoiPhi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
 
+                    gvCon.OptionsBehavior.Editable = false;
+                    gvCon.OptionsView.ShowAutoFilterRow = false;
+                    gvCon.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+
                     _loadData();
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
@@ -183,7 +197,18 @@ namespace DauThau.UserControlCategory
             }
         }
 
-        #region function
+        private void _setFocusedRow()
+        {
+            for (int i = 0; i < gvGrid.RowCount; i++)
+            {
+                Int64 id = Convert.ToInt64(gvGrid.GetRowCellValue(i, colHV_ID));
+                if (id == _idRowSelected)
+                {
+                    gvGrid.FocusedRowHandle = i;
+                    break;
+                }
+            }
+        }
 
         private void _statusAllControl(Boolean readOnly)
         {
@@ -231,6 +256,7 @@ namespace DauThau.UserControlCategory
             }
 
             seTuoi.ReadOnly = true;
+            txtCMND.Enabled = false;
             //seTongThoiGianKT.ReadOnly = true;
             lueThanhPho.ReadOnly = lueQuan.ReadOnly = !readOnly;
             gcGrid.Enabled = readOnly;
@@ -280,16 +306,40 @@ namespace DauThau.UserControlCategory
 
         private Boolean _validateControl()
         {
+            return true;
             dxErrorProvider.ClearErrors();
-
-            if (txtTen.Text.Trim() == string.Empty)
+            string[] ignoreItem = new string[] { "pictureAvatar", "lueTonGiao"
+                , "txtCMND", "txtCMND_NoiCap", "deCMND_Ngay", "deCMND_Thang", "deCMND_Nam"
+            , " txtCoQuan", "txtDiaChiCoQuan"
+            , "lueTamTru_TP", "lueTamTru_Quan", "lueTamTru_Phuong", "txtTamTru_Duong", "txtTamTru_KhuVuc"}; 
+            
+                
+            foreach (XtraTabPage tabPages in tabControlMain.TabPages)
             {
-                dxErrorProvider.SetError(txtTen, "Vui lòng nhập họ tên");
-            }
-
-            if (lueThuongTru_Quan.EditValue == null)
-            {
-                dxErrorProvider.SetError(lueThuongTru_Quan, "Vui lòng nhập thông tin");
+                Boolean is_error = false;
+                foreach (Control layouts in tabPages.Controls)
+                {
+                    LayoutControl layout = layouts as LayoutControl;
+                    if (layout == null)
+                    {
+                        continue;
+                    }
+                    foreach (var items in layout.Controls)
+                    {
+                        BaseEdit item = items as BaseEdit;
+                        LookUpEdit lue = items as LookUpEdit;
+                        if (item != null &&  item.EditValue == null && !ignoreItem.Contains(item.Name))
+                        {
+                            dxErrorProvider.SetError(item, "Vui lòng nhập thông tin");
+                            is_error = true;
+                        }
+                    }
+                }
+                if (is_error)
+                {
+                    tabControlMain.SelectedTabPage = tabPages;
+                    break;
+                }
             }
 
             if (dxErrorProvider.HasErrors)
@@ -300,10 +350,12 @@ namespace DauThau.UserControlCategory
             return !dxErrorProvider.HasErrors;
         }
 
-        private void _loadDataFocusRow()
+        private void _bindingDataRow()
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải hiển thị hội viên...", "Vui lòng đợi giây lát");
             _clearData();
+            _initData();
+
             QL_HOIVIEN item = gvGrid.GetFocusedRow() as QL_HOIVIEN;
             if (item != null)
             {
@@ -312,7 +364,16 @@ namespace DauThau.UserControlCategory
                 //Thông tin cá nhân
                 txtHo.Text = item.HV_HO;
                 txtTen.Text = item.HV_TEN;
-                pictureAvatar.Image = convertBinaryToImage(item.HV_IMAGE);
+
+                context.QL_HOIVIEN_IMAGE.Load();
+                var queryImage = (from p in context.QL_HOIVIEN_IMAGE where p.HV_ID == item.HV_ID select p).FirstOrDefault();
+                if(queryImage != null)
+                {
+                    _hoiVienImage = queryImage;
+                    pictureAvatar.Image = FunctionHelper.convertBinaryToImage(queryImage.IMG_HOIVIEN);
+                }
+                _hoiVien = item;
+
                 lueGioiTinh.EditValue = item.HV_GIOI_TINH;
                 lueDanToc.EditValue = item.HV_DAN_TOC;
 
@@ -330,16 +391,14 @@ namespace DauThau.UserControlCategory
                 lueNgoaiNgu.EditValue = item.HV_NGOAINGU;
 
                 txtCMND.Text = item.HV_CMND;
-
-                if (item.HV_CMND_NGAY.HasValue)
-                {
-                    deNgayCapCMND_Ngay.EditValue = item.HV_CMND_NGAY.Value.Day;
-                    deNgayCapCMND_Thang.EditValue = item.HV_CMND_NGAY.Value.Month;
-                    deNgayCapCMND_Nam.EditValue = item.HV_CMND_NGAY.Value.Year;
-                }
-
-                txtNoiCapCMND.Text = item.HV_CMND_NOICAP;
                 seKhuyetTat_Nam.EditValue = item.HV_KHUYETTAT_NAM;
+
+                if (item.HV_VAOHOI_NGAY.HasValue)
+                {
+                    seVaoHoi_Ngay.EditValue = item.HV_VAOHOI_NGAY.Value.Day;
+                    seVaoHoi_Thang.EditValue = item.HV_VAOHOI_NGAY.Value.Month;
+                    seVaoHoi_Nam.EditValue = item.HV_VAOHOI_NGAY.Value.Year;
+                }
 
                 lueChucVuHoi.EditValue = item.HV_CHUCVU;
 
@@ -373,27 +432,7 @@ namespace DauThau.UserControlCategory
                 lueTinhTrangHonNhan.EditValue = item.HV_TINHTRANG_HONNHAN;
                 txtVoChong.Text = item.HV_VOCHONG;
                 seSoCon.EditValue = item.HV_SOCON;
-                txtCon1.Text = item.HV_CON1_TEN;
-                if (item.HV_CON1_NGAYSINH.HasValue)
-                {
-                    deNgaySinhCon1_Ngay.EditValue = item.HV_CON1_NGAYSINH.Value.Day;
-                    deNgaySinhCon1_Thang.EditValue = item.HV_CON1_NGAYSINH.Value.Month;
-                    deNgaySinhCon1_Nam.EditValue = item.HV_CON1_NGAYSINH.Value.Year;
-                }
-
-                lueGioiTinhCon1.EditValue = item.HV_CON1_GIOITINH;
-                txtHocTruong1.EditValue = item.HV_CON1_HOCTRUONG;
-
-                txtCon2.Text = item.HV_CON2_TEN;
-                if (item.HV_CON2_NGAYSINH.HasValue)
-                {
-                    deNgaySinhCon2_Ngay.EditValue = item.HV_CON2_NGAYSINH.Value.Day;
-                    deNgaySinhCon2_Thang.EditValue = item.HV_CON2_NGAYSINH.Value.Month;
-                    deNgaySinhCon2_Nam.EditValue = item.HV_CON2_NGAYSINH.Value.Year;
-                }
-
-                lueGioiTinhCon2.EditValue = item.HV_CON2_GIOITINH;
-                txtHocTruong2.EditValue = item.HV_CON2_HOCTRUONG;
+               
 
                 txtPhongTraoTheThao.Text = item.HV_PHONGTRAO_THETHAO;
                 txtPhongTraoMongMuon.Text = item.HV_PHONGTRAO_MONGMUON;
@@ -444,35 +483,18 @@ namespace DauThau.UserControlCategory
                 _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>(queryHoiPhi);
                 gcHoiPhi.DataSource = _listHoiPhi;
 
+                context.QL_HOIVIEN_CON.Load();
+                var queryCon = (from p in context.QL_HOIVIEN_CON where p.HV_ID == item.HV_ID select p).ToList();
+                _listCon = new BindingList<QL_HOIVIEN_CON>(queryCon);
+                gcCon.DataSource = _listCon;
+
                 memoGhiChu.EditValue = item.HV_GHICHU;
             }
 
             _wait.Close();
         }
 
-        byte[] convertImageToBinary(Image img)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                //img.Save(ms, ImageFormat.Jpeg);
-                //return ms.ToArray();
-                Bitmap bmp = new Bitmap(img);
-                bmp.Save(ms, ImageFormat.Jpeg);
-                return ms.ToArray();
-            }
-        }
-
-        Image convertBinaryToImage(byte[] data)
-        {
-            if(data == null)
-            {
-                return Properties.Resources.noavatar;
-            }
-            using (MemoryStream ms = new MemoryStream(data))
-            {
-                return Image.FromStream(ms);
-            }
-        }
+        
 
         private string _getFullAddress(LookUpEdit lueTp, LookUpEdit lueQuan, LookUpEdit luePhuong, TextEdit txtDuong, TextEdit txtKhuVuc) {
             string address = txtKhuVuc.Text;
@@ -510,8 +532,13 @@ namespace DauThau.UserControlCategory
             item.HV_TEN = txtTen.Text;
             if (pictureAvatar.Image != null)
             {
-                item.HV_IMAGE = convertImageToBinary(pictureAvatar.Image);
+                if(_hoiVienImage == null)
+                {
+                    _hoiVienImage = new QL_HOIVIEN_IMAGE();
+                }
+                _hoiVienImage.IMG_HOIVIEN = FunctionHelper.convertImageToBinary(pictureAvatar.Image);
             }
+
             item.HV_GIOI_TINH = lueGioiTinh.EditValue + string.Empty;
             item.HV_DAN_TOC = lueDanToc.EditValue + string.Empty;
             if(deNgaySinh_Nam.EditValue != null)
@@ -526,17 +553,21 @@ namespace DauThau.UserControlCategory
             item.HV_NGOAINGU = lueNgoaiNgu.EditValue + string.Empty;
 
             item.HV_CMND = txtCMND.Text;
-            if (deNgayCapCMND_Nam.EditValue != null && deNgayCapCMND_Nam.Ex_EditValueToInt() > 0)
+            if(_hoiVien != null)
             {
-                item.HV_CMND_NGAY = new DateTime(deNgayCapCMND_Nam.Ex_EditValueToInt() ?? 1900, deNgayCapCMND_Thang.Ex_EditValueToInt() ?? 1, deNgayCapCMND_Ngay.Ex_EditValueToInt() ?? 1);
+                item.HV_CMND_NGAY = _hoiVien.HV_CMND_NGAY;
+                item.HV_CMND_NOICAP = _hoiVien.HV_CMND_NOICAP;
+            }
+
+            item.HV_KHUYETTAT_NAM = seKhuyetTat_Nam.Ex_EditValueToInt();
+            if (seVaoHoi_Nam.EditValue != null && seVaoHoi_Nam.Ex_EditValueToInt() > 0)
+            {
+                item.HV_VAOHOI_NGAY = new DateTime(seVaoHoi_Nam.Ex_EditValueToInt() ?? 1900, seVaoHoi_Thang.Ex_EditValueToInt() ?? 1, seVaoHoi_Ngay.Ex_EditValueToInt() ?? 1);
             }
             else
             {
-                item.HV_CMND_NGAY = new Nullable<DateTime>();
+                item.HV_VAOHOI_NGAY = new Nullable<DateTime>();
             }
-
-            item.HV_CMND_NOICAP = txtNoiCapCMND.Text;
-            item.HV_KHUYETTAT_NAM = seKhuyetTat_Nam.Ex_EditValueToInt();
 
             item.HV_CHUCVU = lueChucVuHoi.EditValue + string.Empty;
 
@@ -572,21 +603,6 @@ namespace DauThau.UserControlCategory
             item.HV_TINHTRANG_HONNHAN = lueTinhTrangHonNhan.EditValue + string.Empty;
             item.HV_VOCHONG = txtVoChong.Text;
             item.HV_SOCON = seSoCon.Ex_EditValueToInt();
-            item.HV_CON1_TEN = txtCon1.Text;
-            if (deNgaySinhCon1_Nam.EditValue != null)
-            {
-                item.HV_CON1_NGAYSINH = new DateTime(deNgaySinhCon1_Nam.Ex_EditValueToInt() ?? 1, deNgaySinhCon1_Thang.Ex_EditValueToInt() ?? 1, deNgaySinhCon1_Ngay.Ex_EditValueToInt() ?? 0);
-            }
-            item.HV_CON1_GIOITINH = lueGioiTinhCon1.EditValue + string.Empty;
-            item.HV_CON1_HOCTRUONG = txtHocTruong1.Text;
-
-            item.HV_CON2_TEN = txtCon2.Text;
-            if (deNgaySinhCon2_Nam.EditValue != null)
-            {
-                item.HV_CON2_NGAYSINH = new DateTime(deNgaySinhCon2_Nam.Ex_EditValueToInt() ?? 1, deNgaySinhCon2_Thang.Ex_EditValueToInt() ?? 1, deNgaySinhCon2_Ngay.Ex_EditValueToInt() ?? 0);
-            }
-            item.HV_CON2_GIOITINH = lueGioiTinhCon2.EditValue + string.Empty;
-            item.HV_CON2_HOCTRUONG = txtHocTruong2.Text;
 
             item.HV_PHONGTRAO_THETHAO = txtPhongTraoTheThao.Text;
             item.HV_PHONGTRAO_MONGMUON = txtPhongTraoMongMuon.Text;
@@ -649,7 +665,9 @@ namespace DauThau.UserControlCategory
                              && p.HV_THUONGTRU_QUAN == quan
                              select p).ToList();
             gcGrid.DataSource = dmHoiVien;
-            _loadDataFocusRow();
+
+            _setFocusedRow();
+            _bindingDataRow();
         }
 
         private void _deleteRow()
@@ -664,6 +682,18 @@ namespace DauThau.UserControlCategory
                     foreach (var item_delete in listHoiPhiDelete)
                     {
                         context.QL_HOIVIEN_HOIPHI.Remove(item_delete);
+                    }
+
+                    var listConDelete = (from p in context.QL_HOIVIEN_CON where p.HV_ID == HV_ID select p);
+                    foreach (var item_delete in listConDelete)
+                    {
+                        context.QL_HOIVIEN_CON.Remove(item_delete);
+                    }
+
+                    var listImgDelete = (from p in context.QL_HOIVIEN_IMAGE where p.HV_ID == HV_ID select p);
+                    foreach (var item_delete in listImgDelete)
+                    {
+                        context.QL_HOIVIEN_IMAGE.Remove(item_delete);
                     }
 
                     QL_HOIVIEN entities = (from p in context.QL_HOIVIEN where p.HV_ID == HV_ID select p).FirstOrDefault();
@@ -717,9 +747,14 @@ namespace DauThau.UserControlCategory
             frm.ShowDialog(); 
         }
 
-        private void _initListData()
+        private void _initData()
         {
             _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>();
+            _listCon = new BindingList<QL_HOIVIEN_CON>();
+            _hoiVien = new QL_HOIVIEN();
+            _hoiVienImage = new QL_HOIVIEN_IMAGE();
+            gcHoiPhi.DataSource = _listHoiPhi;
+            gcCon.DataSource = _listCon;
         }
 
         private void _updateHoiPhi(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item)
@@ -757,6 +792,73 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private void _updateCon(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item)
+        {
+            if (_listCon == null)
+            {
+                return;
+            }
+
+            foreach (var child in _listCon)
+            {
+                if (child.HV_ID == null) //add
+                {
+                    child.QL_HOIVIEN = item;
+                    _context.QL_HOIVIEN_CON.Add(child);
+                }
+                else if (child.HV_ID == clsParameter.statusDeleted) //delete
+                {
+                    var item_delete = (from p in _context.QL_HOIVIEN_CON
+                                     where p.CON_ID == child.CON_ID
+                                     select p).FirstOrDefault();
+                    if (item_delete != null)
+                    {
+                        _context.QL_HOIVIEN_CON.Remove(item_delete);
+                    }
+                }
+                else //modify
+                {
+                    var item_modify = _context.QL_HOIVIEN_CON.Where(p => p.CON_ID == child.CON_ID).FirstOrDefault();
+                    if (item_modify != null)
+                    {
+                        _context.Entry(item_modify).CurrentValues.SetValues(child);
+                    }
+                }
+            }
+        }
+
+        private void _updateImage(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item)
+        {
+            if(_hoiVienImage == null)
+            {
+                return;
+            }
+
+            if (_hoiVienImage.HV_ID == null) //add
+            {
+                _hoiVienImage.QL_HOIVIEN = item;
+                _context.QL_HOIVIEN_IMAGE.Add(_hoiVienImage);
+            }
+            else if (_hoiVienImage.HV_ID == clsParameter.statusDeleted) //delete
+            {
+                var item_delete = (from p in _context.QL_HOIVIEN_IMAGE
+                                   where p.IMG_ID == _hoiVienImage.IMG_ID
+                                   select p).FirstOrDefault();
+                if (item_delete != null)
+                {
+                    _context.QL_HOIVIEN_IMAGE.Remove(item_delete);
+                }
+            }
+            else //modify
+            {
+                var item_modify = _context.QL_HOIVIEN_IMAGE.Where(p => p.IMG_ID == _hoiVienImage.IMG_ID).FirstOrDefault();
+                if (item_modify != null)
+                {
+                    _context.Entry(item_modify).CurrentValues.SetValues(_hoiVienImage);
+                }
+            }
+        }
+
         protected override bool SaveData()
         {
             if (_validateControl())
@@ -764,19 +866,21 @@ namespace DauThau.UserControlCategory
                 WaitDialogForm _wait = new WaitDialogForm("Đang lưu dữ liệu ...", "Vui lòng đợi giây lát");
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOIVIEN item;
+                    QL_HOIVIEN item = new QL_HOIVIEN();
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
-                            #region Add
 
                             item = new QL_HOIVIEN();
                             _setObjectEntities(ref item);
                             _context.QL_HOIVIEN.Add(item);
                             _updateHoiPhi(_context, item);
-                            #endregion
+                            _updateCon(_context, item);
+                            _updateImage(_context, item);
                             break;
+
                         case EnumFormStatus.MODIFY:
+
                             Int64 HV_ID = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
                             item = (from p in _context.QL_HOIVIEN where p.HV_ID == HV_ID select p).FirstOrDefault<QL_HOIVIEN>();
                             if (item != null)
@@ -786,11 +890,16 @@ namespace DauThau.UserControlCategory
                             var entity = _context.QL_HOIVIEN.Find(HV_ID);
                             _context.Entry(entity).CurrentValues.SetValues(item);
                             _updateHoiPhi(_context, item);
+                            _updateCon(_context, item);
+                            _updateImage(_context, item);
                             break;
                         default:
                             break;
                     }
                     _context.SaveChanges();
+                    _idRowSelected = item.HV_ID;
+
+                   
                 }
                 FormStatus = EnumFormStatus.VIEW;
                 _wait.Close();
@@ -848,7 +957,8 @@ namespace DauThau.UserControlCategory
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _loadDataFocusRow();
+            _idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
+            _bindingDataRow();
         }
 
         #endregion
@@ -923,6 +1033,97 @@ namespace DauThau.UserControlCategory
         }
         #endregion
 
+        #region Gird Con
+
+        private void repCON_Button_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (clsMessage.MessageYesNo("Bạn có chắc muốn xóa?") == DialogResult.Yes)
+            {
+                var hv_id = gvCon.GetFocusedRowCellValue(colCON_HV_ID);
+                if (hv_id == null) //row add
+                {
+                    gvCon.DeleteSelectedRows();
+                }
+                else //row old
+                {
+                    gvCon.SetFocusedRowCellValue(colCON_HV_ID, clsParameter.statusDeleted);
+                }
+            }
+        }
+
+        private void gvCon_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            var hv_id = gvCon.GetFocusedRowCellValue(colCON_HV_ID);
+            if (hv_id != null && Convert.ToInt64(hv_id) == clsParameter.statusDeleted)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void gvCon_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void gvCon_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            if (gvCon.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            e.Valid = true;
+            if ((gvCon.GetRowCellValue(e.RowHandle, colCON_TEN.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvCon.SetColumnError(gvCon.Columns[colCON_TEN.FieldName], colCON_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+
+            if ((gvCon.GetRowCellValue(e.RowHandle, colCON_GIOITINH.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvCon.SetColumnError(gvCon.Columns[colCON_GIOITINH.FieldName], colCON_GIOITINH.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+        }
+
+        private void gvCon_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
+        {
+            e.Valid = true;
+            if (gvCon.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            if (gvCon.FocusedRowHandle == GridControl.NewItemRowHandle
+            && gvCon.GetRow(GridControl.NewItemRowHandle) == null)
+            {
+                return;
+            }
+
+            if (gvCon.FocusedColumn.FieldName == colCON_TEN.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colCON_TEN.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+            }
+            if (gvCon.FocusedColumn.FieldName == colCON_GIOITINH.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colCON_GIOITINH.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+            }
+        }
+
+
+        #endregion
+
+        #region Gird Hoi Phi
+
+        
         private void repButtonDelete_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             if(clsMessage.MessageYesNo("Bạn có chắc muốn xóa?") == DialogResult.Yes)
@@ -947,6 +1148,82 @@ namespace DauThau.UserControlCategory
             {
                 e.Cancel = true;
             }
+        }
+
+        
+        private void gvHoiPhi_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            if (gvHoiPhi.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            e.Valid = true;
+            if ((gvHoiPhi.GetRowCellValue(e.RowHandle, colHP_NGAY.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvHoiPhi.SetColumnError(gvHoiPhi.Columns[colHP_NGAY.FieldName], colHP_NGAY.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+
+            if ((gvHoiPhi.GetRowCellValue(e.RowHandle, colHP_PHI.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvHoiPhi.SetColumnError(gvHoiPhi.Columns[colHP_PHI.FieldName], colHP_PHI.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+        }
+
+        private void gvHoiPhi_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
+        {
+            e.Valid = true;
+            if (gvHoiPhi.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            if (gvHoiPhi.FocusedRowHandle == GridControl.NewItemRowHandle
+            && gvHoiPhi.GetRow(GridControl.NewItemRowHandle) == null)
+            {
+                return;
+            }
+
+            if (gvHoiPhi.FocusedColumn.FieldName == colHP_NGAY.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colHP_NGAY.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+            }
+
+            if (gvHoiPhi.FocusedColumn.FieldName == colHP_PHI.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colHP_PHI.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+            }
+        }
+
+       
+
+        private void gvHoiPhi_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+        #endregion
+
+        private void btnCMND_Click(object sender, EventArgs e)
+        {
+            frmLyLich_CMND frm = new frmLyLich_CMND(_hoiVien, _hoiVienImage);
+            frm.ShowDialog();
+            _hoiVien = frm.hoivien;
+            _hoiVienImage = frm.hoivien_image;
+            if(_hoiVien != null)
+            {
+                txtCMND.Text = _hoiVien.HV_CMND;
+            }
+            
         }
     }
 }
