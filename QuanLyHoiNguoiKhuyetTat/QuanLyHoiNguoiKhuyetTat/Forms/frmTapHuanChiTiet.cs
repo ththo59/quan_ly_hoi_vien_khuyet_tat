@@ -59,6 +59,7 @@ namespace DauThau.Forms
             switch (enumLoai)
             {
                 case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
+                    layPrintBanCamKet.Visibility = layPrintBanHopDong.Visibility = LayoutVisibility.Never;
                     break;
                 case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
                     break;
@@ -67,6 +68,7 @@ namespace DauThau.Forms
                 case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
+                    layPrintBanCamKet.Visibility = layPrintBanHopDong.Visibility = LayoutVisibility.Never;
                     layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
                     break;
                 default:

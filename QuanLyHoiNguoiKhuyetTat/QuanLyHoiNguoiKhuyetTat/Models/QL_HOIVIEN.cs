@@ -14,7 +14,15 @@ namespace DauThau.Models
     
     public partial class QL_HOIVIEN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QL_HOIVIEN()
+        {
+            this.QL_HOIVIEN_CON = new HashSet<QL_HOIVIEN_CON>();
+            this.QL_HOIVIEN_HOIPHI = new HashSet<QL_HOIVIEN_HOIPHI>();
+        }
+    
         public long HV_ID { get; set; }
+        public string HV_HO { get; set; }
         public string HV_TEN { get; set; }
         public byte[] HV_IMAGE { get; set; }
         public string HV_GIOI_TINH { get; set; }
@@ -29,7 +37,7 @@ namespace DauThau.Models
         public string HV_CMND { get; set; }
         public Nullable<System.DateTime> HV_CMND_NGAY { get; set; }
         public string HV_CMND_NOICAP { get; set; }
-        public Nullable<System.DateTime> HV_KHUYETTAT_NGAY { get; set; }
+        public Nullable<int> HV_KHUYETTAT_NAM { get; set; }
         public string HV_CHUCVU { get; set; }
         public string HV_THUONGTRU_KHUVUC { get; set; }
         public string HV_THUONGTRU_DUONG { get; set; }
@@ -93,5 +101,11 @@ namespace DauThau.Models
         public Nullable<bool> HV_TRE_DIHOC { get; set; }
         public string HV_NHUCAU { get; set; }
         public string HV_THANHVIEN_HOI { get; set; }
+        public string HV_GHICHU { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOIVIEN_CON> QL_HOIVIEN_CON { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOIVIEN_HOIPHI> QL_HOIVIEN_HOIPHI { get; set; }
     }
 }

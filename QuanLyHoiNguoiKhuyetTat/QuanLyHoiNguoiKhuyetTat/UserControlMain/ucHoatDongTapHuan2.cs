@@ -678,8 +678,20 @@ namespace DauThau.UserControlCategory
                 if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.TH_TEN)) == DialogResult.Yes)
                 {
                     Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_ID));
+                    var listChiTiet = (from p in context.QL_HOATDONG_TAPHUAN_CHITIET where p.TH_ID == id select p);
+                    foreach (var item_delete in listChiTiet)
+                    {
+                        context.QL_HOATDONG_TAPHUAN_CHITIET.Remove(item_delete);
+                    }
+
+                    var listDiaDiem = (from p in context.QL_HOATDONG_TAPHUAN_DIADIEM where p.TH_ID == id select p);
+                    foreach (var item_delete in listDiaDiem)
+                    {
+                        context.QL_HOATDONG_TAPHUAN_DIADIEM.Remove(item_delete);
+                    }
                     QL_HOATDONG_TAPHUAN entities = (from p in context.QL_HOATDONG_TAPHUAN where p.TH_ID == id select p).FirstOrDefault();
                     context.QL_HOATDONG_TAPHUAN.Remove(entities);
+                    
                     context.SaveChanges();
                     FormStatus = EnumFormStatus.VIEW;
                 }

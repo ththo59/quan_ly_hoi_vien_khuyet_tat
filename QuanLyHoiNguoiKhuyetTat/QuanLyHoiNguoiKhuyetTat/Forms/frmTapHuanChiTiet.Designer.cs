@@ -95,10 +95,10 @@
             this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layPrintBanHopDong = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem30 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layPrintBanCamKet = new DevExpress.XtraLayout.LayoutControlItem();
             this.layGroupThuLao = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -189,10 +189,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layPrintBanHopDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layPrintBanCamKet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layGroupThuLao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
@@ -1013,10 +1013,10 @@
             this.layoutControlItem24,
             this.layoutControlItem20,
             this.layoutControlItem23,
-            this.layoutControlItem29,
+            this.layPrintBanHopDong,
             this.emptySpaceItem1,
             this.emptySpaceItem3,
-            this.layoutControlItem30});
+            this.layPrintBanCamKet});
             this.layGroupVanBan.Location = new System.Drawing.Point(0, 326);
             this.layGroupVanBan.Name = "layGroupVanBan";
             this.layGroupVanBan.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -1115,19 +1115,19 @@
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
             // 
-            // layoutControlItem29
+            // layPrintBanHopDong
             // 
-            this.layoutControlItem29.Control = this.btnXuatBanHopDong;
-            this.layoutControlItem29.CustomizationFormText = "layoutControlItem29";
-            this.layoutControlItem29.Location = new System.Drawing.Point(128, 120);
-            this.layoutControlItem29.MaxSize = new System.Drawing.Size(221, 36);
-            this.layoutControlItem29.MinSize = new System.Drawing.Size(221, 36);
-            this.layoutControlItem29.Name = "layoutControlItem29";
-            this.layoutControlItem29.Size = new System.Drawing.Size(221, 36);
-            this.layoutControlItem29.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem29.Text = "layoutControlItem29";
-            this.layoutControlItem29.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem29.TextVisible = false;
+            this.layPrintBanHopDong.Control = this.btnXuatBanHopDong;
+            this.layPrintBanHopDong.CustomizationFormText = "layoutControlItem29";
+            this.layPrintBanHopDong.Location = new System.Drawing.Point(128, 120);
+            this.layPrintBanHopDong.MaxSize = new System.Drawing.Size(221, 36);
+            this.layPrintBanHopDong.MinSize = new System.Drawing.Size(221, 36);
+            this.layPrintBanHopDong.Name = "layPrintBanHopDong";
+            this.layPrintBanHopDong.Size = new System.Drawing.Size(221, 36);
+            this.layPrintBanHopDong.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layPrintBanHopDong.Text = "layPrintBanHopDong";
+            this.layPrintBanHopDong.TextSize = new System.Drawing.Size(0, 0);
+            this.layPrintBanHopDong.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -1149,19 +1149,19 @@
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem30
+            // layPrintBanCamKet
             // 
-            this.layoutControlItem30.Control = this.btnXuatBanCamKet;
-            this.layoutControlItem30.CustomizationFormText = "layoutControlItem30";
-            this.layoutControlItem30.Location = new System.Drawing.Point(349, 120);
-            this.layoutControlItem30.MaxSize = new System.Drawing.Size(221, 36);
-            this.layoutControlItem30.MinSize = new System.Drawing.Size(221, 36);
-            this.layoutControlItem30.Name = "layoutControlItem30";
-            this.layoutControlItem30.Size = new System.Drawing.Size(221, 36);
-            this.layoutControlItem30.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem30.Text = "layoutControlItem30";
-            this.layoutControlItem30.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem30.TextVisible = false;
+            this.layPrintBanCamKet.Control = this.btnXuatBanCamKet;
+            this.layPrintBanCamKet.CustomizationFormText = "layoutControlItem30";
+            this.layPrintBanCamKet.Location = new System.Drawing.Point(349, 120);
+            this.layPrintBanCamKet.MaxSize = new System.Drawing.Size(221, 36);
+            this.layPrintBanCamKet.MinSize = new System.Drawing.Size(221, 36);
+            this.layPrintBanCamKet.Name = "layPrintBanCamKet";
+            this.layPrintBanCamKet.Size = new System.Drawing.Size(221, 36);
+            this.layPrintBanCamKet.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layPrintBanCamKet.Text = "layPrintBanCamKet";
+            this.layPrintBanCamKet.TextSize = new System.Drawing.Size(0, 0);
+            this.layPrintBanCamKet.TextVisible = false;
             // 
             // layGroupThuLao
             // 
@@ -1531,10 +1531,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layPrintBanHopDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layPrintBanCamKet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layGroupThuLao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
@@ -1657,8 +1657,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem28;
         private DevExpress.XtraEditors.SimpleButton btnXuatBanCamKet;
         private DevExpress.XtraEditors.SimpleButton btnXuatBanHopDong;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem30;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem29;
+        private DevExpress.XtraLayout.LayoutControlItem layPrintBanCamKet;
+        private DevExpress.XtraLayout.LayoutControlItem layPrintBanHopDong;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
     }

@@ -32,6 +32,8 @@ namespace DauThau.UserControlCategory
             InitializeComponent();
         }
 
+        private BindingList<QL_HOIVIEN_HOIPHI> _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>();
+
         private void ucLyLich_Load(object sender, EventArgs e)
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
@@ -92,11 +94,11 @@ namespace DauThau.UserControlCategory
             deNgayCapCMND_Ngay.Properties.MaxValue = 31;
             deNgayCapCMND_Ngay.Properties.MinValue = 1;
 
-            deNgayKhuyetTat_Nam.Properties.MaxValue = DateTime.Now.Year;
-            deNgayKhuyetTat_Thang.Properties.MaxValue = 12;
-            deNgayKhuyetTat_Thang.Properties.MinValue = 1;
-            deNgayKhuyetTat_Ngay.Properties.MaxValue = 31;
-            deNgayKhuyetTat_Ngay.Properties.MinValue = 1;
+            seKhuyetTat_Nam.Properties.MaxValue = DateTime.Now.Year;
+            //deNgayKhuyetTat_Thang.Properties.MaxValue = 12;
+            //deNgayKhuyetTat_Thang.Properties.MinValue = 1;
+            //deNgayKhuyetTat_Ngay.Properties.MaxValue = 31;
+            //deNgayKhuyetTat_Ngay.Properties.MinValue = 1;
 
             deDCHT_ThoiGianNhan_Thang.Properties.MaxValue = 12;
             deDCHT_ThoiGianNhan_Thang.Properties.MinValue = 1;
@@ -128,12 +130,21 @@ namespace DauThau.UserControlCategory
                 _formStatus = value;
                 if (_formStatus == EnumFormStatus.ADD)
                 {
+                    gvHoiPhi.OptionsBehavior.Editable = true;
+                    gvHoiPhi.OptionsView.ShowAutoFilterRow = false;
+                    gvHoiPhi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+                    gvHoiPhi.ActiveFilter.Clear();
                     _clearData();
+                    _initListData();
                     _setDefaultValue();
                     _statusAllControl(false);
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
                 {
+                    gvHoiPhi.OptionsBehavior.Editable = true;
+                    gvHoiPhi.OptionsView.ShowAutoFilterRow = false;
+                    gvHoiPhi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+                    gvHoiPhi.ActiveFilter.Clear();
                     _statusAllControl(false);
                 }
                 else if (_formStatus == EnumFormStatus.DELETE)
@@ -158,6 +169,10 @@ namespace DauThau.UserControlCategory
                 }
                 else
                 {
+                    gvHoiPhi.OptionsBehavior.Editable = false;
+                    gvHoiPhi.OptionsView.ShowAutoFilterRow = false;
+                    gvHoiPhi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+
                     _loadData();
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
@@ -256,12 +271,6 @@ namespace DauThau.UserControlCategory
             _setDefaultLookupedit(lueChucVuHoi);
             _setDefaultLookupedit(lueThuongTru_TP);
             _setDefaultLookupedit(lueTamTru_TP);
-
-            //lueTinhTrangKT.setDefaultFirstItems();
-            //lueMucDoKT.setDefaultFirstItems();
-            //luePhuongTienDiLai.setDefaultFirstItems();
-            //lueNguyenNhanKT.setDefaultFirstItems();
-            //lueTinhTrangHonNhan.setDefaultFirstItems();
         }
 
         private void _setDefaultLookupedit(LookUpEdit lue)
@@ -273,9 +282,9 @@ namespace DauThau.UserControlCategory
         {
             dxErrorProvider.ClearErrors();
 
-            if (txtHoTen.Text.Trim() == string.Empty)
+            if (txtTen.Text.Trim() == string.Empty)
             {
-                dxErrorProvider.SetError(txtHoTen, "Vui lòng nhập họ tên");
+                dxErrorProvider.SetError(txtTen, "Vui lòng nhập họ tên");
             }
 
             if (lueThuongTru_Quan.EditValue == null)
@@ -293,6 +302,7 @@ namespace DauThau.UserControlCategory
 
         private void _loadDataFocusRow()
         {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải hiển thị hội viên...", "Vui lòng đợi giây lát");
             _clearData();
             QL_HOIVIEN item = gvGrid.GetFocusedRow() as QL_HOIVIEN;
             if (item != null)
@@ -300,7 +310,8 @@ namespace DauThau.UserControlCategory
                 btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = true;
 
                 //Thông tin cá nhân
-                txtHoTen.Text = item.HV_TEN;
+                txtHo.Text = item.HV_HO;
+                txtTen.Text = item.HV_TEN;
                 pictureAvatar.Image = convertBinaryToImage(item.HV_IMAGE);
                 lueGioiTinh.EditValue = item.HV_GIOI_TINH;
                 lueDanToc.EditValue = item.HV_DAN_TOC;
@@ -328,12 +339,7 @@ namespace DauThau.UserControlCategory
                 }
 
                 txtNoiCapCMND.Text = item.HV_CMND_NOICAP;
-                if (item.HV_KHUYETTAT_NGAY.HasValue)
-                {
-                    deNgayKhuyetTat_Ngay.EditValue = item.HV_KHUYETTAT_NGAY.Value.Day;
-                    deNgayKhuyetTat_Thang.EditValue = item.HV_KHUYETTAT_NGAY.Value.Month;
-                    deNgayKhuyetTat_Nam.EditValue = item.HV_KHUYETTAT_NGAY.Value.Year;
-                }
+                seKhuyetTat_Nam.EditValue = item.HV_KHUYETTAT_NAM;
 
                 lueChucVuHoi.EditValue = item.HV_CHUCVU;
 
@@ -405,14 +411,14 @@ namespace DauThau.UserControlCategory
                 txtDCHT_ToChuc.EditValue = item.HV_DCHT_TU_TOCHUC;
                 txtDCHT_TinhTrang.EditValue = item.HV_DCHT_TINHTRANG;
 
-                chkNhanBHXH_HangThang.EditValue = item.HV_BTXH_NHAN_HANGTHANG??false;
+                chkNhanBHXH_HangThang.EditValue = item.HV_BTXH_NHAN_HANGTHANG;
                 seTienBTXHHangThang.EditValue = item.HV_BTXH_TIEN_HANGTHANG;
                 txtBTXHKhac.EditValue = item.HV_BTXH_KHAC;
-                chkNhanBHYTMienPhi.EditValue = item.HV_BHYT_MIENPHI??false;
+                chkNhanBHYTMienPhi.EditValue = item.HV_BHYT_MIENPHI;
 
-                chkNhanGiayCNXacDinhMucDoKT.EditValue = item.HV_GIAY_CHUNGNHAN_KT??false;
-                chkNhanQDCongNhanMucDoKT.EditValue = item.HV_QUYETDINH_CONGNHAN_KT??false;
-                chkGiaDinhDienChinhSach.EditValue = item.HV_GIADINH_CHINHSACH??false;
+                chkNhanGiayCNXacDinhMucDoKT.EditValue = item.HV_GIAY_CHUNGNHAN_KT;
+                chkNhanQDCongNhanMucDoKT.EditValue = item.HV_QUYETDINH_CONGNHAN_KT;
+                chkGiaDinhDienChinhSach.EditValue = item.HV_GIADINH_CHINHSACH;
 
                 txtTheKT.Text = item.HV_THE_KHUYETTAT;
 
@@ -428,10 +434,20 @@ namespace DauThau.UserControlCategory
                 //Nhu cau viec lam
                 txtCongViecDangLam.EditValue = item.HV_VIECLAM;
                 seThuNhapTB.EditValue = item.HV_VIECLAM_THUNHAP;
-                chkTreDiHoc.EditValue = item.HV_TRE_DIHOC??false;
+                chkTreDiHoc.EditValue = item.HV_TRE_DIHOC;
                 chkListNhuCau.Ex_SetEditValueToString(item.HV_NHUCAU);
                 chkListThanhVienHoi.Ex_SetEditValueToString(item.HV_THANHVIEN_HOI);
+
+                //Hôi phí
+                context.QL_HOIVIEN_HOIPHI.Load();
+                var queryHoiPhi = (from p in context.QL_HOIVIEN_HOIPHI where p.HV_ID == item.HV_ID select p).ToList();
+                _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>(queryHoiPhi);
+                gcHoiPhi.DataSource = _listHoiPhi;
+
+                memoGhiChu.EditValue = item.HV_GHICHU;
             }
+
+            _wait.Close();
         }
 
         byte[] convertImageToBinary(Image img)
@@ -490,7 +506,8 @@ namespace DauThau.UserControlCategory
         private void _setObjectEntities(ref QL_HOIVIEN item)
         {
             //Thông tin cá nhân
-            item.HV_TEN = txtHoTen.Text;
+            item.HV_HO = txtHo.Text;
+            item.HV_TEN = txtTen.Text;
             if (pictureAvatar.Image != null)
             {
                 item.HV_IMAGE = convertImageToBinary(pictureAvatar.Image);
@@ -519,15 +536,7 @@ namespace DauThau.UserControlCategory
             }
 
             item.HV_CMND_NOICAP = txtNoiCapCMND.Text;
-
-            if(deNgayKhuyetTat_Nam.EditValue != null && deNgayKhuyetTat_Nam.Ex_EditValueToInt() > 0)
-            {
-                item.HV_KHUYETTAT_NGAY = new DateTime(deNgayKhuyetTat_Nam.Ex_EditValueToInt() ?? 1900, deNgayKhuyetTat_Thang.Ex_EditValueToInt() ?? 1, deNgayKhuyetTat_Ngay.Ex_EditValueToInt() ?? 1);
-            }
-            else
-            {
-                item.HV_KHUYETTAT_NGAY = new Nullable<DateTime>();
-            }
+            item.HV_KHUYETTAT_NAM = seKhuyetTat_Nam.Ex_EditValueToInt();
 
             item.HV_CHUCVU = lueChucVuHoi.EditValue + string.Empty;
 
@@ -623,10 +632,14 @@ namespace DauThau.UserControlCategory
             item.HV_TRE_DIHOC = Convert.ToBoolean(chkTreDiHoc.EditValue);
             item.HV_NHUCAU = chkListNhuCau.Ex_GetEditValueToString();
             item.HV_THANHVIEN_HOI = chkListThanhVienHoi.Ex_GetEditValueToString();
+
+            //Hội phí
+            item.HV_GHICHU = memoGhiChu.Text;
         }
 
         private void _loadData()
         {
+            
             context = new QL_HOIVIEN_KTEntities();
             context.QL_HOIVIEN.Load();
             string quan = lueQuan.EditValue + string.Empty;
@@ -647,6 +660,12 @@ namespace DauThau.UserControlCategory
                 if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.HV_TEN)) == DialogResult.Yes)
                 {
                     Int64 HV_ID = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
+                    var listHoiPhiDelete = (from p in context.QL_HOIVIEN_HOIPHI where p.HV_ID == HV_ID select p);
+                    foreach (var item_delete in listHoiPhiDelete)
+                    {
+                        context.QL_HOIVIEN_HOIPHI.Remove(item_delete);
+                    }
+
                     QL_HOIVIEN entities = (from p in context.QL_HOIVIEN where p.HV_ID == HV_ID select p).FirstOrDefault();
                     context.QL_HOIVIEN.Remove(entities);
                     context.SaveChanges();
@@ -698,6 +717,46 @@ namespace DauThau.UserControlCategory
             frm.ShowDialog(); 
         }
 
+        private void _initListData()
+        {
+            _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>();
+        }
+
+        private void _updateHoiPhi(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item)
+        {
+            if (_listHoiPhi == null)
+            {
+                return;
+            }
+
+            foreach (var hp in _listHoiPhi)
+            {
+                if (hp.HV_ID == null) //add
+                {
+                    hp.QL_HOIVIEN = item;
+                    _context.QL_HOIVIEN_HOIPHI.Add(hp);
+                }
+                else if (hp.HV_ID == clsParameter.statusDeleted) //delete
+                {
+                    var hp_delete = (from p in _context.QL_HOIVIEN_HOIPHI
+                                    where p.HP_ID == hp.HP_ID
+                                    select p).FirstOrDefault();
+                    if (hp_delete != null)
+                    {
+                        _context.QL_HOIVIEN_HOIPHI.Remove(hp_delete);
+                    }
+                }
+                else //modify
+                {
+                    var hp_modify = _context.QL_HOIVIEN_HOIPHI.Where(p => p.HP_ID == hp.HP_ID).FirstOrDefault();
+                    if (hp_modify != null)
+                    {
+                        _context.Entry(hp_modify).CurrentValues.SetValues(hp);
+                    }
+                }
+            }
+        }
+
         protected override bool SaveData()
         {
             if (_validateControl())
@@ -714,7 +773,7 @@ namespace DauThau.UserControlCategory
                             item = new QL_HOIVIEN();
                             _setObjectEntities(ref item);
                             _context.QL_HOIVIEN.Add(item);
-
+                            _updateHoiPhi(_context, item);
                             #endregion
                             break;
                         case EnumFormStatus.MODIFY:
@@ -726,6 +785,7 @@ namespace DauThau.UserControlCategory
                             }
                             var entity = _context.QL_HOIVIEN.Find(HV_ID);
                             _context.Entry(entity).CurrentValues.SetValues(item);
+                            _updateHoiPhi(_context, item);
                             break;
                         default:
                             break;
@@ -793,7 +853,9 @@ namespace DauThau.UserControlCategory
 
         #endregion
 
+        #region event Button
 
+        
         private void deNgayKhuyetTat_EditValueChanged(object sender, EventArgs e)
         {
             DateEdit date = sender as DateEdit;
@@ -814,9 +876,9 @@ namespace DauThau.UserControlCategory
 
         private void deNgayKhuyetTat_Nam_EditValueChanged(object sender, EventArgs e)
         {
-            if (deNgayKhuyetTat_Nam.EditValue != null)
+            if (seKhuyetTat_Nam.EditValue != null)
             {
-                int year = DateTime.Now.Date.Year - deNgayKhuyetTat_Nam.Ex_EditValueToInt() ?? 0;
+                int year = DateTime.Now.Date.Year - seKhuyetTat_Nam.Ex_EditValueToInt() ?? 0;
                 year = year == 0 ? 1 : year;
                 //seTongThoiGianKT.EditValue = year;
             }
@@ -836,9 +898,7 @@ namespace DauThau.UserControlCategory
         {
             if(e.Button.Kind == ButtonPredefines.Delete)
             {
-                deNgayKhuyetTat_Nam.EditValue = null;
-                deNgayKhuyetTat_Thang.EditValue = null;
-                deNgayKhuyetTat_Ngay.EditValue = null;
+                seKhuyetTat_Nam.EditValue = null;
             }
         }
 
@@ -859,6 +919,33 @@ namespace DauThau.UserControlCategory
                 deDCHT_ThoiGianNhan_Nam.EditValue = null;
                 deDCHT_ThoiGianNhan_Thang.EditValue = null;
                 deDCHT_ThoiGianNhan_Ngay.EditValue = null;
+            }
+        }
+        #endregion
+
+        private void repButtonDelete_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if(clsMessage.MessageYesNo("Bạn có chắc muốn xóa?") == DialogResult.Yes)
+            {
+                var hv_id = gvHoiPhi.GetFocusedRowCellValue(colHP_HV_ID);
+                if (hv_id == null) //row add
+                {
+                    gvHoiPhi.DeleteSelectedRows();
+                }
+                else //row old
+                {
+                    gvHoiPhi.SetFocusedRowCellValue(colHP_HV_ID, clsParameter.statusDeleted);
+                }
+            }
+            
+        }
+
+        private void gvHoiPhi_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            var hv_id = gvHoiPhi.GetFocusedRowCellValue(colHP_HV_ID);
+            if(hv_id != null && Convert.ToInt64(hv_id) == clsParameter.statusDeleted)
+            {
+                e.Cancel = true;
             }
         }
     }

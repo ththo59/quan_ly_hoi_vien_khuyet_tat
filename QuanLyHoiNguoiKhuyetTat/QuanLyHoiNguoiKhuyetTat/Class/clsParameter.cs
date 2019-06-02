@@ -10,7 +10,7 @@ namespace DauThau.Class
     class clsParameter
     {
         public static Int64 _goiThauID = 0;
-
+        public static Int64 statusDeleted = -1;
 #if (ReleaseKonTum)
         public static string pHospital = "BỆNH VIỆN ĐA KHOA TỈNH";
         public static string pParentHospital = "SỞ Y TẾ TỈNH KON TUM";
