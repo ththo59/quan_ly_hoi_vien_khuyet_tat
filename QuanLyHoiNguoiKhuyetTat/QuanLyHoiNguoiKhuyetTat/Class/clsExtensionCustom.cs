@@ -77,6 +77,26 @@ namespace DauThau.Class
 
         #region CheckedListBoxControl
 
+        public static string Ex_GetEditValueToString(this CheckedComboBoxEdit chkList)
+        {
+            string list = string.Empty;
+            foreach (CheckedListBoxItem item in chkList.Properties.Items)
+            {
+                if (item.CheckState == CheckState.Checked)
+                {
+                    if (list == string.Empty)
+                    {
+                        list = item.Value + string.Empty;
+                    }
+                    else
+                    {
+                        list += "," + item.Value;
+                    }
+                }
+            }
+            return list;
+        }
+
         public static string Ex_GetEditValueToString(this CheckedListBoxControl chkList)
         {
             string list = string.Empty;
@@ -97,6 +117,23 @@ namespace DauThau.Class
             return list;
         }
 
+        public static void Ex_SetEditValueToString(this CheckedComboBoxEdit chkList, string list)
+        {
+            String[] listArray = list.Split(',');
+            foreach (CheckedListBoxItem item in chkList.Properties.Items)
+            {
+                if (list.Contains(item.Value + string.Empty))
+                {
+                    item.CheckState = CheckState.Checked;
+                }
+                else
+                {
+                    item.CheckState = CheckState.Unchecked;
+                }
+            }
+        }
+
+
         public static void Ex_SetEditValueToString(this CheckedListBoxControl chkList, string list)
         {
             if (string.IsNullOrEmpty(list))
@@ -114,6 +151,27 @@ namespace DauThau.Class
                 else
                 {
                     item.CheckState = CheckState.Unchecked;
+                }
+            }
+        }
+
+        public static void Ex_SetDataSource(this CheckedComboBoxEdit chkList, string table)
+        {
+            using (var context = new Models.QL_HOIVIEN_KTEntities())
+            {
+                CategoryEntitiesTable tableEnum = table.Ex_ToEnum<CategoryEntitiesTable>();
+                switch (tableEnum)
+                {
+                    case CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG:
+                        var listItem = (from p in context.DM_KHUYETTAT_TINHTRANG orderby p.TTKT_STT select p).ToArray();
+                        foreach (DM_KHUYETTAT_TINHTRANG item in listItem)
+                        {
+                            chkList.Properties.Items.Add(item.TTKT_TEN, item.TTKT_TEN);
+                        }
+                        break;
+                    
+                    default:
+                        break;
                 }
             }
         }

@@ -61,20 +61,22 @@ namespace DauThau.UserControlCategory
             //Tab Suc khoe
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_MUCDO, lueMucDoKT);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN, lueNguyenNhanKT);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG, lueTinhTrangKT);
+            
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, luePhuongTienDiLai);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, lueTinhTrangHonNhan);
 
             //Tab dụng cụ hỗ trợ chế độ chính sách
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DUNGCU_HOTRO, lueDungCuHoTro);
             seTienBTXHHangThang.Ex_FormatCustomSpinEdit();
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_BTXH_HANG_THANG, lueBTXH_HangThang);
 
             //Tab nơi ở chăm sóc bản thân
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NOI_SINH_SONG, lueNoiSinhSong);
             chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
             chkListSongVoi.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_SONG_VOI.Ex_ToString());
             chkListChamSocBanThan.Ex_SetDataSource(CategoryEntitiesTable.DM_CHAMSOC_BANTHAN.Ex_ToString());
-
+            checkTinhTrangKT.Ex_SetDataSource(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG.Ex_ToString());
+            
             //Viec lam nhu cau
             seThuNhapTB.Ex_FormatCustomSpinEdit();
             chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
@@ -306,14 +308,22 @@ namespace DauThau.UserControlCategory
 
         private Boolean _validateControl()
         {
-            return true;
             dxErrorProvider.ClearErrors();
-            string[] ignoreItem = new string[] { "pictureAvatar", "lueTonGiao"
-                , "txtCMND", "txtCMND_NoiCap", "deCMND_Ngay", "deCMND_Thang", "deCMND_Nam"
-            , " txtCoQuan", "txtDiaChiCoQuan"
-            , "lueTamTru_TP", "lueTamTru_Quan", "lueTamTru_Phuong", "txtTamTru_Duong", "txtTamTru_KhuVuc"}; 
-            
-                
+            string[] ignoreItem = new string[] { "pictureAvatar", "lueTonGiao", "txtCMND", "txtThuongTru_KhuVuc"
+            , "lueTamTru_TP", "lueTamTru_Quan", "lueTamTru_Phuong", "txtTamTru_Duong", "txtTamTru_KhuVuc"
+            , "txtEmail", "txtCoQuan", "txtDiaChiCoQuan"
+
+            //Thể trạng hôn nhân
+            , "txtNguyenNhanChiTiet", "txtTinhTrangSucKhoe"
+            , "txtVoChong" , "seSoCon"
+            //Dụng cụ hỗ trợ
+            , "lueDungCuHoTro", "deDCHT_ThoiGianNhan_Ngay", "deDCHT_ThoiGianNhan_Thang", "deDCHT_ThoiGianNhan_Nam"
+            ,"txtDCHT_ToChuc" , "txtDCHT_TinhTrang", "txtBTXHKhac"
+            , "txtPhongTraoMongMuon", "txtPhongTraoTheThao", "txtNguyenVong"
+            ,  "memoGhiChu" , "txtSongVoiNguoiKhac","txtHoTroCuaNguoiKhac"
+            };
+
+            //LayoutControl[] layouts = new LayoutControl[] { layThongTinCaNhan,layViecLam, lay};    
             foreach (XtraTabPage tabPages in tabControlMain.TabPages)
             {
                 Boolean is_error = false;
@@ -326,13 +336,31 @@ namespace DauThau.UserControlCategory
                     }
                     foreach (var items in layout.Controls)
                     {
+                        
                         BaseEdit item = items as BaseEdit;
+                        CheckEdit check = items as CheckEdit;
+                        CheckedListBoxControl checkList = items as CheckedListBoxControl;
                         LookUpEdit lue = items as LookUpEdit;
-                        if (item != null &&  item.EditValue == null && !ignoreItem.Contains(item.Name))
+                        if(checkList != null)
+                        {
+                            continue;
+                        }
+
+                        if(item != null)
+                        {
+                            item.Refresh();
+                        }
+                        
+                        if(check != null && check.Checked == false && !ignoreItem.Contains(check.Name))
+                        {
+                            dxErrorProvider.SetError(check, "Vui lòng nhập thông tin");
+                            is_error = true;
+                        }else if (item != null &&  item.EditValue == null && !ignoreItem.Contains(item.Name))
                         {
                             dxErrorProvider.SetError(item, "Vui lòng nhập thông tin");
                             is_error = true;
                         }
+                        
                     }
                 }
                 if (is_error)
@@ -360,6 +388,7 @@ namespace DauThau.UserControlCategory
             if (item != null)
             {
                 btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = true;
+                _idRowSelected = item.HV_ID;
 
                 //Thông tin cá nhân
                 txtHo.Text = item.HV_HO;
@@ -420,9 +449,9 @@ namespace DauThau.UserControlCategory
                 txtDiaChiCoQuan.Text = item.HV_COQUAN_DIACHI;
 
                 //Tab sức khỏe - hôn nhân
-                lueTinhTrangKT.EditValue = item.HV_KT_TINHTRANG;
+                checkTinhTrangKT.Ex_SetEditValueToString(item.HV_KT_TINHTRANG);
                 txtTinhTrangKTChiTiet.Text = item.HV_KT_TINHTRANG_CHITIET;
-                txtKhuyetTatKhac.Text = item.HV_KT_KHAC;
+
                 lueMucDoKT.EditValue = item.HV_KT_MUCDO;
                 luePhuongTienDiLai.EditValue = item.HV_PHUONGTIEN_DILAI;
                 txtTinhTrangSucKhoe.Text = item.HV_TINHTRANG_SUCKHOE;
@@ -450,7 +479,7 @@ namespace DauThau.UserControlCategory
                 txtDCHT_ToChuc.EditValue = item.HV_DCHT_TU_TOCHUC;
                 txtDCHT_TinhTrang.EditValue = item.HV_DCHT_TINHTRANG;
 
-                chkNhanBHXH_HangThang.EditValue = item.HV_BTXH_NHAN_HANGTHANG;
+                lueBTXH_HangThang.EditValue = item.HV_BTXH_HANGTHANG;
                 seTienBTXHHangThang.EditValue = item.HV_BTXH_TIEN_HANGTHANG;
                 txtBTXHKhac.EditValue = item.HV_BTXH_KHAC;
                 chkNhanBHYTMienPhi.EditValue = item.HV_BHYT_MIENPHI;
@@ -458,8 +487,6 @@ namespace DauThau.UserControlCategory
                 chkNhanGiayCNXacDinhMucDoKT.EditValue = item.HV_GIAY_CHUNGNHAN_KT;
                 chkNhanQDCongNhanMucDoKT.EditValue = item.HV_QUYETDINH_CONGNHAN_KT;
                 chkGiaDinhDienChinhSach.EditValue = item.HV_GIADINH_CHINHSACH;
-
-                txtTheKT.Text = item.HV_THE_KHUYETTAT;
 
                 //Nơi ở chăm sóc bản thân
                 lueNoiSinhSong.EditValue = item.HV_NOI_SINH_SONG;
@@ -591,9 +618,9 @@ namespace DauThau.UserControlCategory
             item.HV_COQUAN_DIACHI = txtDiaChiCoQuan.Text;
 
             //Tab sức khỏe
-            item.HV_KT_TINHTRANG = lueTinhTrangKT.EditValue + string.Empty;
+            item.HV_KT_TINHTRANG = checkTinhTrangKT.Ex_GetEditValueToString();
             item.HV_KT_TINHTRANG_CHITIET = txtTinhTrangKTChiTiet.Text;
-            item.HV_KT_KHAC = txtKhuyetTatKhac.Text;
+
             item.HV_KT_MUCDO = lueMucDoKT.EditValue + string.Empty;
             item.HV_PHUONGTIEN_DILAI = luePhuongTienDiLai.EditValue + string.Empty;
             item.HV_TINHTRANG_SUCKHOE = txtTinhTrangSucKhoe.Text;
@@ -622,7 +649,7 @@ namespace DauThau.UserControlCategory
             item.HV_DCHT_TU_TOCHUC = txtDCHT_ToChuc.EditValue + string.Empty;
             item.HV_DCHT_TINHTRANG = txtDCHT_TinhTrang.EditValue + string.Empty;
 
-            item.HV_BTXH_NHAN_HANGTHANG = Convert.ToBoolean(chkNhanBHXH_HangThang.EditValue);
+            item.HV_BTXH_HANGTHANG = lueBTXH_HangThang.Text;
             item.HV_BTXH_TIEN_HANGTHANG = seTienBTXHHangThang.Ex_EditValueToInt() ;
             item.HV_BTXH_KHAC = txtBTXHKhac.EditValue + string.Empty;
             item.HV_BHYT_MIENPHI = Convert.ToBoolean(chkNhanBHYTMienPhi.EditValue);
@@ -630,8 +657,6 @@ namespace DauThau.UserControlCategory
             item.HV_GIAY_CHUNGNHAN_KT = Convert.ToBoolean(chkNhanGiayCNXacDinhMucDoKT.EditValue);
             item.HV_QUYETDINH_CONGNHAN_KT = Convert.ToBoolean(chkNhanQDCongNhanMucDoKT.EditValue);
             item.HV_GIADINH_CHINHSACH = Convert.ToBoolean(chkGiaDinhDienChinhSach.EditValue);
-
-            txtTheKT.Text = item.HV_THE_KHUYETTAT;
 
             //tab nơi ở chăm sóc bản thân
             item.HV_NOI_SINH_SONG = lueNoiSinhSong.EditValue + string.Empty;
@@ -866,6 +891,17 @@ namespace DauThau.UserControlCategory
                 WaitDialogForm _wait = new WaitDialogForm("Đang lưu dữ liệu ...", "Vui lòng đợi giây lát");
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
+                    if(txtCMND.Text != "")
+                    {
+                        var hoivien = _context.QL_HOIVIEN.Where(p => p.HV_CMND == txtCMND.Text && p.HV_ID != _idRowSelected).FirstOrDefault();
+                        if (hoivien != null)
+                        {
+                            _wait.Close();
+                            clsMessage.MessageExclamation("CMND đã bị trùng nhau. Vui lòng kiểm tra lại.");
+                            return false;
+                        }
+                    }
+                    
                     QL_HOIVIEN item = new QL_HOIVIEN();
                     switch (_formStatus)
                     {

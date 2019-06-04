@@ -97,6 +97,32 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMBTXH()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Có"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Đang làm"
+            };
+            list.Add(item);
+            item = new dynamicObject()
+            {
+                ID = 3,
+                NAME = "Khác"
+            };
+
+            list.Add(item);
+            return list;
+        }
+
         public static List<dynamicObject> loadDMCaNhanToChuc()
         {
             List<dynamicObject> list = new List<dynamicObject>();
@@ -511,7 +537,9 @@ namespace DauThau.Class
                     case CategoryEntitiesTable.DM_LOAI_HOATDONG:
                         listItem = (from p in context.DM_LOAI_HOATDONG orderby p.LOAIHD_STT select p).ToList();
                         break;
-
+                    case CategoryEntitiesTable.DM_BTXH_HANG_THANG:
+                        listItem = loadDMBTXH();
+                        break;
                     default:
                         break;
                 }

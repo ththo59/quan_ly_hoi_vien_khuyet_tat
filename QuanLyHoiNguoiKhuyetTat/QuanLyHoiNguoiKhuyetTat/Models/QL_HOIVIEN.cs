@@ -82,7 +82,7 @@ namespace DauThau.Models
         public Nullable<System.DateTime> HV_DCHT_THOIDIEM_NHAN { get; set; }
         public string HV_DCHT_TU_TOCHUC { get; set; }
         public string HV_DCHT_TINHTRANG { get; set; }
-        public Nullable<bool> HV_BTXH_NHAN_HANGTHANG { get; set; }
+        public string HV_BTXH_HANGTHANG { get; set; }
         public Nullable<int> HV_BTXH_TIEN_HANGTHANG { get; set; }
         public string HV_BTXH_KHAC { get; set; }
         public Nullable<bool> HV_BHYT_MIENPHI { get; set; }

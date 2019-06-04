@@ -52,8 +52,8 @@ namespace DauThau.Class
         DM_NHA_TAI_TRO,
         DM_NHA_TAI_TRO_LOAI,
         DM_DONVI_PHUTRACH,
-        DM_LOAI_HOATDONG
-
+        DM_LOAI_HOATDONG,
+        DM_BTXH_HANG_THANG
     }
 
     enum FunctionName
