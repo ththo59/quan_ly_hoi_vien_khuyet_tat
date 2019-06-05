@@ -130,7 +130,7 @@ namespace DauThau.UserControlCategory
             switch (enumLoai)
             {
                 case CategoryHoiThao.TO_CHUC_VAN_NGHE:
-                    layTenChuongTrinh.Text = "Tên sự kiện";
+                    layTenChuongTrinh.Text = "Tên sự kiện*";
                     layDonViThucHien.Text = "Đơn vị tài trợ";
                     break;
                 case CategoryHoiThao.TO_CHUC_THE_THAO:
@@ -140,7 +140,7 @@ namespace DauThau.UserControlCategory
                     layDonViThucHien.Text = "Đơn vị tài trợ";
                     break;
                 default:
-                    layTenChuongTrinh.Text = "Tên " + title.ToLower();
+                    layTenChuongTrinh.Text = "Tên " + title.ToLower() + "*";
                     break;
             }
 
@@ -204,16 +204,20 @@ namespace DauThau.UserControlCategory
                              && p.HT_LOAI_ID == _id_loai
                         select p).ToList();
             gcGrid.DataSource = data;
-            _loadDataFocusRow();
+
+            _setFocusedRow(gvGrid, colID);
+            _bindingData();
             _wait.Close();
         }
 
-        private void _loadDataFocusRow()
+        private void _bindingData()
         {
             _clearData();
             QL_HOATDONG_HOITHAO item = gvGrid.GetFocusedRow() as QL_HOATDONG_HOITHAO;
             if (item != null)
             {
+                _idRowSelected = item.HT_ID;
+
                 deTuNgay.EditValue = item.HT_THOIGIAN_BATDAU;
                 deDenNgay.EditValue = item.HT_THOIGIAN_KETTHUC;
                 seTongSoNgay.EditValue = item.HT_TONGSO_NGAY;
@@ -283,7 +287,7 @@ namespace DauThau.UserControlCategory
             {
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOATDONG_HOITHAO item;
+                    QL_HOATDONG_HOITHAO item = new QL_HOATDONG_HOITHAO();
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
@@ -315,6 +319,7 @@ namespace DauThau.UserControlCategory
                             break;
                     }
                     _context.SaveChanges();
+                    _idRowSelected = item.HT_ID;
                 }
                 FormStatus = EnumFormStatus.VIEW;
             }
@@ -442,7 +447,8 @@ namespace DauThau.UserControlCategory
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _loadDataFocusRow();
+            _idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+            _bindingData();
         }
 
         private void deTuNgay_EditValueChanged(object sender, EventArgs e)

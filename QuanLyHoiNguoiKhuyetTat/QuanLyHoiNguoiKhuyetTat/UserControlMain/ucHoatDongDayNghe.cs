@@ -166,16 +166,20 @@ namespace DauThau.UserControlCategory
                              && p.DN_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
                         select p).ToList();
             gcGrid.DataSource = data;
-            _loadDataFocusRow();
+
+            _setFocusedRow(gvGrid, colID);
+            _bindingData();
             _wait.Close();
         }
 
-        private void _loadDataFocusRow()
+        private void _bindingData()
         {
             _clearData();
             QL_HOATDONG_DAYNGHE item = gvGrid.GetFocusedRow() as QL_HOATDONG_DAYNGHE;
             if (item != null)
             {
+                _idRowSelected = item.DN_ID;
+
                 deTuNgay.EditValue = item.DN_THOIGIAN_BATDAU;
                 deDenNgay.EditValue = item.DN_THOIGIAN_KETTHUC;
                 seTongSoNgay.EditValue = item.DN_TONGSO_NGAY;
@@ -226,12 +230,17 @@ namespace DauThau.UserControlCategory
 
             if (txtTenChuongTrinh.Text.Trim() == string.Empty)
             {
-                dxErrorProvider.SetError(txtTenChuongTrinh, "Vui lòng nhập họ tên");
+                dxErrorProvider.SetError(txtTenChuongTrinh, "Vui lòng nhập thông tin");
             }
 
             if (clsChangeType.change_int(seTongSoNgay.EditValue)  <= 0)
             {
                 dxErrorProvider.SetError(deDenNgay, "Từ ngày và đến ngày không phù hợp");
+            }
+
+            if(txtDiaDiem.Text.Trim() == "")
+            {
+                dxErrorProvider.SetError(txtDiaDiem, "Vui lòng nhập thông tin");
             }
 
             if (clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) < clsChangeType.change_int64(seSoluongNu.EditValue))
@@ -253,7 +262,7 @@ namespace DauThau.UserControlCategory
             {
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOATDONG_DAYNGHE item;
+                    QL_HOATDONG_DAYNGHE item = new QL_HOATDONG_DAYNGHE();
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
@@ -284,7 +293,10 @@ namespace DauThau.UserControlCategory
                         default:
                             break;
                     }
+
                     _context.SaveChanges();
+
+                    _idRowSelected = item.DN_ID;
                 }
                 FormStatus = EnumFormStatus.VIEW;
             }
@@ -417,7 +429,8 @@ namespace DauThau.UserControlCategory
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _loadDataFocusRow();
+            _idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+            _bindingData();
         }
 
         private void deTuNgay_EditValueChanged(object sender, EventArgs e)

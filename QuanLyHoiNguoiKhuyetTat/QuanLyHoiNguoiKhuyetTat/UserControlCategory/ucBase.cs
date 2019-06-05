@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using DauThau.Models;
 using DauThau.Class;
 using ControlsLib;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
 
 namespace DauThau.UserControlCategory
 {
@@ -19,6 +21,7 @@ namespace DauThau.UserControlCategory
             InitializeComponent();
         }
 
+        protected Int64 _idRowSelected;
         protected EnumFormStatus _formStatus = EnumFormStatus.VIEW;
         protected QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
 
@@ -40,6 +43,19 @@ namespace DauThau.UserControlCategory
             btnControl.btnEventSave_Click += new System.EventHandler(this.btnControl_btnEventSave_Click);
             btnControl.btnEventPrint_Click += new System.EventHandler(this.btnControl_btnEventPrint_Click);
             btnControl.btnEventReport_Click += new System.EventHandler(this.btnControl_btnEventReport_Click);
+        }
+
+        protected void _setFocusedRow(GridView gvGrid, GridColumn colID)
+        {
+            for (int i = 0; i < gvGrid.RowCount; i++)
+            {
+                Int64 id = Convert.ToInt64(gvGrid.GetRowCellValue(i, colID));
+                if (id == _idRowSelected)
+                {
+                    gvGrid.FocusedRowHandle = i;
+                    break;
+                }
+            }
         }
 
         public void permissionAccessButton(ButtonsArray btnControl, Int32 enumFunc)

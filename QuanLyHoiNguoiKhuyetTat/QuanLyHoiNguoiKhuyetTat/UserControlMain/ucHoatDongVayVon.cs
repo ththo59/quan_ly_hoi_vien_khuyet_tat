@@ -165,16 +165,20 @@ namespace DauThau.UserControlCategory
                              && p.VV_THOIGIAN_BATDAU <= deSearchDenNgay.DateTime.Date
                         select p).ToList();
             gcGrid.DataSource = data;
-            _loadDataFocusRow();
+
+            _setFocusedRow(gvGrid, colID);
+            _bindingData();
             _wait.Close();
         }
 
-        private void _loadDataFocusRow()
+        private void _bindingData()
         {
             _clearData();
             QL_HOATDONG_VAYVON item = gvGrid.GetFocusedRow() as QL_HOATDONG_VAYVON;
             if (item != null)
             {
+                _idRowSelected = item.VV_ID;
+
                 deTuNgay.EditValue = item.VV_THOIGIAN_BATDAU;
                 deDenNgay.EditValue = item.VV_THOIGIAN_KETTHUC;
                 seTongSoNgay.EditValue = item.VV_TONGSO_NGAY;
@@ -228,7 +232,7 @@ namespace DauThau.UserControlCategory
 
             if (txtTenChuongTrinh.Text.Trim() == string.Empty)
             {
-                dxErrorProvider.SetError(txtTenChuongTrinh, "Vui lòng nhập họ tên");
+                dxErrorProvider.SetError(txtTenChuongTrinh, "Vui lòng nhập thông tin");
             }
 
             if (clsChangeType.change_int(seTongSoNgay.EditValue)  <= 0)
@@ -255,7 +259,7 @@ namespace DauThau.UserControlCategory
             {
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOATDONG_VAYVON item;
+                    QL_HOATDONG_VAYVON item =new QL_HOATDONG_VAYVON();
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
@@ -287,6 +291,8 @@ namespace DauThau.UserControlCategory
                             break;
                     }
                     _context.SaveChanges();
+
+                    _idRowSelected = item.VV_ID;
                 }
                 FormStatus = EnumFormStatus.VIEW;
             }
@@ -417,7 +423,8 @@ namespace DauThau.UserControlCategory
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _loadDataFocusRow();
+            _idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+            _bindingData();
         }
 
         private void deTuNgay_EditValueChanged(object sender, EventArgs e)

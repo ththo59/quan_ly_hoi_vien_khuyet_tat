@@ -199,16 +199,19 @@ namespace DauThau.UserControlCategory
                              && p.ASXH_LOAI_ID == _id_loai
                         select p).ToList();
             gcGrid.DataSource = data;
-            _loadDataFocusRow();
+
+            _setFocusedRow(gvGrid, colID);
+            _bindingData();
             _wait.Close();
         }
 
-        private void _loadDataFocusRow()
+        private void _bindingData()
         {
             _clearData();
             QL_HOATDONG_ASXH item = gvGrid.GetFocusedRow() as QL_HOATDONG_ASXH;
             if (item != null)
             {
+                _idRowSelected = item.ASXH_ID;
                 deTuNgay.EditValue = item.ASXH_THOIGIAN_BATDAU;
                 deDenNgay.EditValue = item.ASXH_THOIGIAN_KETTHUC;
                 seTongSoNgay.EditValue = item.ASXH_TONGSO_NGAY;
@@ -274,7 +277,7 @@ namespace DauThau.UserControlCategory
             {
                 using (var _context = new QL_HOIVIEN_KTEntities())
                 {
-                    QL_HOATDONG_ASXH item;
+                    QL_HOATDONG_ASXH item = new QL_HOATDONG_ASXH() ;
                     switch (_formStatus)
                     {
                         case EnumFormStatus.ADD:
@@ -306,6 +309,7 @@ namespace DauThau.UserControlCategory
                             break;
                     }
                     _context.SaveChanges();
+                    _idRowSelected = item.ASXH_ID;
                 }
                 FormStatus = EnumFormStatus.VIEW;
             }
@@ -434,7 +438,8 @@ namespace DauThau.UserControlCategory
 
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _loadDataFocusRow();
+            _idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+            _bindingData();
         }
 
         private void deTuNgay_EditValueChanged(object sender, EventArgs e)

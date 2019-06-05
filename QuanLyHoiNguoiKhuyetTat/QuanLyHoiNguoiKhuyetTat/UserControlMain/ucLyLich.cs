@@ -39,7 +39,6 @@ namespace DauThau.UserControlCategory
         private QL_HOIVIEN _hoiVien = new QL_HOIVIEN();
         private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
 
-        private Int64 _idRowSelected;
         private Boolean first_load_data = true;
         private void ucLyLich_Load(object sender, EventArgs e)
         {
@@ -212,19 +211,6 @@ namespace DauThau.UserControlCategory
                     btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled 
                         = btnControl.btnPrint.Enabled = btnControl.btnReport.Enabled = gvGrid.RowCount > 0;
                     base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_LYLICH);
-                }
-            }
-        }
-
-        private void _setFocusedRow()
-        {
-            for (int i = 0; i < gvGrid.RowCount; i++)
-            {
-                Int64 id = Convert.ToInt64(gvGrid.GetRowCellValue(i, colHV_ID));
-                if (id == _idRowSelected)
-                {
-                    gvGrid.FocusedRowHandle = i;
-                    break;
                 }
             }
         }
@@ -708,7 +694,7 @@ namespace DauThau.UserControlCategory
                              select p).ToList();
             gcGrid.DataSource = dmHoiVien;
 
-            _setFocusedRow();
+            _setFocusedRow(gvGrid, colHV_ID);
             _bindingDataRow();
         }
 

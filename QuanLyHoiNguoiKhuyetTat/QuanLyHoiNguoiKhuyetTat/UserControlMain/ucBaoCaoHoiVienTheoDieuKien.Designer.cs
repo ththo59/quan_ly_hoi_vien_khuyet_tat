@@ -176,12 +176,27 @@
             this.bandedGridColumn57 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand77 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn58 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit5 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDate.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -255,12 +270,12 @@
             this.gcGrid.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.gcGrid.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gcGrid.EmbeddedNavigator.TextStringFormat = "Dòng {0} / {1}";
-            this.gcGrid.Location = new System.Drawing.Point(0, 0);
+            this.gcGrid.Location = new System.Drawing.Point(0, 139);
             this.gcGrid.MainView = this.gvGrid;
             this.gcGrid.Name = "gcGrid";
             this.gcGrid.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repDate});
-            this.gcGrid.Size = new System.Drawing.Size(904, 471);
+            this.gcGrid.Size = new System.Drawing.Size(904, 332);
             this.gcGrid.TabIndex = 29;
             this.gcGrid.UseEmbeddedNavigator = true;
             this.gcGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1601,11 +1616,89 @@
             this.bandedGridColumn58.Visible = true;
             this.bandedGridColumn58.Width = 134;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.checkEdit6);
+            this.groupControl1.Controls.Add(this.checkEdit5);
+            this.groupControl1.Controls.Add(this.checkEdit4);
+            this.groupControl1.Controls.Add(this.checkEdit3);
+            this.groupControl1.Controls.Add(this.checkEdit2);
+            this.groupControl1.Controls.Add(this.checkEdit1);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(904, 139);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Ẩn hiện các mục";
+            // 
+            // checkEdit6
+            // 
+            this.checkEdit6.Location = new System.Drawing.Point(567, 27);
+            this.checkEdit6.Name = "checkEdit6";
+            this.checkEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.checkEdit6.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit6.Properties.Caption = "Trình độ chuyên môn";
+            this.checkEdit6.Size = new System.Drawing.Size(165, 21);
+            this.checkEdit6.TabIndex = 0;
+            // 
+            // checkEdit5
+            // 
+            this.checkEdit5.Location = new System.Drawing.Point(422, 27);
+            this.checkEdit5.Name = "checkEdit5";
+            this.checkEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.checkEdit5.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit5.Properties.Caption = "Trình độ văn hóa";
+            this.checkEdit5.Size = new System.Drawing.Size(127, 21);
+            this.checkEdit5.TabIndex = 0;
+            // 
+            // checkEdit4
+            // 
+            this.checkEdit4.Location = new System.Drawing.Point(315, 27);
+            this.checkEdit4.Name = "checkEdit4";
+            this.checkEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.checkEdit4.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit4.Properties.Caption = "Nghề nghiệp";
+            this.checkEdit4.Size = new System.Drawing.Size(101, 21);
+            this.checkEdit4.TabIndex = 0;
+            // 
+            // checkEdit3
+            // 
+            this.checkEdit3.Location = new System.Drawing.Point(214, 27);
+            this.checkEdit3.Name = "checkEdit3";
+            this.checkEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.checkEdit3.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit3.Properties.Caption = "Tôn giáo";
+            this.checkEdit3.Size = new System.Drawing.Size(75, 20);
+            this.checkEdit3.TabIndex = 0;
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Location = new System.Drawing.Point(120, 27);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.checkEdit2.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit2.Properties.Caption = "Ngày sinh";
+            this.checkEdit2.Size = new System.Drawing.Size(75, 20);
+            this.checkEdit2.TabIndex = 0;
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(17, 27);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.checkEdit1.Properties.Appearance.Options.UseFont = true;
+            this.checkEdit1.Properties.Caption = "Dân tộc";
+            this.checkEdit1.Size = new System.Drawing.Size(75, 21);
+            this.checkEdit1.TabIndex = 0;
+            // 
             // ucBaoCaoHoiVienTheoDieuKien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcGrid);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);
             this.Name = "ucBaoCaoHoiVienTheoDieuKien";
             this.Size = new System.Drawing.Size(904, 531);
@@ -1616,6 +1709,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1769,5 +1870,12 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand76;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand77;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repDate;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit4;
+        private DevExpress.XtraEditors.CheckEdit checkEdit3;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit6;
+        private DevExpress.XtraEditors.CheckEdit checkEdit5;
     }
 }
