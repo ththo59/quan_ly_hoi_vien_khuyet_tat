@@ -26,6 +26,7 @@ namespace DauThau.UserControlMain
         {
             public Int64 HV_ID { get; set; }
             public Boolean CHON { get; set; }
+            public string HV_HO { get; set; }
             public string HV_TEN { get; set; }
             public string HV_GIOI_TINH { get; set; }
             public int? HV_TUOI { get; set; }
@@ -47,6 +48,7 @@ namespace DauThau.UserControlMain
                 clsSelectHoiVien item = new clsSelectHoiVien();
                 item.CHON = hoivienIdList.Contains(p.HV_ID.ToString());
                 item.HV_ID = p.HV_ID;
+                item.HV_HO = p.HV_HO;
                 item.HV_TEN = p.HV_TEN;
                 item.HV_GIOI_TINH = p.HV_GIOI_TINH;
                 item.HV_TUOI = p.HV_TUOI;
@@ -65,17 +67,17 @@ namespace DauThau.UserControlMain
         private void btnControl_btnEventSelect_Click(object sender, EventArgs e)
         {
             selectNameList = selectIdList = string.Empty;
-            foreach (var item in listHoiVen)
+            foreach (var item in listHoiVen.OrderBy(k=>k.HV_TEN))
             {
                 if (item.CHON)
                 {
                     if (string.IsNullOrEmpty(selectNameList))
                     {
-                        selectNameList = item.HV_TEN;
+                        selectNameList =item.HV_HO + " " + item.HV_TEN;
                     }
                     else
                     {
-                        selectNameList += "; " + item.HV_TEN;
+                        selectNameList += "; " + item.HV_HO + " " + item.HV_TEN;
                     }
 
                     if (string.IsNullOrEmpty(selectIdList))

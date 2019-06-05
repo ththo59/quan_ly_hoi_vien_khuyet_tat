@@ -36,11 +36,12 @@
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colHV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHV_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHV_HO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txt = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colHV_GIOI_TINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHV_TUOI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHV_THUONGTRU_DIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHV_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.chkChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -57,7 +58,7 @@
             this.colCHON.Name = "colCHON";
             this.colCHON.Visible = true;
             this.colCHON.VisibleIndex = 0;
-            this.colCHON.Width = 48;
+            this.colCHON.Width = 43;
             // 
             // chkChon
             // 
@@ -160,6 +161,7 @@
             this.gvGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colHV_ID,
             this.colCHON,
+            this.colHV_HO,
             this.colHV_TEN,
             this.colHV_GIOI_TINH,
             this.colHV_TUOI,
@@ -182,6 +184,8 @@
             this.gvGrid.OptionsView.ShowAutoFilterRow = true;
             this.gvGrid.OptionsView.ShowGroupedColumns = true;
             this.gvGrid.OptionsView.ShowGroupPanel = false;
+            this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHV_TEN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colHV_ID
             // 
@@ -189,16 +193,16 @@
             this.colHV_ID.FieldName = "HV_ID";
             this.colHV_ID.Name = "colHV_ID";
             // 
-            // colHV_TEN
+            // colHV_HO
             // 
-            this.colHV_TEN.Caption = "Họ tên";
-            this.colHV_TEN.ColumnEdit = this.txt;
-            this.colHV_TEN.FieldName = "HV_TEN";
-            this.colHV_TEN.Name = "colHV_TEN";
-            this.colHV_TEN.OptionsColumn.AllowEdit = false;
-            this.colHV_TEN.Visible = true;
-            this.colHV_TEN.VisibleIndex = 1;
-            this.colHV_TEN.Width = 161;
+            this.colHV_HO.Caption = "Họ";
+            this.colHV_HO.ColumnEdit = this.txt;
+            this.colHV_HO.FieldName = "HV_HO";
+            this.colHV_HO.Name = "colHV_HO";
+            this.colHV_HO.OptionsColumn.AllowEdit = false;
+            this.colHV_HO.Visible = true;
+            this.colHV_HO.VisibleIndex = 1;
+            this.colHV_HO.Width = 145;
             // 
             // txt
             // 
@@ -213,8 +217,8 @@
             this.colHV_GIOI_TINH.Name = "colHV_GIOI_TINH";
             this.colHV_GIOI_TINH.OptionsColumn.AllowEdit = false;
             this.colHV_GIOI_TINH.Visible = true;
-            this.colHV_GIOI_TINH.VisibleIndex = 2;
-            this.colHV_GIOI_TINH.Width = 58;
+            this.colHV_GIOI_TINH.VisibleIndex = 3;
+            this.colHV_GIOI_TINH.Width = 76;
             // 
             // colHV_TUOI
             // 
@@ -223,8 +227,8 @@
             this.colHV_TUOI.Name = "colHV_TUOI";
             this.colHV_TUOI.OptionsColumn.AllowEdit = false;
             this.colHV_TUOI.Visible = true;
-            this.colHV_TUOI.VisibleIndex = 3;
-            this.colHV_TUOI.Width = 59;
+            this.colHV_TUOI.VisibleIndex = 4;
+            this.colHV_TUOI.Width = 38;
             // 
             // colHV_THUONGTRU_DIACHI
             // 
@@ -233,8 +237,18 @@
             this.colHV_THUONGTRU_DIACHI.Name = "colHV_THUONGTRU_DIACHI";
             this.colHV_THUONGTRU_DIACHI.OptionsColumn.AllowEdit = false;
             this.colHV_THUONGTRU_DIACHI.Visible = true;
-            this.colHV_THUONGTRU_DIACHI.VisibleIndex = 4;
-            this.colHV_THUONGTRU_DIACHI.Width = 370;
+            this.colHV_THUONGTRU_DIACHI.VisibleIndex = 5;
+            this.colHV_THUONGTRU_DIACHI.Width = 245;
+            // 
+            // colHV_TEN
+            // 
+            this.colHV_TEN.Caption = "Tên";
+            this.colHV_TEN.FieldName = "HV_TEN";
+            this.colHV_TEN.Name = "colHV_TEN";
+            this.colHV_TEN.OptionsColumn.AllowEdit = false;
+            this.colHV_TEN.Visible = true;
+            this.colHV_TEN.VisibleIndex = 2;
+            this.colHV_TEN.Width = 148;
             // 
             // frmSelectHoiVien
             // 
@@ -264,12 +278,13 @@
         private DevExpress.XtraGrid.GridControl gcGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gvGrid;
         private DevExpress.XtraGrid.Columns.GridColumn colHV_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colHV_TEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_HO;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txt;
         private DevExpress.XtraGrid.Columns.GridColumn colHV_GIOI_TINH;
         private DevExpress.XtraGrid.Columns.GridColumn colHV_TUOI;
         private DevExpress.XtraGrid.Columns.GridColumn colHV_THUONGTRU_DIACHI;
         private DevExpress.XtraGrid.Columns.GridColumn colCHON;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkChon;
+        private DevExpress.XtraGrid.Columns.GridColumn colHV_TEN;
     }
 }

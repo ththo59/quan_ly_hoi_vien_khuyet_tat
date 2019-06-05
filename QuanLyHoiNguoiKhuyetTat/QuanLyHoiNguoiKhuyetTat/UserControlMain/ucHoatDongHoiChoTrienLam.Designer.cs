@@ -72,6 +72,7 @@
             this.txtTenChuongTrinh = new DevExpress.XtraEditors.TextEdit();
             this.txtDonViTaiTro = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaDiem = new DevExpress.XtraEditors.TextEdit();
+            this.seTongSoThang = new DevExpress.XtraEditors.SpinEdit();
             this.seTongSoNgay = new DevExpress.XtraEditors.SpinEdit();
             this.seSoTienTaiTro = new DevExpress.XtraEditors.SpinEdit();
             this.seSoLuongNu = new DevExpress.XtraEditors.SpinEdit();
@@ -95,6 +96,7 @@
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvGrid)).BeginInit();
@@ -143,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenChuongTrinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonViTaiTro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaDiem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seTongSoThang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seTongSoNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seSoTienTaiTro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seSoLuongNu.Properties)).BeginInit();
@@ -166,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -612,6 +616,7 @@
             this.layoutEdit.Controls.Add(this.txtTenChuongTrinh);
             this.layoutEdit.Controls.Add(this.txtDonViTaiTro);
             this.layoutEdit.Controls.Add(this.txtDiaDiem);
+            this.layoutEdit.Controls.Add(this.seTongSoThang);
             this.layoutEdit.Controls.Add(this.seTongSoNgay);
             this.layoutEdit.Controls.Add(this.seSoTienTaiTro);
             this.layoutEdit.Controls.Add(this.seSoLuongNu);
@@ -773,6 +778,25 @@
             this.txtDiaDiem.StyleController = this.layoutEdit;
             this.txtDiaDiem.TabIndex = 5;
             // 
+            // seTongSoThang
+            // 
+            this.seTongSoThang.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seTongSoThang.Location = new System.Drawing.Point(621, 7);
+            this.seTongSoThang.Name = "seTongSoThang";
+            this.seTongSoThang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.seTongSoThang.Properties.Appearance.Options.UseFont = true;
+            this.seTongSoThang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seTongSoThang.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.seTongSoThang.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.seTongSoThang.Size = new System.Drawing.Size(50, 26);
+            this.seTongSoThang.StyleController = this.layoutEdit;
+            this.seTongSoThang.TabIndex = 5;
+            // 
             // seTongSoNgay
             // 
             this.seTongSoNgay.EditValue = new decimal(new int[] {
@@ -780,7 +804,7 @@
             0,
             0,
             0});
-            this.seTongSoNgay.Location = new System.Drawing.Point(616, 7);
+            this.seTongSoNgay.Location = new System.Drawing.Point(771, 7);
             this.seTongSoNgay.Name = "seTongSoNgay";
             this.seTongSoNgay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.seTongSoNgay.Properties.Appearance.Options.UseFont = true;
@@ -892,7 +916,8 @@
             this.layoutControlItem10,
             this.layoutControlItem15,
             this.layoutControlItem6,
-            this.layoutControlItem11});
+            this.layoutControlItem11,
+            this.layoutControlItem8});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -942,9 +967,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(683, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(838, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem1";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(169, 30);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(14, 30);
             this.emptySpaceItem2.Text = "emptySpaceItem1";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -985,7 +1010,7 @@
             // 
             this.layoutControlItem9.Control = this.seTongSoNgay;
             this.layoutControlItem9.CustomizationFormText = "Tổng số ngày";
-            this.layoutControlItem9.Location = new System.Drawing.Point(513, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(668, 0);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(170, 30);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(170, 30);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -1104,6 +1129,18 @@
             this.layoutControlItem11.Text = "Số tiền sau bán hàng";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(138, 18);
             // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.seTongSoThang;
+            this.layoutControlItem8.CustomizationFormText = "Tổng số tháng";
+            this.layoutControlItem8.Location = new System.Drawing.Point(513, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(155, 30);
+            this.layoutControlItem8.Text = "Tổng số tháng";
+            this.layoutControlItem8.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(96, 18);
+            this.layoutControlItem8.TextToControlDistance = 5;
+            // 
             // dxErrorProvider
             // 
             this.dxErrorProvider.ContainerControl = this;
@@ -1165,6 +1202,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenChuongTrinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonViTaiTro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaDiem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seTongSoThang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seTongSoNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seSoTienTaiTro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seSoLuongNu.Properties)).EndInit();
@@ -1188,6 +1226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -1262,5 +1301,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraEditors.SpinEdit seSoTienSauBanHang;
+        private DevExpress.XtraEditors.SpinEdit seTongSoThang;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
     }
 }

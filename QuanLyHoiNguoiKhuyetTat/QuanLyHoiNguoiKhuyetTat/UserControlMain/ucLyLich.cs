@@ -22,6 +22,8 @@ using DauThau.UserControlCategoryMain;
 using DevExpress.XtraGrid;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace DauThau.UserControlCategory
 {
@@ -38,14 +40,31 @@ namespace DauThau.UserControlCategory
         private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
 
         private Int64 _idRowSelected;
-
+        private Boolean first_load_data = true;
         private void ucLyLich_Load(object sender, EventArgs e)
         {
-            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            
             registerButtonArray(btnControl);
             //btnControl.btnReport.Image = btnControl.btnPrint.Image;
             btnControl.btnReport.Text = "Đơn gia nhập hội";
             btnControl.btnPrint.Text = "In lý lịch";
+
+            FormStatus = EnumFormStatus.VIEW;
+
+            //show data after 1 second
+            Task.Factory.StartNew(() => Thread.Sleep(1 * 1000))
+            .ContinueWith((t) =>
+            {
+                _initDisplay();   
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+        }
+
+        #region function
+
+        private void _initDisplay()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThuongTru_TP);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTamTru_TP);
@@ -61,7 +80,7 @@ namespace DauThau.UserControlCategory
             //Tab Suc khoe
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_MUCDO, lueMucDoKT);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN, lueNguyenNhanKT);
-            
+
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, luePhuongTienDiLai);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, lueTinhTrangHonNhan);
 
@@ -76,7 +95,7 @@ namespace DauThau.UserControlCategory
             chkListSongVoi.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_SONG_VOI.Ex_ToString());
             chkListChamSocBanThan.Ex_SetDataSource(CategoryEntitiesTable.DM_CHAMSOC_BANTHAN.Ex_ToString());
             checkTinhTrangKT.Ex_SetDataSource(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG.Ex_ToString());
-            
+
             //Viec lam nhu cau
             seThuNhapTB.Ex_FormatCustomSpinEdit();
             chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
@@ -93,8 +112,8 @@ namespace DauThau.UserControlCategory
             deNgaySinh_Thang.Properties.MinValue = 1;
             deNgaySinh_Ngay.Properties.MaxValue = 31;
             deNgaySinh_Ngay.Properties.MinValue = 1;
-            
-            
+
+
 
             seKhuyetTat_Nam.Properties.MaxValue = DateTime.Now.Year;
             //deNgayKhuyetTat_Thang.Properties.MaxValue = 12;
@@ -113,15 +132,11 @@ namespace DauThau.UserControlCategory
             seVaoHoi_Ngay.Properties.MaxValue = 31;
             seVaoHoi_Ngay.Properties.MinValue = 1;
 
+            first_load_data = false;
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
+
         }
-
-
-
-
-        #region function
-
         protected override EnumFormStatus FormStatus
         {
             get { return _formStatus; }
@@ -193,7 +208,9 @@ namespace DauThau.UserControlCategory
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
-                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
+                    btnControl.btnAdd.Enabled = !first_load_data;
+                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled 
+                        = btnControl.btnPrint.Enabled = btnControl.btnReport.Enabled = gvGrid.RowCount > 0;
                     base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_LYLICH);
                 }
             }
@@ -975,7 +992,12 @@ namespace DauThau.UserControlCategory
 
         private void lueQuan_EditValueChanged(object sender, EventArgs e)
         {
-            _loadData();
+            if (first_load_data)
+            {
+                return;
+            }
+
+            FormStatus = EnumFormStatus.VIEW;
         }
 
         private void repLueGioiTinh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

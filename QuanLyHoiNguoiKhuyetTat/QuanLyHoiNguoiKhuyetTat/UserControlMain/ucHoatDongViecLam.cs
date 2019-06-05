@@ -167,6 +167,7 @@ namespace DauThau.UserControlCategory
             btnSearch.Enabled = readOnly;
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
+            seTongSoThang.ReadOnly = true;
             txtDoiTuong.ReadOnly = true;
         }
 
@@ -369,7 +370,10 @@ namespace DauThau.UserControlCategory
             if (deTuNgay.EditValue != null && deDenNgay.EditValue != null)
             {
                 TimeSpan diff = deDenNgay.DateTime - deTuNgay.DateTime;
-                seTongSoNgay.EditValue = diff.Days + 1;
+                int soNgay = diff.Days + 1;
+                int months = soNgay / 29;
+                seTongSoNgay.EditValue = soNgay;
+                seTongSoThang.EditValue = months;
             }
         }
 
