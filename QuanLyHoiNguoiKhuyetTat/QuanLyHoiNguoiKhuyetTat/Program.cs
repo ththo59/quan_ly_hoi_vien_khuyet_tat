@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using DauThau.Forms;
+using DauThau.Class;
 
 namespace DauThau
 {
@@ -15,16 +16,23 @@ namespace DauThau
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            DevExpress.Skins.SkinManager.EnableFormSkins();
-            DevExpress.LookAndFeel.LookAndFeelHelper.ForceDefaultLookAndFeelChanged();
-            DevExpress.UserSkins.BonusSkins.Register();
-            //UserLookAndFeel.Default.SetSkinStyle("Summer 2008");
-            //UserLookAndFeel.Default.SetSkinStyle("Xmas");
-            //Application.Run(new frmCreateKey());
-            Application.Run(new frmLogin());
-            //Application.Run(new frmMain());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                DevExpress.Skins.SkinManager.EnableFormSkins();
+                DevExpress.LookAndFeel.LookAndFeelHelper.ForceDefaultLookAndFeelChanged();
+                DevExpress.UserSkins.BonusSkins.Register();
+                //UserLookAndFeel.Default.SetSkinStyle("Summer 2008");
+                //UserLookAndFeel.Default.SetSkinStyle("Xmas");
+                //Application.Run(new frmCreateKey());
+                Application.Run(new frmLogin());
+                    //Application.Run(new frmMain());
+            }
+            catch (Exception ex)
+            {
+                clsMessage.MessageExclamation("Có lỗi phát sinh:\n" + ex.Message);
+            }
         }
     }
 }
