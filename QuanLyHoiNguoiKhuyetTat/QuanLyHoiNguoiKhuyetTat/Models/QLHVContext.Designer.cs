@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\SourceGit\QLHoiVienChiHoiCanTho\Source\QuanLyHoiNguoiKhuyetTat\QuanLyHoiNguoiKhuyetTat\Models\QLHVContext.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\SourceQLHVNKT\quan_ly_hoi_vien_khuyet_tat\QuanLyHoiNguoiKhuyetTat\QuanLyHoiNguoiKhuyetTat\Models\QLHVContext.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

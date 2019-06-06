@@ -20,6 +20,7 @@ namespace DauThau.Models
             this.QL_HOIVIEN_CON = new HashSet<QL_HOIVIEN_CON>();
             this.QL_HOIVIEN_HOIPHI = new HashSet<QL_HOIVIEN_HOIPHI>();
             this.QL_HOIVIEN_IMAGE = new HashSet<QL_HOIVIEN_IMAGE>();
+            this.QL_HOIVIEN_THANHVIENHOI = new HashSet<QL_HOIVIEN_THANHVIENHOI>();
         }
     
         public long HV_ID { get; set; }
@@ -110,5 +111,7 @@ namespace DauThau.Models
         public virtual ICollection<QL_HOIVIEN_HOIPHI> QL_HOIVIEN_HOIPHI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOIVIEN_IMAGE> QL_HOIVIEN_IMAGE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOIVIEN_THANHVIENHOI> QL_HOIVIEN_THANHVIENHOI { get; set; }
     }
 }

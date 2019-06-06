@@ -36,6 +36,8 @@ namespace DauThau.UserControlCategory
 
         private BindingList<QL_HOIVIEN_HOIPHI> _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>();
         private BindingList<QL_HOIVIEN_CON> _listCon = new BindingList<QL_HOIVIEN_CON>();
+        private BindingList<QL_HOIVIEN_THANHVIENHOI> _listThanhVienHoi = new BindingList<QL_HOIVIEN_THANHVIENHOI>();
+
         private QL_HOIVIEN _hoiVien = new QL_HOIVIEN();
         private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
 
@@ -98,7 +100,8 @@ namespace DauThau.UserControlCategory
             //Viec lam nhu cau
             seThuNhapTB.Ex_FormatCustomSpinEdit();
             chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
-            chkListThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
+            //chkListThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
+            repThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
 
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
 
@@ -154,6 +157,11 @@ namespace DauThau.UserControlCategory
                     gvCon.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
                     gvCon.ActiveFilter.Clear();
 
+                    gvThanhVienHoi.OptionsBehavior.Editable = true;
+                    gvThanhVienHoi.OptionsView.ShowAutoFilterRow = false;
+                    gvThanhVienHoi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+                    gvThanhVienHoi.ActiveFilter.Clear();
+
                     _clearData();
                     _initData();
                     _setDefaultValue();
@@ -169,6 +177,11 @@ namespace DauThau.UserControlCategory
                     gvCon.OptionsView.ShowAutoFilterRow = false;
                     gvCon.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
                     gvCon.ActiveFilter.Clear();
+
+                    gvThanhVienHoi.OptionsBehavior.Editable = true;
+                    gvThanhVienHoi.OptionsView.ShowAutoFilterRow = false;
+                    gvThanhVienHoi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+                    gvThanhVienHoi.ActiveFilter.Clear();
 
                     gvHoiPhi.ActiveFilter.Clear();
                     _statusAllControl(false);
@@ -202,6 +215,10 @@ namespace DauThau.UserControlCategory
                     gvCon.OptionsBehavior.Editable = false;
                     gvCon.OptionsView.ShowAutoFilterRow = false;
                     gvCon.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+
+                    gvThanhVienHoi.OptionsBehavior.Editable = false;
+                    gvThanhVienHoi.OptionsView.ShowAutoFilterRow = false;
+                    gvThanhVienHoi.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
 
                     _loadData();
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
@@ -505,7 +522,7 @@ namespace DauThau.UserControlCategory
                 seThuNhapTB.EditValue = item.HV_VIECLAM_THUNHAP;
                 chkTreDiHoc.EditValue = item.HV_TRE_DIHOC;
                 chkListNhuCau.Ex_SetEditValueToString(item.HV_NHUCAU);
-                chkListThanhVienHoi.Ex_SetEditValueToString(item.HV_THANHVIEN_HOI);
+                //chkListThanhVienHoi.Ex_SetEditValueToString(item.HV_THANHVIEN_HOI);
 
                 //Hôi phí
                 context.QL_HOIVIEN_HOIPHI.Load();
@@ -517,6 +534,11 @@ namespace DauThau.UserControlCategory
                 var queryCon = (from p in context.QL_HOIVIEN_CON where p.HV_ID == item.HV_ID select p).ToList();
                 _listCon = new BindingList<QL_HOIVIEN_CON>(queryCon);
                 gcCon.DataSource = _listCon;
+
+                context.QL_HOIVIEN_THANHVIENHOI.Load();
+                var queryThanhVienHoi = (from p in context.QL_HOIVIEN_THANHVIENHOI where p.HV_ID == item.HV_ID select p).ToList();
+                _listThanhVienHoi = new BindingList<QL_HOIVIEN_THANHVIENHOI>(queryThanhVienHoi);
+                gcThanhVienHoi.DataSource = _listThanhVienHoi;
 
                 memoGhiChu.EditValue = item.HV_GHICHU;
             }
@@ -675,7 +697,7 @@ namespace DauThau.UserControlCategory
             item.HV_VIECLAM_THUNHAP = seThuNhapTB.Ex_EditValueToInt();
             item.HV_TRE_DIHOC = Convert.ToBoolean(chkTreDiHoc.EditValue);
             item.HV_NHUCAU = chkListNhuCau.Ex_GetEditValueToString();
-            item.HV_THANHVIEN_HOI = chkListThanhVienHoi.Ex_GetEditValueToString();
+            //item.HV_THANHVIEN_HOI = chkListThanhVienHoi.Ex_GetEditValueToString();
 
             //Hội phí
             item.HV_GHICHU = memoGhiChu.Text;
@@ -722,6 +744,13 @@ namespace DauThau.UserControlCategory
                     foreach (var item_delete in listImgDelete)
                     {
                         context.QL_HOIVIEN_IMAGE.Remove(item_delete);
+                    }
+
+                    var listTVHDelete = (from p in context.QL_HOIVIEN_THANHVIENHOI where p.HV_ID == HV_ID select p);
+                    foreach (var item_delete in listTVHDelete)
+                    {
+                        context.QL_HOIVIEN_THANHVIENHOI.Remove(item_delete);
+
                     }
 
                     QL_HOIVIEN entities = (from p in context.QL_HOIVIEN where p.HV_ID == HV_ID select p).FirstOrDefault();
@@ -779,10 +808,12 @@ namespace DauThau.UserControlCategory
         {
             _listHoiPhi = new BindingList<QL_HOIVIEN_HOIPHI>();
             _listCon = new BindingList<QL_HOIVIEN_CON>();
+            _listThanhVienHoi = new BindingList<QL_HOIVIEN_THANHVIENHOI>();
             _hoiVien = new QL_HOIVIEN();
             _hoiVienImage = new QL_HOIVIEN_IMAGE();
             gcHoiPhi.DataSource = _listHoiPhi;
             gcCon.DataSource = _listCon;
+            gcThanhVienHoi.DataSource = _listThanhVienHoi;
         }
 
         private void _updateHoiPhi(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item)
@@ -815,6 +846,41 @@ namespace DauThau.UserControlCategory
                     if (hp_modify != null)
                     {
                         _context.Entry(hp_modify).CurrentValues.SetValues(hp);
+                    }
+                }
+            }
+        }
+
+        private void _updateThanhVienHoi(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item)
+        {
+            if (_listThanhVienHoi == null)
+            {
+                return;
+            }
+
+            foreach (var child in _listThanhVienHoi)
+            {
+                if (child.HV_ID == null) //add
+                {
+                    child.QL_HOIVIEN = item;
+                    _context.QL_HOIVIEN_THANHVIENHOI.Add(child);
+                }
+                else if (child.HV_ID == clsParameter.statusDeleted) //delete
+                {
+                    var item_delete = (from p in _context.QL_HOIVIEN_THANHVIENHOI
+                                       where p.TV_ID == child.TV_ID
+                                       select p).FirstOrDefault();
+                    if (item_delete != null)
+                    {
+                        _context.QL_HOIVIEN_THANHVIENHOI.Remove(item_delete);
+                    }
+                }
+                else //modify
+                {
+                    var item_modify = _context.QL_HOIVIEN_THANHVIENHOI.Where(p => p.TV_ID == child.TV_ID).FirstOrDefault();
+                    if (item_modify != null)
+                    {
+                        _context.Entry(item_modify).CurrentValues.SetValues(child);
                     }
                 }
             }
@@ -916,6 +982,8 @@ namespace DauThau.UserControlCategory
                             _updateHoiPhi(_context, item);
                             _updateCon(_context, item);
                             _updateImage(_context, item);
+                            _updateThanhVienHoi(_context, item);
+
                             break;
 
                         case EnumFormStatus.MODIFY:
@@ -931,6 +999,8 @@ namespace DauThau.UserControlCategory
                             _updateHoiPhi(_context, item);
                             _updateCon(_context, item);
                             _updateImage(_context, item);
+                            _updateThanhVienHoi(_context, item);
+
                             break;
                         default:
                             break;
@@ -993,6 +1063,20 @@ namespace DauThau.UserControlCategory
             {
                 lue.EditValue = null;
             }
+        }
+
+
+        private void btnCMND_Click(object sender, EventArgs e)
+        {
+            frmLyLich_CMND frm = new frmLyLich_CMND(_hoiVien, _hoiVienImage);
+            frm.ShowDialog();
+            _hoiVien = frm.hoivien;
+            _hoiVienImage = frm.hoivien_image;
+            if (_hoiVien != null)
+            {
+                txtCMND.Text = _hoiVien.HV_CMND;
+            }
+
         }
 
         #endregion
@@ -1257,17 +1341,93 @@ namespace DauThau.UserControlCategory
         }
         #endregion
 
-        private void btnCMND_Click(object sender, EventArgs e)
+        #region Thanh vien hoi
+
+        private void gvThanhVienHoi_ValidatingEditor(object sender, BaseContainerValidateEditorEventArgs e)
         {
-            frmLyLich_CMND frm = new frmLyLich_CMND(_hoiVien, _hoiVienImage);
-            frm.ShowDialog();
-            _hoiVien = frm.hoivien;
-            _hoiVienImage = frm.hoivien_image;
-            if(_hoiVien != null)
+            e.Valid = true;
+            if (gvThanhVienHoi.FocusedRowHandle == GridControl.AutoFilterRowHandle)
             {
-                txtCMND.Text = _hoiVien.HV_CMND;
+                return;
+            }
+
+            if (gvThanhVienHoi.FocusedRowHandle == GridControl.NewItemRowHandle
+            && gvThanhVienHoi.GetRow(GridControl.NewItemRowHandle) == null)
+            {
+                return;
+            }
+
+            if (gvThanhVienHoi.FocusedColumn.FieldName == colTV_TVH_TEN.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colTV_TVH_TEN.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+            }
+
+            if (gvThanhVienHoi.FocusedColumn.FieldName == colTV_TVH_TEN.FieldName)
+            {
+                if (string.IsNullOrEmpty(e.Value.ToString().Trim()))
+                {
+                    e.ErrorText = colTV_TVH_TEN.Caption + " không được phép rỗng.";
+                    e.Valid = false;
+                }
+            }
+        }
+
+        private void gvThanhVienHoi_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            if (gvThanhVienHoi.FocusedRowHandle == GridControl.AutoFilterRowHandle)
+            {
+                return;
+            }
+
+            e.Valid = true;
+            if ((gvThanhVienHoi.GetRowCellValue(e.RowHandle, colTV_TVH_TEN.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvThanhVienHoi.SetColumnError(gvThanhVienHoi.Columns[colTV_TVH_TEN.FieldName], colTV_TVH_TEN.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+
+            if ((gvThanhVienHoi.GetRowCellValue(e.RowHandle, colTV_NGAY.FieldName) + string.Empty).Trim().Length == 0)
+            {
+                gvThanhVienHoi.SetColumnError(gvThanhVienHoi.Columns[colTV_NGAY.FieldName], colTV_NGAY.Caption + " không được phép rỗng.", DevExpress.XtraEditors.DXErrorProvider.ErrorType.Default);
+                e.Valid = false;
+            }
+        }
+
+        private void repTV_ButtonDelete_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (clsMessage.MessageYesNo("Bạn có chắc muốn xóa?") == DialogResult.Yes)
+            {
+                var id = gvThanhVienHoi.GetFocusedRowCellValue(colTV_ID);
+                if (id == null) //row add
+                {
+                    gvThanhVienHoi.DeleteSelectedRows();
+                }
+                else //row old
+                {
+                    gvThanhVienHoi.SetFocusedRowCellValue(colTV_HV_ID, clsParameter.statusDeleted);
+                }
             }
             
         }
+
+        private void gvThanhVienHoi_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void gvThanhVienHoi_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            var id = gvThanhVienHoi.GetFocusedRowCellValue(colTV_ID);
+            if (id != null && Convert.ToInt64(id) == clsParameter.statusDeleted)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        #endregion
     }
 }

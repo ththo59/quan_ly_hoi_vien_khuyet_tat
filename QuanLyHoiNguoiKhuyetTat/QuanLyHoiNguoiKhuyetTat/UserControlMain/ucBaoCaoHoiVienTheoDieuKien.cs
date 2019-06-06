@@ -29,6 +29,15 @@ namespace DauThau.UserControlCategoryMain
         private void ucBaoCaoHoiVienTheoDieuKien_Load(object sender, EventArgs e)
         {
             btnControl_btnEventView_Click(null, null);
+            foreach (var item in grpDisplayColumn.Controls)
+            {
+                CheckEdit chk = item as CheckEdit;
+                if(item != null)
+                {
+                    chk.Checked = true;
+                    chk.CheckedChanged += new System.EventHandler(this.DisplayColumn_CheckedChanged);
+                }
+            }
         }
 
         private void btnControl_btnEventView_Click(object sender, EventArgs e)
@@ -157,6 +166,32 @@ namespace DauThau.UserControlCategoryMain
 
                 waitDialogForm.Close();
             }
+        }
+
+        private void DisplayColumn_CheckedChanged(object sender, EventArgs e)
+        {
+            bandDanToc.Visible = chkDanToc.Checked;
+            bandNgaySinh.Visible = chkNgaySinh.Checked;
+            bandTonGiao.Visible = chkTonGiao.Checked;
+            bandNgheNghiep.Visible = chkNgheNghiep.Checked;
+            bandNamKhuyetTat.Visible = chkNamKhuyetTat.Checked;
+            bandChucVuTrongHoi.Visible = chkChucVuTrongHoi.Checked;
+
+            bandTrinhDoVanHoa.Visible = chkTrinhDoVanHoa.Checked;
+            bandTrinhDoChuyenMon.Visible = chkTrinhDoChuyeMon.Checked;
+
+            bandCMND.Visible = chkCMND.Checked;
+            bandDiaChiThuongTru.Visible = chkDiaChiThuongTru.Checked;
+            bandDiaChiTamTru.Visible = chkDiaChiTamTru.Checked;
+            bandThongTinLienHe.Visible = chkThongTinLienHe.Checked;
+            bandSucKhoe.Visible = chkSucKhoe.Checked;
+            bandHonNhan.Visible = chkHonNhan.Checked;
+            bandHoatDong.Visible = chkHoatdong.Checked;
+
+            bandDungCuHoTro.Visible = chkDungCuHoTro.Checked;
+            bandChinhSach.Visible = chkChinhSach.Checked;
+            bandNoiO.Visible = chkNoiO.Checked;
+            bandCongViec.Visible = chkCongViec.Checked;
         }
     }
 }

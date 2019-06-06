@@ -61,6 +61,8 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" Width="1.5" PointX="8.625" PointY="31.875" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

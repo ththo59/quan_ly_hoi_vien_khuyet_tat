@@ -1,6 +1,7 @@
 ﻿using DauThau.Models;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -225,6 +226,24 @@ namespace DauThau.Class
                             chkList.Items.Add(item.LOAI_NTT_TEN, item.LOAI_NTT_TEN);
                         }
                         break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        public static void Ex_SetDataSource(this RepositoryItemLookUpEdit repLue, string table)
+        {
+            using (var context = new Models.QL_HOIVIEN_KTEntities())
+            {
+                CategoryEntitiesTable tableEnum = table.Ex_ToEnum<CategoryEntitiesTable>();
+                switch (tableEnum)
+                {
+                    case CategoryEntitiesTable.DM_THANHVIEN_HOI:
+                        var listItem = (from p in context.DM_THANHVIEN_HOI select p).ToList();
+                        repLue.DataSource = listItem;
+                        break;
+                    
                     default:
                         break;
                 }

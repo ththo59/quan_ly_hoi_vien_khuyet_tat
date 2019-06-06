@@ -69,5 +69,6 @@ namespace DauThau.Models
         public virtual DbSet<QL_HOIVIEN_HOIPHI> QL_HOIVIEN_HOIPHI { get; set; }
         public virtual DbSet<QL_HOIVIEN_IMAGE> QL_HOIVIEN_IMAGE { get; set; }
         public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
+        public virtual DbSet<QL_HOIVIEN_THANHVIENHOI> QL_HOIVIEN_THANHVIENHOI { get; set; }
     }
 }

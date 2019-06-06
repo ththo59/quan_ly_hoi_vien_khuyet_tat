@@ -87,30 +87,6 @@
           <Property Name="LOAIHD_TEN" Type="nvarchar" MaxLength="50" />
           <Property Name="LOAIHD_STT" Type="int" />
         </EntityType>
-        <EntityType Name="DM_NOI_O_NHA">
-          <Key>
-            <PropertyRef Name="NO_NHA_ID" />
-          </Key>
-          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NO_NHA_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_O_SONG_VOI">
-          <Key>
-            <PropertyRef Name="NOSV_ID" />
-          </Key>
-          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NOSV_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_SINH_SONG">
-          <Key>
-            <PropertyRef Name="NSS_ID" />
-          </Key>
-          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NSS_STT" Type="int" />
-        </EntityType>
         <EntityType Name="DM_NGHE_NGHIEP">
           <Key>
             <PropertyRef Name="NN_ID" />
@@ -166,6 +142,30 @@
           <Property Name="NC_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="NC_STT" Type="int" />
         </EntityType>
+        <EntityType Name="DM_NOI_O_NHA">
+          <Key>
+            <PropertyRef Name="NO_NHA_ID" />
+          </Key>
+          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NO_NHA_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_O_SONG_VOI">
+          <Key>
+            <PropertyRef Name="NOSV_ID" />
+          </Key>
+          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NOSV_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_SINH_SONG">
+          <Key>
+            <PropertyRef Name="NSS_ID" />
+          </Key>
+          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NSS_STT" Type="int" />
+        </EntityType>
         <EntityType Name="DM_PHUONGTIEN_DILAI">
           <Key>
             <PropertyRef Name="PT_ID" />
@@ -173,6 +173,14 @@
           <Property Name="PT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PT_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="PT_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_THANHVIEN_HOI">
+          <Key>
+            <PropertyRef Name="TVH_ID" />
+          </Key>
+          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TINH">
           <Key>
@@ -198,14 +206,6 @@
           <Property Name="TG_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TG_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="TG_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_THANHVIEN_HOI">
-          <Key>
-            <PropertyRef Name="TVH_ID" />
-          </Key>
-          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
           <Key>
@@ -504,13 +504,12 @@
             <PropertyRef Name="HV_ID" />
           </Key>
           <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="HV_HO" Type="nvarchar" MaxLength="20" />
-          <Property Name="HV_TEN" Type="nvarchar" MaxLength="20" />
+          <Property Name="HV_HO" Type="nvarchar" MaxLength="50" />
+          <Property Name="HV_TEN" Type="nvarchar" MaxLength="50" />
           <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="10" />
           <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGAY_SINH" Type="date" />
           <Property Name="HV_TUOI" Type="int" />
-          <Property Name="HV_VAOHOI_NGAY" Type="date" />
           <Property Name="HV_TON_GIAO" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGHE_NGHIEP" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_TRINHDO_VANHOA" Type="nvarchar" MaxLength="250" />
@@ -520,6 +519,7 @@
           <Property Name="HV_CMND_NGAY" Type="date" />
           <Property Name="HV_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_KHUYETTAT_NAM" Type="int" />
+          <Property Name="HV_VAOHOI_NGAY" Type="date" />
           <Property Name="HV_CHUCVU" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THUONGTRU_KHUVUC" Type="nvarchar" MaxLength="100" />
           <Property Name="HV_THUONGTRU_DUONG" Type="nvarchar" MaxLength="100" />
@@ -583,7 +583,7 @@
           <Property Name="HV_TRE_DIHOC" Type="bit" />
           <Property Name="HV_NHUCAU" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THANHVIEN_HOI" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_GHICHU" Type="nvarchar" MaxLength="500" />
+          <Property Name="HV_GHICHU" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOIVIEN_CON">
           <Key>
@@ -614,6 +614,16 @@
           <Property Name="IMG_HOIVIEN" Type="image" />
           <Property Name="IMG_CMND_MATTRUOC" Type="image" />
           <Property Name="IMG_CMND_MATSAU" Type="image" />
+        </EntityType>
+        <EntityType Name="QL_HOIVIEN_THANHVIENHOI">
+          <Key>
+            <PropertyRef Name="TV_ID" />
+          </Key>
+          <Property Name="TV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HV_ID" Type="bigint" />
+          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TV_NGAY" Type="date" />
+          <Property Name="TV_GHICHU" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="QL_USERS">
           <Key>
@@ -771,6 +781,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
+          <End Role="QL_HOIVIEN" Type="Self.QL_HOIVIEN" Multiplicity="0..1" />
+          <End Role="QL_HOIVIEN_THANHVIENHOI" Type="Self.QL_HOIVIEN_THANHVIENHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_THANHVIENHOI">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_QL_USERS_PERMISSION_QL_USERS">
           <End Role="QL_USERS" Type="Self.QL_USERS" Multiplicity="0..1" />
           <End Role="QL_USERS_PERMISSION" Type="Self.QL_USERS_PERMISSION" Multiplicity="*" />
@@ -794,20 +816,20 @@
           <EntitySet Name="DM_KHUYETTAT_NGUYENNHAN" EntityType="Self.DM_KHUYETTAT_NGUYENNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_KHUYETTAT_TINHTRANG" EntityType="Self.DM_KHUYETTAT_TINHTRANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LOAI_HOATDONG" EntityType="Self.DM_LOAI_HOATDONG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGOAINGU" EntityType="Self.DM_NGOAINGU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO" EntityType="Self.DM_NHA_TAI_TRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_CHITIET" EntityType="Self.DM_NHA_TAI_TRO_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_LOAI" EntityType="Self.DM_NHA_TAI_TRO_LOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHUCAU" EntityType="Self.DM_NHUCAU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_PHUONGTIEN_DILAI" EntityType="Self.DM_PHUONGTIEN_DILAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINHTRANG_HONNHAN" EntityType="Self.DM_TINHTRANG_HONNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TONGIAO" EntityType="Self.DM_TONGIAO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
@@ -826,6 +848,7 @@
           <EntitySet Name="QL_HOIVIEN_CON" EntityType="Self.QL_HOIVIEN_CON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_HOIPHI" EntityType="Self.QL_HOIVIEN_HOIPHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_IMAGE" EntityType="Self.QL_HOIVIEN_IMAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOIVIEN_THANHVIENHOI" EntityType="Self.QL_HOIVIEN_THANHVIENHOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_USERS" EntityType="Self.QL_USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_USERS_PERMISSION" EntityType="Self.QL_USERS_PERMISSION" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
@@ -871,6 +894,10 @@
           <AssociationSet Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" Association="Self.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
             <End Role="QL_HOIVIEN_IMAGE" EntitySet="QL_HOIVIEN_IMAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" Association="Self.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOIVIEN_THANHVIENHOI" EntitySet="QL_HOIVIEN_THANHVIENHOI" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_USERS_PERMISSION_QL_USERS" Association="Self.FK_QL_USERS_PERMISSION_QL_USERS">
             <End Role="QL_USERS" EntitySet="QL_USERS" />
@@ -1035,6 +1062,11 @@
           <AssociationSet Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
             <End Role="QL_HOIVIEN_IMAGE" EntitySet="QL_HOIVIEN_IMAGE" />
+          </AssociationSet>
+          <EntitySet Name="QL_HOIVIEN_THANHVIENHOI" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" />
+          <AssociationSet Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
+            <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
+            <End Role="QL_HOIVIEN_THANHVIENHOI" EntitySet="QL_HOIVIEN_THANHVIENHOI" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
@@ -1657,8 +1689,8 @@
             <PropertyRef Name="HV_ID" />
           </Key>
           <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HV_HO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HV_HO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
@@ -1736,10 +1768,11 @@
           <Property Name="HV_TRE_DIHOC" Type="Boolean" />
           <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOIVIEN_CON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_CON" />
           <NavigationProperty Name="QL_HOIVIEN_HOIPHI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_HOIPHI" />
           <NavigationProperty Name="QL_HOIVIEN_IMAGE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_IMAGE" />
+          <NavigationProperty Name="QL_HOIVIEN_THANHVIENHOI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_THANHVIENHOI" />
         </EntityType>
         <Association Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
           <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
@@ -1773,6 +1806,29 @@
               <PropertyRef Name="HV_ID" />
             </Principal>
             <Dependent Role="QL_HOIVIEN_IMAGE">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_HOIVIEN_THANHVIENHOI">
+          <Key>
+            <PropertyRef Name="TV_ID" />
+          </Key>
+          <Property Name="TV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HV_ID" Type="Int64" />
+          <Property Name="TVH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TV_NGAY" Type="DateTime" Precision="0" />
+          <Property Name="TV_GHICHU" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOIVIEN" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" FromRole="QL_HOIVIEN_THANHVIENHOI" ToRole="QL_HOIVIEN" />
+        </EntityType>
+        <Association Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" Role="QL_HOIVIEN_THANHVIENHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_THANHVIENHOI">
               <PropertyRef Name="HV_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -2458,6 +2514,17 @@
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_HO" ColumnName="HV_HO" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOIVIEN_THANHVIENHOI">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI">
+              <MappingFragment StoreEntitySet="QL_HOIVIEN_THANHVIENHOI">
+                <ScalarProperty Name="TV_GHICHU" ColumnName="TV_GHICHU" />
+                <ScalarProperty Name="TV_NGAY" ColumnName="TV_NGAY" />
+                <ScalarProperty Name="TVH_TEN" ColumnName="TVH_TEN" />
+                <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
+                <ScalarProperty Name="TV_ID" ColumnName="TV_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

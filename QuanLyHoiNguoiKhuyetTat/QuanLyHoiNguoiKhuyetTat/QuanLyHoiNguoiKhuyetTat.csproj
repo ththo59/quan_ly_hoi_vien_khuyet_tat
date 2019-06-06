@@ -597,6 +597,9 @@
     <Compile Include="Models\QL_HOIVIEN_IMAGE.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOIVIEN_THANHVIENHOI.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_USERS.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
