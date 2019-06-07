@@ -28,17 +28,6 @@ namespace DauThau
             
         }
 
-        public delegate void deletegateSelectedPageChanged();
-        public deletegateSelectedPageChanged selectedPageChanged;
-
-        private void TabControlParent_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
-        {
-            if(selectedPageChanged != null)
-            {
-                selectedPageChanged();
-            }
-        }
-
         private void TabControlParent_CloseButtonClick(object sender, EventArgs e)
         {
             closeTabCurrent();
@@ -151,11 +140,36 @@ namespace DauThau
                     case "btnTinhTrangHonNhan":
                         uc = new ucDMTinhTrangHonNhan();
                         break;
+                    case "btnDonViPhuTrach":
+                        uc = new ucDMTapHuan_DonViPhuTrach();
+                        break;
+                    case "btnLoaiHoatDong":
+                        uc = new ucDMTapHuan_LoaiHoatDong();
+                        break;
                     #endregion
 
+                    #region Lý lịch
                     case "btnLyLich":
                         uc = new ucLyLich();
                         break;
+                    case "btnDonGiaNhapHoi":
+                        rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
+                        rpt.pLeftHeader.Value = clsParameter.pHospital;
+                        rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
+                        uc = new ucPrint(rpt);
+                        break;
+
+                    case "btnBMLyLich":
+                        rptLyLichHoiVien rptHoiVien = new rptLyLichHoiVien();
+                        uc = new ucPrint(rptHoiVien);
+                        break;
+                    case "btnBCLyLich":
+                        uc = new ucBCLyLich();
+                        break;
+
+                    #endregion
+
+
 
                     #region Nâng cao năng lực
 
@@ -359,37 +373,21 @@ namespace DauThau
 
                     #endregion
 
+                    #region Hoạt động khác
                     case "btnHoatDongKhac":
                         uc = new ucHoatDongKhac();
                         break;
 
                     case "btnBCHoatDongKhac":
                         uc = new ucBCHoatDongKhac();
-                        break; 
+                        break;
+                    #endregion
+
+                    #region System
 
                     case "btnSkin":
                         uc = new ucSkin();
                         break;
-
-                    case "btnDonGiaNhapHoi":
-                        rptBM_DonGiaNhapHoi rpt = new rptBM_DonGiaNhapHoi();
-                        rpt.pLeftHeader.Value = clsParameter.pHospital;
-                        rpt.pParentLeftHeader.Value = clsParameter.pParentHospital;
-                        uc = new ucPrint(rpt);
-                        break;
-
-                     case "btnBMLyLich":
-                        rptLyLichHoiVien rptHoiVien = new rptLyLichHoiVien();
-                        uc = new ucPrint(rptHoiVien);
-                        break;
-
-                     #region Báo cáo
-                     case "btnBCLyLich":
-                        uc = new ucBCLyLich();
-                     break;
-                    #endregion
-
-                    #region System
 
                     case "btnUser":
                         uc = new ucUser();
@@ -399,6 +397,7 @@ namespace DauThau
                         frm.ShowDialog();
                         return;
                     #endregion
+
                     default:
                         clsMessage.MessageWarning("Chức năng chưa được cấu hình");
                         return;
@@ -479,11 +478,6 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
 
-        private void TabControlParent_Selected(object sender, TabPageEventArgs e)
-        {
 
-        }
-
-        
     }
 }

@@ -41,7 +41,7 @@ namespace DauThau.UserControlCategory
         private QL_HOIVIEN _hoiVien = new QL_HOIVIEN();
         private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
 
-        private Boolean first_load_data = true;
+        private Boolean _first_load_data = true;
         private void ucLyLich_Load(object sender, EventArgs e)
         {
             
@@ -65,7 +65,12 @@ namespace DauThau.UserControlCategory
 
         public override void tabPage_VisibleChanged(object sender, EventArgs e)
         {
-            _loadCategory();
+            XtraTabPage tab = sender as XtraTabPage;
+            if (tab.CanFocus && !_first_load_data)
+            {
+                _loadCategory();
+            }
+            
         }
 
         private void _loadCategory()
@@ -112,6 +117,8 @@ namespace DauThau.UserControlCategory
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
 
+            _loadCategory();
+
             seTienBTXHHangThang.Ex_FormatCustomSpinEdit();
             //Tab nơi ở chăm sóc bản thân
 
@@ -129,11 +136,12 @@ namespace DauThau.UserControlCategory
             seSoCon.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
             seThuNhapTB.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
 
-            first_load_data = false;
+            _first_load_data = false;
             FormStatus = EnumFormStatus.VIEW;
             _wait.Close();
 
         }
+
         protected override EnumFormStatus FormStatus
         {
             get { return _formStatus; }
@@ -219,7 +227,7 @@ namespace DauThau.UserControlCategory
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
-                    btnControl.btnAdd.Enabled = !first_load_data;
+                    btnControl.btnAdd.Enabled = !_first_load_data;
                     btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled 
                         = btnControl.btnPrint.Enabled = btnControl.btnReport.Enabled = gvGrid.RowCount > 0;
                     base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_LYLICH);
@@ -1043,7 +1051,7 @@ namespace DauThau.UserControlCategory
 
         private void lueQuan_EditValueChanged(object sender, EventArgs e)
         {
-            if (first_load_data)
+            if (_first_load_data)
             {
                 return;
             }
