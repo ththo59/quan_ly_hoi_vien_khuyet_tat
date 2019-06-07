@@ -63,9 +63,15 @@ namespace DauThau.UserControlCategory
 
         #region function
 
-        private void _initDisplay()
+        public override void tabPage_VisibleChanged(object sender, EventArgs e)
         {
-            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+            _loadCategory();
+        }
+
+        private void _loadCategory()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải danh mục ...", "Vui lòng đợi giây lát");
+
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThanhPho);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueThuongTru_TP);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTamTru_TP);
@@ -87,52 +93,41 @@ namespace DauThau.UserControlCategory
 
             //Tab dụng cụ hỗ trợ chế độ chính sách
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DUNGCU_HOTRO, lueDungCuHoTro);
-            seTienBTXHHangThang.Ex_FormatCustomSpinEdit();
+            
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_BTXH_HANG_THANG, lueBTXH_HangThang);
 
-            //Tab nơi ở chăm sóc bản thân
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NOI_SINH_SONG, lueNoiSinhSong);
             chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
             chkListSongVoi.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_SONG_VOI.Ex_ToString());
             chkListChamSocBanThan.Ex_SetDataSource(CategoryEntitiesTable.DM_CHAMSOC_BANTHAN.Ex_ToString());
             checkTinhTrangKT.Ex_SetDataSource(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG.Ex_ToString());
 
-            //Viec lam nhu cau
-            seThuNhapTB.Ex_FormatCustomSpinEdit();
             chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
-            //chkListThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
             repThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
 
+            _wait.Close();
+        }
+
+        private void _initDisplay()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
+
+            seTienBTXHHangThang.Ex_FormatCustomSpinEdit();
+            //Tab nơi ở chăm sóc bản thân
+
+            //Viec lam nhu cau
+            seThuNhapTB.Ex_FormatCustomSpinEdit();
+
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
-
-            //deNgaySinhCon1_Ngay.Ex_FormatCustomDateEdit();
-            //deNgaySinhCon2_Ngay.Ex_FormatCustomDateEdit();
-
             //Ngay sinh
-            deNgaySinh_Nam.Properties.MaxValue = DateTime.Now.Year;
-            deNgaySinh_Thang.Properties.MaxValue = 12;
-            deNgaySinh_Thang.Properties.MinValue = 1;
-            deNgaySinh_Ngay.Properties.MaxValue = 31;
-            deNgaySinh_Ngay.Properties.MinValue = 1;
+            FunctionHelper.dateFormat(deNgaySinh_Nam, deNgaySinh_Thang, deNgaySinh_Ngay);
+            FunctionHelper.dateFormat(deDCHT_ThoiGianNhan_Nam, deDCHT_ThoiGianNhan_Thang, deDCHT_ThoiGianNhan_Ngay);
+            FunctionHelper.dateFormat(seVaoHoi_Nam, seVaoHoi_Thang, seVaoHoi_Ngay);
+            FunctionHelper.dateFormat(seKhuyetTat_Nam, null, null);
 
-
-
-            seKhuyetTat_Nam.Properties.MaxValue = DateTime.Now.Year;
-            //deNgayKhuyetTat_Thang.Properties.MaxValue = 12;
-            //deNgayKhuyetTat_Thang.Properties.MinValue = 1;
-            //deNgayKhuyetTat_Ngay.Properties.MaxValue = 31;
-            //deNgayKhuyetTat_Ngay.Properties.MinValue = 1;
-
-            deDCHT_ThoiGianNhan_Thang.Properties.MaxValue = 12;
-            deDCHT_ThoiGianNhan_Thang.Properties.MinValue = 1;
-            deDCHT_ThoiGianNhan_Ngay.Properties.MaxValue = 31;
-            deDCHT_ThoiGianNhan_Ngay.Properties.MinValue = 1;
-
-            seVaoHoi_Nam.Properties.MaxValue = DateTime.Now.Year;
-            seVaoHoi_Thang.Properties.MaxValue = 12;
-            seVaoHoi_Thang.Properties.MinValue = 1;
-            seVaoHoi_Ngay.Properties.MaxValue = 31;
-            seVaoHoi_Ngay.Properties.MinValue = 1;
+            seTienBTXHHangThang.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
+            seSoCon.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
+            seThuNhapTB.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
 
             first_load_data = false;
             FormStatus = EnumFormStatus.VIEW;
@@ -1163,6 +1158,10 @@ namespace DauThau.UserControlCategory
 
         #region Gird Con
 
+        private void gvCon_RowCountChanged(object sender, EventArgs e)
+        {
+            seSoCon.EditValue = gvCon.RowCount;
+        }
         private void repCON_Button_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             if (clsMessage.MessageYesNo("Bạn có chắc muốn xóa?") == DialogResult.Yes)
@@ -1428,6 +1427,17 @@ namespace DauThau.UserControlCategory
             }
         }
 
+
         #endregion
+
+
+        private void number_EditValueChanged(object sender, EventArgs e)
+        {
+            var item = sender as SpinEdit;
+            if (item.EditValue != null && clsChangeType.change_int64(item.EditValue) <= 0)
+            {
+                item.EditValue = 0;
+            }
+        }
     }
 }

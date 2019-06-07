@@ -28,6 +28,17 @@ namespace DauThau
             
         }
 
+        public delegate void deletegateSelectedPageChanged();
+        public deletegateSelectedPageChanged selectedPageChanged;
+
+        private void TabControlParent_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
+        {
+            if(selectedPageChanged != null)
+            {
+                selectedPageChanged();
+            }
+        }
+
         private void TabControlParent_CloseButtonClick(object sender, EventArgs e)
         {
             closeTabCurrent();
@@ -467,5 +478,12 @@ namespace DauThau
         {
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
+
+        private void TabControlParent_Selected(object sender, TabPageEventArgs e)
+        {
+
+        }
+
+        
     }
 }

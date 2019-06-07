@@ -91,7 +91,6 @@ namespace DauThau.UserControlCategory
 
         #region Status
 
-
         protected override EnumFormStatus FormStatus
         {
             get { return _formStatus; }

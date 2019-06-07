@@ -14,12 +14,13 @@ namespace DauThau.Class
     {
         public static void AddTabControl(XtraTabControl tabParent, XtraUserControl ucName, string tabName, string tabCaption, frmMain frmMain = null)
         {
-            if (frmMain != null)
-            {
+            //if (frmMain != null)
+            //{
                 //event close view by delegate
                 ucBase uc = (ucBase)ucName;
                 uc.closeTab = frmMain.closeTabCurrent;
-            }
+            //}
+
             //WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             //// Test TabContol exists 
             foreach (XtraTabPage _tab in tabParent.TabPages)
@@ -46,6 +47,7 @@ namespace DauThau.Class
 
             _tabNew.Text = tabCaption;
 
+            _tabNew.VisibleChanged += new System.EventHandler(uc.tabPage_VisibleChanged);
 
             _tabNew.Controls.Add(ucName);
 

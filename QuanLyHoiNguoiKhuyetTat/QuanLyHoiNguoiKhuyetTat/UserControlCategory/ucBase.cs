@@ -11,6 +11,7 @@ using DauThau.Class;
 using ControlsLib;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraTab;
 
 namespace DauThau.UserControlCategory
 {
@@ -32,6 +33,11 @@ namespace DauThau.UserControlCategory
         virtual protected EnumFormStatus FormStatus { get; set; }
 
         virtual protected Boolean SaveData() { return true; }
+
+        virtual public void tabPage_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
 
         public void registerButtonArray(ButtonsArray btnControl)
         {

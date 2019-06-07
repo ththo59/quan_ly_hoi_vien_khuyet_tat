@@ -60,6 +60,26 @@ namespace DauThau.Class
                 return false;
             }
         }
+
+        public static void dateFormat(SpinEdit seYear, SpinEdit seMonth, SpinEdit seDay)
+        {
+            seYear.Properties.MaxValue = DateTime.Now.Year;
+            seYear.Properties.MinValue = 1900;
+
+            if(seMonth != null)
+            {
+                seMonth.Properties.MaxValue = 12;
+                seMonth.Properties.MinValue = 1;
+            }
+            
+            if(seDay != null)
+            {
+                seDay.Properties.MaxValue = 31;
+                seDay.Properties.MinValue = 1;
+            }
+            
+        }
+
         /// <summary>
         /// Kiểm tra trùng giá trị của một cột trong Grid, với giá trị input
         /// </summary>

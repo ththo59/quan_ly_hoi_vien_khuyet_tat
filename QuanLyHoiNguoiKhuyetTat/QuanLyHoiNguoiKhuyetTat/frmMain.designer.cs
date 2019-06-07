@@ -2008,7 +2008,9 @@
             this.TabControlParent.Name = "TabControlParent";
             this.TabControlParent.Size = new System.Drawing.Size(1288, 279);
             this.TabControlParent.TabIndex = 2;
+            this.TabControlParent.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.TabControlParent_SelectedPageChanged);
             this.TabControlParent.CloseButtonClick += new System.EventHandler(this.TabControlParent_CloseButtonClick);
+            this.TabControlParent.Selected += new DevExpress.XtraTab.TabPageEventHandler(this.TabControlParent_Selected);
             // 
             // dsBangChamDiem
             // 

@@ -14,6 +14,7 @@ using DevExpress.Utils;
 using System.Data.Entity.Infrastructure;
 using System.Data.Linq;
 using DauThau.Models;
+using DevExpress.XtraTab;
 
 namespace DauThau.UserControlCategory
 {
@@ -29,6 +30,7 @@ namespace DauThau.UserControlCategory
             initData();
             FormStatus = EnumFormStatus.VIEW;
         }
+
 
         #region Variable
 
