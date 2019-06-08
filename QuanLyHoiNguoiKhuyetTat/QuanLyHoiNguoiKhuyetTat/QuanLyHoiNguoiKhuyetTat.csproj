@@ -2573,6 +2573,9 @@
     <Content Include="Template\DiaDiemToChuc_ThanhLy.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Template\TapHuan_DanhSachTDV.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dvt.png" />

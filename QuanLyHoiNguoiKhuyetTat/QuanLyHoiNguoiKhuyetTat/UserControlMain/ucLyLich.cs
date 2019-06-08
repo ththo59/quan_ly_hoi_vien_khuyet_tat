@@ -53,7 +53,7 @@ namespace DauThau.UserControlCategory
             FormStatus = EnumFormStatus.VIEW;
 
             //show data after 1 second
-            Task.Factory.StartNew(() => Thread.Sleep(1 * 1000))
+            Task.Factory.StartNew(() => Thread.Sleep(clsParameter.secondWait))
             .ContinueWith((t) =>
             {
                 _initDisplay();   

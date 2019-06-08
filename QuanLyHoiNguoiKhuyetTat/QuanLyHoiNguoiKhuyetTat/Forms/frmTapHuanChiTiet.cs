@@ -60,16 +60,24 @@ namespace DauThau.Forms
             {
                 case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
                     layPrintBanCamKet.Visibility = layPrintBanHopDong.Visibility = LayoutVisibility.Never;
+                    layGroupCoQuanDonVi.Visibility = layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
+                    this.Size = new Size(1045, 385);
+                    this.CenterToScreen();
+
                     break;
                 case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
                     break;
                 case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
                     break;
                 case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    layCV.Visibility = laybuttonCV.Visibility = layTOR.Visibility = layButonTOR.Visibility = LayoutVisibility.Never;
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
+                    layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
                     layPrintBanCamKet.Visibility = layPrintBanHopDong.Visibility = LayoutVisibility.Never;
                     layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
+                    this.Size = new Size(1045, 470);
+                    this.CenterToScreen();
                     break;
                 default:
                     break;

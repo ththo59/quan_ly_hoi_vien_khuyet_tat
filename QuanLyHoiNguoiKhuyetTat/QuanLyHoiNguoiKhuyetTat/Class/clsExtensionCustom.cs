@@ -120,6 +120,10 @@ namespace DauThau.Class
 
         public static void Ex_SetEditValueToString(this CheckedComboBoxEdit chkList, string list)
         {
+            if(list == null)
+            {
+                return;
+            }
             String[] listArray = list.Split(',');
             foreach (CheckedListBoxItem item in chkList.Properties.Items)
             {
@@ -160,6 +164,7 @@ namespace DauThau.Class
         {
             using (var context = new Models.QL_HOIVIEN_KTEntities())
             {
+                chkList.Properties.Items.Clear();
                 CategoryEntitiesTable tableEnum = table.Ex_ToEnum<CategoryEntitiesTable>();
                 switch (tableEnum)
                 {
@@ -170,7 +175,13 @@ namespace DauThau.Class
                             chkList.Properties.Items.Add(item.TTKT_TEN, item.TTKT_TEN);
                         }
                         break;
-                    
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO:
+                        var listItem2 = (from p in context.DM_NHA_TAI_TRO select p).ToArray();
+                        foreach (DM_NHA_TAI_TRO item in listItem2)
+                        {
+                            chkList.Properties.Items.Add(item.NTT_TEN, item.NTT_TEN);
+                        }
+                        break;
                     default:
                         break;
                 }

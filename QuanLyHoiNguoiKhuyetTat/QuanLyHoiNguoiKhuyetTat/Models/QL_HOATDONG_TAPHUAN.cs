@@ -28,7 +28,7 @@ namespace DauThau.Models
         public Nullable<int> TH_TONGSO_NGAY { get; set; }
         public string TH_TEN { get; set; }
         public string TH_LA_HOATDONG { get; set; }
-        public Nullable<long> NTT_ID { get; set; }
+        public string NTT_TEN { get; set; }
         public string TH_DONVI_PHUTRACH { get; set; }
         public string TH_TINH_THUCHIEN { get; set; }
         public string TH_HOATDONG_MA { get; set; }
@@ -74,7 +74,6 @@ namespace DauThau.Models
         public string TH_NGUOI_HOTRO { get; set; }
         public Nullable<int> TH_NGUOI_HOTRO_THULAO { get; set; }
     
-        public virtual DM_NHA_TAI_TRO DM_NHA_TAI_TRO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

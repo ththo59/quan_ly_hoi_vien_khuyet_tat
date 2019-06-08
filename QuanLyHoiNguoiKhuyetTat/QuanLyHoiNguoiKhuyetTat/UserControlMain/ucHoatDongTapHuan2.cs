@@ -20,6 +20,8 @@ using DevExpress.XtraReports.UI;
 using DauThau.UserControlMain;
 using DauThau.Forms;
 using System.Threading.Tasks;
+using System.Threading;
+using DevExpress.XtraTab;
 
 namespace DauThau.UserControlCategory
 {
@@ -41,8 +43,8 @@ namespace DauThau.UserControlCategory
         
 
         //Lưu ý: khi mở lần đầu tiên idRowSeleted = 0 và lấy dữ liệu dòng đầu tiên (nếu có)
-        private Int64 _idRowSelected;
         const Int64 constIdDeleted = -1;
+        private Boolean _first_load_data = true;
 
         private void ucHoatDongHoiThaoTapHuan_Load(object sender, EventArgs e)
         {
@@ -80,19 +82,65 @@ namespace DauThau.UserControlCategory
 
         private void _loadBeginData()
         {
+            FormStatus = EnumFormStatus.VIEW;
+
+            //show data after 1 second
+            Task.Factory.StartNew(() => Thread.Sleep(clsParameter.secondWait))
+            .ContinueWith((t) =>
+            {
+                _initDisplay();
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        public override void tabPage_VisibleChanged(object sender, EventArgs e)
+        {
+            XtraTabPage tab = sender as XtraTabPage;
+            if (tab.CanFocus && !_first_load_data)
+            {
+                _loadCategory();
+            }
+        }
+
+        private void _loadCategory()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang tải danh mục ...", "Vui lòng đợi giây lát");
+
+            lueLaHoatDong.Properties.DataSource = FuncCategory.loadHoatDong();
+            _loadNhaTaiTro();
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DONVI_PHUTRACH, lueDonViPhuTrach);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTinh);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_LOAI_HOATDONG, lueLoaiHoatDong);
+
+            _wait.Close();
+        }
+
+        private void _loadNhaTaiTro()
+        {
+            checkNhaTaiTro.Ex_SetDataSource(CategoryEntitiesTable.DM_NHA_TAI_TRO.Ex_ToString());
+
+            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
+            if (item != null)
+            {
+                checkNhaTaiTro.Ex_SetEditValueToString(item.NTT_TEN);
+            }
+        }
+
+        private void _initDisplay()
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang khởi tạo ...", "Vui lòng đợi giây lát");
+
             _changeLayout((CategoryTapHuan)_id_loai);
 
             lueLoaiTapHuan.Properties.DataSource = FuncCategory.loadDMTapHuan();
             lueLoaiTapHuan.EditValue = _id_loai;
 
-            lueLaHoatDong.Properties.DataSource = FuncCategory.loadHoatDong();
-            lueNhaTaiTro.Properties.DataSource = FuncCategory.loadCategoryReturn(CategoryEntitiesTable.DM_NHA_TAI_TRO);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DONVI_PHUTRACH, lueDonViPhuTrach);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTinh);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_LOAI_HOATDONG, lueLoaiHoatDong);
+            _loadCategory();
 
+            _first_load_data = false;
             FormStatus = EnumFormStatus.VIEW;
-        }
+
+            _wait.Close();
+        } 
 
         private void _changeLayout(CategoryTapHuan enumLoai)
         {
@@ -331,7 +379,8 @@ namespace DauThau.UserControlCategory
                 seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.TH_TEN;
                 lueLaHoatDong.EditValue = item.TH_LA_HOATDONG;
-                lueNhaTaiTro.EditValue = item.NTT_ID;
+                checkNhaTaiTro.Ex_SetEditValueToString(item.NTT_TEN);
+
                 lueDonViPhuTrach.EditValue = item.TH_DONVI_PHUTRACH;
                 lueTinh.EditValue = item.TH_TINH_THUCHIEN;
                 txtHoatDongMa.EditValue = item.TH_HOATDONG_MA;
@@ -354,9 +403,6 @@ namespace DauThau.UserControlCategory
                 memoDoiTuong.EditValue = item.TH_DOITUONG_HV_TEN;
                 memoDoiTuongId.EditValue = item.TH_DOITUONG_HV_ID;
 
-                
-
-                txtLinkTDVExcel.EditValue = item.TH_DOITUONG_LINK_EXCEL;
                 txtLinkTDVScan.EditValue = item.TH_DOITUONG_LINK_SCAN;
                 seTongSoNguoiThamDu.EditValue = item.TH_DOITUONG_TONGSO;
                 seSoLuongNam.EditValue = item.TH_DOITUONG_SL_NAM;
@@ -407,7 +453,7 @@ namespace DauThau.UserControlCategory
             //Thông tin
             item.TH_TEN = txtTenChuongTrinh.Text ;
             item.TH_LA_HOATDONG = lueLaHoatDong.Text;
-            item.NTT_ID = lueNhaTaiTro.Ex_EditValueToInt();
+            item.NTT_TEN = checkNhaTaiTro.Ex_GetEditValueToString();
             item.TH_DONVI_PHUTRACH = lueDonViPhuTrach.Text;
             item.TH_TINH_THUCHIEN = lueTinh.Text;
             item.TH_HOATDONG_MA = txtHoatDongMa.Text;
@@ -419,7 +465,6 @@ namespace DauThau.UserControlCategory
 
             item.TH_DOITUONG_HV_ID = memoDoiTuongId.Text;
             item.TH_DOITUONG_HV_TEN = memoDoiTuong.Text;
-            item.TH_DOITUONG_LINK_EXCEL = txtLinkTDVExcel.Text;
             item.TH_DOITUONG_LINK_SCAN = txtLinkTDVScan.Text;
 
             item.TH_DOITUONG_TONGSO = seTongSoNguoiThamDu.Ex_EditValueToInt();
@@ -849,7 +894,10 @@ namespace DauThau.UserControlCategory
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
+
+                    btnControl.btnAdd.Enabled = !_first_load_data;
                     btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = gvGrid.RowCount > 0;
+
                     base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_NANGCAO_NANGLUC);
                 }
             }
@@ -927,7 +975,7 @@ namespace DauThau.UserControlCategory
         {
             frmNhaTaiTro frm = new frmNhaTaiTro();
             frm.ShowDialog();
-            lueNhaTaiTro.Properties.DataSource = FuncCategory.loadCategoryReturn(CategoryEntitiesTable.DM_NHA_TAI_TRO);
+            _loadNhaTaiTro();
         }
 
         private void btnTapHuanVienChinh_Click(object sender, EventArgs e)
@@ -987,10 +1035,6 @@ namespace DauThau.UserControlCategory
             memoDiaDiemToChuc.Text = (tapHuanDiaDiem != null && tapHuanDiaDiem.TH_ID != constIdDeleted) ? tapHuanDiaDiem.TH_DD_TEN : "";
         }
 
-        private void btnLinkTDVExcel_Click(object sender, EventArgs e)
-        {
-            FunctionHelper.openLink(txtLinkTDVExcel.Text);
-        }
 
         private void btnLinkTDVScan_Click(object sender, EventArgs e)
         {
@@ -1063,6 +1107,155 @@ namespace DauThau.UserControlCategory
                 {"TH_DD_TK_TEN", tapHuanDiaDiem.TH_DD_TK_TEN}
             };
             ExportHelper.exportWord(dataPrint, "DiaDiemToChuc_ThanhLy.doc");
+        }
+
+        private void btnExportTDVExcel_Click(object sender, EventArgs e)
+        {
+            WaitDialogForm _wait = new WaitDialogForm("Đang xuất excel...", "Xin vui lòng chờ giây lát");
+            try
+            {
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbooks books = excel.Workbooks;
+                Microsoft.Office.Interop.Excel.Workbook excelBook = null;
+                Microsoft.Office.Interop.Excel.Worksheet excelSheet = null;
+
+                excel.DisplayAlerts = false;
+                excel.StandardFont = "Times New Roman";
+                excel.StandardFontSize = 12;
+                excelBook = books.Add(Application.StartupPath + "\\Template\\TapHuan_DanhSachTDV.xlt");
+                //excel.Visible = true;
+
+                int rowStart = 10;
+                int row = rowStart;
+
+                int stt = 1;
+
+                int colSTT = 1;
+                int colHoten = 2;
+                int colDiaChi = 3;
+
+                //int _rowMergeStart = 0;
+                //Decimal _tongTien = 0;
+                excel.ActiveWindow.Caption = "DanhSachThamDuVien";
+                excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelBook.Worksheets[1];
+               
+                //data
+                string[] idStringList = memoDoiTuongId.Text.Split(new[] { "; " }, StringSplitOptions.None);
+                List<Int64> idList = new List<long>();
+                foreach (var id in idStringList)
+                {
+                    idList.Add(Convert.ToInt64(id));
+                }
+
+                var hoivienList = context.QL_HOIVIEN.Where(p => idList.Contains(p.HV_ID)).OrderBy(p=>p.HV_TEN).ToList();
+                foreach (var item in hoivienList)
+                {
+                    object cell = excelSheet.Cells[row, colSTT];
+                    excelSheet.get_Range(cell, cell).Value = stt;
+
+                    cell = excelSheet.Cells[row, colHoten];
+                    excelSheet.get_Range(cell, cell).Value = item.HV_HO + " " + item.HV_TEN ;
+
+                    cell = excelSheet.Cells[row, colDiaChi];
+                    excelSheet.get_Range(cell, cell).Value = item.HV_THUONGTRU_DIACHI;
+
+                    cell = excelSheet.Cells[row + 1, colSTT];
+                    Microsoft.Office.Interop.Excel.Range decoy = excelSheet.get_Range(cell, cell);
+                    decoy.EntireRow.Insert(Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown);
+                    row++;
+                    stt++;
+                }
+
+                foreach (var item in listDoiTuongKhongKhuyetTat)
+                {
+                    object cell = excelSheet.Cells[row, colSTT];
+                    excelSheet.get_Range(cell, cell).Value = stt;
+
+                    cell = excelSheet.Cells[row, colHoten];
+                    excelSheet.get_Range(cell, cell).Value = item.TH_CT_HOTEN;
+
+                    cell = excelSheet.Cells[row, colDiaChi];
+                    excelSheet.get_Range(cell, cell).Value = item.TH_CT_DIACHI;
+
+                    cell = excelSheet.Cells[row + 1, colSTT];
+                    Microsoft.Office.Interop.Excel.Range decoy = excelSheet.get_Range(cell, cell);
+                    decoy.EntireRow.Insert(Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown);
+                    row++;
+                    stt++;
+                }
+
+                //excel.get_Range((object)excel.Cells[rowStart, colHoten], (object)excel.Cells[row, colDiaChi]).WrapText = true;
+                excel.get_Range((object)excel.Cells[rowStart, colHoten], (object)excel.Cells[row, colDiaChi]).EntireColumn.AutoFit();
+                //string SoYTe = _cLoader.GetStringConfig("parentcompany.name");
+                //string BenhVien = _cLoader.GetStringConfig("company.name");
+                //excel.Cells[1, 1] = SoYTe.ToUpper();
+                //excel.Cells[2, 1] = BenhVien.ToUpper();
+
+                //excel.Cells[5, 1] = String.Format("Từ ngày {0:dd/MM/yyy HH:ss:mm} đến ngày {1:dd/MM/yyy HH:ss:mm}", deTuNgay.DateTime, deDenNgay.DateTime);
+                //excel.Cells[6, 1] = Convert.ToInt32(rdHinhThucDT.EditValue) == 1 ? "HÌNH THỨC ĐIỀU TRỊ NỘI TRÚ" : "HÌNH THỨC ĐIỀU TRỊ NGOẠI TRÚ";
+                //foreach (var bn in _presenter._listBenhNhan)
+                //{
+                //    _wait.Caption = string.Format("Đang xuất bệnh nhân {0}/{1}", _stt, _presenter._listBenhNhan.Count());
+                //    excel.Cells[_row, 1] = _stt++;
+                //    excel.Cells[_row, 2] = "'" + bn.DOTKHAM_SOKHAMBENH;
+                //    excel.Cells[_row, 3] = bn.BN_HOTEN;
+                //    excel.Cells[_row, 4] = bn.VAOKHOA_KHOA;
+                //    //In dòng sản phẩm
+                //    _row++;
+                //    _rowMergeStart = _row;
+                //    //Hiển thị tiêu đề
+                //    excel.Cells[_row, 5] = "Tên thuốc nồng độ hàm lượng";
+                //    excel.Cells[_row, 6] = "Số lượng";
+                //    excel.Cells[_row, 7] = "Đơn vị tính";
+                //    excel.Cells[_row, 8] = "Đơn giá";
+                //    excel.Cells[_row, 9] = "Thành tiền";
+
+                //    excel.get_Range((object)excel.Cells[_row, 5], (object)excel.Cells[_row, 9]).Font.Bold = true;
+                //    //excel.get_Range((object)excel.Cells[_row, 5], (object)excel.Cells[_row, 9]).VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                //    foreach (var item in _presenter._listData.Where(k => k.DOTKHAM_ID == bn.DOTKHAM_ID))
+                //    {
+                //        _row++;
+                //        excel.Cells[_row, 5] = item.SANPHAM_TEN;
+                //        excel.Cells[_row, 6] = item.SANPHAM_SOLUONG;
+                //        excel.Cells[_row, 7] = item.SANPHAM_DVT;
+                //        excel.Cells[_row, 8] = item.SANPHAM_DONGIA;
+                //        excel.Cells[_row, 9] = item.SANPHAM_THANHTIEN;
+                //        _tongTien += item.SANPHAM_THANHTIEN;
+                //    }
+
+                //    excel.get_Range((object)excel.Cells[_rowMergeStart, 1], (object)excel.Cells[_row, 4]).Merge();
+                //    _row++;
+                //}
+
+                //excel.get_Range((object)excel.Cells[9, 1], (object)excel.Cells[_row, 4]).Borders.Value = 1;
+                //excel.get_Range((object)excel.Cells[10, 5], (object)excel.Cells[_row, 9]).Borders.Value = 1;
+                //excel.get_Range((object)excel.Cells[9, 2], (object)excel.Cells[_row, 9]).EntireColumn.AutoFit();
+                ////Dòng tổng
+                //excel.get_Range((object)excel.Cells[_row, 1], (object)excel.Cells[_row, 4]).Merge();
+
+                //excel.Cells[_row, 1] = "Tổng cộng:";
+                //excel.Cells[_row, 9] = string.Format("=SUM(I9:I{0})", _row - 1);
+
+                //excel.Cells[_row + 1, 1] = "THÀNH TIỀN BẲNG CHỮ: " + Math.Round(_tongTien, 0).ChangeNum2VNStr(",");
+                //excel.get_Range((object)excel.Cells[_row + 1, 1], (object)excel.Cells[_row + 1, 1]).Font.Bold = true;
+
+                //_row = _row + 2;
+                //excel.Cells[_row, 5] = string.Format("Ngày {0} tháng {1} năm {2}", _dateServer.Day, _dateServer.Month, _dateServer.Year);
+                //excel.get_Range((object)excel.Cells[_row, 5], (object)excel.Cells[_row, 8]).Merge();
+
+                //excel.Cells[_row + 1, 5] = "Lập bảng";
+                //excel.get_Range((object)excel.Cells[_row + 1, 5], (object)excel.Cells[_row + 1, 8]).Merge();
+
+                //excel.get_Range((object)excel.Cells[_row, 5], (object)excel.Cells[_row + 1, 9]).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                _wait.Close();
+                excel.Visible = true;
+            }
+            catch (Exception)
+            {
+                _wait.Close();
+                
+            }
         }
     }
 }

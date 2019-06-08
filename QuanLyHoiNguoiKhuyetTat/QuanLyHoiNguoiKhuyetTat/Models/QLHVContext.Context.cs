@@ -63,12 +63,12 @@ namespace DauThau.Models
         public virtual DbSet<DM_DONVI_PHUTRACH> DM_DONVI_PHUTRACH { get; set; }
         public virtual DbSet<DM_LOAI_HOATDONG> DM_LOAI_HOATDONG { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
-        public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN_DIADIEM> QL_HOATDONG_TAPHUAN_DIADIEM { get; set; }
         public virtual DbSet<QL_HOIVIEN_CON> QL_HOIVIEN_CON { get; set; }
         public virtual DbSet<QL_HOIVIEN_HOIPHI> QL_HOIVIEN_HOIPHI { get; set; }
         public virtual DbSet<QL_HOIVIEN_IMAGE> QL_HOIVIEN_IMAGE { get; set; }
         public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
         public virtual DbSet<QL_HOIVIEN_THANHVIENHOI> QL_HOIVIEN_THANHVIENHOI { get; set; }
+        public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
     }
 }

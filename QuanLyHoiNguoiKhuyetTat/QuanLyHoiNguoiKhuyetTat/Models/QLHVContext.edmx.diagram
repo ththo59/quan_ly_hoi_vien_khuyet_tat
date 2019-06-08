@@ -49,11 +49,7 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_DONVI_PHUTRACH" Width="1.5" PointX="17.75" PointY="3.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_LOAI_HOATDONG" Width="1.5" PointX="0.75" PointY="18.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" Width="1.5" PointX="20.875" PointY="21.875" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="18.625" PointY="19.125" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DM_NHA_TAI_TRO" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM" Width="1.5" PointX="20.875" PointY="29.375" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_CON" Width="1.5" PointX="8.625" PointY="21.5" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_HOIPHI" Width="1.5" PointX="8.625" PointY="24.625" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_IMAGE" Width="1.5" PointX="8.625" PointY="28" />
@@ -63,6 +59,9 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" Width="1.5" PointX="8.625" PointY="31.875" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="18.625" PointY="21.5" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

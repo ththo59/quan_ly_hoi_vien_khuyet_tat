@@ -30,9 +30,9 @@
         {
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colDT_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDT_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDT_STT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAIHD_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAIHD_TEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAIHD_STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seSTT = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.btnControl = new ControlsLib.ButtonsArray();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -91,44 +91,44 @@
             this.gvGrid.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
             this.gvGrid.Appearance.Row.Options.UseFont = true;
             this.gvGrid.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDT_ID,
-            this.colDT_TEN,
-            this.colDT_STT});
+            this.colLOAIHD_ID,
+            this.colLOAIHD_TEN,
+            this.colLOAIHD_STT});
             this.gvGrid.GridControl = this.gcGrid;
             this.gvGrid.Name = "gvGrid";
             this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
             this.gvGrid.OptionsView.ShowGroupPanel = false;
             this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDT_STT, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colLOAIHD_STT, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gvGrid.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvGrid_InvalidRowException);
             this.gvGrid.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvGrid_ValidateRow);
             this.gvGrid.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gvGrid_ValidatingEditor);
             // 
-            // colDT_ID
+            // colLOAIHD_ID
             // 
-            this.colDT_ID.Caption = "DT_ID";
-            this.colDT_ID.FieldName = "DT_ID";
-            this.colDT_ID.Name = "colDT_ID";
+            this.colLOAIHD_ID.Caption = "LOAIHD_ID";
+            this.colLOAIHD_ID.FieldName = "LOAIHD_ID";
+            this.colLOAIHD_ID.Name = "colLOAIHD_ID";
             // 
-            // colDT_TEN
+            // colLOAIHD_TEN
             // 
-            this.colDT_TEN.Caption = "Dân tộc";
-            this.colDT_TEN.FieldName = "DT_TEN";
-            this.colDT_TEN.Name = "colDT_TEN";
-            this.colDT_TEN.Visible = true;
-            this.colDT_TEN.VisibleIndex = 0;
-            this.colDT_TEN.Width = 333;
+            this.colLOAIHD_TEN.Caption = "Loại hoạt động";
+            this.colLOAIHD_TEN.FieldName = "LOAIHD_TEN";
+            this.colLOAIHD_TEN.Name = "colLOAIHD_TEN";
+            this.colLOAIHD_TEN.Visible = true;
+            this.colLOAIHD_TEN.VisibleIndex = 0;
+            this.colLOAIHD_TEN.Width = 333;
             // 
-            // colDT_STT
+            // colLOAIHD_STT
             // 
-            this.colDT_STT.Caption = "Số thứ tự";
-            this.colDT_STT.ColumnEdit = this.seSTT;
-            this.colDT_STT.FieldName = "DT_STT";
-            this.colDT_STT.Name = "colDT_STT";
-            this.colDT_STT.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
-            this.colDT_STT.Visible = true;
-            this.colDT_STT.VisibleIndex = 1;
-            this.colDT_STT.Width = 72;
+            this.colLOAIHD_STT.Caption = "Số thứ tự";
+            this.colLOAIHD_STT.ColumnEdit = this.seSTT;
+            this.colLOAIHD_STT.FieldName = "LOAIHD_STT";
+            this.colLOAIHD_STT.Name = "colLOAIHD_STT";
+            this.colLOAIHD_STT.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
+            this.colLOAIHD_STT.Visible = true;
+            this.colLOAIHD_STT.VisibleIndex = 1;
+            this.colLOAIHD_STT.Width = 72;
             // 
             // seSTT
             // 
@@ -285,13 +285,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.DtNgay.Name = "DtNgay";
             // 
-            // ucDMDanToc
+            // ucDMTapHuan_LoaiHoatDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcGrid);
             this.Controls.Add(this.panelControl1);
-            this.Name = "ucDMDanToc";
+            this.Name = "ucDMTapHuan_LoaiHoatDong";
             this.Size = new System.Drawing.Size(758, 505);
             this.Load += new System.EventHandler(this.ucDMTapHuan_LoaiHoatDong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).EndInit();
@@ -317,7 +317,7 @@
 
         private DevExpress.XtraGrid.GridControl gcGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gvGrid;
-        private DevExpress.XtraGrid.Columns.GridColumn colDT_TEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAIHD_TEN;
         private ControlsLib.ButtonsArray btnControl;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
@@ -329,8 +329,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit calEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lueDonViTinh;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DtNgay;
-        private DevExpress.XtraGrid.Columns.GridColumn colDT_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colDT_STT;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAIHD_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn colLOAIHD_STT;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit seSTT;
     }
 }
