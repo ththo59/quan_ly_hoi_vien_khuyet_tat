@@ -77,8 +77,8 @@ namespace DauThau.UserControlCategory
                 item.HD_THOIGIAN_BATDAU = row.TH_THOIGIAN_BATDAU;
                 item.HD_THOIGIAN_KETTHUC = row.TH_THOIGIAN_KETTHUC;
                 //item.HD_DIADIEM = row.TH_DIADIEM;
-                item.HD_TONGTIEN = row.TH_TONGTIEN??0;
-                item.HD_SONGUOI_THAMGIA = row.TH_SOLUONG??0;
+                //item.HD_TONGTIEN = row.TH_TONGTIEN??0;
+                //item.HD_SONGUOI_THAMGIA = row.TH_SOLUONG??0;
                 item.HD_THOIGIAN = FunctionHelper.formatFromDateToDate(row.TH_THOIGIAN_BATDAU, row.TH_THOIGIAN_KETTHUC);
                 var dm = listDMHoiThao.Where(p => p.ID == row.TH_LOAI_ID).First();
                 if(dm != null)

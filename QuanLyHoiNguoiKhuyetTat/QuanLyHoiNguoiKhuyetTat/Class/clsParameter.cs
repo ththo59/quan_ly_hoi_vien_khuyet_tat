@@ -9,7 +9,11 @@ namespace DauThau.Class
 {
     class clsParameter
     {
-        public static Int32 secondWait = 2 * 1000; 
+        public static Int32 secondWait = 2 * 1000;
+
+        //Dùng để phân cách dữ liệu checklistbox
+        public static char separatorChar = ';';
+
         public static Int64 _goiThauID = 0;
         public static Int64 statusDeleted = -1;
 #if (ReleaseKonTum)

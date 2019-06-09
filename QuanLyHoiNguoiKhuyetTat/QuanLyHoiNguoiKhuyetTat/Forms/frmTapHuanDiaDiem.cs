@@ -87,26 +87,28 @@ namespace DauThau.Forms
             if (data != null && data.TH_ID != constIdDeleted)
             {
                 txtDiaDiem_Ten.Text = data.TH_DD_TEN;
+                txtNguoiDaiDien.Text = data.TH_DD_NGUOI_DAIDIEN;
+                txtChucVu.Text = data.TH_DD_CHUCVU;
                 txtDiaDiem_DiaChi.Text = data.TH_DD_DIACHI;
                 txtDiaDiem_MST.Text = data.TH_DD_MST;
                 txtDiaDiem_SDT.Text = data.TH_DD_SDT;
                 txtDiaDiem_STK.Text = data.TH_DD_TK_SO;
                 txtDiaDiem_TenNganHang.Text = data.TH_DD_TK_NGANHANG;
                 txtTenTaiKhoan.Text = data.TH_DD_TK_TEN;
-                txtLinkHopDong.Text = data.TH_DD_LINK_HOPDONG;
             }
         }
 
         private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN_DIADIEM item)
         {
             item.TH_DD_TEN = txtDiaDiem_Ten.Text;
+            item.TH_DD_NGUOI_DAIDIEN = txtNguoiDaiDien.Text;
+            item.TH_DD_CHUCVU = txtChucVu.Text;
             item.TH_DD_DIACHI = txtDiaDiem_DiaChi.Text;
             item.TH_DD_MST = txtDiaDiem_MST.Text;
             item.TH_DD_SDT = txtDiaDiem_SDT.Text;
             item.TH_DD_TK_SO = txtDiaDiem_STK.Text;
             item.TH_DD_TK_NGANHANG = txtDiaDiem_TenNganHang.Text;
             item.TH_DD_TK_TEN = txtTenTaiKhoan.Text;
-            item.TH_DD_LINK_HOPDONG = txtLinkHopDong.Text;
         }
 
         private void _clearData()
@@ -139,7 +141,7 @@ namespace DauThau.Forms
                     item.EnterMoveNextControl = true;
                 }
             }
-            btnLinkHopDong.Enabled = true;
+            //btnLinkHopDong.Enabled = true;
 
         }
 
@@ -250,12 +252,6 @@ namespace DauThau.Forms
         #endregion
 
         #region Event button other
-
-        private void btnLinkHopDong_Click(object sender, EventArgs e)
-        {
-            FunctionHelper.openLink(txtLinkHopDong.Text);
-        }
-
 
         #endregion
 

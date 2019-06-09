@@ -98,14 +98,17 @@ namespace DauThau.UserControlCategory
 
             //Tab dụng cụ hỗ trợ chế độ chính sách
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DUNGCU_HOTRO, lueDungCuHoTro);
-            
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_BTXH_HANG_THANG, lueBTXH_HangThang);
-
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NOI_SINH_SONG, lueNoiSinhSong);
+
             chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
             chkListSongVoi.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_SONG_VOI.Ex_ToString());
             chkListChamSocBanThan.Ex_SetDataSource(CategoryEntitiesTable.DM_CHAMSOC_BANTHAN.Ex_ToString());
+
+            string tinhTrangKT_Value = checkTinhTrangKT.EditValue + string.Empty;
             checkTinhTrangKT.Ex_SetDataSource(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG.Ex_ToString());
+            checkTinhTrangKT.EditValue = tinhTrangKT_Value;
+            checkTinhTrangKT.RefreshEditValue();
 
             chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
             repThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
@@ -126,7 +129,7 @@ namespace DauThau.UserControlCategory
             seThuNhapTB.Ex_FormatCustomSpinEdit();
 
             repLueGioiTinh.DataSource = FuncCategory.loadDMGioiTinh();
-            //Ngay sinh
+
             FunctionHelper.dateFormat(deNgaySinh_Nam, deNgaySinh_Thang, deNgaySinh_Ngay);
             FunctionHelper.dateFormat(deDCHT_ThoiGianNhan_Nam, deDCHT_ThoiGianNhan_Thang, deDCHT_ThoiGianNhan_Ngay);
             FunctionHelper.dateFormat(seVaoHoi_Nam, seVaoHoi_Thang, seVaoHoi_Ngay);
@@ -472,7 +475,8 @@ namespace DauThau.UserControlCategory
                 txtDiaChiCoQuan.Text = item.HV_COQUAN_DIACHI;
 
                 //Tab sức khỏe - hôn nhân
-                checkTinhTrangKT.Ex_SetEditValueToString(item.HV_KT_TINHTRANG);
+                checkTinhTrangKT.EditValue = item.HV_KT_TINHTRANG;
+                checkTinhTrangKT.RefreshEditValue();
                 txtTinhTrangKTChiTiet.Text = item.HV_KT_TINHTRANG_CHITIET;
 
                 lueMucDoKT.EditValue = item.HV_KT_MUCDO;
@@ -646,7 +650,7 @@ namespace DauThau.UserControlCategory
             item.HV_COQUAN_DIACHI = txtDiaChiCoQuan.Text;
 
             //Tab sức khỏe
-            item.HV_KT_TINHTRANG = checkTinhTrangKT.Ex_GetEditValueToString();
+            item.HV_KT_TINHTRANG = checkTinhTrangKT.EditValue + string.Empty ;
             item.HV_KT_TINHTRANG_CHITIET = txtTinhTrangKTChiTiet.Text;
 
             item.HV_KT_MUCDO = lueMucDoKT.EditValue + string.Empty;

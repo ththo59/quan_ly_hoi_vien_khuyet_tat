@@ -51,6 +51,7 @@ namespace DauThau.Models
         public Nullable<int> TH_KT_SL_NHIN { get; set; }
         public Nullable<int> TH_KT_SL_NGHENOI { get; set; }
         public Nullable<int> TH_KT_SL_TRITUE { get; set; }
+        public Nullable<int> TH_KT_SL_THANKINH_TAMTHAN { get; set; }
         public Nullable<int> TH_KT_SL_KHAC { get; set; }
         public string TH_DIADIEM_LINK_HOPDONG { get; set; }
         public string TH_DIADIEM_LINK_BB_THANHLY { get; set; }
@@ -64,15 +65,7 @@ namespace DauThau.Models
         public string TH_CONGVAN_DONVI_GUI { get; set; }
         public string TH_CONGVAN_GUI_DONVI { get; set; }
         public string TH_CONGVAN_LINK { get; set; }
-        public string TH_DONVI_THUCHIEN { get; set; }
         public string TH_NOIDUNG { get; set; }
-        public Nullable<int> TH_SOLUONG { get; set; }
-        public Nullable<int> TH_SOTIEN_1NGUOI { get; set; }
-        public Nullable<long> TH_TONGTIEN { get; set; }
-        public string TH_GIANGVIEN { get; set; }
-        public Nullable<int> TH_GIANGVIEN_THULAO { get; set; }
-        public string TH_NGUOI_HOTRO { get; set; }
-        public Nullable<int> TH_NGUOI_HOTRO_THULAO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }

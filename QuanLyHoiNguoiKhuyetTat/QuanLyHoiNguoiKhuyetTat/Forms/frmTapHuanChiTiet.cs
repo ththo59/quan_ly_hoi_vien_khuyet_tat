@@ -31,6 +31,11 @@ namespace DauThau.Forms
 
         private EnumFormStatus _formStatus = EnumFormStatus.VIEW;
         private QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
+
+        public QL_HOATDONG_TAPHUAN tapHuanData;
+        public QL_HOATDONG_TAPHUAN_DIADIEM tapHuan_DiaDiemData;
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> tapHuanNguoiKhongKT;
+
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> data;
         private Int64 idRowSelected;
 
@@ -40,11 +45,9 @@ namespace DauThau.Forms
 
         private void frmNhaTaiTro_Load(object sender, EventArgs e)
         {
-            deNgayCap_Nam.Properties.MaxValue = DateTime.Now.Year;
-            deNgayCap_Thang.Properties.MaxValue = 12;
-            deNgayCap_Thang.Properties.MinValue = 1;
-            deNgayCap_Ngay.Properties.MaxValue = 31;
-            deNgayCap_Ngay.Properties.MinValue = 1;
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinh);
+            FunctionHelper.dateFormat(deNgayCap_Nam, deNgayCap_Thang, deNgayCap_Ngay);
+
             seThuLao.Ex_FormatCustomSpinEdit();
             seChiPhiKhac.Ex_FormatCustomSpinEdit();
 
@@ -110,8 +113,10 @@ namespace DauThau.Forms
             QL_HOATDONG_TAPHUAN_CHITIET item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN_CHITIET;
             if (item != null)
             {
-                txtHoTen.Text = item.TH_CT_HOTEN;
+                txtHo.Text = item.TH_CT_HO;
+                txtTen.Text = item.TH_CT_TEN;
                 txtChucVu.Text = item.TH_CT_CHUCVU;
+                lueGioiTinh.EditValue = item.TH_CT_GIOITINH;
                 txtEmail.Text = item.TH_CT_EMAIL;
                 txtFace.Text = item.TH_CT_FACEBOOK;
                 txtCMND.Text = item.TH_CT_CMND_SO;
@@ -152,7 +157,7 @@ namespace DauThau.Forms
         private Boolean _validateControl()
         {
 
-            if (txtHoTen.Text.Trim() == string.Empty)
+            if (txtHo.Text.Trim() == string.Empty)
             {
                 clsMessage.MessageWarning("Vui lòng nhập đầy tên tổ chức");
                 return false;
@@ -163,8 +168,10 @@ namespace DauThau.Forms
         private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN_CHITIET item)
         {
             item.TH_CT_LOAI = _loai_id;
-            item.TH_CT_HOTEN = txtHoTen.Text;
+            item.TH_CT_HO = txtHo.Text;
+            item.TH_CT_TEN = txtTen.Text;
             item.TH_CT_CHUCVU = txtChucVu.Text;
+            item.TH_CT_GIOITINH = lueGioiTinh.EditValue + string.Empty;
             item.TH_CT_EMAIL = txtEmail.Text;
             item.TH_CT_FACEBOOK = txtFace.Text;
             item.TH_CT_CMND_SO = txtCMND.Text;
@@ -244,7 +251,7 @@ namespace DauThau.Forms
                 return;
             }
 
-            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTH_CT_HOTEN.FieldName).ToString();
+            string Ten = gvGrid.GetRowCellValue(gvGrid.FocusedRowHandle, colTH_CT_HO.FieldName).ToString();
             if (XtraMessageBox.Show("Bạn có chắc muốn xóa: \"" + Ten + "\"  không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 _saveData();
@@ -435,10 +442,17 @@ namespace DauThau.Forms
 
         private void btnXuatBanHopDong_Click(object sender, EventArgs e)
         {
-            if (txtHoTen.Text == "")
+            if (txtHo.Text == "")
             {
                 clsMessage.MessageWarning("Chưa có thông tin tập huấn viên chính. Vui lòng kiểm tra lại.");
                 return;
+            }
+
+            var bThoiGian = string.Format("{0} ({1} ngày)", FunctionHelper.formatFromDateToDate(tapHuanData.TH_THOIGIAN_BATDAU, tapHuanData.TH_THOIGIAN_KETTHUC), tapHuanData.TH_TONGSO_NGAY);
+            var bDoiTuong = tapHuanData.TH_DOITUONG_HV_TEN != "" ? "Hội viên" : "";
+            if(tapHuanNguoiKhongKT.Count() > 0)
+            {
+                bDoiTuong += (bDoiTuong != "" ? " - " : "") + "Người không khuyết tật";
             }
 
             var dataPrint = new Dictionary<string, string>()
@@ -446,12 +460,18 @@ namespace DauThau.Forms
                 {"bDiaChi", txtDiaChi.Text},
                 {"bDienThoai", txtSoDienThoai.Text},
                 {"bChucVu", txtChucVu.Text},
-                {"bTenTaiKhoan", txtHoTen.Text},
+                {"bTenTaiKhoan", txtHo.Text + " " +  txtTen.Text},
 
                 {"bSoTaiKhoan", txtSTK.Text},
                 {"bNganHang", txtTenNganHang.Text},
                 {"bDiaChiNganHang", txtDiaChiNganHang.Text},
-                {"bMaSoThue", txtMaSoThue.Text}
+                {"bMaSoThue", txtMaSoThue.Text},
+
+                {"bTenTapHuan", tapHuanData.TH_TEN},
+                {"bThoiGian", bThoiGian},
+                {"bDiaDiem", tapHuan_DiaDiemData.TH_DD_TEN},
+                {"bDoiTuong", bDoiTuong},
+                {"bSoLuongThamDu", tapHuanData.TH_DOITUONG_TONGSO.ToString()},
             };
 
             string fileName = "";
@@ -484,14 +504,15 @@ namespace DauThau.Forms
 
         private void btnXuatBanCamKet_Click(object sender, EventArgs e)
         {
-            if (txtHoTen.Text == "")
+            if (txtHo.Text == "")
             {
                 clsMessage.MessageWarning("Chưa có thông tin tập huấn viên chính. Vui lòng kiểm tra lại.");
                 return;
             }
+
             var dataPrint = new Dictionary<string, string>()
             {
-                {"TH_CT_HOTEN", txtHoTen.Text},
+                {"TH_CT_HOTEN", txtHo.Text + " " + txtTen.Text },
                 {"TH_CT_CMND_SO", txtCMND.Text},
                 {"TH_CT_CMND_NGAYCAP", string.Format("{0}/{1}/{2}", deNgayCap_Ngay.Text, deNgayCap_Thang.Text, deNgayCap_Nam.Text)},
                 {"TH_CT_CMND_NOICAP", txtNoiCap.Text },

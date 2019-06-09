@@ -17,6 +17,8 @@ namespace DauThau.Models
         public long TH_DD_ID { get; set; }
         public Nullable<long> TH_ID { get; set; }
         public string TH_DD_TEN { get; set; }
+        public string TH_DD_NGUOI_DAIDIEN { get; set; }
+        public string TH_DD_CHUCVU { get; set; }
         public string TH_DD_DIACHI { get; set; }
         public string TH_DD_MST { get; set; }
         public string TH_DD_SDT { get; set; }

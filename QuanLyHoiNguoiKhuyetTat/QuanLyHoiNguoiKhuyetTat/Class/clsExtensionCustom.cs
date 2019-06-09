@@ -91,7 +91,7 @@ namespace DauThau.Class
                     }
                     else
                     {
-                        list += "," + item.Value;
+                        list += clsParameter.separatorChar.ToString() + item.Value;
                     }
                 }
             }
@@ -111,7 +111,7 @@ namespace DauThau.Class
                     }
                     else
                     {
-                        list += "," + item.Value;
+                        list += clsParameter.separatorChar.ToString() + item.Value;
                     }
                 }
             }
@@ -124,7 +124,7 @@ namespace DauThau.Class
             {
                 return;
             }
-            String[] listArray = list.Split(',');
+            String[] listArray = list.Split(clsParameter.separatorChar);
             foreach (CheckedListBoxItem item in chkList.Properties.Items)
             {
                 if (list.Contains(item.Value + string.Empty))
@@ -146,7 +146,7 @@ namespace DauThau.Class
                 chkList.UnCheckAll();
                 return;
             }
-            String[] listArray = list.Split(',');
+            String[] listArray = list.Split(clsParameter.separatorChar);
             foreach (CheckedListBoxItem item in chkList.Items)
             {
                 if (list.Contains(item.Value + string.Empty))
@@ -162,6 +162,7 @@ namespace DauThau.Class
 
         public static void Ex_SetDataSource(this CheckedComboBoxEdit chkList, string table)
         {
+            chkList.Properties.SeparatorChar = clsParameter.separatorChar;
             using (var context = new Models.QL_HOIVIEN_KTEntities())
             {
                 chkList.Properties.Items.Clear();

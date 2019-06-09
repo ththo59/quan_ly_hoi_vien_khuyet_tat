@@ -82,8 +82,7 @@ namespace DauThau.UserControlCategory
 
         private void _loadBeginData()
         {
-            FormStatus = EnumFormStatus.VIEW;
-
+            _enableButtonArray();
             //show data after 1 second
             Task.Factory.StartNew(() => Thread.Sleep(clsParameter.secondWait))
             .ContinueWith((t) =>
@@ -107,6 +106,7 @@ namespace DauThau.UserControlCategory
 
             lueLaHoatDong.Properties.DataSource = FuncCategory.loadHoatDong();
             _loadNhaTaiTro();
+
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DONVI_PHUTRACH, lueDonViPhuTrach);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TINH, lueTinh);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_LOAI_HOATDONG, lueLoaiHoatDong);
@@ -116,13 +116,10 @@ namespace DauThau.UserControlCategory
 
         private void _loadNhaTaiTro()
         {
+            string value = checkNhaTaiTro.EditValue + string.Empty;
             checkNhaTaiTro.Ex_SetDataSource(CategoryEntitiesTable.DM_NHA_TAI_TRO.Ex_ToString());
-
-            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
-            if (item != null)
-            {
-                checkNhaTaiTro.Ex_SetEditValueToString(item.NTT_TEN);
-            }
+            checkNhaTaiTro.EditValue = value;
+            checkNhaTaiTro.RefreshEditValue();
         }
 
         private void _initDisplay()
@@ -321,14 +318,14 @@ namespace DauThau.UserControlCategory
             {
                 if (item.TH_CT_DIACHI != "")
                 {
-                    title.AppendFormat("{0}({1}); ", item.TH_CT_HOTEN, item.TH_CT_DIACHI);
+                    title.AppendFormat("{0}({1}); ", item.TH_CT_HO + " " + item.TH_CT_TEN, item.TH_CT_DIACHI);
                 }else if(item.TH_CT_DONVI_TEN != "")
                 {
-                    title.AppendFormat("{0}({1}); ", item.TH_CT_HOTEN, item.TH_CT_DONVI_TEN);
+                    title.AppendFormat("{0}({1}); ", item.TH_CT_HO + " " + item.TH_CT_TEN, item.TH_CT_DONVI_TEN);
                 }
                 else
                 {
-                    title.AppendFormat("{0}; ", item.TH_CT_HOTEN);
+                    title.AppendFormat("{0}; ", item.TH_CT_HO + " " + item.TH_CT_TEN);
                 }
                 
             }
@@ -379,7 +376,9 @@ namespace DauThau.UserControlCategory
                 seTongSoNgay.EditValue = item.TH_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.TH_TEN;
                 lueLaHoatDong.EditValue = item.TH_LA_HOATDONG;
-                checkNhaTaiTro.Ex_SetEditValueToString(item.NTT_TEN);
+
+                checkNhaTaiTro.EditValue = (item.NTT_TEN);
+                checkNhaTaiTro.RefreshEditValue();
 
                 lueDonViPhuTrach.EditValue = item.TH_DONVI_PHUTRACH;
                 lueTinh.EditValue = item.TH_TINH_THUCHIEN;
@@ -414,6 +413,7 @@ namespace DauThau.UserControlCategory
                 seKTKhac.EditValue = item.TH_KT_SL_KHAC;
                 seKTNgheNoi.EditValue = item.TH_KT_SL_NGHENOI;
                 seKTNhin.EditValue = item.TH_KT_SL_NHIN;
+                seKTTamThanThanKinh.EditValue = item.TH_KT_SL_THANKINH_TAMTHAN;
                 seKTTriTue.EditValue = item.TH_KT_SL_TRITUE;
                 seKTVanDong.EditValue = item.TH_KT_SL_VANDONG;
 
@@ -453,7 +453,7 @@ namespace DauThau.UserControlCategory
             //Thông tin
             item.TH_TEN = txtTenChuongTrinh.Text ;
             item.TH_LA_HOATDONG = lueLaHoatDong.Text;
-            item.NTT_TEN = checkNhaTaiTro.Ex_GetEditValueToString();
+            item.NTT_TEN = checkNhaTaiTro.EditValue + string.Empty;
             item.TH_DONVI_PHUTRACH = lueDonViPhuTrach.Text;
             item.TH_TINH_THUCHIEN = lueTinh.Text;
             item.TH_HOATDONG_MA = txtHoatDongMa.Text;
@@ -478,6 +478,7 @@ namespace DauThau.UserControlCategory
             item.TH_KT_SL_TRITUE = seKTTriTue.Ex_EditValueToInt();
             item.TH_KT_SL_NHIN = seKTNhin.Ex_EditValueToInt();
             item.TH_KT_SL_NGHENOI = seKTNgheNoi.Ex_EditValueToInt();
+            item.TH_KT_SL_THANKINH_TAMTHAN = seKTTamThanThanKinh.Ex_EditValueToInt();
             item.TH_KT_SL_KHAC = seKTKhac.Ex_EditValueToInt();
 
             item.TH_DIADIEM_LINK_HOPDONG = txtLinkDiaDiem_HopDong.Text;
@@ -764,9 +765,9 @@ namespace DauThau.UserControlCategory
                         item.TH_TEN = row.TH_TEN;
                         item.TH_THOIGIAN = FunctionHelper.formatFromDateToDate(row.TH_THOIGIAN_BATDAU, row.TH_THOIGIAN_KETTHUC);
                         //item.TH_DIADIEM = row.TH_DIADIEM;
-                        item.TH_DONVI_THUCHIEN = row.TH_DONVI_THUCHIEN;
-                        item.TH_SOLUONG = row.TH_SOLUONG;
-                        item.TH_TONGTIEN = row.TH_TONGTIEN??0;
+                        //item.TH_DONVI_THUCHIEN = row.TH_DONVI_THUCHIEN;
+                        //item.TH_SOLUONG = row.TH_SOLUONG;
+                        //item.TH_TONGTIEN = row.TH_TONGTIEN??0;
                         item.TH_NOIDUNG = row.TH_NOIDUNG;
                         listTapHuan.Add(item);
                     }
@@ -793,8 +794,14 @@ namespace DauThau.UserControlCategory
 
         private void _memoButtonClick(CategoryTapHuanChiTietLoai enumLoai)
         {
-
             frmTapHuanChiTiet frm = new frmTapHuanChiTiet((int)enumLoai);
+
+            QL_HOATDONG_TAPHUAN item = new QL_HOATDONG_TAPHUAN();
+            _setObjectEntities(ref item);
+            frm.tapHuanData = item;
+            frm.tapHuan_DiaDiemData = tapHuanDiaDiem;
+            frm.tapHuanNguoiKhongKT = listDoiTuongKhongKhuyetTat;
+
             switch (enumLoai)
             {
                 case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
@@ -844,10 +851,68 @@ namespace DauThau.UserControlCategory
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
                     listDoiTuongKhongKhuyetTat = frm.data;
                     memoDoiTuongKhongKT.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+                    _updateStatusDoiTuong();
                     break;
                 default:
                     break;
             }
+
+        }
+
+        private void _updateStatusDoiTuong()
+        {
+            string[] idStringList = memoDoiTuongId.Text.Split(new[] { "; " }, StringSplitOptions.None);
+            List<Int64> idList = new List<long>();
+            foreach (var id in idStringList)
+            {
+                idList.Add(Convert.ToInt64(id));
+            }
+
+            var hoivienList = context.QL_HOIVIEN.Where(p => idList.Contains(p.HV_ID)).OrderBy(p => p.HV_TEN).ToList();
+            int count_hoiVien = hoivienList != null ? hoivienList.Count : 0;
+
+            int count_Nam = 0;
+            int count_Nu = 0;
+
+            int count_KT_VanDong = 0;
+            int count_KT_Nhin = 0;
+            int count_KT_NgheNoi = 0;
+            int count_KT_TriTue = 0;
+            int count_KT_TamThan_ThanKinh = 0;
+            int count_KT_Khac = 0;
+
+            foreach (var item in hoivienList)
+            {
+                count_Nam += item.HV_GIOI_TINH == "Nam" ? 1 : 0;
+                count_Nu += item.HV_GIOI_TINH == "Nữ" ? 1 : 0;
+
+                count_KT_VanDong += item.HV_KT_TINHTRANG.Contains("Khuyết tật vận động") ? 1 : 0;
+                count_KT_Nhin += item.HV_KT_TINHTRANG.Contains("Khuyết tật nhìn") ? 1 : 0;
+                count_KT_NgheNoi += item.HV_KT_TINHTRANG.Contains("Khuyết tật nghe, nói") ? 1 : 0;
+                count_KT_TriTue += item.HV_KT_TINHTRANG.Contains("Khuyết tật trí tuệ") ? 1 : 0;
+                count_KT_TamThan_ThanKinh += item.HV_KT_TINHTRANG.Contains("Khuyết tật thần kinh, tâm thần") ? 1 : 0;
+                count_KT_Khac += item.HV_KT_TINHTRANG.Contains("Khuyết tật khác") ? 1 : 0;
+
+            }
+
+            //Người không khuyết tật
+            int count_NguoiKhongKT = listDoiTuongKhongKhuyetTat.Count;
+            foreach (var item in listDoiTuongKhongKhuyetTat)
+            {
+                count_Nam += item.TH_CT_GIOITINH == "Nam" ? 1 : 0;
+                count_Nu += item.TH_CT_GIOITINH == "Nữ" ? 1 : 0;
+            }
+
+            seTongSoNguoiThamDu.EditValue = count_hoiVien + count_NguoiKhongKT;
+            seSoLuongNam.EditValue = count_Nam;
+            seSoLuongNu.EditValue = count_Nu;
+
+            seKTVanDong.EditValue = count_KT_VanDong;
+            seKTNhin.EditValue = count_KT_Nhin;
+            seKTNgheNoi.EditValue = count_KT_NgheNoi;
+            seKTTriTue.EditValue = count_KT_TriTue;
+            seKTTamThanThanKinh.EditValue = count_KT_TamThan_ThanKinh;
+            seKTKhac.EditValue = count_KT_Khac;
 
         }
 
@@ -895,14 +960,18 @@ namespace DauThau.UserControlCategory
                     dxErrorProvider.ClearErrors();
                     _statusAllControl(true);
 
-                    btnControl.btnAdd.Enabled = !_first_load_data;
-                    btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = gvGrid.RowCount > 0;
+                    _enableButtonArray();
 
                     base.permissionAccessButton(btnControl, (Int32)FunctionName.FUNC_NANGCAO_NANGLUC);
                 }
             }
         }
 
+        private void _enableButtonArray()
+        {
+            btnControl.btnAdd.Enabled = !_first_load_data;
+            btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = btnControl.btnPrint.Enabled = gvGrid.RowCount > 0;
+        }
         private void _calTongSoNgay()
         {
             if (deTuNgay.EditValue != null && deDenNgay.EditValue != null)
@@ -910,14 +979,6 @@ namespace DauThau.UserControlCategory
                 TimeSpan diff = deDenNgay.DateTime - deTuNgay.DateTime;
                 seTongSoNgay.EditValue = diff.Days + 1;
             }
-        }
-
-        private void _calTongTien()
-        {
-            //if(seSoLuongNguoiThamGia.EditValue != null && seSoTienMoiNguoi.EditValue != null)
-            //{
-            //    seTongTien.EditValue = clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) * clsChangeType.change_int64(seSoTienMoiNguoi.EditValue);
-            //}
         }
 
         #endregion
@@ -950,16 +1011,6 @@ namespace DauThau.UserControlCategory
             _calTongSoNgay();
         }
 
-        private void seSoLuongNguoiThamGia_EditValueChanged(object sender, EventArgs e)
-        {
-            _calTongTien();
-        }
-
-        private void seSoTienMoiNguoi_EditValueChanged(object sender, EventArgs e)
-        {
-            _calTongTien();
-        }
-
         private void btnSelectHoiVien_Click(object sender, EventArgs e)
         {
             frmSelectHoiVien frm = new frmSelectHoiVien();
@@ -969,6 +1020,7 @@ namespace DauThau.UserControlCategory
 
             memoDoiTuong.Text = frm.selectNameList;
             memoDoiTuongId.Text = frm.selectIdList;
+            _updateStatusDoiTuong();
         }
 
         private void btnDonViTaiTro_Click(object sender, EventArgs e)
@@ -1073,6 +1125,8 @@ namespace DauThau.UserControlCategory
             FunctionHelper.openLink(txtLinkDiaDiem_BBThanhLy.Text);
         }
 
+        #region Print
+
         private void btnPrintDiaDiem_HopDong_Click(object sender, EventArgs e)
         {
             if(tapHuanDiaDiem == null)
@@ -1082,6 +1136,8 @@ namespace DauThau.UserControlCategory
             }
             var dataPrint = new Dictionary<string, string>()
             {
+                {"TH_DD_NGUOI_DAIDIEN", tapHuanDiaDiem.TH_DD_NGUOI_DAIDIEN},
+                {"TH_DD_CHUCVU", tapHuanDiaDiem.TH_DD_CHUCVU},
                 {"TH_DD_DIACHI", tapHuanDiaDiem.TH_DD_DIACHI},
                 {"TH_DD_SDT", tapHuanDiaDiem.TH_DD_SDT},
                 {"TH_DD_MST", tapHuanDiaDiem.TH_DD_MST},
@@ -1100,6 +1156,8 @@ namespace DauThau.UserControlCategory
             }
             var dataPrint = new Dictionary<string, string>()
             {
+                {"TH_DD_NGUOI_DAIDIEN", tapHuanDiaDiem.TH_DD_NGUOI_DAIDIEN},
+                {"TH_DD_CHUCVU", tapHuanDiaDiem.TH_DD_CHUCVU},
                 {"TH_DD_DIACHI", tapHuanDiaDiem.TH_DD_DIACHI},
                 {"TH_DD_SDT", tapHuanDiaDiem.TH_DD_SDT},
                 {"TH_DD_MST", tapHuanDiaDiem.TH_DD_MST},
@@ -1167,13 +1225,13 @@ namespace DauThau.UserControlCategory
                     stt++;
                 }
 
-                foreach (var item in listDoiTuongKhongKhuyetTat)
+                foreach (var item in listDoiTuongKhongKhuyetTat.OrderBy(p=>p.TH_CT_TEN))
                 {
                     object cell = excelSheet.Cells[row, colSTT];
                     excelSheet.get_Range(cell, cell).Value = stt;
 
                     cell = excelSheet.Cells[row, colHoten];
-                    excelSheet.get_Range(cell, cell).Value = item.TH_CT_HOTEN;
+                    excelSheet.get_Range(cell, cell).Value = item.TH_CT_HO + " " + item.TH_CT_TEN;
 
                     cell = excelSheet.Cells[row, colDiaChi];
                     excelSheet.get_Range(cell, cell).Value = item.TH_CT_DIACHI;
@@ -1257,5 +1315,7 @@ namespace DauThau.UserControlCategory
                 
             }
         }
+
+        #endregion
     }
 }
