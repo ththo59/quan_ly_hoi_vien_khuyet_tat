@@ -70,5 +70,6 @@ namespace DauThau.Models
         public virtual DbSet<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN_DIADIEM> QL_HOATDONG_TAPHUAN_DIADIEM { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
+        public virtual DbSet<QL_NHATKY> QL_NHATKY { get; set; }
     }
 }

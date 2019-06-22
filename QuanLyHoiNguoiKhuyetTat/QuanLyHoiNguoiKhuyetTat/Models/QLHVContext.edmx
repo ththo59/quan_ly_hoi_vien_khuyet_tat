@@ -87,30 +87,6 @@
           <Property Name="LOAIHD_TEN" Type="nvarchar" MaxLength="50" />
           <Property Name="LOAIHD_STT" Type="int" />
         </EntityType>
-        <EntityType Name="DM_NOI_O_NHA">
-          <Key>
-            <PropertyRef Name="NO_NHA_ID" />
-          </Key>
-          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NO_NHA_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_O_SONG_VOI">
-          <Key>
-            <PropertyRef Name="NOSV_ID" />
-          </Key>
-          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NOSV_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_SINH_SONG">
-          <Key>
-            <PropertyRef Name="NSS_ID" />
-          </Key>
-          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NSS_STT" Type="int" />
-        </EntityType>
         <EntityType Name="DM_NGHE_NGHIEP">
           <Key>
             <PropertyRef Name="NN_ID" />
@@ -166,6 +142,30 @@
           <Property Name="NC_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="NC_STT" Type="int" />
         </EntityType>
+        <EntityType Name="DM_NOI_O_NHA">
+          <Key>
+            <PropertyRef Name="NO_NHA_ID" />
+          </Key>
+          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NO_NHA_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_O_SONG_VOI">
+          <Key>
+            <PropertyRef Name="NOSV_ID" />
+          </Key>
+          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NOSV_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_SINH_SONG">
+          <Key>
+            <PropertyRef Name="NSS_ID" />
+          </Key>
+          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NSS_STT" Type="int" />
+        </EntityType>
         <EntityType Name="DM_PHUONGTIEN_DILAI">
           <Key>
             <PropertyRef Name="PT_ID" />
@@ -173,6 +173,14 @@
           <Property Name="PT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PT_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="PT_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_THANHVIEN_HOI">
+          <Key>
+            <PropertyRef Name="TVH_ID" />
+          </Key>
+          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TINH">
           <Key>
@@ -198,14 +206,6 @@
           <Property Name="TG_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TG_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="TG_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_THANHVIEN_HOI">
-          <Key>
-            <PropertyRef Name="TVH_ID" />
-          </Key>
-          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
           <Key>
@@ -534,7 +534,7 @@
           <Property Name="HV_EMAIL" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_COQUAN" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_COQUAN_DIACHI" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_KT_TINHTRANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_KT_TINHTRANG" Type="nvarchar" MaxLength="500" />
           <Property Name="HV_KT_TINHTRANG_CHITIET" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_KT_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_KT_MUCDO" Type="nvarchar" MaxLength="250" />
@@ -621,6 +621,18 @@
           <Property Name="HV_ID" Type="bigint" />
           <Property Name="TV_NGAY" Type="date" />
           <Property Name="TV_GHICHU" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="QL_NHATKY">
+          <Key>
+            <PropertyRef Name="NK_ID" />
+          </Key>
+          <Property Name="NK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NK_BANG" Type="nvarchar" MaxLength="50" />
+          <Property Name="NK_THAOTAC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NK_USERNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="NK_NGAY" Type="datetime" />
+          <Property Name="NK_GIATRI_CU" Type="nvarchar(max)" />
+          <Property Name="NK_GIATRI_MOI" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_USERS">
           <Key>
@@ -801,20 +813,20 @@
           <EntitySet Name="DM_KHUYETTAT_NGUYENNHAN" EntityType="Self.DM_KHUYETTAT_NGUYENNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_KHUYETTAT_TINHTRANG" EntityType="Self.DM_KHUYETTAT_TINHTRANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LOAI_HOATDONG" EntityType="Self.DM_LOAI_HOATDONG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGOAINGU" EntityType="Self.DM_NGOAINGU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO" EntityType="Self.DM_NHA_TAI_TRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_CHITIET" EntityType="Self.DM_NHA_TAI_TRO_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_LOAI" EntityType="Self.DM_NHA_TAI_TRO_LOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHUCAU" EntityType="Self.DM_NHUCAU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_PHUONGTIEN_DILAI" EntityType="Self.DM_PHUONGTIEN_DILAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINHTRANG_HONNHAN" EntityType="Self.DM_TINHTRANG_HONNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TONGIAO" EntityType="Self.DM_TONGIAO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
@@ -834,6 +846,7 @@
           <EntitySet Name="QL_HOIVIEN_HOIPHI" EntityType="Self.QL_HOIVIEN_HOIPHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_IMAGE" EntityType="Self.QL_HOIVIEN_IMAGE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_THANHVIENHOI" EntityType="Self.QL_HOIVIEN_THANHVIENHOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_NHATKY" EntityType="Self.QL_NHATKY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_USERS" EntityType="Self.QL_USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_USERS_PERMISSION" EntityType="Self.QL_USERS_PERMISSION" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DM_HUYEN_DM_TINH" Association="Self.FK_DM_HUYEN_DM_TINH">
@@ -1045,6 +1058,7 @@
             <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
             <End Role="QL_HOATDONG_TAPHUAN_DIADIEM" EntitySet="QL_HOATDONG_TAPHUAN_DIADIEM" />
           </AssociationSet>
+          <EntitySet Name="QL_NHATKY" EntityType="QL_HOIVIEN_KTModel.QL_NHATKY" />
           </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1554,7 +1568,7 @@
           <Property Name="HV_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_COQUAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_COQUAN_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_TINHTRANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_TINHTRANG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="HV_KT_TINHTRANG_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_KT_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_KT_MUCDO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -1793,6 +1807,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="QL_NHATKY">
+          <Key>
+            <PropertyRef Name="NK_ID" />
+          </Key>
+          <Property Name="NK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NK_BANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NK_THAOTAC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NK_USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NK_NGAY" Type="DateTime" Precision="3" />
+          <Property Name="NK_GIATRI_CU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NK_GIATRI_MOI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2482,6 +2508,19 @@
                 <ScalarProperty Name="TH_THOIGIAN_BATDAU" ColumnName="TH_THOIGIAN_BATDAU" />
                 <ScalarProperty Name="TH_LOAI_ID" ColumnName="TH_LOAI_ID" />
                 <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_NHATKY">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_NHATKY">
+              <MappingFragment StoreEntitySet="QL_NHATKY">
+                <ScalarProperty Name="NK_GIATRI_MOI" ColumnName="NK_GIATRI_MOI" />
+                <ScalarProperty Name="NK_GIATRI_CU" ColumnName="NK_GIATRI_CU" />
+                <ScalarProperty Name="NK_NGAY" ColumnName="NK_NGAY" />
+                <ScalarProperty Name="NK_USERNAME" ColumnName="NK_USERNAME" />
+                <ScalarProperty Name="NK_THAOTAC" ColumnName="NK_THAOTAC" />
+                <ScalarProperty Name="NK_BANG" ColumnName="NK_BANG" />
+                <ScalarProperty Name="NK_ID" ColumnName="NK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -65,7 +65,9 @@ namespace DauThau
             {
                 btnUser.Visibility = BarItemVisibility.Never;
             }
-            
+
+            clsMail mail = new clsMail();
+            mail.sendMail();
         }
 
         private void event_ItemClick(object sender, ItemClickEventArgs e)
@@ -396,6 +398,9 @@ namespace DauThau
                         frmChangePass frm = new frmChangePass();
                         frm.ShowDialog();
                         return;
+                    case "btnNhatKy": 
+                        uc = new ucNhatKy();
+                        break;
                     #endregion
 
                     default:

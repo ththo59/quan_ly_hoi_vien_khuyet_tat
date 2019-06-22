@@ -62,6 +62,7 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="18.625" PointY="22.5" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_NHATKY" Width="1.5" PointX="14.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

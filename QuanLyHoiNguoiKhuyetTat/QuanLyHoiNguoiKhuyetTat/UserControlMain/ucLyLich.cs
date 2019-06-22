@@ -41,6 +41,8 @@ namespace DauThau.UserControlCategory
         private QL_HOIVIEN _hoiVien = new QL_HOIVIEN();
         private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
 
+        private QL_HOIVIEN _hoiVien_cu = new QL_HOIVIEN();
+
         private Boolean _first_load_data = true;
         private void ucLyLich_Load(object sender, EventArgs e)
         {
@@ -413,6 +415,8 @@ namespace DauThau.UserControlCategory
             QL_HOIVIEN item = gvGrid.GetFocusedRow() as QL_HOIVIEN;
             if (item != null)
             {
+                _hoiVien_cu = item;
+
                 btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = true;
                 _idRowSelected = item.HV_ID;
 
@@ -960,6 +964,352 @@ namespace DauThau.UserControlCategory
             }
         }
 
+        private void _compareLog(ref QL_NHATKY nhatKy, QL_HOIVIEN item)
+        {
+            string title = "Họ và tên: ";
+            string giatri_cu = title + _hoiVien_cu.HV_HO + " " + _hoiVien_cu.HV_TEN + Environment.NewLine;
+            string giatri_moi = title + item.HV_HO + " " + item.HV_TEN + Environment.NewLine;
+
+            if (_hoiVien_cu.HV_GIOI_TINH != item.HV_GIOI_TINH)
+            {
+                title = "Giới tính: ";
+                giatri_cu += title + _hoiVien_cu.HV_GIOI_TINH + Environment.NewLine;
+                giatri_moi += title + item.HV_GIOI_TINH + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_DAN_TOC != item.HV_DAN_TOC)
+            {
+                title = "Dân tộc: ";
+                giatri_cu += title + _hoiVien_cu.HV_DAN_TOC + Environment.NewLine;
+                giatri_moi += title + item.HV_DAN_TOC + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_NGAY_SINH != item.HV_NGAY_SINH)
+            {
+                title = "Ngày sinh: ";
+                giatri_cu += title + (_hoiVien_cu.HV_NGAY_SINH.HasValue ? _hoiVien_cu.HV_NGAY_SINH.Value.ToString("dd/MM/yyyy") : "") + Environment.NewLine;
+                giatri_moi += title + (item.HV_NGAY_SINH.HasValue ? item.HV_NGAY_SINH.Value.ToString("dd/MM/yyyy") : "") + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_TON_GIAO != item.HV_TON_GIAO)
+            {
+                title = "Tôn giáo: ";
+                giatri_cu += title + _hoiVien_cu.HV_TON_GIAO + Environment.NewLine;
+                giatri_moi += title + item.HV_TON_GIAO + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_TRINHDO_VANHOA != item.HV_TRINHDO_VANHOA)
+            {
+                title = "Trình độ văn hóa: ";
+                giatri_cu += title + _hoiVien_cu.HV_TRINHDO_VANHOA + Environment.NewLine;
+                giatri_moi += title + item.HV_TRINHDO_VANHOA + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_TRINHDO_CHUYENMON != item.HV_TRINHDO_CHUYENMON)
+            {
+                title = "Trình độ C.môn: ";
+                giatri_cu += title + _hoiVien_cu.HV_TRINHDO_CHUYENMON + Environment.NewLine;
+                giatri_moi += title + item.HV_TRINHDO_CHUYENMON + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_NGOAINGU != item.HV_NGOAINGU)
+            {
+                title = "Ngoại ngữ: ";
+                giatri_cu += title + _hoiVien_cu.HV_NGOAINGU + Environment.NewLine;
+                giatri_moi += title + item.HV_NGOAINGU + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_NGHE_NGHIEP != item.HV_NGHE_NGHIEP)
+            {
+                title = "Nghề nghiệp: ";
+                giatri_cu += title + _hoiVien_cu.HV_NGHE_NGHIEP + Environment.NewLine;
+                giatri_moi += title + item.HV_NGHE_NGHIEP + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_CMND != item.HV_CMND)
+            {
+                title = "CMND: ";
+                giatri_cu += title + _hoiVien_cu.HV_CMND + Environment.NewLine;
+                giatri_moi += title + item.HV_CMND + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_CHUCVU != item.HV_CHUCVU)
+            {
+                title = "Chức vụ trong hội: ";
+                giatri_cu += title + _hoiVien_cu.HV_CHUCVU + Environment.NewLine;
+                giatri_moi += title + item.HV_CHUCVU + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_KHUYETTAT_NAM != item.HV_KHUYETTAT_NAM)
+            {
+                title = "Khuyết tật năm: ";
+                giatri_cu += title + _hoiVien_cu.HV_KHUYETTAT_NAM + Environment.NewLine;
+                giatri_moi += title + item.HV_KHUYETTAT_NAM + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_VAOHOI_NGAY != item.HV_VAOHOI_NGAY)
+            {
+                title = "Ngày vào hội: ";
+                giatri_cu += title + _hoiVien_cu.HV_VAOHOI_NGAY + Environment.NewLine;
+                giatri_moi += title + item.HV_VAOHOI_NGAY + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_THUONGTRU_DIACHI != item.HV_THUONGTRU_DIACHI)
+            {
+                title = "Địa chỉ thường trú: ";
+                giatri_cu += title + _hoiVien_cu.HV_THUONGTRU_DIACHI + Environment.NewLine;
+                giatri_moi += title + item.HV_THUONGTRU_DIACHI + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_TAMTRU_DIACHI != item.HV_TAMTRU_DIACHI)
+            {
+                title = "Tạm trú địa chỉ: ";
+                giatri_cu += title + _hoiVien_cu.HV_TAMTRU_DIACHI + Environment.NewLine;
+                giatri_moi += title + item.HV_TAMTRU_DIACHI + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_DIENTHOAI != item.HV_DIENTHOAI)
+            {
+                title = "Điện thoại: ";
+                giatri_cu += title + _hoiVien_cu.HV_DIENTHOAI + Environment.NewLine;
+                giatri_moi += title + item.HV_DIENTHOAI + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_EMAIL != item.HV_EMAIL)
+            {
+                title = "Email/Facebook: ";
+                giatri_cu += title + _hoiVien_cu.HV_EMAIL + Environment.NewLine;
+                giatri_moi += title + item.HV_EMAIL + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_KT_TINHTRANG != item.HV_KT_TINHTRANG)
+            {
+                title = "Dạng tật: ";
+                giatri_cu += title + _hoiVien_cu.HV_KT_TINHTRANG + Environment.NewLine;
+                giatri_moi += title + item.HV_KT_TINHTRANG + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_KT_MUCDO != item.HV_KT_MUCDO)
+            {
+                title = "Khuyết tật mức độ: ";
+                giatri_cu += title + _hoiVien_cu.HV_KT_MUCDO + Environment.NewLine;
+                giatri_moi += title + item.HV_KT_MUCDO + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_KT_TINHTRANG_CHITIET != item.HV_KT_TINHTRANG_CHITIET)
+            {
+                title = "Ghi rõ tình trạng: ";
+                giatri_cu += title + _hoiVien_cu.HV_KT_TINHTRANG_CHITIET + Environment.NewLine;
+                giatri_moi += title + item.HV_KT_TINHTRANG_CHITIET + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_PHUONGTIEN_DILAI != item.HV_PHUONGTIEN_DILAI)
+            {
+                title = "Phương tiện đi lại: ";
+                giatri_cu += title + _hoiVien_cu.HV_PHUONGTIEN_DILAI + Environment.NewLine;
+                giatri_moi += title + item.HV_PHUONGTIEN_DILAI + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_TINHTRANG_SUCKHOE != item.HV_TINHTRANG_SUCKHOE)
+            {
+                title = "Tình trạng sức khỏe: ";
+                giatri_cu += title + _hoiVien_cu.HV_TINHTRANG_SUCKHOE + Environment.NewLine;
+                giatri_moi += title + item.HV_TINHTRANG_SUCKHOE + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_KT_NGUYENNHAN != item.HV_KT_NGUYENNHAN)
+            {
+                title = "Khuyết tật do: ";
+                giatri_cu += title + _hoiVien_cu.HV_KT_NGUYENNHAN + Environment.NewLine;
+                giatri_moi += title + item.HV_KT_NGUYENNHAN + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_KT_NGUYENNHAN_CHITIET != item.HV_KT_NGUYENNHAN_CHITIET)
+            {
+                title = "Mô tả chi tiết do: ";
+                giatri_cu += title + _hoiVien_cu.HV_KT_NGUYENNHAN_CHITIET + Environment.NewLine;
+                giatri_moi += title + item.HV_KT_NGUYENNHAN_CHITIET + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_TINHTRANG_HONNHAN != item.HV_TINHTRANG_HONNHAN)
+            {
+                title = "Tình trạng hôn nhân: ";
+                giatri_cu += title + _hoiVien_cu.HV_TINHTRANG_HONNHAN + Environment.NewLine;
+                giatri_moi += title + item.HV_TINHTRANG_HONNHAN + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_VOCHONG != item.HV_VOCHONG)
+            {
+                title = "Tên vợ/chồng: ";
+                giatri_cu += title + _hoiVien_cu.HV_VOCHONG + Environment.NewLine;
+                giatri_moi += title + item.HV_VOCHONG + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_SOCON != item.HV_SOCON)
+            {
+                title = "Số con: ";
+                giatri_cu += title + _hoiVien_cu.HV_SOCON + Environment.NewLine;
+                giatri_moi += title + item.HV_SOCON + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_DUNGCU_HOTRO != item.HV_DUNGCU_HOTRO)
+            {
+                title = "Dụng cụ hỗ trợ: ";
+                giatri_cu += title + _hoiVien_cu.HV_DUNGCU_HOTRO + Environment.NewLine;
+                giatri_moi += title + item.HV_DUNGCU_HOTRO + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_DCHT_THOIDIEM_NHAN != item.HV_DCHT_THOIDIEM_NHAN)
+            {
+                title = "Dụng cụ hỗ trợ thời điểm nhận: ";
+                giatri_cu += title + (_hoiVien_cu.HV_DCHT_THOIDIEM_NHAN.HasValue ? _hoiVien_cu.HV_DCHT_THOIDIEM_NHAN.Value.ToString("dd/MM/yyyy") : "") + Environment.NewLine;
+                giatri_moi += title + (item.HV_DCHT_THOIDIEM_NHAN.HasValue ? item.HV_DCHT_THOIDIEM_NHAN.Value.ToString("dd/MM/yyyy") : "") + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_DCHT_TU_TOCHUC != item.HV_DCHT_TU_TOCHUC)
+            {
+                title = "Dụng cụ hỗ trợ từ tổ chức: ";
+                giatri_cu += title + _hoiVien_cu.HV_DCHT_TU_TOCHUC + Environment.NewLine;
+                giatri_moi += title + item.HV_DCHT_TU_TOCHUC + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_DCHT_TINHTRANG != item.HV_DCHT_TINHTRANG)
+            {
+                title = "Dụng cụ hỗ trợ tình trạng hiện tại: ";
+                giatri_cu += title + _hoiVien_cu.HV_DCHT_TINHTRANG + Environment.NewLine;
+                giatri_moi += title + item.HV_DCHT_TINHTRANG + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_BTXH_HANGTHANG != item.HV_BTXH_HANGTHANG)
+            {
+                title = "Nhận BTXH: ";
+                giatri_cu += title + _hoiVien_cu.HV_BTXH_HANGTHANG + Environment.NewLine;
+                giatri_moi += title + item.HV_BTXH_HANGTHANG + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_BTXH_TIEN_HANGTHANG != item.HV_BTXH_TIEN_HANGTHANG)
+            {
+                title = "Số tiền BTXH: ";
+                giatri_cu += title + _hoiVien_cu.HV_BTXH_TIEN_HANGTHANG + Environment.NewLine;
+                giatri_moi += title + item.HV_BTXH_TIEN_HANGTHANG + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_BTXH_KHAC != item.HV_BTXH_KHAC)
+            {
+                title = "BTXH khác: ";
+                giatri_cu += title + _hoiVien_cu.HV_BTXH_KHAC + Environment.NewLine;
+                giatri_moi += title + item.HV_BTXH_KHAC + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_BHYT_MIENPHI != item.HV_BHYT_MIENPHI)
+            {
+                title = "Nhận BHYT miễn phí: ";
+                giatri_cu += title + _hoiVien_cu.HV_BHYT_MIENPHI + Environment.NewLine;
+                giatri_moi += title + item.HV_BHYT_MIENPHI + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_QUYETDINH_CONGNHAN_KT != item.HV_QUYETDINH_CONGNHAN_KT)
+            {
+                title = "Quyết định công nhận mức độ KT: ";
+                giatri_cu += title + _hoiVien_cu.HV_QUYETDINH_CONGNHAN_KT + Environment.NewLine;
+                giatri_moi += title + item.HV_QUYETDINH_CONGNHAN_KT + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_GIAY_CHUNGNHAN_KT != item.HV_GIAY_CHUNGNHAN_KT)
+            {
+                title = "Nhận giấy chứng nhận: ";
+                giatri_cu += title + _hoiVien_cu.HV_GIAY_CHUNGNHAN_KT + Environment.NewLine;
+                giatri_moi += title + item.HV_GIAY_CHUNGNHAN_KT + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_GIADINH_CHINHSACH != item.HV_GIADINH_CHINHSACH)
+            {
+                title = "Gia đình thuộc diện chính sách: ";
+                giatri_cu += title + _hoiVien_cu.HV_GIADINH_CHINHSACH + Environment.NewLine;
+                giatri_moi += title + item.HV_GIADINH_CHINHSACH + Environment.NewLine;
+            }
+
+            if (_hoiVien_cu.HV_NOI_SINH_SONG != item.HV_NOI_SINH_SONG)
+            {
+                title = "Nơi sinh sống: ";
+                giatri_cu += title + _hoiVien_cu.HV_NOI_SINH_SONG + Environment.NewLine;
+                giatri_moi += title + item.HV_NOI_SINH_SONG + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_DIEUKIEN_SONG_KHAC != item.HV_DIEUKIEN_SONG_KHAC)
+            {
+                title = "Điều kiện sống xung quanh: ";
+                giatri_cu += title + _hoiVien_cu.HV_DIEUKIEN_SONG_KHAC + Environment.NewLine;
+                giatri_moi += title + item.HV_DIEUKIEN_SONG_KHAC + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_NHA != item.HV_NHA)
+            {
+                title = "Nhà: ";
+                giatri_cu += title + _hoiVien_cu.HV_NHA + Environment.NewLine;
+                giatri_moi += title + item.HV_NHA + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_SONG_VOI != item.HV_SONG_VOI)
+            {
+                title = "NKT sống với: ";
+                giatri_cu += title + _hoiVien_cu.HV_SONG_VOI + Environment.NewLine;
+                giatri_moi += title + item.HV_SONG_VOI + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_SONG_VOI_CHITIET != item.HV_SONG_VOI_CHITIET)
+            {
+                title = "NKT sống với (ghi chú): ";
+                giatri_cu += title + _hoiVien_cu.HV_SONG_VOI_CHITIET + Environment.NewLine;
+                giatri_moi += title + item.HV_SONG_VOI_CHITIET + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_CHAMSOC_BANTHAN != item.HV_CHAMSOC_BANTHAN)
+            {
+                title = "Chăm sóc bản thân: ";
+                giatri_cu += title + _hoiVien_cu.HV_CHAMSOC_BANTHAN + Environment.NewLine;
+                giatri_moi += title + item.HV_CHAMSOC_BANTHAN + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_HOTRO_BOI_NGUOIKHAC != item.HV_HOTRO_BOI_NGUOIKHAC)
+            {
+                title = "Chăm sóc bản thân(Ghi chú): ";
+                giatri_cu += title + _hoiVien_cu.HV_HOTRO_BOI_NGUOIKHAC + Environment.NewLine;
+                giatri_moi += title + item.HV_HOTRO_BOI_NGUOIKHAC + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_VIECLAM != item.HV_VIECLAM)
+            {
+                title = "Công việc đang làm: ";
+                giatri_cu += title + _hoiVien_cu.HV_VIECLAM + Environment.NewLine;
+                giatri_moi += title + item.HV_VIECLAM + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_VIECLAM_THUNHAP != item.HV_VIECLAM_THUNHAP)
+            {
+                title = "Thu nhập từ việc làm: ";
+                giatri_cu += title + _hoiVien_cu.HV_VIECLAM_THUNHAP + Environment.NewLine;
+                giatri_moi += title + item.HV_VIECLAM_THUNHAP + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_NHUCAU != item.HV_NHUCAU)
+            {
+                title = "Nhu cầu: ";
+                giatri_cu += title + _hoiVien_cu.HV_NHUCAU + Environment.NewLine;
+                giatri_moi += title + item.HV_NHUCAU + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_PHONGTRAO_THETHAO != item.HV_PHONGTRAO_THETHAO)
+            {
+                title = "Thể thao: ";
+                giatri_cu += title + _hoiVien_cu.HV_PHONGTRAO_THETHAO + Environment.NewLine;
+                giatri_moi += title + item.HV_PHONGTRAO_THETHAO + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_PHONGTRAO_MONGMUON != item.HV_PHONGTRAO_MONGMUON)
+            {
+                title = "Phong trào thể thao: ";
+                giatri_cu += title + _hoiVien_cu.HV_PHONGTRAO_MONGMUON + Environment.NewLine;
+                giatri_moi += title + item.HV_PHONGTRAO_MONGMUON + Environment.NewLine;
+            }
+            if (_hoiVien_cu.HV_NGUYENVONG != item.HV_NGUYENVONG)
+            {
+                title = "Nguyện vọng: ";
+                giatri_cu += title + _hoiVien_cu.HV_NGUYENVONG + Environment.NewLine;
+                giatri_moi += title + item.HV_NGUYENVONG + Environment.NewLine;
+            }
+            nhatKy.NK_GIATRI_MOI = giatri_moi;
+            nhatKy.NK_GIATRI_CU = giatri_cu;
+            nhatKy.NK_THAOTAC = "Sửa";
+        }
+
+        private void _writeLog(QL_HOIVIEN_KTEntities _context, QL_HOIVIEN item, EnumFormStatus actionStatus)
+        {
+            QL_NHATKY nhatKy = new QL_NHATKY();
+            switch (actionStatus)
+            {
+                case EnumFormStatus.ADD:
+                    break;
+                case EnumFormStatus.MODIFY:
+                    _compareLog(ref nhatKy, item);
+                    break;
+                case EnumFormStatus.DELETE:
+                    break;
+                default:
+                    break;
+            }
+
+            nhatKy.NK_BANG = "QL_HOIVIEN";
+            nhatKy.NK_NGAY = DateTime.Now;
+            nhatKy.NK_USERNAME = clsParameter._username;
+            _context.QL_NHATKY.Add(nhatKy);
+        }
+
         protected override bool SaveData()
         {
             if (_validateControl())
@@ -990,6 +1340,7 @@ namespace DauThau.UserControlCategory
                             _updateCon(_context, item);
                             _updateImage(_context, item);
                             _updateThanhVienHoi(_context, item);
+                            _writeLog(_context, item, _formStatus);
 
                             break;
 
@@ -1007,6 +1358,7 @@ namespace DauThau.UserControlCategory
                             _updateCon(_context, item);
                             _updateImage(_context, item);
                             _updateThanhVienHoi(_context, item);
+                            _writeLog(_context, item, _formStatus);
 
                             break;
                         default:
@@ -1441,7 +1793,6 @@ namespace DauThau.UserControlCategory
 
 
         #endregion
-
 
         private void number_EditValueChanged(object sender, EventArgs e)
         {

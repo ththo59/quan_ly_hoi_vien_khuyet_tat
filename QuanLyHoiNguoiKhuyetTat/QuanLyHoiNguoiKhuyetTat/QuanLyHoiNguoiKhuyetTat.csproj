@@ -159,6 +159,7 @@
     <Compile Include="Class\clsChangeType.cs" />
     <Compile Include="Class\clsConnection.cs" />
     <Compile Include="Class\clsConstant.cs" />
+    <Compile Include="Class\clsMail.cs" />
     <Compile Include="Class\clsEncryption.cs" />
     <Compile Include="Class\clsEnum.cs" />
     <Compile Include="Class\clsExtensionCustom.cs" />
@@ -600,6 +601,9 @@
     <Compile Include="Models\QL_HOIVIEN_THANHVIENHOI.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_NHATKY.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_USERS.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
@@ -1039,6 +1043,12 @@
     </Compile>
     <Compile Include="UserControlCategory\ucBase.Designer.cs">
       <DependentUpon>ucBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCategory\ucNhatKy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucNhatKy.Designer.cs">
+      <DependentUpon>ucNhatKy.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlCategory\ucDMTapHuan_LoaiHoatDong.cs">
       <SubType>UserControl</SubType>
@@ -1959,6 +1969,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucBase.resx">
       <DependentUpon>ucBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucNhatKy.resx">
+      <DependentUpon>ucNhatKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucDMTapHuan_LoaiHoatDong.resx">
       <DependentUpon>ucDMTapHuan_LoaiHoatDong.cs</DependentUpon>
