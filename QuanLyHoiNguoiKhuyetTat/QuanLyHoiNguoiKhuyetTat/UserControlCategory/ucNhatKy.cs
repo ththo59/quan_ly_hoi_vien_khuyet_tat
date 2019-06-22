@@ -106,8 +106,12 @@ namespace DauThau.UserControlCategory
             }
         }
 
+
         #endregion
 
-
+        private void btnControl_btnEventView_Click(object sender, EventArgs e)
+        {
+            FormStatus = EnumFormStatus.VIEW;
+        }
     }
 }

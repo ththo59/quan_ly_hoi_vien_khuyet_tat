@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression3 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            this.colNK_THAOTAC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNK_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNK_BANG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNK_THAOTAC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNK_USERNAME = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNK_NGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNK_GIATRI_CU = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,6 +73,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtNgay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtNgay.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colNK_THAOTAC
+            // 
+            this.colNK_THAOTAC.Caption = "Thao tác";
+            this.colNK_THAOTAC.FieldName = "NK_THAOTAC";
+            this.colNK_THAOTAC.Name = "colNK_THAOTAC";
+            this.colNK_THAOTAC.Visible = true;
+            this.colNK_THAOTAC.VisibleIndex = 3;
+            this.colNK_THAOTAC.Width = 70;
             // 
             // gcGrid
             // 
@@ -105,6 +120,32 @@
             this.colNK_NGAY,
             this.colNK_GIATRI_CU,
             this.colNK_GIATRI_MOI});
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colNK_THAOTAC;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleExpression1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            formatConditionRuleExpression1.Appearance.ForeColor = System.Drawing.Color.Red;
+            formatConditionRuleExpression1.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression1.Appearance.Options.UseForeColor = true;
+            formatConditionRuleExpression1.Expression = "[NK_THAOTAC] == \'Xóa\'";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            gridFormatRule2.ApplyToRow = true;
+            gridFormatRule2.Column = this.colNK_THAOTAC;
+            gridFormatRule2.Name = "Format1";
+            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression2.Expression = "[NK_THAOTAC] == \'Thêm\'";
+            gridFormatRule2.Rule = formatConditionRuleExpression2;
+            gridFormatRule3.ApplyToRow = true;
+            gridFormatRule3.Column = this.colNK_THAOTAC;
+            gridFormatRule3.Name = "Format2";
+            formatConditionRuleExpression3.Appearance.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            formatConditionRuleExpression3.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression3.Expression = "[NK_THAOTAC] == \'Sửa\'";
+            gridFormatRule3.Rule = formatConditionRuleExpression3;
+            this.gvGrid.FormatRules.Add(gridFormatRule1);
+            this.gvGrid.FormatRules.Add(gridFormatRule2);
+            this.gvGrid.FormatRules.Add(gridFormatRule3);
             this.gvGrid.GridControl = this.gcGrid;
             this.gvGrid.Name = "gvGrid";
             this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
@@ -126,16 +167,7 @@
             this.colNK_BANG.Name = "colNK_BANG";
             this.colNK_BANG.Visible = true;
             this.colNK_BANG.VisibleIndex = 0;
-            this.colNK_BANG.Width = 167;
-            // 
-            // colNK_THAOTAC
-            // 
-            this.colNK_THAOTAC.Caption = "Thao tác";
-            this.colNK_THAOTAC.FieldName = "NK_THAOTAC";
-            this.colNK_THAOTAC.Name = "colNK_THAOTAC";
-            this.colNK_THAOTAC.Visible = true;
-            this.colNK_THAOTAC.VisibleIndex = 4;
-            this.colNK_THAOTAC.Width = 100;
+            this.colNK_BANG.Width = 85;
             // 
             // colNK_USERNAME
             // 
@@ -143,8 +175,8 @@
             this.colNK_USERNAME.FieldName = "NK_USERNAME";
             this.colNK_USERNAME.Name = "colNK_USERNAME";
             this.colNK_USERNAME.Visible = true;
-            this.colNK_USERNAME.VisibleIndex = 5;
-            this.colNK_USERNAME.Width = 105;
+            this.colNK_USERNAME.VisibleIndex = 2;
+            this.colNK_USERNAME.Width = 87;
             // 
             // colNK_NGAY
             // 
@@ -155,7 +187,7 @@
             this.colNK_NGAY.Name = "colNK_NGAY";
             this.colNK_NGAY.Visible = true;
             this.colNK_NGAY.VisibleIndex = 1;
-            this.colNK_NGAY.Width = 105;
+            this.colNK_NGAY.Width = 80;
             // 
             // colNK_GIATRI_CU
             // 
@@ -163,9 +195,10 @@
             this.colNK_GIATRI_CU.ColumnEdit = this.repMemo;
             this.colNK_GIATRI_CU.FieldName = "NK_GIATRI_CU";
             this.colNK_GIATRI_CU.Name = "colNK_GIATRI_CU";
+            this.colNK_GIATRI_CU.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colNK_GIATRI_CU.Visible = true;
-            this.colNK_GIATRI_CU.VisibleIndex = 2;
-            this.colNK_GIATRI_CU.Width = 105;
+            this.colNK_GIATRI_CU.VisibleIndex = 4;
+            this.colNK_GIATRI_CU.Width = 186;
             // 
             // repMemo
             // 
@@ -177,9 +210,10 @@
             this.colNK_GIATRI_MOI.ColumnEdit = this.repMemo;
             this.colNK_GIATRI_MOI.FieldName = "NK_GIATRI_MOI";
             this.colNK_GIATRI_MOI.Name = "colNK_GIATRI_MOI";
+            this.colNK_GIATRI_MOI.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colNK_GIATRI_MOI.Visible = true;
-            this.colNK_GIATRI_MOI.VisibleIndex = 3;
-            this.colNK_GIATRI_MOI.Width = 113;
+            this.colNK_GIATRI_MOI.VisibleIndex = 5;
+            this.colNK_GIATRI_MOI.Width = 206;
             // 
             // seSTT
             // 
@@ -238,6 +272,7 @@
             this.btnControl.Size = new System.Drawing.Size(177, 60);
             this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
             this.btnControl.TabIndex = 0;
+            this.btnControl.btnEventView_Click += new System.EventHandler(this.btnControl_btnEventView_Click);
             // 
             // panelControl1
             // 

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression4 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression3 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             this.colTV_HV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCON_HV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHP_HV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -731,14 +731,14 @@
             // 
             // gcThanhVienHoi
             // 
-            this.gcThanhVienHoi.Location = new System.Drawing.Point(5, 220);
+            this.gcThanhVienHoi.Location = new System.Drawing.Point(5, 326);
             this.gcThanhVienHoi.MainView = this.gvThanhVienHoi;
             this.gcThanhVienHoi.Name = "gcThanhVienHoi";
             this.gcThanhVienHoi.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEdit1,
             this.repTV_ButtonDelete,
             this.repThanhVienHoi});
-            this.gcThanhVienHoi.Size = new System.Drawing.Size(884, 217);
+            this.gcThanhVienHoi.Size = new System.Drawing.Size(884, 151);
             this.gcThanhVienHoi.TabIndex = 4;
             this.gcThanhVienHoi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvThanhVienHoi});
@@ -757,16 +757,16 @@
             this.colTV_NGAY,
             this.gridColumn4,
             this.colTV_HV_ID});
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Column = this.colTV_HV_ID;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.Silver;
-            formatConditionRuleExpression1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
-            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression1.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression1.Expression = "[HV_ID] == -1";
-            gridFormatRule1.Rule = formatConditionRuleExpression1;
-            this.gvThanhVienHoi.FormatRules.Add(gridFormatRule1);
+            gridFormatRule4.ApplyToRow = true;
+            gridFormatRule4.Column = this.colTV_HV_ID;
+            gridFormatRule4.Name = "Format0";
+            formatConditionRuleExpression4.Appearance.BackColor = System.Drawing.Color.Silver;
+            formatConditionRuleExpression4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
+            formatConditionRuleExpression4.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression4.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression4.Expression = "[HV_ID] == -1";
+            gridFormatRule4.Rule = formatConditionRuleExpression4;
+            this.gvThanhVienHoi.FormatRules.Add(gridFormatRule4);
             this.gvThanhVienHoi.GridControl = this.gcThanhVienHoi;
             this.gvThanhVienHoi.Name = "gvThanhVienHoi";
             this.gvThanhVienHoi.OptionsView.ShowGroupPanel = false;
@@ -843,7 +843,7 @@
             // 
             this.repTV_ButtonDelete.AutoHeight = false;
             this.repTV_ButtonDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.repTV_ButtonDelete.Name = "repTV_ButtonDelete";
             this.repTV_ButtonDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTV_ButtonDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repTV_ButtonDelete_ButtonClick);
@@ -855,7 +855,7 @@
             this.chkListNhuCau.Location = new System.Drawing.Point(5, 117);
             this.chkListNhuCau.MultiColumn = true;
             this.chkListNhuCau.Name = "chkListNhuCau";
-            this.chkListNhuCau.Size = new System.Drawing.Size(884, 71);
+            this.chkListNhuCau.Size = new System.Drawing.Size(884, 177);
             this.chkListNhuCau.StyleController = this.layViecLam;
             this.chkListNhuCau.TabIndex = 6;
             // 
@@ -903,7 +903,7 @@
             // 
             // txtNguyenVong
             // 
-            this.txtNguyenVong.Location = new System.Drawing.Point(377, 499);
+            this.txtNguyenVong.Location = new System.Drawing.Point(377, 539);
             this.txtNguyenVong.Name = "txtNguyenVong";
             this.txtNguyenVong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNguyenVong.Properties.Appearance.Options.UseFont = true;
@@ -913,7 +913,7 @@
             // 
             // txtPhongTraoMongMuon
             // 
-            this.txtPhongTraoMongMuon.Location = new System.Drawing.Point(666, 469);
+            this.txtPhongTraoMongMuon.Location = new System.Drawing.Point(666, 509);
             this.txtPhongTraoMongMuon.Name = "txtPhongTraoMongMuon";
             this.txtPhongTraoMongMuon.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPhongTraoMongMuon.Properties.Appearance.Options.UseFont = true;
@@ -923,7 +923,7 @@
             // 
             // txtPhongTraoTheThao
             // 
-            this.txtPhongTraoTheThao.Location = new System.Drawing.Point(65, 469);
+            this.txtPhongTraoTheThao.Location = new System.Drawing.Point(65, 509);
             this.txtPhongTraoTheThao.Name = "txtPhongTraoTheThao";
             this.txtPhongTraoTheThao.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPhongTraoTheThao.Properties.Appearance.Options.UseFont = true;
@@ -960,7 +960,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 88);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(894, 105);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(894, 211);
             this.layoutControlGroup1.Text = "Nhu cầu";
             // 
             // layoutControlItem12
@@ -969,7 +969,7 @@
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
             this.layoutControlItem12.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(888, 75);
+            this.layoutControlItem12.Size = new System.Drawing.Size(888, 181);
             this.layoutControlItem12.Text = "layoutControlItem12";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -981,10 +981,10 @@
             this.layoutControlGroup4.CustomizationFormText = "layoutControlGroup4";
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem17});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 193);
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 299);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(894, 249);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(894, 183);
             this.layoutControlGroup4.Text = "Thành viên hội";
             // 
             // layoutControlItem17
@@ -993,7 +993,7 @@
             this.layoutControlItem17.CustomizationFormText = "layoutControlItem17";
             this.layoutControlItem17.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(888, 221);
+            this.layoutControlItem17.Size = new System.Drawing.Size(888, 155);
             this.layoutControlItem17.Text = "layoutControlItem17";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
@@ -1056,10 +1056,10 @@
             this.layoutControlItem57,
             this.emptySpaceItem7,
             this.layoutControlItem56});
-            this.layoutControlGroup13.Location = new System.Drawing.Point(0, 442);
+            this.layoutControlGroup13.Location = new System.Drawing.Point(0, 482);
             this.layoutControlGroup13.Name = "layoutControlGroup13";
             this.layoutControlGroup13.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup13.Size = new System.Drawing.Size(894, 138);
+            this.layoutControlGroup13.Size = new System.Drawing.Size(894, 98);
             this.layoutControlGroup13.Text = "Hoạt động";
             // 
             // layoutControlItem54
@@ -1092,7 +1092,7 @@
             this.emptySpaceItem7.CustomizationFormText = "emptySpaceItem7";
             this.emptySpaceItem7.Location = new System.Drawing.Point(0, 60);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(888, 50);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(888, 10);
             this.emptySpaceItem7.Text = "emptySpaceItem7";
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -2577,16 +2577,16 @@
             this.colCON_NGAYSINH,
             this.colCON_GHICHU,
             this.colCON_DELETE});
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colCON_HV_ID;
-            gridFormatRule2.Name = "Format0";
-            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            formatConditionRuleExpression2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
-            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression2.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression2.Expression = "[HV_ID] == -1";
-            gridFormatRule2.Rule = formatConditionRuleExpression2;
-            this.gvCon.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colCON_HV_ID;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            formatConditionRuleExpression1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
+            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression1.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression1.Expression = "[HV_ID] == -1";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.gvCon.FormatRules.Add(gridFormatRule1);
             this.gvCon.GridControl = this.gcCon;
             this.gvCon.Name = "gvCon";
             this.gvCon.OptionsView.ShowGroupPanel = false;
@@ -2666,7 +2666,7 @@
             // 
             this.repCON_Button.AutoHeight = false;
             this.repCON_Button.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.repCON_Button.Name = "repCON_Button";
             this.repCON_Button.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repCON_Button.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repCON_Button_ButtonClick);
@@ -3172,10 +3172,10 @@
             // seTienBTXHHangThang
             // 
             this.seTienBTXHHangThang.EditValue = new decimal(new int[] {
-            1,
             0,
             0,
-            -2147483648});
+            0,
+            0});
             this.seTienBTXHHangThang.Location = new System.Drawing.Point(581, 117);
             this.seTienBTXHHangThang.Name = "seTienBTXHHangThang";
             this.seTienBTXHHangThang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -3595,6 +3595,8 @@
             this.lueNoiSinhSong.Properties.Appearance.Options.UseFont = true;
             this.lueNoiSinhSong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueNoiSinhSong.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NSS_TEN", "Nơi sinh sống")});
             this.lueNoiSinhSong.Properties.DisplayMember = "NSS_TEN";
             this.lueNoiSinhSong.Properties.NullText = "";
             this.lueNoiSinhSong.Properties.ValueMember = "NSS_TEN";
@@ -3792,16 +3794,16 @@
             this.colHP_PHI,
             this.colHP_DELETE,
             this.colHP_HV_ID});
-            gridFormatRule3.ApplyToRow = true;
-            gridFormatRule3.Column = this.colHP_HV_ID;
-            gridFormatRule3.Name = "Format0";
-            formatConditionRuleExpression3.Appearance.BackColor = System.Drawing.Color.Silver;
-            formatConditionRuleExpression3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
-            formatConditionRuleExpression3.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression3.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression3.Expression = "[HV_ID] == -1";
-            gridFormatRule3.Rule = formatConditionRuleExpression3;
-            this.gvHoiPhi.FormatRules.Add(gridFormatRule3);
+            gridFormatRule2.ApplyToRow = true;
+            gridFormatRule2.Column = this.colHP_HV_ID;
+            gridFormatRule2.Name = "Format0";
+            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.Silver;
+            formatConditionRuleExpression2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
+            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression2.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression2.Expression = "[HV_ID] == -1";
+            gridFormatRule2.Rule = formatConditionRuleExpression2;
+            this.gvHoiPhi.FormatRules.Add(gridFormatRule2);
             this.gvHoiPhi.GridControl = this.gcHoiPhi;
             this.gvHoiPhi.Name = "gvHoiPhi";
             this.gvHoiPhi.OptionsView.ShowGroupPanel = false;
@@ -3878,7 +3880,7 @@
             // 
             this.repButtonDelete.AutoHeight = false;
             this.repButtonDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.repButtonDelete.Name = "repButtonDelete";
             this.repButtonDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repButtonDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repButtonDelete_ButtonClick);

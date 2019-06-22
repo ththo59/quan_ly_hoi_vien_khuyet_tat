@@ -103,16 +103,27 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_BTXH_HANG_THANG, lueBTXH_HangThang);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NOI_SINH_SONG, lueNoiSinhSong);
 
+            string strNha = chkListNha.Ex_GetEditValueToString();
             chkListNha.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_NHA.Ex_ToString());
+            chkListNha.Ex_SetEditValueToString(strNha);
+
+            string strSongVoi = chkListSongVoi.Ex_GetEditValueToString();
             chkListSongVoi.Ex_SetDataSource(CategoryEntitiesTable.DM_NOI_O_SONG_VOI.Ex_ToString());
+            chkListSongVoi.Ex_SetEditValueToString(strSongVoi);
+
+            string strChamSocBanThan = chkListChamSocBanThan.Ex_GetEditValueToString();
             chkListChamSocBanThan.Ex_SetDataSource(CategoryEntitiesTable.DM_CHAMSOC_BANTHAN.Ex_ToString());
+            chkListChamSocBanThan.Ex_SetEditValueToString(strChamSocBanThan);
 
             string tinhTrangKT_Value = checkTinhTrangKT.EditValue + string.Empty;
             checkTinhTrangKT.Ex_SetDataSource(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG.Ex_ToString());
             checkTinhTrangKT.EditValue = tinhTrangKT_Value;
             checkTinhTrangKT.RefreshEditValue();
 
+            string strNhuCau = chkListNhuCau.Ex_GetEditValueToString();
             chkListNhuCau.Ex_SetDataSource(CategoryEntitiesTable.DM_NHUCAU.Ex_ToString());
+            chkListNhuCau.Ex_SetEditValueToString(strNhuCau);
+
             repThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
 
             _wait.Close();
@@ -306,7 +317,17 @@ namespace DauThau.UserControlCategory
                     foreach (var items in layout.Controls)
                     {
                         BaseEdit item = items as BaseEdit;
-                        if (item != null)
+                        CheckedListBoxControl checkList = items as CheckedListBoxControl;
+                        CheckedComboBoxEdit checkCombo = items as CheckedComboBoxEdit;
+                        if (checkList != null)
+                        {
+                            checkList.Ex_SetEditValueToString("");
+                        }
+                        else if (checkCombo != null) {
+                            checkCombo.Ex_SetEditValueToString("");
+                            checkCombo.RefreshEditValue();
+                        }
+                        else if (item != null)
                         {
                             item.EditValue = null;
                         }
@@ -378,11 +399,11 @@ namespace DauThau.UserControlCategory
                         {
                             item.Refresh();
                         }
-                        
+                        //Nếu là checkbox thì không cần kiểm tra
                         if(check != null && check.Checked == false && !ignoreItem.Contains(check.Name))
                         {
-                            dxErrorProvider.SetError(check, "Vui lòng nhập thông tin");
-                            is_error = true;
+                            //dxErrorProvider.SetError(check, "Vui lòng nhập thông tin");
+                            //is_error = true;
                         }else if (item != null &&  item.EditValue == null && !ignoreItem.Contains(item.Name))
                         {
                             dxErrorProvider.SetError(item, "Vui lòng nhập thông tin");
@@ -766,6 +787,8 @@ namespace DauThau.UserControlCategory
 
                     QL_HOIVIEN entities = (from p in context.QL_HOIVIEN where p.HV_ID == HV_ID select p).FirstOrDefault();
                     context.QL_HOIVIEN.Remove(entities);
+                    _writeLog(context, item, EnumFormStatus.DELETE);
+
                     context.SaveChanges();
                     FormStatus = EnumFormStatus.VIEW;
                 }
@@ -1294,17 +1317,25 @@ namespace DauThau.UserControlCategory
             switch (actionStatus)
             {
                 case EnumFormStatus.ADD:
+                    string giatri_moi = "Họ tên: " + item.HV_HO + " " + item.HV_TEN + Environment.NewLine;
+                    giatri_moi += "Địa chỉ thường trú: " + item.HV_THUONGTRU_DIACHI;
+                    nhatKy.NK_GIATRI_MOI = giatri_moi;
+                    nhatKy.NK_THAOTAC = "Thêm";
                     break;
                 case EnumFormStatus.MODIFY:
                     _compareLog(ref nhatKy, item);
                     break;
                 case EnumFormStatus.DELETE:
+                    string giatri_cu = "Họ tên: " + item.HV_HO + " " + item.HV_TEN + Environment.NewLine;
+                    giatri_cu += "Địa chỉ thường trú: " + item.HV_THUONGTRU_DIACHI;
+                    nhatKy.NK_GIATRI_CU = giatri_cu;
+                    nhatKy.NK_THAOTAC = "Xóa";
                     break;
                 default:
                     break;
             }
 
-            nhatKy.NK_BANG = "QL_HOIVIEN";
+            nhatKy.NK_BANG = "Hội viên";
             nhatKy.NK_NGAY = DateTime.Now;
             nhatKy.NK_USERNAME = clsParameter._username;
             _context.QL_NHATKY.Add(nhatKy);

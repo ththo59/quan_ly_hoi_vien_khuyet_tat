@@ -191,6 +191,7 @@ namespace DauThau.Class
 
         public static void Ex_SetDataSource(this CheckedListBoxControl chkList, string table)
         {
+            chkList.Items.Clear();
             using (var context = new Models.QL_HOIVIEN_KTEntities())
             {
                 CategoryEntitiesTable tableEnum = table.Ex_ToEnum<CategoryEntitiesTable>();
