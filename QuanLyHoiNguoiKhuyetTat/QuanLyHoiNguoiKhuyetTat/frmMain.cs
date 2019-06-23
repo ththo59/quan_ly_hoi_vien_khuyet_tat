@@ -17,6 +17,9 @@ using DauThau.UserControlCategoryMain;
 using DevExpress.Utils;
 using System.Linq;
 using DevExpress.XtraBars.Ribbon;
+using System.Threading.Tasks;
+using System.Threading;
+using DauThau.Models;
 
 namespace DauThau
 {
@@ -66,10 +69,60 @@ namespace DauThau
                 btnUser.Visibility = BarItemVisibility.Never;
             }
 
-            clsMail mail = new clsMail();
-            mail.sendMail();
+            //show data after 1 second
+            Task.Factory.StartNew(() => Thread.Sleep(3 * 1000))
+            .ContinueWith((t) =>
+            {
+                _callSendEmailHoiVien();
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
+        private void _callSendEmailHoiVien()
+        {
+            using (QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities())
+            {
+                WaitDialogForm _wait = new WaitDialogForm("Đang kiểm tra send mail ...", "Vui lòng đợi giây lát");
+                var query = (from p in context.QL_HOIVIEN
+                             let age = DateTime.Now.Year - p.HV_NGAY_SINH.Value.Year
+                             let monthBirth = p.HV_NGAY_SINH.Value.Month
+                             let dayBirth = p.HV_NGAY_SINH.Value.Day
+                             where (age == 16 || age == 60)
+                             && DateTime.Now.Month >= monthBirth && DateTime.Now.Day >= dayBirth
+                             && ((p.HV_SENDMAIL_16TUOI??false) == false || (p.HV_SENDMAIL_60TUOI??false) == false)
+                             select p);
+
+                string messageHtml = "";
+                foreach(var item in query)
+                {
+                    int age = DateTime.Now.Year - item.HV_NGAY_SINH.Value.Year;
+                    Boolean found = false;
+                    if(age == 16 && (item.HV_SENDMAIL_16TUOI??false) == false)
+                    {
+                        item.HV_SENDMAIL_16TUOI = true;
+                        found = true;
+                    }
+                    else if(age == 60 && (item.HV_SENDMAIL_60TUOI ?? false) == false)
+                    {
+                        item.HV_SENDMAIL_60TUOI = true;
+                        found = true;
+                    }
+                    if (found)
+                    {
+                        string hoten = item.HV_HO + " " + item.HV_TEN;
+                        messageHtml += string.Format("<p><b>{0}</b>-Ngày sinh:{1}({2} tuổi) - Địa chỉ:{3}</p>", hoten, item.HV_NGAY_SINH.Value.ToString("dd/MM/yyyy"), age.ToString(), item.HV_THUONGTRU_DIACHI);
+                    }
+                }
+
+                if(messageHtml != "")
+                {
+                    context.SaveChanges();
+                    clsMail mail = new clsMail();
+                    mail.sendMail(messageHtml);
+                }
+
+                _wait.Close();
+            }
+        }
         private void event_ItemClick(object sender, ItemClickEventArgs e)
         {
             BarButtonItem item = e.Item as BarButtonItem;
@@ -170,8 +223,6 @@ namespace DauThau
                         break;
 
                     #endregion
-
-
 
                     #region Nâng cao năng lực
 

@@ -30,7 +30,6 @@ namespace DauThau.Models
         public string HV_DAN_TOC { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
         public Nullable<int> HV_TUOI { get; set; }
-        public Nullable<System.DateTime> HV_VAOHOI_NGAY { get; set; }
         public string HV_TON_GIAO { get; set; }
         public string HV_NGHE_NGHIEP { get; set; }
         public string HV_TRINHDO_VANHOA { get; set; }
@@ -40,6 +39,7 @@ namespace DauThau.Models
         public Nullable<System.DateTime> HV_CMND_NGAY { get; set; }
         public string HV_CMND_NOICAP { get; set; }
         public Nullable<int> HV_KHUYETTAT_NAM { get; set; }
+        public Nullable<System.DateTime> HV_VAOHOI_NGAY { get; set; }
         public string HV_CHUCVU { get; set; }
         public string HV_THUONGTRU_KHUVUC { get; set; }
         public string HV_THUONGTRU_DUONG { get; set; }
@@ -104,6 +104,8 @@ namespace DauThau.Models
         public string HV_NHUCAU { get; set; }
         public string HV_THANHVIEN_HOI { get; set; }
         public string HV_GHICHU { get; set; }
+        public Nullable<bool> HV_SENDMAIL_16TUOI { get; set; }
+        public Nullable<bool> HV_SENDMAIL_60TUOI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOIVIEN_CON> QL_HOIVIEN_CON { get; set; }
