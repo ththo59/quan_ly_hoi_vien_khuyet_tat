@@ -17,7 +17,7 @@ namespace DauThau.Class
 
                 //string mailBodyhtml =
                 //"<p>some text here</p>";
-                var msg = new MailMessage("ththo59@gmail.com", "tvtua1966@gmail.com", "Danh sách hội viên đủ 16 hoặc 60 tuổi", mailBodyhtml);
+                var msg = new MailMessage("ththo59@gmail.com", "thaole.nkt.ninhkieu@gmail.com", "Danh sách hội viên đủ 16 hoặc 60 tuổi", mailBodyhtml);
                 //msg.To.Add("to2@gmail.com");
                 msg.IsBodyHtml = true;
                 var smtpClient = new SmtpClient("smtp.gmail.com", 587); //**if your from email address is "from@hotmail.com" then host should be "smtp.hotmail.com"**

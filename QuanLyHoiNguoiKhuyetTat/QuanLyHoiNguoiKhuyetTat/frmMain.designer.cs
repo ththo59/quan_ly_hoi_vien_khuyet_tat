@@ -174,6 +174,7 @@
             this.barSubItem11 = new DevExpress.XtraBars.BarSubItem();
             this.btnDonViPhuTrach = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoaiHoatDong = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -199,7 +200,6 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.dsBangChaoGia1 = new DauThau.DataSets.dsBangChaoGia();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoiThau)).BeginInit();
@@ -868,16 +868,19 @@
             // btnThongTinTacGia
             // 
             this.btnThongTinTacGia.Caption = "Thông tin tác giả";
+            this.btnThongTinTacGia.Enabled = false;
             this.btnThongTinTacGia.Id = 81;
             this.btnThongTinTacGia.LargeGlyph = global::DauThau.Properties.Resources.Company;
             this.btnThongTinTacGia.LargeWidth = 70;
             this.btnThongTinTacGia.Name = "btnThongTinTacGia";
             this.btnThongTinTacGia.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnThongTinTacGia.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btnBanQuyen
             // 
             this.btnBanQuyen.Caption = "Bản quyền sản phẩm ";
+            this.btnBanQuyen.Enabled = false;
             this.btnBanQuyen.Id = 82;
             this.btnBanQuyen.LargeGlyph = global::DauThau.Properties.Resources.capsule;
             this.btnBanQuyen.LargeWidth = 70;
@@ -936,6 +939,7 @@
             // btnKichHoat
             // 
             this.btnKichHoat.Caption = "Kích hoạt phần mềm";
+            this.btnKichHoat.Enabled = false;
             this.btnKichHoat.Glyph = global::DauThau.Properties.Resources.unlock;
             this.btnKichHoat.Id = 88;
             this.btnKichHoat.LargeWidth = 70;
@@ -948,6 +952,7 @@
             // btnCreateKey
             // 
             this.btnCreateKey.Caption = "Tạo Key";
+            this.btnCreateKey.Enabled = false;
             this.btnCreateKey.Glyph = global::DauThau.Properties.Resources.create_key;
             this.btnCreateKey.Id = 89;
             this.btnCreateKey.LargeWidth = 70;
@@ -1133,6 +1138,7 @@
             // btnConfig
             // 
             this.btnConfig.Caption = "Cấu hình";
+            this.btnConfig.Enabled = false;
             this.btnConfig.Glyph = global::DauThau.Properties.Resources.Android_Setting;
             this.btnConfig.Id = 116;
             this.btnConfig.LargeWidth = 80;
@@ -1845,6 +1851,15 @@
             this.btnLoaiHoatDong.Id = 239;
             this.btnLoaiHoatDong.Name = "btnLoaiHoatDong";
             // 
+            // btnNhatKy
+            // 
+            this.btnNhatKy.Caption = "Nhật ký chương trình";
+            this.btnNhatKy.Glyph = global::DauThau.Properties.Resources.ChecklistFile;
+            this.btnNhatKy.Id = 240;
+            this.btnNhatKy.Name = "btnNhatKy";
+            this.btnNhatKy.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
             // ribbonPage5
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1979,12 +1994,12 @@
             this.ribbonPageGroup7.ItemLinks.Add(this.btnUser);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnSkin);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnThayDoiMatKhau);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnNhatKy);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnThongTinTacGia);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnBanQuyen);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnKichHoat);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnCreateKey);
             this.ribbonPageGroup7.ItemLinks.Add(this.btnConfig);
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnNhatKy);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Quản lý";
@@ -2067,15 +2082,6 @@
             this.barButtonItem11.LargeWidth = 100;
             this.barButtonItem11.Name = "barButtonItem11";
             this.barButtonItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // btnNhatKy
-            // 
-            this.btnNhatKy.Caption = "Nhật ký chương trình";
-            this.btnNhatKy.Glyph = global::DauThau.Properties.Resources.ChecklistFile;
-            this.btnNhatKy.Id = 240;
-            this.btnNhatKy.Name = "btnNhatKy";
-            this.btnNhatKy.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // frmMain
