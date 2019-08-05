@@ -19,6 +19,7 @@ namespace DauThau.Models
         public Nullable<int> TH_CT_LOAI { get; set; }
         public string TH_CT_HO { get; set; }
         public string TH_CT_TEN { get; set; }
+        public string TH_CT_GIOITINH { get; set; }
         public string TH_CT_CHUCVU { get; set; }
         public string TH_CT_EMAIL { get; set; }
         public string TH_CT_FACEBOOK { get; set; }
@@ -41,7 +42,6 @@ namespace DauThau.Models
         public Nullable<int> TH_CT_THULAO { get; set; }
         public Nullable<int> TH_CT_CHIPHIKHAC { get; set; }
         public string TH_CT_DIENGIAI { get; set; }
-        public string TH_CT_GIOITINH { get; set; }
     
         public virtual QL_HOATDONG_TAPHUAN QL_HOATDONG_TAPHUAN { get; set; }
     }
