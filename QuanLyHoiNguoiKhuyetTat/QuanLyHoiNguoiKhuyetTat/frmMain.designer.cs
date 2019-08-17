@@ -409,7 +409,7 @@
             // 
             // btnDonGiaNhapHoi
             // 
-            this.btnDonGiaNhapHoi.Caption = "Đơn xin gia nhập hội";
+            this.btnDonGiaNhapHoi.Caption = "Đơn gia nhập hội";
             this.btnDonGiaNhapHoi.Glyph = global::DauThau.Properties.Resources.ChecklistFile;
             this.btnDonGiaNhapHoi.Id = 3;
             this.btnDonGiaNhapHoi.LargeWidth = 70;
@@ -661,7 +661,7 @@
             // 
             // btnBMLyLich
             // 
-            this.btnBMLyLich.Caption = "Biểu mẫu lý lịch";
+            this.btnBMLyLich.Caption = "Lý lịch Hội viên";
             this.btnBMLyLich.Glyph = global::DauThau.Properties.Resources.checklist;
             this.btnBMLyLich.Id = 45;
             this.btnBMLyLich.LargeWidth = 90;
@@ -845,7 +845,7 @@
             // 
             // btnBCLyLichTheoDieuKien
             // 
-            this.btnBCLyLichTheoDieuKien.Caption = "In lý lịch theo điều kiện";
+            this.btnBCLyLichTheoDieuKien.Caption = "In danh sách theo điều kiện";
             this.btnBCLyLichTheoDieuKien.Id = 77;
             this.btnBCLyLichTheoDieuKien.LargeGlyph = global::DauThau.Properties.Resources.knewstuff;
             this.btnBCLyLichTheoDieuKien.LargeWidth = 80;
@@ -1353,7 +1353,7 @@
             // 
             // btnGiaiPhauChinhHinh
             // 
-            this.btnGiaiPhauChinhHinh.Caption = "Giải phẩu chỉnh hình";
+            this.btnGiaiPhauChinhHinh.Caption = "Giải phẫu chỉnh hình";
             this.btnGiaiPhauChinhHinh.Id = 158;
             this.btnGiaiPhauChinhHinh.Name = "btnGiaiPhauChinhHinh";
             // 
@@ -1431,7 +1431,7 @@
             // 
             // btnLienHoan
             // 
-            this.btnLienHoan.Caption = "Liên Hoan";
+            this.btnLienHoan.Caption = "Liên hoan";
             this.btnLienHoan.Id = 170;
             this.btnLienHoan.Name = "btnLienHoan";
             // 
@@ -1627,7 +1627,7 @@
             // 
             // barSubItem9
             // 
-            this.barSubItem9.Caption = "Nâng cao năng lực và hoạt động chính sách";
+            this.barSubItem9.Caption = "Nâng cao năng lực và vận động chính sách";
             this.barSubItem9.Id = 203;
             this.barSubItem9.LargeGlyph = global::DauThau.Properties.Resources.Control_Panel;
             this.barSubItem9.LargeWidth = 140;
@@ -1901,7 +1901,7 @@
             this.ribbonPageGroup2,
             this.ribbonPageGroup8});
             this.ribbonPage6.Name = "ribbonPage6";
-            this.ribbonPage6.Text = "Báo cáo hội viên";
+            this.ribbonPage6.Text = "Báo cáo danh sách";
             // 
             // ribbonPageGroup2
             // 
@@ -2099,7 +2099,7 @@
             this.Ribbon = this.ribbonMain;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Hệ thống quản lý hội viên hội người khuyết tật Tp Cần Thơ";
+            this.Text = "Cơ sở dữ liệu Hội Người Khuyết Tật thành phố Cần Thơ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);

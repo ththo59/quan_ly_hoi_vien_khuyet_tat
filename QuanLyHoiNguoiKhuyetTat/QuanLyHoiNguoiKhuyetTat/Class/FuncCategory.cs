@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using DauThau.Models;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 
 namespace DauThau.Class
 {
@@ -468,6 +469,95 @@ namespace DauThau.Class
                 
             }
             return listItem;
+        }
+
+        public static void loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable table, RepositoryItemLookUpEdit repLue)
+        {
+            using (var context = new QL_HOIVIEN_KTEntities())
+            {
+                var listItem = (object)null;
+                switch (table)
+                {
+                    case CategoryEntitiesTable.DM_GIOITINH:
+                        listItem = loadDMGioiTinh();
+                        break;
+                    case CategoryEntitiesTable.DM_NGHE_NGHIEP:
+                        listItem = (from p in context.DM_NGHE_NGHIEP orderby p.NN_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_XA:
+                        listItem = (from p in context.DM_XA orderby p.XA_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_HUYEN:
+                        listItem = (from p in context.DM_HUYEN orderby p.HUYEN_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_TINH:
+                        listItem = (from p in context.DM_TINH orderby p.TINH_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_DANTOC:
+                        listItem = (from p in context.DM_DANTOC orderby p.DT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_TONGIAO:
+                        listItem = (from p in context.DM_TONGIAO orderby p.TG_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_CHUCVU_HOI:
+                        listItem = (from p in context.DM_CHUCVU_HOI orderby p.CV_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON:
+                        listItem = (from p in context.DM_TRINH_DO_CHUYEN_MON orderby p.CM_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN:
+                        listItem = (from p in context.DM_TRINH_DO_HOC_VAN orderby p.HV_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_KHUYETTAT_MUCDO:
+                        listItem = (from p in context.DM_KHUYETTAT_MUCDO orderby p.MDKT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN:
+                        listItem = (from p in context.DM_KHUYETTAT_NGUYENNHAN orderby p.NNKT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG:
+                        listItem = (from p in context.DM_KHUYETTAT_TINHTRANG orderby p.TTKT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_PHUONGTIEN_DILAI:
+                        listItem = (from p in context.DM_PHUONGTIEN_DILAI orderby p.PT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_TINHTRANG_HONNHAN:
+                        listItem = (from p in context.DM_TINHTRANG_HONNHAN orderby p.TTHN_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_DUNGCU_HOTRO:
+                        listItem = (from p in context.DM_DUNGCU_HOTRO orderby p.DCHT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_NOI_SINH_SONG:
+                        listItem = (from p in context.DM_NOI_SINH_SONG orderby p.NSS_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_NGOAINGU:
+                        listItem = (from p in context.DM_NGOAINGU orderby p.NN_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO_LOAI:
+                        listItem = (from p in context.DM_NHA_TAI_TRO_LOAI orderby p.LOAI_NTT_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_NHA_TAI_TRO:
+                        listItem = (from p in context.DM_NHA_TAI_TRO select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_DONVI_PHUTRACH:
+                        listItem = (from p in context.DM_DONVI_PHUTRACH orderby p.DV_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_LOAI_HOATDONG:
+                        listItem = (from p in context.DM_LOAI_HOATDONG orderby p.LOAIHD_STT select p).ToList();
+                        break;
+                    case CategoryEntitiesTable.DM_BTXH_HANG_THANG:
+                        listItem = loadDMBTXH();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (listItem == null)
+                {
+                    return;
+                }
+
+                repLue.DataSource = listItem;
+            }
         }
 
         public static void loadCategoryByName(CategoryEntitiesTable table, LookUpEdit lue, Boolean itemIndexFirst = true)

@@ -39,6 +39,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.linkChangeConnect = new System.Windows.Forms.LinkLabel();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,11 +68,11 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl3.Location = new System.Drawing.Point(53, 26);
+            this.labelControl3.Location = new System.Drawing.Point(63, 7);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(311, 24);
+            this.labelControl3.Size = new System.Drawing.Size(322, 24);
             this.labelControl3.TabIndex = 19;
-            this.labelControl3.Text = "HỆ THỐNG QUẢN LÝ HỘI VIÊN";
+            this.labelControl3.Text = "Cơ sở dữ liệu Hội Người Khuyết Tật";
             // 
             // btThoat
             // 
@@ -161,6 +162,16 @@
             this.linkChangeConnect.Visible = false;
             this.linkChangeConnect.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkChangeConnect_LinkClicked);
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl6.Location = new System.Drawing.Point(128, 37);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(172, 24);
+            this.labelControl6.TabIndex = 19;
+            this.labelControl6.Text = "thành phố Cần Thơ";
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btDangNhap;
@@ -171,6 +182,7 @@
             this.Controls.Add(this.linkChangeConnect);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btThoat);
@@ -206,5 +218,6 @@
         private DevExpress.XtraEditors.TextEdit txtUser;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.LinkLabel linkChangeConnect;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }

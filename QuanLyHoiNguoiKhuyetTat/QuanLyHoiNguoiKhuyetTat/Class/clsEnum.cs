@@ -28,6 +28,8 @@ namespace DauThau.Class
         DM_GIOITINH = 0,
         DM_NGHE_NGHIEP,
         DM_TINH,
+        DM_HUYEN,
+        DM_XA,
         DM_TRINH_DO_HOC_VAN,
         DM_TRINH_DO_CHUYEN_MON,
         DM_TONGIAO,

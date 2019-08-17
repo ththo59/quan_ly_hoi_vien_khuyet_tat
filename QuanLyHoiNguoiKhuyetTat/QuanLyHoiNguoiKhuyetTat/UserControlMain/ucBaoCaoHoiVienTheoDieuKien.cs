@@ -16,6 +16,7 @@ using DauThau.UserControlCategory;
 using DauThau.Models;
 using System.Linq;
 using System.Data.Entity;
+using DevExpress.XtraEditors.Controls;
 
 namespace DauThau.UserControlCategoryMain
 {
@@ -38,13 +39,36 @@ namespace DauThau.UserControlCategoryMain
                     chk.CheckedChanged += new System.EventHandler(this.DisplayColumn_CheckedChanged);
                 }
             }
+
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_GIOITINH, repLueGioiTinh);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_DANTOC, repLueDanToc);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TONGIAO, repLueTonGiao);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_NGHE_NGHIEP, repLueNgheNghiep);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN, repLueTrinhDoVanHoa);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON, repLueTrinhDoChuyenMon);
+
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_CHUCVU_HOI, repLueChucVu);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_XA, repLueThuongTru_Phuong);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_HUYEN, repLueThuongTru_Quan);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TINH, repLueThuongTru_ThanhPho);
+
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_XA, repLueTamTru_Phuong);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_HUYEN, repLueTamTru_Quan);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TINH, repLueTamTru_ThanhPho);
+
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_KHUYETTAT_MUCDO, repLueMucDo);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG, repLueKTTinhTrang);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN, repLueKTNguyenNhan);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, repLuePhuongTienDiLai);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, repLueHonNhan);
+
         }
 
         private void btnControl_btnEventView_Click(object sender, EventArgs e)
         {
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
-            context.QL_HOATDONG_VAYVON.Load();
+            context.QL_HOIVIEN.Load();
             var data = (from p in context.QL_HOIVIEN
                         select p).ToList();
             gcGrid.DataSource = data;
@@ -192,6 +216,109 @@ namespace DauThau.UserControlCategoryMain
             bandChinhSach.Visible = chkChinhSach.Checked;
             bandNoiO.Visible = chkNoiO.Checked;
             bandCongViec.Visible = chkCongViec.Checked;
+        }
+
+        #region Filter
+
+        void clearFilter(ButtonPressedEventArgs e, BandedGridColumn col)
+        {
+            if (e.Button.Kind == ButtonPredefines.Delete)
+            {
+                gvGrid.Columns[col.FieldName].ClearFilter();
+            }
+        }
+
+        private void repLueGioiTinh_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_GIOI_TINH);
+        }
+
+        private void repLueDanToc_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_DAN_TOC);
+        }
+
+        private void repLueTonGiao_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TONGIAO);
+        }
+
+        #endregion
+
+        private void repLueNgheNghiep_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_NGHE_NGHIEP);
+        }
+
+        private void repLueTrinhDoVanHoa_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TRINHDO_VANHOA);
+        }
+
+        private void repLueTrinhDoChuyenMon_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TRINHDO_CHUYENMON);
+        }
+
+        private void repLueChucVu_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_CHUCVU);
+        }
+
+
+        private void repLueThuongTru_Phuong_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_THUONGTRU_PHUONG);
+        }
+
+        private void repLueThuongTru_Quan_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_THUONGTRU_QUAN);
+        }
+
+        private void repLueThuongTru_ThanhPho_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_THUONGTRU_TP);
+        }
+
+        private void repLueTamTru_Phuong_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TAMTRU_PHUONG);
+        }
+
+        private void repLueTamTru_Quan_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TAMTRU_QUAN);
+        }
+
+        private void repLueTamTru_ThanhPho_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TAMTRU_TP);
+        }
+
+        private void repLueMucDo_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_KT_MUCDO);
+        }
+
+        private void repLueKTNguyenNhan_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_KT_NGUYENNHAN);
+        }
+
+        private void repLueKTTinhTrang_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_KT_TINHTRANG);
+        }
+
+        private void repLuePhuongTienDiLai_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_PHUONGTIEN_DILAI);
+        }
+
+        private void repLueHonNhan_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_TINHTRANG_HONNHAN);
         }
     }
 }

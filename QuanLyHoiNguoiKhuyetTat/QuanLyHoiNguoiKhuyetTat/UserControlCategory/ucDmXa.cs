@@ -141,6 +141,9 @@ namespace DauThau.UserControlCategory
                 {
                     SelectData();
                     this.FormStatus = EnumFormStatus.VIEW;
+                }else if(_formStatus == EnumFormStatus.CLOSE)
+                {
+                    closeTab();
                 }
                 else
                 {
