@@ -476,7 +476,22 @@ namespace DauThau
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                if (clsMessage.MessageYesNo("Bạn có chắc muốn thoát khỏi chương trình?") == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
         }
 
         private void btnKichHoat_ItemClick(object sender, ItemClickEventArgs e)
@@ -534,6 +549,6 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
 
-
+        
     }
 }

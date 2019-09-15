@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression4 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression3 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.colTV_HV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCON_HV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHP_HV_ID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -757,16 +757,16 @@
             this.colTV_NGAY,
             this.gridColumn4,
             this.colTV_HV_ID});
-            gridFormatRule4.ApplyToRow = true;
-            gridFormatRule4.Column = this.colTV_HV_ID;
-            gridFormatRule4.Name = "Format0";
-            formatConditionRuleExpression4.Appearance.BackColor = System.Drawing.Color.Silver;
-            formatConditionRuleExpression4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
-            formatConditionRuleExpression4.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression4.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression4.Expression = "[HV_ID] == -1";
-            gridFormatRule4.Rule = formatConditionRuleExpression4;
-            this.gvThanhVienHoi.FormatRules.Add(gridFormatRule4);
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colTV_HV_ID;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.Silver;
+            formatConditionRuleExpression1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
+            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression1.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression1.Expression = "[HV_ID] == -1";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.gvThanhVienHoi.FormatRules.Add(gridFormatRule1);
             this.gvThanhVienHoi.GridControl = this.gcThanhVienHoi;
             this.gvThanhVienHoi.Name = "gvThanhVienHoi";
             this.gvThanhVienHoi.OptionsView.ShowGroupPanel = false;
@@ -843,7 +843,7 @@
             // 
             this.repTV_ButtonDelete.AutoHeight = false;
             this.repTV_ButtonDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repTV_ButtonDelete.Name = "repTV_ButtonDelete";
             this.repTV_ButtonDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repTV_ButtonDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repTV_ButtonDelete_ButtonClick);
@@ -2577,16 +2577,16 @@
             this.colCON_NGAYSINH,
             this.colCON_GHICHU,
             this.colCON_DELETE});
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Column = this.colCON_HV_ID;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            formatConditionRuleExpression1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
-            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression1.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression1.Expression = "[HV_ID] == -1";
-            gridFormatRule1.Rule = formatConditionRuleExpression1;
-            this.gvCon.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.ApplyToRow = true;
+            gridFormatRule2.Column = this.colCON_HV_ID;
+            gridFormatRule2.Name = "Format0";
+            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            formatConditionRuleExpression2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
+            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression2.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression2.Expression = "[HV_ID] == -1";
+            gridFormatRule2.Rule = formatConditionRuleExpression2;
+            this.gvCon.FormatRules.Add(gridFormatRule2);
             this.gvCon.GridControl = this.gcCon;
             this.gvCon.Name = "gvCon";
             this.gvCon.OptionsView.ShowGroupPanel = false;
@@ -2666,7 +2666,7 @@
             // 
             this.repCON_Button.AutoHeight = false;
             this.repCON_Button.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.repCON_Button.Name = "repCON_Button";
             this.repCON_Button.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repCON_Button.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repCON_Button_ButtonClick);
@@ -3794,16 +3794,16 @@
             this.colHP_PHI,
             this.colHP_DELETE,
             this.colHP_HV_ID});
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colHP_HV_ID;
-            gridFormatRule2.Name = "Format0";
-            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.Silver;
-            formatConditionRuleExpression2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
-            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression2.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression2.Expression = "[HV_ID] == -1";
-            gridFormatRule2.Rule = formatConditionRuleExpression2;
-            this.gvHoiPhi.FormatRules.Add(gridFormatRule2);
+            gridFormatRule3.ApplyToRow = true;
+            gridFormatRule3.Column = this.colHP_HV_ID;
+            gridFormatRule3.Name = "Format0";
+            formatConditionRuleExpression3.Appearance.BackColor = System.Drawing.Color.Silver;
+            formatConditionRuleExpression3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Strikeout);
+            formatConditionRuleExpression3.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression3.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression3.Expression = "[HV_ID] == -1";
+            gridFormatRule3.Rule = formatConditionRuleExpression3;
+            this.gvHoiPhi.FormatRules.Add(gridFormatRule3);
             this.gvHoiPhi.GridControl = this.gcHoiPhi;
             this.gvHoiPhi.Name = "gvHoiPhi";
             this.gvHoiPhi.OptionsView.ShowGroupPanel = false;
@@ -3880,7 +3880,7 @@
             // 
             this.repButtonDelete.AutoHeight = false;
             this.repButtonDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::DauThau.Properties.Resources.btndelete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.repButtonDelete.Name = "repButtonDelete";
             this.repButtonDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repButtonDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repButtonDelete_ButtonClick);
