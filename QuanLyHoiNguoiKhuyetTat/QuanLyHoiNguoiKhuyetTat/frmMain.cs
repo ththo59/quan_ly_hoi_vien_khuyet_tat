@@ -400,6 +400,10 @@ namespace DauThau
                         uc = new ucBCHoiVienTongNKTPhuNuCoGiaDinh();
                         break;
 
+                    case "btnBCTreKTVaConNKT":
+                        uc = new ucBCTreKTVaConNKT();
+                        break;
+
                     #endregion
 
                     #region Báo cáo hoạt động

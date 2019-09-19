@@ -1182,6 +1182,12 @@
     <Compile Include="UserControlMain\ucBangKiemTraGiaKeKhai.Designer.cs">
       <DependentUpon>ucBangKiemTraGiaKeKhai.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMain\ucBCTreKTVaConNKT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\ucBCTreKTVaConNKT.Designer.cs">
+      <DependentUpon>ucBCTreKTVaConNKT.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMain\ucBCChiPhi_SoQuyTienMat.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2038,6 +2044,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBangKiemTraGiaKeKhai.resx">
       <DependentUpon>ucBangKiemTraGiaKeKhai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\ucBCTreKTVaConNKT.resx">
+      <DependentUpon>ucBCTreKTVaConNKT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\ucBCChiPhi_SoQuyTienMat.resx">
       <DependentUpon>ucBCChiPhi_SoQuyTienMat.cs</DependentUpon>
