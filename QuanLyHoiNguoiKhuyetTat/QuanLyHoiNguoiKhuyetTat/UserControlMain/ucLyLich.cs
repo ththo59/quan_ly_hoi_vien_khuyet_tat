@@ -40,10 +40,10 @@ namespace DauThau.UserControlCategory
 
         private QL_HOIVIEN _hoiVien = new QL_HOIVIEN();
         private QL_HOIVIEN_IMAGE _hoiVienImage = new QL_HOIVIEN_IMAGE();
-
         private QL_HOIVIEN _hoiVien_cu = new QL_HOIVIEN();
 
         private Boolean _first_load_data = true;
+
         private void ucLyLich_Load(object sender, EventArgs e)
         {
             
@@ -86,9 +86,10 @@ namespace DauThau.UserControlCategory
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DANTOC, lueDanToc);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TONGIAO, lueTonGiao);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NGHE_NGHIEP, lueNgheNghiep);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN, lueTrinhDoVanHoa);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_HOC_VAN, lueTrinhDoHocVan);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TRINH_DO_CHUYEN_MON, lueTrinhDoChuyenMon);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_CHUCVU_HOI, lueChucVuHoi);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DOITUONG, lueDoiTuong);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NGOAINGU, lueNgoaiNgu);
 
             //Tab Suc khoe
@@ -100,7 +101,7 @@ namespace DauThau.UserControlCategory
 
             //Tab dụng cụ hỗ trợ chế độ chính sách
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DUNGCU_HOTRO, lueDungCuHoTro);
-            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_BTXH_HANG_THANG, lueBTXH_HangThang);
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_TCXH_HANG_THANG, lueTCXH_HangThang);
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_NOI_SINH_SONG, lueNoiSinhSong);
 
             string strNha = chkListNha.Ex_GetEditValueToString();
@@ -135,7 +136,7 @@ namespace DauThau.UserControlCategory
 
             _loadCategory();
 
-            seTienBTXHHangThang.Ex_FormatCustomSpinEdit();
+            seTienTCXHHangThang.Ex_FormatCustomSpinEdit();
             //Tab nơi ở chăm sóc bản thân
 
             //Viec lam nhu cau
@@ -148,7 +149,7 @@ namespace DauThau.UserControlCategory
             FunctionHelper.dateFormat(seVaoHoi_Nam, seVaoHoi_Thang, seVaoHoi_Ngay);
             FunctionHelper.dateFormat(seKhuyetTat_Nam, null, null);
 
-            seTienBTXHHangThang.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
+            seTienTCXHHangThang.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
             seSoCon.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
             seThuNhapTB.EditValueChanged += new System.EventHandler(this.number_EditValueChanged);
 
@@ -342,9 +343,9 @@ namespace DauThau.UserControlCategory
             _setDefaultLookupedit(lueDanToc);
             _setDefaultLookupedit(lueTonGiao);
             _setDefaultLookupedit(lueNgheNghiep);
-            _setDefaultLookupedit(lueTrinhDoVanHoa);
+            _setDefaultLookupedit(lueTrinhDoHocVan);
             _setDefaultLookupedit(lueTrinhDoChuyenMon);
-            _setDefaultLookupedit(lueTrinhDoVanHoa);
+            _setDefaultLookupedit(lueTrinhDoHocVan);
             _setDefaultLookupedit(lueChucVuHoi);
             _setDefaultLookupedit(lueThuongTru_TP);
             _setDefaultLookupedit(lueTamTru_TP);
@@ -367,7 +368,7 @@ namespace DauThau.UserControlCategory
             , "txtVoChong" , "seSoCon"
             //Dụng cụ hỗ trợ
             , "lueDungCuHoTro", "deDCHT_ThoiGianNhan_Ngay", "deDCHT_ThoiGianNhan_Thang", "deDCHT_ThoiGianNhan_Nam"
-            ,"txtDCHT_ToChuc" , "txtDCHT_TinhTrang", "txtBTXHKhac"
+            ,"txtDCHT_ToChuc" , "txtDCHT_TinhTrang", "txtTCXHKhac"
             , "txtPhongTraoMongMuon", "txtPhongTraoTheThao", "txtNguyenVong"
             ,  "memoGhiChu" , "txtSongVoiNguoiKhac","txtHoTroCuaNguoiKhac"
             };
@@ -466,7 +467,7 @@ namespace DauThau.UserControlCategory
 
                 lueTonGiao.EditValue = item.HV_TON_GIAO;
                 lueNgheNghiep.EditValue = item.HV_NGHE_NGHIEP;
-                lueTrinhDoVanHoa.EditValue = item.HV_TRINHDO_VANHOA;
+                lueTrinhDoHocVan.EditValue = item.HV_TRINHDO_HOCVAN;
                 lueTrinhDoChuyenMon.EditValue = item.HV_TRINHDO_CHUYENMON;
                 lueNgoaiNgu.EditValue = item.HV_NGOAINGU;
 
@@ -481,6 +482,7 @@ namespace DauThau.UserControlCategory
                 }
 
                 lueChucVuHoi.EditValue = item.HV_CHUCVU;
+                lueDoiTuong.EditValue = item.HV_DOITUONG;
 
                 lueThuongTru_TP.EditValue = item.HV_THUONGTRU_TP;
                 lueThuongTru_Quan.EditValue = item.HV_THUONGTRU_QUAN;
@@ -531,9 +533,9 @@ namespace DauThau.UserControlCategory
                 txtDCHT_ToChuc.EditValue = item.HV_DCHT_TU_TOCHUC;
                 txtDCHT_TinhTrang.EditValue = item.HV_DCHT_TINHTRANG;
 
-                lueBTXH_HangThang.EditValue = item.HV_BTXH_HANGTHANG;
-                seTienBTXHHangThang.EditValue = item.HV_BTXH_TIEN_HANGTHANG;
-                txtBTXHKhac.EditValue = item.HV_BTXH_KHAC;
+                lueTCXH_HangThang.EditValue = item.HV_TCXH_HANGTHANG;
+                seTienTCXHHangThang.EditValue = item.HV_TCXH_TIEN_HANGTHANG;
+                txtTCXHKhac.EditValue = item.HV_TCXH_KHAC;
                 chkNhanBHYTMienPhi.EditValue = item.HV_BHYT_MIENPHI;
 
                 chkNhanGiayCNXacDinhMucDoKT.EditValue = item.HV_GIAY_CHUNGNHAN_KT;
@@ -573,6 +575,13 @@ namespace DauThau.UserControlCategory
                 gcThanhVienHoi.DataSource = _listThanhVienHoi;
 
                 memoGhiChu.EditValue = item.HV_GHICHU;
+
+                //Người giám hộ
+                txtNGH_TEN.EditValue = item.HV_NGH_TEN;
+                txtNGH_DIACHI.EditValue = item.HV_NGH_DIACHI;
+                txtNGH_SDT.EditValue = item.HV_NGH_SDT;
+                txtNGH_FACE.EditValue = item.HV_NGH_FACE;
+
             }
 
             _wait.Close();
@@ -632,7 +641,7 @@ namespace DauThau.UserControlCategory
             item.HV_TUOI = seTuoi.Ex_EditValueToInt();
             item.HV_TON_GIAO = lueTonGiao.EditValue + string.Empty;
             item.HV_NGHE_NGHIEP = lueNgheNghiep.EditValue + string.Empty;
-            item.HV_TRINHDO_VANHOA = lueTrinhDoVanHoa.EditValue + string.Empty;
+            item.HV_TRINHDO_HOCVAN = lueTrinhDoHocVan.EditValue + string.Empty;
             item.HV_TRINHDO_CHUYENMON = lueTrinhDoChuyenMon.EditValue + string.Empty;
             item.HV_NGOAINGU = lueNgoaiNgu.EditValue + string.Empty;
 
@@ -654,6 +663,7 @@ namespace DauThau.UserControlCategory
             }
 
             item.HV_CHUCVU = lueChucVuHoi.EditValue + string.Empty;
+            item.HV_DOITUONG = lueDoiTuong.EditValue + string.Empty;
 
             item.HV_THUONGTRU_TP = lueThuongTru_TP.EditValue + string.Empty;
             item.HV_THUONGTRU_QUAN = lueThuongTru_Quan.EditValue + string.Empty;
@@ -706,9 +716,9 @@ namespace DauThau.UserControlCategory
             item.HV_DCHT_TU_TOCHUC = txtDCHT_ToChuc.EditValue + string.Empty;
             item.HV_DCHT_TINHTRANG = txtDCHT_TinhTrang.EditValue + string.Empty;
 
-            item.HV_BTXH_HANGTHANG = lueBTXH_HangThang.Text;
-            item.HV_BTXH_TIEN_HANGTHANG = seTienBTXHHangThang.Ex_EditValueToInt() ;
-            item.HV_BTXH_KHAC = txtBTXHKhac.EditValue + string.Empty;
+            item.HV_TCXH_HANGTHANG = lueTCXH_HangThang.Text;
+            item.HV_TCXH_TIEN_HANGTHANG = seTienTCXHHangThang.Ex_EditValueToInt() ;
+            item.HV_TCXH_KHAC = txtTCXHKhac.EditValue + string.Empty;
             item.HV_BHYT_MIENPHI = Convert.ToBoolean(chkNhanBHYTMienPhi.EditValue);
 
             item.HV_GIAY_CHUNGNHAN_KT = Convert.ToBoolean(chkNhanGiayCNXacDinhMucDoKT.EditValue);
@@ -733,6 +743,12 @@ namespace DauThau.UserControlCategory
 
             //Hội phí
             item.HV_GHICHU = memoGhiChu.Text;
+
+            //Người giám hộ
+            item.HV_NGH_TEN = txtNGH_TEN.EditValue + string.Empty;
+            item.HV_NGH_SDT = txtNGH_SDT.EditValue + string.Empty;
+            item.HV_NGH_DIACHI = txtNGH_DIACHI.EditValue + string.Empty;
+            item.HV_NGH_FACE = txtNGH_FACE.EditValue + string.Empty;
         }
 
         private void _loadData()
@@ -1021,11 +1037,11 @@ namespace DauThau.UserControlCategory
                 giatri_moi += title + item.HV_TON_GIAO + Environment.NewLine;
             }
 
-            if (_hoiVien_cu.HV_TRINHDO_VANHOA != item.HV_TRINHDO_VANHOA)
+            if (_hoiVien_cu.HV_TRINHDO_HOCVAN != item.HV_TRINHDO_HOCVAN)
             {
-                title = "Trình độ văn hóa: ";
-                giatri_cu += title + _hoiVien_cu.HV_TRINHDO_VANHOA + Environment.NewLine;
-                giatri_moi += title + item.HV_TRINHDO_VANHOA + Environment.NewLine;
+                title = "Trình độ học vấn: ";
+                giatri_cu += title + _hoiVien_cu.HV_TRINHDO_HOCVAN + Environment.NewLine;
+                giatri_moi += title + item.HV_TRINHDO_HOCVAN + Environment.NewLine;
             }
 
             if (_hoiVien_cu.HV_TRINHDO_CHUYENMON != item.HV_TRINHDO_CHUYENMON)
@@ -1185,23 +1201,23 @@ namespace DauThau.UserControlCategory
                 giatri_cu += title + _hoiVien_cu.HV_DCHT_TINHTRANG + Environment.NewLine;
                 giatri_moi += title + item.HV_DCHT_TINHTRANG + Environment.NewLine;
             }
-            if (_hoiVien_cu.HV_BTXH_HANGTHANG != item.HV_BTXH_HANGTHANG)
+            if (_hoiVien_cu.HV_TCXH_HANGTHANG != item.HV_TCXH_HANGTHANG)
             {
-                title = "Nhận BTXH: ";
-                giatri_cu += title + _hoiVien_cu.HV_BTXH_HANGTHANG + Environment.NewLine;
-                giatri_moi += title + item.HV_BTXH_HANGTHANG + Environment.NewLine;
+                title = "Nhận TCXH: ";
+                giatri_cu += title + _hoiVien_cu.HV_TCXH_HANGTHANG + Environment.NewLine;
+                giatri_moi += title + item.HV_TCXH_HANGTHANG + Environment.NewLine;
             }
-            if (_hoiVien_cu.HV_BTXH_TIEN_HANGTHANG != item.HV_BTXH_TIEN_HANGTHANG)
+            if (_hoiVien_cu.HV_TCXH_TIEN_HANGTHANG != item.HV_TCXH_TIEN_HANGTHANG)
             {
-                title = "Số tiền BTXH: ";
-                giatri_cu += title + _hoiVien_cu.HV_BTXH_TIEN_HANGTHANG + Environment.NewLine;
-                giatri_moi += title + item.HV_BTXH_TIEN_HANGTHANG + Environment.NewLine;
+                title = "Số tiền TCXH: ";
+                giatri_cu += title + _hoiVien_cu.HV_TCXH_TIEN_HANGTHANG + Environment.NewLine;
+                giatri_moi += title + item.HV_TCXH_TIEN_HANGTHANG + Environment.NewLine;
             }
-            if (_hoiVien_cu.HV_BTXH_KHAC != item.HV_BTXH_KHAC)
+            if (_hoiVien_cu.HV_TCXH_KHAC != item.HV_TCXH_KHAC)
             {
-                title = "BTXH khác: ";
-                giatri_cu += title + _hoiVien_cu.HV_BTXH_KHAC + Environment.NewLine;
-                giatri_moi += title + item.HV_BTXH_KHAC + Environment.NewLine;
+                title = "TCXH khác: ";
+                giatri_cu += title + _hoiVien_cu.HV_TCXH_KHAC + Environment.NewLine;
+                giatri_moi += title + item.HV_TCXH_KHAC + Environment.NewLine;
             }
             if (_hoiVien_cu.HV_BHYT_MIENPHI != item.HV_BHYT_MIENPHI)
             {
@@ -1832,6 +1848,16 @@ namespace DauThau.UserControlCategory
             {
                 item.EditValue = 0;
             }
+        }
+
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

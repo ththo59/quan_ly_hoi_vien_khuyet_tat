@@ -61,6 +61,7 @@ namespace DauThau.UserControlCategoryMain
             FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_KHUYETTAT_NGUYENNHAN, repLueKTNguyenNhan);
             FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_PHUONGTIEN_DILAI, repLuePhuongTienDiLai);
             FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_TINHTRANG_HONNHAN, repLueHonNhan);
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_DOITUONG, repLueDoiTuong);
 
         }
 
@@ -252,7 +253,7 @@ namespace DauThau.UserControlCategoryMain
 
         private void repLueTrinhDoVanHoa_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            clearFilter(e, colHV_TRINHDO_VANHOA);
+            clearFilter(e, colHV_TRINHDO_HOCVAN);
         }
 
         private void repLueTrinhDoChuyenMon_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -319,6 +320,11 @@ namespace DauThau.UserControlCategoryMain
         private void repLueHonNhan_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             clearFilter(e, colHV_TINHTRANG_HONNHAN);
+        }
+
+        private void repLueDoiTuong_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            clearFilter(e, colHV_DOITUONG);
         }
     }
 }

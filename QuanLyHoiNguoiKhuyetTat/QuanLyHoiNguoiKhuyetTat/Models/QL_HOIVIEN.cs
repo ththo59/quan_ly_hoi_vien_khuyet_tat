@@ -28,11 +28,12 @@ namespace DauThau.Models
         public string HV_TEN { get; set; }
         public string HV_GIOI_TINH { get; set; }
         public string HV_DAN_TOC { get; set; }
+        public string HV_DOITUONG { get; set; }
         public Nullable<System.DateTime> HV_NGAY_SINH { get; set; }
         public Nullable<int> HV_TUOI { get; set; }
         public string HV_TON_GIAO { get; set; }
         public string HV_NGHE_NGHIEP { get; set; }
-        public string HV_TRINHDO_VANHOA { get; set; }
+        public string HV_TRINHDO_HOCVAN { get; set; }
         public string HV_TRINHDO_CHUYENMON { get; set; }
         public string HV_NGOAINGU { get; set; }
         public string HV_CMND { get; set; }
@@ -83,9 +84,9 @@ namespace DauThau.Models
         public Nullable<System.DateTime> HV_DCHT_THOIDIEM_NHAN { get; set; }
         public string HV_DCHT_TU_TOCHUC { get; set; }
         public string HV_DCHT_TINHTRANG { get; set; }
-        public string HV_BTXH_HANGTHANG { get; set; }
-        public Nullable<int> HV_BTXH_TIEN_HANGTHANG { get; set; }
-        public string HV_BTXH_KHAC { get; set; }
+        public string HV_TCXH_HANGTHANG { get; set; }
+        public Nullable<int> HV_TCXH_TIEN_HANGTHANG { get; set; }
+        public string HV_TCXH_KHAC { get; set; }
         public Nullable<bool> HV_BHYT_MIENPHI { get; set; }
         public Nullable<bool> HV_QUYETDINH_CONGNHAN_KT { get; set; }
         public Nullable<bool> HV_GIAY_CHUNGNHAN_KT { get; set; }
@@ -106,6 +107,10 @@ namespace DauThau.Models
         public string HV_GHICHU { get; set; }
         public Nullable<bool> HV_SENDMAIL_16TUOI { get; set; }
         public Nullable<bool> HV_SENDMAIL_60TUOI { get; set; }
+        public string HV_NGH_TEN { get; set; }
+        public string HV_NGH_DIACHI { get; set; }
+        public string HV_NGH_SDT { get; set; }
+        public string HV_NGH_FACE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOIVIEN_CON> QL_HOIVIEN_CON { get; set; }

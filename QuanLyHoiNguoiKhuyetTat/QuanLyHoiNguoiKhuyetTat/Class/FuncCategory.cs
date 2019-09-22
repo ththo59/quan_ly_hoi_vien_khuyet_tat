@@ -18,6 +18,13 @@ namespace DauThau.Class
             public int STT { get; set; }
         }
 
+        public class dynamicObjectString
+        {
+            public string ID { get; set; }
+            public string NAME { get; set; }
+            public int STT { get; set; }
+
+        }
         public static List<dynamicObject> loadFunctionName()
         {
             List<dynamicObject> list = new List<dynamicObject>();
@@ -98,7 +105,7 @@ namespace DauThau.Class
             return list;
         }
 
-        public static List<dynamicObject> loadDMBTXH()
+        public static List<dynamicObject> loadDMTCXH()
         {
             List<dynamicObject> list = new List<dynamicObject>();
             var item = new dynamicObject()
@@ -120,6 +127,25 @@ namespace DauThau.Class
                 NAME = "Khác"
             };
 
+            list.Add(item);
+            return list;
+        }
+
+        public static List<dynamicObjectString> loadDMDoiTuong()
+        {
+            List<dynamicObjectString> list = new List<dynamicObjectString>();
+            var item = new dynamicObjectString()
+            {
+                ID = "",
+                NAME = ""
+            };
+            list.Add(item);
+
+            item = new dynamicObjectString()
+            {
+                ID = "TEKT",
+                NAME = "Trẻ khuyết tật"
+            };
             list.Add(item);
             return list;
         }
@@ -544,8 +570,11 @@ namespace DauThau.Class
                     case CategoryEntitiesTable.DM_LOAI_HOATDONG:
                         listItem = (from p in context.DM_LOAI_HOATDONG orderby p.LOAIHD_STT select p).ToList();
                         break;
-                    case CategoryEntitiesTable.DM_BTXH_HANG_THANG:
-                        listItem = loadDMBTXH();
+                    case CategoryEntitiesTable.DM_TCXH_HANG_THANG:
+                        listItem = loadDMTCXH();
+                        break;
+                    case CategoryEntitiesTable.DM_DOITUONG:
+                        listItem = loadDMDoiTuong();
                         break;
                     default:
                         break;
@@ -627,8 +656,11 @@ namespace DauThau.Class
                     case CategoryEntitiesTable.DM_LOAI_HOATDONG:
                         listItem = (from p in context.DM_LOAI_HOATDONG orderby p.LOAIHD_STT select p).ToList();
                         break;
-                    case CategoryEntitiesTable.DM_BTXH_HANG_THANG:
-                        listItem = loadDMBTXH();
+                    case CategoryEntitiesTable.DM_TCXH_HANG_THANG:
+                        listItem = loadDMTCXH();
+                        break;
+                    case CategoryEntitiesTable.DM_DOITUONG:
+                        listItem = loadDMDoiTuong();
                         break;
                     default:
                         break;

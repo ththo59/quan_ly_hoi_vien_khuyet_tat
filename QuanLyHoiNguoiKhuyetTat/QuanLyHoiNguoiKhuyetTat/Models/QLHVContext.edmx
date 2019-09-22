@@ -505,11 +505,12 @@
           <Property Name="HV_TEN" Type="nvarchar" MaxLength="50" />
           <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="10" />
           <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_DOITUONG" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGAY_SINH" Type="date" />
           <Property Name="HV_TUOI" Type="int" />
           <Property Name="HV_TON_GIAO" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGHE_NGHIEP" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_TRINHDO_VANHOA" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_TRINHDO_HOCVAN" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_TRINHDO_CHUYENMON" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGOAINGU" Type="nvarchar" MaxLength="100" />
           <Property Name="HV_CMND" Type="nvarchar" MaxLength="20" />
@@ -560,9 +561,9 @@
           <Property Name="HV_DCHT_THOIDIEM_NHAN" Type="date" />
           <Property Name="HV_DCHT_TU_TOCHUC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_DCHT_TINHTRANG" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_BTXH_HANGTHANG" Type="nvarchar" MaxLength="20" />
-          <Property Name="HV_BTXH_TIEN_HANGTHANG" Type="int" />
-          <Property Name="HV_BTXH_KHAC" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_TCXH_HANGTHANG" Type="nvarchar" MaxLength="20" />
+          <Property Name="HV_TCXH_TIEN_HANGTHANG" Type="int" />
+          <Property Name="HV_TCXH_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_BHYT_MIENPHI" Type="bit" />
           <Property Name="HV_QUYETDINH_CONGNHAN_KT" Type="bit" />
           <Property Name="HV_GIAY_CHUNGNHAN_KT" Type="bit" />
@@ -583,6 +584,10 @@
           <Property Name="HV_GHICHU" Type="nvarchar(max)" />
           <Property Name="HV_SENDMAIL_16TUOI" Type="bit" />
           <Property Name="HV_SENDMAIL_60TUOI" Type="bit" />
+          <Property Name="HV_NGH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_NGH_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_NGH_SDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_NGH_FACE" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="QL_HOIVIEN_CON">
           <Key>
@@ -1034,6 +1039,16 @@
           <EntitySet Name="QL_HOIVIEN_THANHVIENHOI" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" />
           <EntitySet Name="QL_NHATKY" EntityType="QL_HOIVIEN_KTModel.QL_NHATKY" />
+          <EntitySet Name="QL_HOATDONG_TAPHUAN_CHITIET" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" />
+          <EntitySet Name="QL_HOATDONG_TAPHUAN_DIADIEM" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM" />
+          <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN">
+            <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
+            <End Role="QL_HOATDONG_TAPHUAN_CHITIET" EntitySet="QL_HOATDONG_TAPHUAN_CHITIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN">
+            <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
+            <End Role="QL_HOATDONG_TAPHUAN_DIADIEM" EntitySet="QL_HOATDONG_TAPHUAN_DIADIEM" />
+          </AssociationSet>
           <EntitySet Name="QL_HOIVIEN" EntityType="QL_HOIVIEN_KTModel.QL_HOIVIEN" />
           <AssociationSet Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
@@ -1050,16 +1065,6 @@
           <AssociationSet Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
             <End Role="QL_HOIVIEN_THANHVIENHOI" EntitySet="QL_HOIVIEN_THANHVIENHOI" />
-          </AssociationSet>
-          <EntitySet Name="QL_HOATDONG_TAPHUAN_CHITIET" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" />
-          <EntitySet Name="QL_HOATDONG_TAPHUAN_DIADIEM" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM" />
-          <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN">
-            <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
-            <End Role="QL_HOATDONG_TAPHUAN_CHITIET" EntitySet="QL_HOATDONG_TAPHUAN_CHITIET" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN">
-            <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
-            <End Role="QL_HOATDONG_TAPHUAN_DIADIEM" EntitySet="QL_HOATDONG_TAPHUAN_DIADIEM" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
@@ -1607,146 +1612,6 @@
           <Property Name="NK_GIATRI_CU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NK_GIATRI_MOI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="QL_HOIVIEN">
-          <Key>
-            <PropertyRef Name="HV_ID" />
-          </Key>
-          <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HV_HO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
-          <Property Name="HV_TUOI" Type="Int32" />
-          <Property Name="HV_TON_GIAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_NGHE_NGHIEP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TRINHDO_VANHOA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TRINHDO_CHUYENMON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_NGOAINGU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CMND_NGAY" Type="DateTime" Precision="0" />
-          <Property Name="HV_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KHUYETTAT_NAM" Type="Int32" />
-          <Property Name="HV_VAOHOI_NGAY" Type="DateTime" Precision="0" />
-          <Property Name="HV_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUONGTRU_KHUVUC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUONGTRU_DUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUONGTRU_PHUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUONGTRU_QUAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUONGTRU_TP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THUONGTRU_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TAMTRU_KHUVUC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TAMTRU_DUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TAMTRU_PHUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TAMTRU_QUAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TAMTRU_TP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TAMTRU_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_COQUAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_COQUAN_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_TINHTRANG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_TINHTRANG_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_MUCDO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_PHUONGTIEN_DILAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TINHTRANG_SUCKHOE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_NGUYENNHAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_KT_NGUYENNHAN_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_TINHTRANG_HONNHAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_VOCHONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_SOCON" Type="Int32" />
-          <Property Name="HV_CON1_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON1_NGAYSINH" Type="DateTime" Precision="0" />
-          <Property Name="HV_CON1_GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON1_HOCTRUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON2_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON2_NGAYSINH" Type="DateTime" Precision="0" />
-          <Property Name="HV_CON2_GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON2_HOCTRUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_PHONGTRAO_THETHAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_PHONGTRAO_MONGMUON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_NGUYENVONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DUNGCU_HOTRO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DCHT_THOIDIEM_NHAN" Type="DateTime" Precision="0" />
-          <Property Name="HV_DCHT_TU_TOCHUC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DCHT_TINHTRANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_BTXH_HANGTHANG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="HV_BTXH_TIEN_HANGTHANG" Type="Int32" />
-          <Property Name="HV_BTXH_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_BHYT_MIENPHI" Type="Boolean" />
-          <Property Name="HV_QUYETDINH_CONGNHAN_KT" Type="Boolean" />
-          <Property Name="HV_GIAY_CHUNGNHAN_KT" Type="Boolean" />
-          <Property Name="HV_THE_KHUYETTAT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_GIADINH_CHINHSACH" Type="Boolean" />
-          <Property Name="HV_NOI_SINH_SONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_DIEUKIEN_SONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_NHA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_SONG_VOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_SONG_VOI_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CHAMSOC_BANTHAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_HOTRO_BOI_NGUOIKHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_VIECLAM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_VIECLAM_THUNHAP" Type="Int32" />
-          <Property Name="HV_TRE_DIHOC" Type="Boolean" />
-          <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HV_SENDMAIL_16TUOI" Type="Boolean" />
-          <Property Name="HV_SENDMAIL_60TUOI" Type="Boolean" />
-          <NavigationProperty Name="QL_HOIVIEN_CON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_CON" />
-          <NavigationProperty Name="QL_HOIVIEN_HOIPHI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_HOIPHI" />
-          <NavigationProperty Name="QL_HOIVIEN_IMAGE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_IMAGE" />
-          <NavigationProperty Name="QL_HOIVIEN_THANHVIENHOI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_THANHVIENHOI" />
-        </EntityType>
-        <Association Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_CON" Role="QL_HOIVIEN_CON" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QL_HOIVIEN">
-              <PropertyRef Name="HV_ID" />
-            </Principal>
-            <Dependent Role="QL_HOIVIEN_CON">
-              <PropertyRef Name="HV_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN">
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_HOIPHI" Role="QL_HOIVIEN_HOIPHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QL_HOIVIEN">
-              <PropertyRef Name="HV_ID" />
-            </Principal>
-            <Dependent Role="QL_HOIVIEN_HOIPHI">
-              <PropertyRef Name="HV_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_IMAGE" Role="QL_HOIVIEN_IMAGE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QL_HOIVIEN">
-              <PropertyRef Name="HV_ID" />
-            </Principal>
-            <Dependent Role="QL_HOIVIEN_IMAGE">
-              <PropertyRef Name="HV_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" Role="QL_HOIVIEN_THANHVIENHOI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QL_HOIVIEN">
-              <PropertyRef Name="HV_ID" />
-            </Principal>
-            <Dependent Role="QL_HOIVIEN_THANHVIENHOI">
-              <PropertyRef Name="HV_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="QL_HOATDONG_TAPHUAN_CHITIET">
           <Key>
             <PropertyRef Name="TH_CT_ID" />
@@ -1820,6 +1685,151 @@
             </Principal>
             <Dependent Role="QL_HOATDONG_TAPHUAN_DIADIEM">
               <PropertyRef Name="TH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_HOIVIEN">
+          <Key>
+            <PropertyRef Name="HV_ID" />
+          </Key>
+          <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HV_HO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DOITUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGAY_SINH" Type="DateTime" Precision="0" />
+          <Property Name="HV_TUOI" Type="Int32" />
+          <Property Name="HV_TON_GIAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGHE_NGHIEP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TRINHDO_HOCVAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TRINHDO_CHUYENMON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGOAINGU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CMND_NGAY" Type="DateTime" Precision="0" />
+          <Property Name="HV_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KHUYETTAT_NAM" Type="Int32" />
+          <Property Name="HV_VAOHOI_NGAY" Type="DateTime" Precision="0" />
+          <Property Name="HV_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_KHUVUC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_DUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_PHUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_QUAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_TP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THUONGTRU_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_KHUVUC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_DUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_PHUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_QUAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_TP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TAMTRU_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_COQUAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_COQUAN_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_TINHTRANG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_TINHTRANG_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_MUCDO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_PHUONGTIEN_DILAI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TINHTRANG_SUCKHOE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_NGUYENNHAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_KT_NGUYENNHAN_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TINHTRANG_HONNHAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_VOCHONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_SOCON" Type="Int32" />
+          <Property Name="HV_CON1_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CON1_NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="HV_CON1_GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CON1_HOCTRUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CON2_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CON2_NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="HV_CON2_GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CON2_HOCTRUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_PHONGTRAO_THETHAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_PHONGTRAO_MONGMUON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGUYENVONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DUNGCU_HOTRO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DCHT_THOIDIEM_NHAN" Type="DateTime" Precision="0" />
+          <Property Name="HV_DCHT_TU_TOCHUC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DCHT_TINHTRANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TCXH_HANGTHANG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HV_TCXH_TIEN_HANGTHANG" Type="Int32" />
+          <Property Name="HV_TCXH_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_BHYT_MIENPHI" Type="Boolean" />
+          <Property Name="HV_QUYETDINH_CONGNHAN_KT" Type="Boolean" />
+          <Property Name="HV_GIAY_CHUNGNHAN_KT" Type="Boolean" />
+          <Property Name="HV_THE_KHUYETTAT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_GIADINH_CHINHSACH" Type="Boolean" />
+          <Property Name="HV_NOI_SINH_SONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_DIEUKIEN_SONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NHA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_SONG_VOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_SONG_VOI_CHITIET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_CHAMSOC_BANTHAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_HOTRO_BOI_NGUOIKHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_VIECLAM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_VIECLAM_THUNHAP" Type="Int32" />
+          <Property Name="HV_TRE_DIHOC" Type="Boolean" />
+          <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HV_SENDMAIL_16TUOI" Type="Boolean" />
+          <Property Name="HV_SENDMAIL_60TUOI" Type="Boolean" />
+          <Property Name="HV_NGH_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGH_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGH_SDT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NGH_FACE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOIVIEN_CON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_CON" />
+          <NavigationProperty Name="QL_HOIVIEN_HOIPHI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_HOIPHI" />
+          <NavigationProperty Name="QL_HOIVIEN_IMAGE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_IMAGE" />
+          <NavigationProperty Name="QL_HOIVIEN_THANHVIENHOI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_THANHVIENHOI" />
+        </EntityType>
+        <Association Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_CON" Role="QL_HOIVIEN_CON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_CON">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_HOIPHI" Role="QL_HOIVIEN_HOIPHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_HOIPHI">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_IMAGE" Role="QL_HOIVIEN_IMAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_IMAGE">
+              <PropertyRef Name="HV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN" Role="QL_HOIVIEN" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOIVIEN_THANHVIENHOI" Role="QL_HOIVIEN_THANHVIENHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOIVIEN">
+              <PropertyRef Name="HV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOIVIEN_THANHVIENHOI">
+              <PropertyRef Name="HV_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2389,9 +2399,65 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN_CHITIET">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN_CHITIET">
+                <ScalarProperty Name="TH_CT_DIENGIAI" ColumnName="TH_CT_DIENGIAI" />
+                <ScalarProperty Name="TH_CT_CHIPHIKHAC" ColumnName="TH_CT_CHIPHIKHAC" />
+                <ScalarProperty Name="TH_CT_THULAO" ColumnName="TH_CT_THULAO" />
+                <ScalarProperty Name="TH_CT_LINK_BANCAMKET" ColumnName="TH_CT_LINK_BANCAMKET" />
+                <ScalarProperty Name="TH_CT_LINK_HOPDONG" ColumnName="TH_CT_LINK_HOPDONG" />
+                <ScalarProperty Name="TH_CT_LINK_CV" ColumnName="TH_CT_LINK_CV" />
+                <ScalarProperty Name="TH_CT_LINK_TOR" ColumnName="TH_CT_LINK_TOR" />
+                <ScalarProperty Name="TH_CT_TK_DIACHI" ColumnName="TH_CT_TK_DIACHI" />
+                <ScalarProperty Name="TH_CT_TK_NGANHANG" ColumnName="TH_CT_TK_NGANHANG" />
+                <ScalarProperty Name="TH_CT_TK_SO" ColumnName="TH_CT_TK_SO" />
+                <ScalarProperty Name="TH_CT_MASOTHUE" ColumnName="TH_CT_MASOTHUE" />
+                <ScalarProperty Name="TH_CT_SDT" ColumnName="TH_CT_SDT" />
+                <ScalarProperty Name="TH_CT_DONVI_SDT" ColumnName="TH_CT_DONVI_SDT" />
+                <ScalarProperty Name="TH_CT_DONVI_DIACHI" ColumnName="TH_CT_DONVI_DIACHI" />
+                <ScalarProperty Name="TH_CT_DONVI_TEN" ColumnName="TH_CT_DONVI_TEN" />
+                <ScalarProperty Name="TH_CT_DIACHI" ColumnName="TH_CT_DIACHI" />
+                <ScalarProperty Name="TH_CT_CMND_NOICAP" ColumnName="TH_CT_CMND_NOICAP" />
+                <ScalarProperty Name="TH_CT_CMND_NGAYCAP" ColumnName="TH_CT_CMND_NGAYCAP" />
+                <ScalarProperty Name="TH_CT_CMND_SO" ColumnName="TH_CT_CMND_SO" />
+                <ScalarProperty Name="TH_CT_FACEBOOK" ColumnName="TH_CT_FACEBOOK" />
+                <ScalarProperty Name="TH_CT_EMAIL" ColumnName="TH_CT_EMAIL" />
+                <ScalarProperty Name="TH_CT_CHUCVU" ColumnName="TH_CT_CHUCVU" />
+                <ScalarProperty Name="TH_CT_GIOITINH" ColumnName="TH_CT_GIOITINH" />
+                <ScalarProperty Name="TH_CT_TEN" ColumnName="TH_CT_TEN" />
+                <ScalarProperty Name="TH_CT_HO" ColumnName="TH_CT_HO" />
+                <ScalarProperty Name="TH_CT_LOAI" ColumnName="TH_CT_LOAI" />
+                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
+                <ScalarProperty Name="TH_CT_ID" ColumnName="TH_CT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN_DIADIEM">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN_DIADIEM">
+                <ScalarProperty Name="TH_DD_LINK_HOPDONG" ColumnName="TH_DD_LINK_HOPDONG" />
+                <ScalarProperty Name="TH_DD_TK_NGANHANG" ColumnName="TH_DD_TK_NGANHANG" />
+                <ScalarProperty Name="TH_DD_TK_TEN" ColumnName="TH_DD_TK_TEN" />
+                <ScalarProperty Name="TH_DD_TK_SO" ColumnName="TH_DD_TK_SO" />
+                <ScalarProperty Name="TH_DD_SDT" ColumnName="TH_DD_SDT" />
+                <ScalarProperty Name="TH_DD_MST" ColumnName="TH_DD_MST" />
+                <ScalarProperty Name="TH_DD_DIACHI" ColumnName="TH_DD_DIACHI" />
+                <ScalarProperty Name="TH_DD_CHUCVU" ColumnName="TH_DD_CHUCVU" />
+                <ScalarProperty Name="TH_DD_NGUOI_DAIDIEN" ColumnName="TH_DD_NGUOI_DAIDIEN" />
+                <ScalarProperty Name="TH_DD_TEN" ColumnName="TH_DD_TEN" />
+                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
+                <ScalarProperty Name="TH_DD_ID" ColumnName="TH_DD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="QL_HOIVIEN">
             <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN">
               <MappingFragment StoreEntitySet="QL_HOIVIEN">
+                <ScalarProperty Name="HV_NGH_FACE" ColumnName="HV_NGH_FACE" />
+                <ScalarProperty Name="HV_NGH_SDT" ColumnName="HV_NGH_SDT" />
+                <ScalarProperty Name="HV_NGH_DIACHI" ColumnName="HV_NGH_DIACHI" />
+                <ScalarProperty Name="HV_NGH_TEN" ColumnName="HV_NGH_TEN" />
                 <ScalarProperty Name="HV_SENDMAIL_60TUOI" ColumnName="HV_SENDMAIL_60TUOI" />
                 <ScalarProperty Name="HV_SENDMAIL_16TUOI" ColumnName="HV_SENDMAIL_16TUOI" />
                 <ScalarProperty Name="HV_GHICHU" ColumnName="HV_GHICHU" />
@@ -2412,9 +2478,9 @@
                 <ScalarProperty Name="HV_GIAY_CHUNGNHAN_KT" ColumnName="HV_GIAY_CHUNGNHAN_KT" />
                 <ScalarProperty Name="HV_QUYETDINH_CONGNHAN_KT" ColumnName="HV_QUYETDINH_CONGNHAN_KT" />
                 <ScalarProperty Name="HV_BHYT_MIENPHI" ColumnName="HV_BHYT_MIENPHI" />
-                <ScalarProperty Name="HV_BTXH_KHAC" ColumnName="HV_BTXH_KHAC" />
-                <ScalarProperty Name="HV_BTXH_TIEN_HANGTHANG" ColumnName="HV_BTXH_TIEN_HANGTHANG" />
-                <ScalarProperty Name="HV_BTXH_HANGTHANG" ColumnName="HV_BTXH_HANGTHANG" />
+                <ScalarProperty Name="HV_TCXH_KHAC" ColumnName="HV_TCXH_KHAC" />
+                <ScalarProperty Name="HV_TCXH_TIEN_HANGTHANG" ColumnName="HV_TCXH_TIEN_HANGTHANG" />
+                <ScalarProperty Name="HV_TCXH_HANGTHANG" ColumnName="HV_TCXH_HANGTHANG" />
                 <ScalarProperty Name="HV_DCHT_TINHTRANG" ColumnName="HV_DCHT_TINHTRANG" />
                 <ScalarProperty Name="HV_DCHT_TU_TOCHUC" ColumnName="HV_DCHT_TU_TOCHUC" />
                 <ScalarProperty Name="HV_DCHT_THOIDIEM_NHAN" ColumnName="HV_DCHT_THOIDIEM_NHAN" />
@@ -2465,68 +2531,17 @@
                 <ScalarProperty Name="HV_CMND" ColumnName="HV_CMND" />
                 <ScalarProperty Name="HV_NGOAINGU" ColumnName="HV_NGOAINGU" />
                 <ScalarProperty Name="HV_TRINHDO_CHUYENMON" ColumnName="HV_TRINHDO_CHUYENMON" />
-                <ScalarProperty Name="HV_TRINHDO_VANHOA" ColumnName="HV_TRINHDO_VANHOA" />
+                <ScalarProperty Name="HV_TRINHDO_HOCVAN" ColumnName="HV_TRINHDO_HOCVAN" />
                 <ScalarProperty Name="HV_NGHE_NGHIEP" ColumnName="HV_NGHE_NGHIEP" />
                 <ScalarProperty Name="HV_TON_GIAO" ColumnName="HV_TON_GIAO" />
                 <ScalarProperty Name="HV_TUOI" ColumnName="HV_TUOI" />
                 <ScalarProperty Name="HV_NGAY_SINH" ColumnName="HV_NGAY_SINH" />
+                <ScalarProperty Name="HV_DOITUONG" ColumnName="HV_DOITUONG" />
                 <ScalarProperty Name="HV_DAN_TOC" ColumnName="HV_DAN_TOC" />
                 <ScalarProperty Name="HV_GIOI_TINH" ColumnName="HV_GIOI_TINH" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_HO" ColumnName="HV_HO" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN_CHITIET">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET">
-              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN_CHITIET">
-                <ScalarProperty Name="TH_CT_DIENGIAI" ColumnName="TH_CT_DIENGIAI" />
-                <ScalarProperty Name="TH_CT_CHIPHIKHAC" ColumnName="TH_CT_CHIPHIKHAC" />
-                <ScalarProperty Name="TH_CT_THULAO" ColumnName="TH_CT_THULAO" />
-                <ScalarProperty Name="TH_CT_LINK_BANCAMKET" ColumnName="TH_CT_LINK_BANCAMKET" />
-                <ScalarProperty Name="TH_CT_LINK_HOPDONG" ColumnName="TH_CT_LINK_HOPDONG" />
-                <ScalarProperty Name="TH_CT_LINK_CV" ColumnName="TH_CT_LINK_CV" />
-                <ScalarProperty Name="TH_CT_LINK_TOR" ColumnName="TH_CT_LINK_TOR" />
-                <ScalarProperty Name="TH_CT_TK_DIACHI" ColumnName="TH_CT_TK_DIACHI" />
-                <ScalarProperty Name="TH_CT_TK_NGANHANG" ColumnName="TH_CT_TK_NGANHANG" />
-                <ScalarProperty Name="TH_CT_TK_SO" ColumnName="TH_CT_TK_SO" />
-                <ScalarProperty Name="TH_CT_MASOTHUE" ColumnName="TH_CT_MASOTHUE" />
-                <ScalarProperty Name="TH_CT_SDT" ColumnName="TH_CT_SDT" />
-                <ScalarProperty Name="TH_CT_DONVI_SDT" ColumnName="TH_CT_DONVI_SDT" />
-                <ScalarProperty Name="TH_CT_DONVI_DIACHI" ColumnName="TH_CT_DONVI_DIACHI" />
-                <ScalarProperty Name="TH_CT_DONVI_TEN" ColumnName="TH_CT_DONVI_TEN" />
-                <ScalarProperty Name="TH_CT_DIACHI" ColumnName="TH_CT_DIACHI" />
-                <ScalarProperty Name="TH_CT_CMND_NOICAP" ColumnName="TH_CT_CMND_NOICAP" />
-                <ScalarProperty Name="TH_CT_CMND_NGAYCAP" ColumnName="TH_CT_CMND_NGAYCAP" />
-                <ScalarProperty Name="TH_CT_CMND_SO" ColumnName="TH_CT_CMND_SO" />
-                <ScalarProperty Name="TH_CT_FACEBOOK" ColumnName="TH_CT_FACEBOOK" />
-                <ScalarProperty Name="TH_CT_EMAIL" ColumnName="TH_CT_EMAIL" />
-                <ScalarProperty Name="TH_CT_CHUCVU" ColumnName="TH_CT_CHUCVU" />
-                <ScalarProperty Name="TH_CT_GIOITINH" ColumnName="TH_CT_GIOITINH" />
-                <ScalarProperty Name="TH_CT_TEN" ColumnName="TH_CT_TEN" />
-                <ScalarProperty Name="TH_CT_HO" ColumnName="TH_CT_HO" />
-                <ScalarProperty Name="TH_CT_LOAI" ColumnName="TH_CT_LOAI" />
-                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
-                <ScalarProperty Name="TH_CT_ID" ColumnName="TH_CT_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QL_HOATDONG_TAPHUAN_DIADIEM">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM">
-              <MappingFragment StoreEntitySet="QL_HOATDONG_TAPHUAN_DIADIEM">
-                <ScalarProperty Name="TH_DD_LINK_HOPDONG" ColumnName="TH_DD_LINK_HOPDONG" />
-                <ScalarProperty Name="TH_DD_TK_NGANHANG" ColumnName="TH_DD_TK_NGANHANG" />
-                <ScalarProperty Name="TH_DD_TK_TEN" ColumnName="TH_DD_TK_TEN" />
-                <ScalarProperty Name="TH_DD_TK_SO" ColumnName="TH_DD_TK_SO" />
-                <ScalarProperty Name="TH_DD_SDT" ColumnName="TH_DD_SDT" />
-                <ScalarProperty Name="TH_DD_MST" ColumnName="TH_DD_MST" />
-                <ScalarProperty Name="TH_DD_DIACHI" ColumnName="TH_DD_DIACHI" />
-                <ScalarProperty Name="TH_DD_CHUCVU" ColumnName="TH_DD_CHUCVU" />
-                <ScalarProperty Name="TH_DD_NGUOI_DAIDIEN" ColumnName="TH_DD_NGUOI_DAIDIEN" />
-                <ScalarProperty Name="TH_DD_TEN" ColumnName="TH_DD_TEN" />
-                <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
-                <ScalarProperty Name="TH_DD_ID" ColumnName="TH_DD_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

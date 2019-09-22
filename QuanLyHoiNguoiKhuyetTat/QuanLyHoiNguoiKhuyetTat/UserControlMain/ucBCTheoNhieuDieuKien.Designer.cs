@@ -398,7 +398,7 @@
             // 
             // gridBand7
             // 
-            this.gridBand7.Caption = "Trình độ văn hóa";
+            this.gridBand7.Caption = "Trình độ học vấn";
             this.gridBand7.Columns.Add(this.colSP_DANGDUNG);
             this.gridBand7.Name = "gridBand7";
             this.gridBand7.VisibleIndex = 5;
@@ -827,7 +827,7 @@
             this.textEdit15.Location = new System.Drawing.Point(2, 236);
             this.textEdit15.Name = "textEdit15";
             this.textEdit15.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.textEdit15.Properties.Caption = "Nhận BTXH hàng tháng";
+            this.textEdit15.Properties.Caption = "Nhận TCXH hàng tháng";
             this.textEdit15.Size = new System.Drawing.Size(252, 23);
             this.textEdit15.StyleController = this.layoutRefesh;
             this.textEdit15.TabIndex = 5;
@@ -1088,11 +1088,11 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.textEdit5;
-            this.layoutControlItem5.CustomizationFormText = "Trình độ văn hóa";
+            this.layoutControlItem5.CustomizationFormText = "Trình độ học vấn";
             this.layoutControlItem5.Location = new System.Drawing.Point(290, 30);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(239, 30);
-            this.layoutControlItem5.Text = "Trình độ văn hóa";
+            this.layoutControlItem5.Text = "Trình độ học vấn";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(133, 17);
             // 
             // layoutControlItem12

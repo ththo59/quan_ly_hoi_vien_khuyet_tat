@@ -1276,7 +1276,7 @@
             this.xrTableCell174.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
             this.xrTableCell174.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrTableCell174.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_BTXH_HANGTHANG")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_TCXH_HANGTHANG")});
             this.xrTableCell174.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell174.Name = "xrTableCell174";
             this.xrTableCell174.StylePriority.UseBorderDashStyle = false;
@@ -1301,7 +1301,7 @@
             this.xrTableCell176.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
             this.xrTableCell176.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrTableCell176.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_BTXH_TIEN_HANGTHANG", "{0:#,#}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_TCXH_TIEN_HANGTHANG", "{0:#,#}")});
             this.xrTableCell176.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell176.Name = "xrTableCell176";
             this.xrTableCell176.StylePriority.UseBorderDashStyle = false;
@@ -1385,7 +1385,7 @@
             this.xrTableCell182.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
             this.xrTableCell182.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrTableCell182.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_BTXH_KHAC")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_TCXH_KHAC")});
             this.xrTableCell182.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell182.Name = "xrTableCell182";
             this.xrTableCell182.StylePriority.UseBorderDashStyle = false;
@@ -2806,7 +2806,7 @@
             this.xrTableCell117.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
             this.xrTableCell117.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrTableCell117.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_TRINHDO_VANHOA")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "HOI_VIEN.HV_TRINHDO_HOCVAN")});
             this.xrTableCell117.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell117.Name = "xrTableCell117";
             this.xrTableCell117.StylePriority.UseBorderDashStyle = false;

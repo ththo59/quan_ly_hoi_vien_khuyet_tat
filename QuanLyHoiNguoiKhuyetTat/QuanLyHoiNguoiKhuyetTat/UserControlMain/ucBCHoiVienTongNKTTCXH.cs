@@ -62,7 +62,7 @@ namespace DauThau.UserControlCategory
                         where (strPhuong != "" ? p.HV_THUONGTRU_PHUONG == strPhuong : true)
                         && (strQuan != "" ? p.HV_THUONGTRU_QUAN == strQuan : true)
                         && (strThanhPho != "" ? p.HV_THUONGTRU_TP == strThanhPho : true)
-                        && p.HV_BTXH_HANGTHANG == "Có"
+                        && p.HV_TCXH_HANGTHANG == "Có"
                         select p).ToList();
 
             rptBCHoiVien_NKTTCXH rpt = new rptBCHoiVien_NKTTCXH();

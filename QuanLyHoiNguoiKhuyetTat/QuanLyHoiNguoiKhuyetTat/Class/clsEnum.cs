@@ -35,6 +35,7 @@ namespace DauThau.Class
         DM_TONGIAO,
         DM_DANTOC,
         DM_CHUCVU_HOI,
+        DM_DOITUONG,
 
         DM_KHUYETTAT_MUCDO,
         DM_KHUYETTAT_NGUYENNHAN,
@@ -55,7 +56,7 @@ namespace DauThau.Class
         DM_NHA_TAI_TRO_LOAI,
         DM_DONVI_PHUTRACH,
         DM_LOAI_HOATDONG,
-        DM_BTXH_HANG_THANG
+        DM_TCXH_HANG_THANG
     }
 
     enum FunctionName

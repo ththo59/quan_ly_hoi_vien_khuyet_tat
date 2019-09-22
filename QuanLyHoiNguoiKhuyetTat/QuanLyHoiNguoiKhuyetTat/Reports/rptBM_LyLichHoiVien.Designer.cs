@@ -338,7 +338,7 @@
             this.xrTableCell16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic);
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.StylePriority.UseFont = false;
-            this.xrTableCell16.Text = "5.Trình độ văn hóa :";
+            this.xrTableCell16.Text = "5.Trình độ học vấn :";
             this.xrTableCell16.Weight = 0.71970682279875486D;
             // 
             // xrTableCell17
@@ -777,7 +777,7 @@
             this.xrTableCell82.Padding = new DevExpress.XtraPrinting.PaddingInfo(20, 0, 0, 0, 100F);
             this.xrTableCell82.StylePriority.UseFont = false;
             this.xrTableCell82.StylePriority.UsePadding = false;
-            this.xrTableCell82.Text = "BTXH :";
+            this.xrTableCell82.Text = "TCXH :";
             this.xrTableCell82.Weight = 0.45774041850693326D;
             // 
             // xrTableCell83

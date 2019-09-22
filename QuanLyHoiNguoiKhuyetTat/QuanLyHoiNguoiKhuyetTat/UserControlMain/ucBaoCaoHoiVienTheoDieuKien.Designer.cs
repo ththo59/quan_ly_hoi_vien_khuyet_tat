@@ -54,7 +54,7 @@
             this.colHV_NGHE_NGHIEP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repLueNgheNghiep = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bandTrinhDoVanHoa = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.colHV_TRINHDO_VANHOA = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colHV_TRINHDO_HOCVAN = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repLueTrinhDoVanHoa = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bandTrinhDoChuyenMon = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colHV_TRINHDO_CHUYENMON = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -64,6 +64,9 @@
             this.bandChucVuTrongHoi = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colHV_CHUCVU = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repLueChucVu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.bandDoiTuong = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_DOITUONG = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repLueDoiTuong = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bandCMND = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand16 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -131,6 +134,7 @@
             this.bandHonNhan = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand44 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colHV_TINHTRANG_HONNHAN = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repLueHonNhan = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridBand45 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn31 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand46 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -211,7 +215,6 @@
             this.chkTonGiao = new DevExpress.XtraEditors.CheckEdit();
             this.chkNgaySinh = new DevExpress.XtraEditors.CheckEdit();
             this.chkDanToc = new DevExpress.XtraEditors.CheckEdit();
-            this.repLueHonNhan = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
@@ -225,6 +228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repLueTrinhDoVanHoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueTrinhDoChuyenMon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueChucVu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repLueDoiTuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueThuongTru_Phuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueThuongTru_Quan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueThuongTru_ThanhPho)).BeginInit();
@@ -235,6 +239,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repLueMucDo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLuePhuongTienDiLai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueKTNguyenNhan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repLueHonNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDisplayColumn)).BeginInit();
             this.grpDisplayColumn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkCongViec.Properties)).BeginInit();
@@ -256,7 +261,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkTonGiao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDanToc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repLueHonNhan)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -352,7 +356,8 @@
             this.repLueKTNguyenNhan,
             this.repLueKTTinhTrang,
             this.repLuePhuongTienDiLai,
-            this.repLueHonNhan});
+            this.repLueHonNhan,
+            this.repLueDoiTuong});
             this.gcGrid.Size = new System.Drawing.Size(904, 332);
             this.gcGrid.TabIndex = 29;
             this.gcGrid.UseEmbeddedNavigator = true;
@@ -393,7 +398,7 @@
             this.bandedGridColumn3,
             this.colHV_TONGIAO,
             this.colHV_NGHE_NGHIEP,
-            this.colHV_TRINHDO_VANHOA,
+            this.colHV_TRINHDO_HOCVAN,
             this.colHV_TRINHDO_CHUYENMON,
             this.bandedGridColumn8,
             this.bandedGridColumn1,
@@ -448,7 +453,8 @@
             this.bandedGridColumn55,
             this.bandedGridColumn56,
             this.bandedGridColumn57,
-            this.bandedGridColumn58});
+            this.bandedGridColumn58,
+            this.colHV_DOITUONG});
             this.gvGrid.GridControl = this.gcGrid;
             this.gvGrid.Name = "gvGrid";
             this.gvGrid.NewItemRowText = "Nhấp vào đây để thêm dòng dữ liệu mới";
@@ -485,11 +491,12 @@
             this.bandTrinhDoVanHoa,
             this.bandTrinhDoChuyenMon,
             this.bandNamKhuyetTat,
-            this.bandChucVuTrongHoi});
+            this.bandChucVuTrongHoi,
+            this.bandDoiTuong});
             this.gridBand23.Name = "gridBand23";
             this.gridBand23.RowCount = 2;
             this.gridBand23.VisibleIndex = 0;
-            this.gridBand23.Width = 1207;
+            this.gridBand23.Width = 1304;
             // 
             // gridBand2
             // 
@@ -550,6 +557,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "Giới tính")});
             this.repLueGioiTinh.DisplayMember = "NAME";
             this.repLueGioiTinh.Name = "repLueGioiTinh";
+            this.repLueGioiTinh.NullText = "";
             this.repLueGioiTinh.ValueMember = "NAME";
             this.repLueGioiTinh.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueGioiTinh_ButtonClick);
             // 
@@ -639,6 +647,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TG_TEN", "Tôn giáo")});
             this.repLueTonGiao.DisplayMember = "TG_TEN";
             this.repLueTonGiao.Name = "repLueTonGiao";
+            this.repLueTonGiao.NullText = "";
             this.repLueTonGiao.ValueMember = "TG_TEN";
             this.repLueTonGiao.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueTonGiao_ButtonClick);
             // 
@@ -669,25 +678,26 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NN_TEN", "Nghề nghiệp")});
             this.repLueNgheNghiep.DisplayMember = "NN_TEN";
             this.repLueNgheNghiep.Name = "repLueNgheNghiep";
+            this.repLueNgheNghiep.NullText = "";
             this.repLueNgheNghiep.ValueMember = "NN_TEN";
             this.repLueNgheNghiep.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueNgheNghiep_ButtonClick);
             // 
             // bandTrinhDoVanHoa
             // 
             this.bandTrinhDoVanHoa.Caption = "Trình độ học vấn";
-            this.bandTrinhDoVanHoa.Columns.Add(this.colHV_TRINHDO_VANHOA);
+            this.bandTrinhDoVanHoa.Columns.Add(this.colHV_TRINHDO_HOCVAN);
             this.bandTrinhDoVanHoa.Name = "bandTrinhDoVanHoa";
             this.bandTrinhDoVanHoa.VisibleIndex = 7;
             this.bandTrinhDoVanHoa.Width = 109;
             // 
-            // colHV_TRINHDO_VANHOA
+            // colHV_TRINHDO_HOCVAN
             // 
-            this.colHV_TRINHDO_VANHOA.Caption = "Trình độ văn hóa";
-            this.colHV_TRINHDO_VANHOA.ColumnEdit = this.repLueTrinhDoVanHoa;
-            this.colHV_TRINHDO_VANHOA.FieldName = "HV_TRINHDO_VANHOA";
-            this.colHV_TRINHDO_VANHOA.Name = "colHV_TRINHDO_VANHOA";
-            this.colHV_TRINHDO_VANHOA.Visible = true;
-            this.colHV_TRINHDO_VANHOA.Width = 109;
+            this.colHV_TRINHDO_HOCVAN.Caption = "Trình độ học vấn";
+            this.colHV_TRINHDO_HOCVAN.ColumnEdit = this.repLueTrinhDoVanHoa;
+            this.colHV_TRINHDO_HOCVAN.FieldName = "HV_TRINHDO_HOCVAN";
+            this.colHV_TRINHDO_HOCVAN.Name = "colHV_TRINHDO_HOCVAN";
+            this.colHV_TRINHDO_HOCVAN.Visible = true;
+            this.colHV_TRINHDO_HOCVAN.Width = 109;
             // 
             // repLueTrinhDoVanHoa
             // 
@@ -696,9 +706,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
             this.repLueTrinhDoVanHoa.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HV_TEN", "Trình độ văn hóa")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HV_TEN", "Trình độ học vấn")});
             this.repLueTrinhDoVanHoa.DisplayMember = "HV_TEN";
             this.repLueTrinhDoVanHoa.Name = "repLueTrinhDoVanHoa";
+            this.repLueTrinhDoVanHoa.NullText = "";
             this.repLueTrinhDoVanHoa.ValueMember = "HV_TEN";
             this.repLueTrinhDoVanHoa.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueTrinhDoVanHoa_ButtonClick);
             // 
@@ -712,7 +723,7 @@
             // 
             // colHV_TRINHDO_CHUYENMON
             // 
-            this.colHV_TRINHDO_CHUYENMON.Caption = "Trình độ chuyên môn";
+            this.colHV_TRINHDO_CHUYENMON.Caption = "Bằng cấp";
             this.colHV_TRINHDO_CHUYENMON.ColumnEdit = this.repLueTrinhDoChuyenMon;
             this.colHV_TRINHDO_CHUYENMON.FieldName = "HV_TRINHDO_CHUYENMON";
             this.colHV_TRINHDO_CHUYENMON.Name = "colHV_TRINHDO_CHUYENMON";
@@ -729,6 +740,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CM_TEN", "Trình độ chuyên môn")});
             this.repLueTrinhDoChuyenMon.DisplayMember = "CM_TEN";
             this.repLueTrinhDoChuyenMon.Name = "repLueTrinhDoChuyenMon";
+            this.repLueTrinhDoChuyenMon.NullText = "";
             this.repLueTrinhDoChuyenMon.ValueMember = "CM_TEN";
             this.repLueTrinhDoChuyenMon.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueTrinhDoChuyenMon_ButtonClick);
             // 
@@ -776,8 +788,41 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CV_TEN", "Chức vụ")});
             this.repLueChucVu.DisplayMember = "CV_TEN";
             this.repLueChucVu.Name = "repLueChucVu";
+            this.repLueChucVu.NullText = "";
             this.repLueChucVu.ValueMember = "CV_TEN";
             this.repLueChucVu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueChucVu_ButtonClick);
+            // 
+            // bandDoiTuong
+            // 
+            this.bandDoiTuong.Caption = "Đối tượng";
+            this.bandDoiTuong.Columns.Add(this.colHV_DOITUONG);
+            this.bandDoiTuong.Name = "bandDoiTuong";
+            this.bandDoiTuong.VisibleIndex = 11;
+            this.bandDoiTuong.Width = 97;
+            // 
+            // colHV_DOITUONG
+            // 
+            this.colHV_DOITUONG.Caption = "Đối tượng";
+            this.colHV_DOITUONG.ColumnEdit = this.repLueDoiTuong;
+            this.colHV_DOITUONG.FieldName = "HV_DOITUONG";
+            this.colHV_DOITUONG.Name = "colHV_DOITUONG";
+            this.colHV_DOITUONG.Visible = true;
+            this.colHV_DOITUONG.Width = 97;
+            // 
+            // repLueDoiTuong
+            // 
+            this.repLueDoiTuong.AutoHeight = false;
+            this.repLueDoiTuong.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+            this.repLueDoiTuong.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "Name1", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "Đối tượng")});
+            this.repLueDoiTuong.DisplayMember = "NAME";
+            this.repLueDoiTuong.Name = "repLueDoiTuong";
+            this.repLueDoiTuong.NullText = "";
+            this.repLueDoiTuong.ValueMember = "ID";
+            this.repLueDoiTuong.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueDoiTuong_ButtonClick);
             // 
             // bandCMND
             // 
@@ -909,6 +954,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("XA_TEN", "Xã, phường")});
             this.repLueThuongTru_Phuong.DisplayMember = "XA_TEN";
             this.repLueThuongTru_Phuong.Name = "repLueThuongTru_Phuong";
+            this.repLueThuongTru_Phuong.NullText = "";
             this.repLueThuongTru_Phuong.ValueMember = "XA_TEN";
             this.repLueThuongTru_Phuong.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueThuongTru_Phuong_ButtonClick);
             // 
@@ -938,6 +984,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HUYEN_TEN", "Quận, huyện")});
             this.repLueThuongTru_Quan.DisplayMember = "HUYEN_TEN";
             this.repLueThuongTru_Quan.Name = "repLueThuongTru_Quan";
+            this.repLueThuongTru_Quan.NullText = "";
             this.repLueThuongTru_Quan.ValueMember = "HUYEN_TEN";
             this.repLueThuongTru_Quan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueThuongTru_Quan_ButtonClick);
             // 
@@ -967,6 +1014,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TINH_TEN", "Tỉnh, thành phố")});
             this.repLueThuongTru_ThanhPho.DisplayMember = "TINH_TEN";
             this.repLueThuongTru_ThanhPho.Name = "repLueThuongTru_ThanhPho";
+            this.repLueThuongTru_ThanhPho.NullText = "";
             this.repLueThuongTru_ThanhPho.ValueMember = "TINH_TEN";
             this.repLueThuongTru_ThanhPho.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueThuongTru_ThanhPho_ButtonClick);
             // 
@@ -1043,6 +1091,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("XA_TEN", "Xã, phường")});
             this.repLueTamTru_Phuong.DisplayMember = "XA_TEN";
             this.repLueTamTru_Phuong.Name = "repLueTamTru_Phuong";
+            this.repLueTamTru_Phuong.NullText = "";
             this.repLueTamTru_Phuong.ValueMember = "XA_TEN";
             this.repLueTamTru_Phuong.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueTamTru_Phuong_ButtonClick);
             // 
@@ -1073,6 +1122,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HUYEN_TEN", "Quận, huyện")});
             this.repLueTamTru_Quan.DisplayMember = "HUYEN_TEN";
             this.repLueTamTru_Quan.Name = "repLueTamTru_Quan";
+            this.repLueTamTru_Quan.NullText = "";
             this.repLueTamTru_Quan.ValueMember = "HUYEN_TEN";
             this.repLueTamTru_Quan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueTamTru_Quan_ButtonClick);
             // 
@@ -1103,6 +1153,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TINH_TEN", "Tỉnh, thành phố")});
             this.repLueTamTru_ThanhPho.DisplayMember = "TINH_TEN";
             this.repLueTamTru_ThanhPho.Name = "repLueTamTru_ThanhPho";
+            this.repLueTamTru_ThanhPho.NullText = "";
             this.repLueTamTru_ThanhPho.ValueMember = "TINH_TEN";
             this.repLueTamTru_ThanhPho.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueTamTru_ThanhPho_ButtonClick);
             // 
@@ -1227,6 +1278,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TTKT_TEN", "Tình trạng")});
             this.repLueKTTinhTrang.DisplayMember = "TTKT_TEN";
             this.repLueKTTinhTrang.Name = "repLueKTTinhTrang";
+            this.repLueKTTinhTrang.NullText = "";
             this.repLueKTTinhTrang.ValueMember = "TTKT_TEN";
             this.repLueKTTinhTrang.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueKTTinhTrang_ButtonClick);
             // 
@@ -1281,6 +1333,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDKT_TEN", "Mức độ")});
             this.repLueMucDo.DisplayMember = "MDKT_TEN";
             this.repLueMucDo.Name = "repLueMucDo";
+            this.repLueMucDo.NullText = "";
             this.repLueMucDo.ValueMember = "MDKT_TEN";
             this.repLueMucDo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueMucDo_ButtonClick);
             // 
@@ -1311,6 +1364,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PT_TEN", "Phương tiện đi lại")});
             this.repLuePhuongTienDiLai.DisplayMember = "PT_TEN";
             this.repLuePhuongTienDiLai.Name = "repLuePhuongTienDiLai";
+            this.repLuePhuongTienDiLai.NullText = "";
             this.repLuePhuongTienDiLai.ValueMember = "PT_TEN";
             this.repLuePhuongTienDiLai.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLuePhuongTienDiLai_ButtonClick);
             // 
@@ -1357,6 +1411,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NNKT_TEN", "Nguyên nhân")});
             this.repLueKTNguyenNhan.DisplayMember = "NNKT_TEN";
             this.repLueKTNguyenNhan.Name = "repLueKTNguyenNhan";
+            this.repLueKTNguyenNhan.NullText = "";
             this.repLueKTNguyenNhan.ValueMember = "NNKT_TEN";
             this.repLueKTNguyenNhan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueKTNguyenNhan_ButtonClick);
             // 
@@ -1404,6 +1459,20 @@
             this.colHV_TINHTRANG_HONNHAN.Name = "colHV_TINHTRANG_HONNHAN";
             this.colHV_TINHTRANG_HONNHAN.Visible = true;
             this.colHV_TINHTRANG_HONNHAN.Width = 136;
+            // 
+            // repLueHonNhan
+            // 
+            this.repLueHonNhan.AutoHeight = false;
+            this.repLueHonNhan.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+            this.repLueHonNhan.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TTHN_TEN", "Hôn nhân")});
+            this.repLueHonNhan.DisplayMember = "TTHN_TEN";
+            this.repLueHonNhan.Name = "repLueHonNhan";
+            this.repLueHonNhan.NullText = "";
+            this.repLueHonNhan.ValueMember = "TTHN_TEN";
+            this.repLueHonNhan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueHonNhan_ButtonClick);
             // 
             // gridBand45
             // 
@@ -1592,7 +1661,7 @@
             // 
             // gridBand57
             // 
-            this.gridBand57.Caption = "Nhận BTXH hàng tháng";
+            this.gridBand57.Caption = "Nhận TCXH hàng tháng";
             this.gridBand57.Columns.Add(this.bandedGridColumn40);
             this.gridBand57.Name = "gridBand57";
             this.gridBand57.VisibleIndex = 0;
@@ -1600,15 +1669,15 @@
             // 
             // bandedGridColumn40
             // 
-            this.bandedGridColumn40.Caption = "Nhận BTXH";
-            this.bandedGridColumn40.FieldName = "HV_BTXH_HANGTHANG";
+            this.bandedGridColumn40.Caption = "Nhận TCXH";
+            this.bandedGridColumn40.FieldName = "HV_TCXH_HANGTHANG";
             this.bandedGridColumn40.Name = "bandedGridColumn40";
             this.bandedGridColumn40.Visible = true;
             this.bandedGridColumn40.Width = 143;
             // 
             // gridBand58
             // 
-            this.gridBand58.Caption = "Số tiền BTXH";
+            this.gridBand58.Caption = "Số tiền TCXH";
             this.gridBand58.Columns.Add(this.bandedGridColumn41);
             this.gridBand58.Name = "gridBand58";
             this.gridBand58.VisibleIndex = 1;
@@ -1616,15 +1685,17 @@
             // 
             // bandedGridColumn41
             // 
-            this.bandedGridColumn41.Caption = "Số tiền BTXH hàng tháng";
-            this.bandedGridColumn41.FieldName = "HV_BTXH_TIEN_HANGTHANG";
+            this.bandedGridColumn41.Caption = "Số tiền TCXH hàng tháng";
+            this.bandedGridColumn41.DisplayFormat.FormatString = "#,#";
+            this.bandedGridColumn41.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.bandedGridColumn41.FieldName = "HV_TCXH_TIEN_HANGTHANG";
             this.bandedGridColumn41.Name = "bandedGridColumn41";
             this.bandedGridColumn41.Visible = true;
             this.bandedGridColumn41.Width = 108;
             // 
             // gridBand60
             // 
-            this.gridBand60.Caption = "BTXH khác";
+            this.gridBand60.Caption = "TCXH khác";
             this.gridBand60.Columns.Add(this.bandedGridColumn42);
             this.gridBand60.Name = "gridBand60";
             this.gridBand60.VisibleIndex = 2;
@@ -1632,8 +1703,8 @@
             // 
             // bandedGridColumn42
             // 
-            this.bandedGridColumn42.Caption = "BTXH Khác";
-            this.bandedGridColumn42.FieldName = "HV_BTXH_KHAC";
+            this.bandedGridColumn42.Caption = "TCXH Khác";
+            this.bandedGridColumn42.FieldName = "HV_TCXH_KHAC";
             this.bandedGridColumn42.Name = "bandedGridColumn42";
             this.bandedGridColumn42.Visible = true;
             this.bandedGridColumn42.Width = 98;
@@ -2102,7 +2173,7 @@
             this.chkTrinhDoVanHoa.Name = "chkTrinhDoVanHoa";
             this.chkTrinhDoVanHoa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.chkTrinhDoVanHoa.Properties.Appearance.Options.UseFont = true;
-            this.chkTrinhDoVanHoa.Properties.Caption = "Trình độ văn hóa";
+            this.chkTrinhDoVanHoa.Properties.Caption = "Trình độ học vấn";
             this.chkTrinhDoVanHoa.Size = new System.Drawing.Size(127, 21);
             this.chkTrinhDoVanHoa.TabIndex = 0;
             this.chkTrinhDoVanHoa.CheckedChanged += new System.EventHandler(this.DisplayColumn_CheckedChanged);
@@ -2155,19 +2226,6 @@
             this.chkDanToc.TabIndex = 0;
             this.chkDanToc.CheckedChanged += new System.EventHandler(this.DisplayColumn_CheckedChanged);
             // 
-            // repLueHonNhan
-            // 
-            this.repLueHonNhan.AutoHeight = false;
-            this.repLueHonNhan.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.repLueHonNhan.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TTHN_TEN", "Hôn nhân")});
-            this.repLueHonNhan.DisplayMember = "TTHN_TEN";
-            this.repLueHonNhan.Name = "repLueHonNhan";
-            this.repLueHonNhan.ValueMember = "TTHN_TEN";
-            this.repLueHonNhan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repLueHonNhan_ButtonClick);
-            // 
             // ucBaoCaoHoiVienTheoDieuKien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2191,6 +2249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repLueTrinhDoVanHoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueTrinhDoChuyenMon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueChucVu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repLueDoiTuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueThuongTru_Phuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueThuongTru_Quan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueThuongTru_ThanhPho)).EndInit();
@@ -2201,6 +2260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repLueMucDo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLuePhuongTienDiLai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repLueKTNguyenNhan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repLueHonNhan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpDisplayColumn)).EndInit();
             this.grpDisplayColumn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkCongViec.Properties)).EndInit();
@@ -2222,7 +2282,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkTonGiao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkNgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDanToc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repLueHonNhan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2238,7 +2297,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_TONGIAO;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_NGHE_NGHIEP;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_TRINHDO_VANHOA;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_TRINHDO_HOCVAN;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_TRINHDO_CHUYENMON;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn8;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn9;
@@ -2322,6 +2381,18 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueNgheNghiep;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTrinhDoVanHoa;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTrinhDoChuyenMon;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueChucVu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueThuongTru_Phuong;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueThuongTru_Quan;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueThuongTru_ThanhPho;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTamTru_Phuong;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTamTru_Quan;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTamTru_ThanhPho;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueMucDo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueKTNguyenNhan;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueKTTinhTrang;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLuePhuongTienDiLai;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueHonNhan;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand23;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
@@ -2335,6 +2406,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandTrinhDoChuyenMon;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandNamKhuyetTat;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandChucVuTrongHoi;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandDoiTuong;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_DOITUONG;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueDoiTuong;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandCMND;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand16;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand14;
@@ -2400,17 +2474,5 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand75;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand76;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand77;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueChucVu;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueThuongTru_Phuong;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueThuongTru_Quan;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueThuongTru_ThanhPho;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTamTru_Phuong;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTamTru_Quan;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueTamTru_ThanhPho;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueMucDo;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueKTNguyenNhan;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueKTTinhTrang;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLuePhuongTienDiLai;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repLueHonNhan;
     }
 }

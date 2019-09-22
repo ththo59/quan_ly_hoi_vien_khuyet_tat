@@ -401,7 +401,7 @@
             // xrTableCell17
             // 
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding(this.pTitle, "Text", "Quận: {0}")});
+            new DevExpress.XtraReports.UI.XRBinding(this.pTitle, "Text", "Quận/Huyện: {0}")});
             this.xrTableCell17.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.StylePriority.UseFont = false;

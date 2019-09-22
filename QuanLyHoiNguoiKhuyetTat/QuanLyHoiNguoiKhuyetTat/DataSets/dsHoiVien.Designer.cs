@@ -295,7 +295,7 @@ namespace DauThau.DataSets {
             
             private global::System.Data.DataColumn columnHV_NGHE_NGHIEP;
             
-            private global::System.Data.DataColumn columnHV_TRINHDO_VANHOA;
+            private global::System.Data.DataColumn columnHV_TRINHDO_HOCVAN;
             
             private global::System.Data.DataColumn columnHV_TRINHDO_CHUYENMON;
             
@@ -393,11 +393,11 @@ namespace DauThau.DataSets {
             
             private global::System.Data.DataColumn columnHV_DCHT_TINHTRANG;
             
-            private global::System.Data.DataColumn columnHV_BTXH_NHAN_HANGTHANG;
+            private global::System.Data.DataColumn columnHV_TCXH_NHAN_HANGTHANG;
             
-            private global::System.Data.DataColumn columnHV_BTXH_TIEN_HANGTHANG;
+            private global::System.Data.DataColumn columnHV_TCXH_TIEN_HANGTHANG;
             
-            private global::System.Data.DataColumn columnHV_BTXH_KHAC;
+            private global::System.Data.DataColumn columnHV_TCXH_KHAC;
             
             private global::System.Data.DataColumn columnHV_BHYT_MIENPHI;
             
@@ -439,7 +439,7 @@ namespace DauThau.DataSets {
             
             private global::System.Data.DataColumn columnHV_VAOHOI_NGAY;
             
-            private global::System.Data.DataColumn columnHV_BTXH_HANGTHANG;
+            private global::System.Data.DataColumn columnHV_TCXH_HANGTHANG;
             
             private global::System.Data.DataColumn columnHP_NGAY;
             
@@ -544,9 +544,9 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HV_TRINHDO_VANHOAColumn {
+            public global::System.Data.DataColumn HV_TRINHDO_HOCVANColumn {
                 get {
-                    return this.columnHV_TRINHDO_VANHOA;
+                    return this.columnHV_TRINHDO_HOCVAN;
                 }
             }
             
@@ -936,25 +936,25 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HV_BTXH_NHAN_HANGTHANGColumn {
+            public global::System.Data.DataColumn HV_TCXH_NHAN_HANGTHANGColumn {
                 get {
-                    return this.columnHV_BTXH_NHAN_HANGTHANG;
+                    return this.columnHV_TCXH_NHAN_HANGTHANG;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HV_BTXH_TIEN_HANGTHANGColumn {
+            public global::System.Data.DataColumn HV_TCXH_TIEN_HANGTHANGColumn {
                 get {
-                    return this.columnHV_BTXH_TIEN_HANGTHANG;
+                    return this.columnHV_TCXH_TIEN_HANGTHANG;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HV_BTXH_KHACColumn {
+            public global::System.Data.DataColumn HV_TCXH_KHACColumn {
                 get {
-                    return this.columnHV_BTXH_KHAC;
+                    return this.columnHV_TCXH_KHAC;
                 }
             }
             
@@ -1120,9 +1120,9 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HV_BTXH_HANGTHANGColumn {
+            public global::System.Data.DataColumn HV_TCXH_HANGTHANGColumn {
                 get {
-                    return this.columnHV_BTXH_HANGTHANG;
+                    return this.columnHV_TCXH_HANGTHANG;
                 }
             }
             
@@ -1188,7 +1188,7 @@ namespace DauThau.DataSets {
                         string HV_TUOI, 
                         string HV_TON_GIAO, 
                         string HV_NGHE_NGHIEP, 
-                        string HV_TRINHDO_VANHOA, 
+                        string HV_TRINHDO_HOCVAN, 
                         string HV_TRINHDO_CHUYENMON, 
                         string HV_CMND, 
                         System.DateTime HV_CMND_NGAY, 
@@ -1237,9 +1237,9 @@ namespace DauThau.DataSets {
                         string HV_DCHT_THOIDIEM_NHAN, 
                         string HV_DCHT_TU_TOCHUC, 
                         string HV_DCHT_TINHTRANG, 
-                        string HV_BTXH_NHAN_HANGTHANG, 
-                        string HV_BTXH_TIEN_HANGTHANG, 
-                        string HV_BTXH_KHAC, 
+                        string HV_TCXH_NHAN_HANGTHANG, 
+                        string HV_TCXH_TIEN_HANGTHANG, 
+                        string HV_TCXH_KHAC, 
                         string HV_BHYT_MIENPHI, 
                         string HV_QUYETDINH_CONGNHAN_KT, 
                         string HV_GIAY_CHUNGNHAN_KT, 
@@ -1260,7 +1260,7 @@ namespace DauThau.DataSets {
                         string HV_NGOAINGU, 
                         long HV_KHUYETTAT_NAM, 
                         System.DateTime HV_VAOHOI_NGAY, 
-                        string HV_BTXH_HANGTHANG, 
+                        string HV_TCXH_HANGTHANG, 
                         System.DateTime HP_NGAY, 
                         long HP_PHI) {
                 HOI_VIENRow rowHOI_VIENRow = ((HOI_VIENRow)(this.NewRow()));
@@ -1273,7 +1273,7 @@ namespace DauThau.DataSets {
                         HV_TUOI,
                         HV_TON_GIAO,
                         HV_NGHE_NGHIEP,
-                        HV_TRINHDO_VANHOA,
+                        HV_TRINHDO_HOCVAN,
                         HV_TRINHDO_CHUYENMON,
                         HV_CMND,
                         HV_CMND_NGAY,
@@ -1322,9 +1322,9 @@ namespace DauThau.DataSets {
                         HV_DCHT_THOIDIEM_NHAN,
                         HV_DCHT_TU_TOCHUC,
                         HV_DCHT_TINHTRANG,
-                        HV_BTXH_NHAN_HANGTHANG,
-                        HV_BTXH_TIEN_HANGTHANG,
-                        HV_BTXH_KHAC,
+                        HV_TCXH_NHAN_HANGTHANG,
+                        HV_TCXH_TIEN_HANGTHANG,
+                        HV_TCXH_KHAC,
                         HV_BHYT_MIENPHI,
                         HV_QUYETDINH_CONGNHAN_KT,
                         HV_GIAY_CHUNGNHAN_KT,
@@ -1345,7 +1345,7 @@ namespace DauThau.DataSets {
                         HV_NGOAINGU,
                         HV_KHUYETTAT_NAM,
                         HV_VAOHOI_NGAY,
-                        HV_BTXH_HANGTHANG,
+                        HV_TCXH_HANGTHANG,
                         HP_NGAY,
                         HP_PHI};
                 rowHOI_VIENRow.ItemArray = columnValuesArray;
@@ -1378,7 +1378,7 @@ namespace DauThau.DataSets {
                 this.columnHV_TUOI = base.Columns["HV_TUOI"];
                 this.columnHV_TON_GIAO = base.Columns["HV_TON_GIAO"];
                 this.columnHV_NGHE_NGHIEP = base.Columns["HV_NGHE_NGHIEP"];
-                this.columnHV_TRINHDO_VANHOA = base.Columns["HV_TRINHDO_VANHOA"];
+                this.columnHV_TRINHDO_HOCVAN = base.Columns["HV_TRINHDO_HOCVAN"];
                 this.columnHV_TRINHDO_CHUYENMON = base.Columns["HV_TRINHDO_CHUYENMON"];
                 this.columnHV_CMND = base.Columns["HV_CMND"];
                 this.columnHV_CMND_NGAY = base.Columns["HV_CMND_NGAY"];
@@ -1427,9 +1427,9 @@ namespace DauThau.DataSets {
                 this.columnHV_DCHT_THOIDIEM_NHAN = base.Columns["HV_DCHT_THOIDIEM_NHAN"];
                 this.columnHV_DCHT_TU_TOCHUC = base.Columns["HV_DCHT_TU_TOCHUC"];
                 this.columnHV_DCHT_TINHTRANG = base.Columns["HV_DCHT_TINHTRANG"];
-                this.columnHV_BTXH_NHAN_HANGTHANG = base.Columns["HV_BTXH_NHAN_HANGTHANG"];
-                this.columnHV_BTXH_TIEN_HANGTHANG = base.Columns["HV_BTXH_TIEN_HANGTHANG"];
-                this.columnHV_BTXH_KHAC = base.Columns["HV_BTXH_KHAC"];
+                this.columnHV_TCXH_NHAN_HANGTHANG = base.Columns["HV_TCXH_NHAN_HANGTHANG"];
+                this.columnHV_TCXH_TIEN_HANGTHANG = base.Columns["HV_TCXH_TIEN_HANGTHANG"];
+                this.columnHV_TCXH_KHAC = base.Columns["HV_TCXH_KHAC"];
                 this.columnHV_BHYT_MIENPHI = base.Columns["HV_BHYT_MIENPHI"];
                 this.columnHV_QUYETDINH_CONGNHAN_KT = base.Columns["HV_QUYETDINH_CONGNHAN_KT"];
                 this.columnHV_GIAY_CHUNGNHAN_KT = base.Columns["HV_GIAY_CHUNGNHAN_KT"];
@@ -1450,7 +1450,7 @@ namespace DauThau.DataSets {
                 this.columnHV_NGOAINGU = base.Columns["HV_NGOAINGU"];
                 this.columnHV_KHUYETTAT_NAM = base.Columns["HV_KHUYETTAT_NAM"];
                 this.columnHV_VAOHOI_NGAY = base.Columns["HV_VAOHOI_NGAY"];
-                this.columnHV_BTXH_HANGTHANG = base.Columns["HV_BTXH_HANGTHANG"];
+                this.columnHV_TCXH_HANGTHANG = base.Columns["HV_TCXH_HANGTHANG"];
                 this.columnHP_NGAY = base.Columns["HP_NGAY"];
                 this.columnHP_PHI = base.Columns["HP_PHI"];
             }
@@ -1474,8 +1474,8 @@ namespace DauThau.DataSets {
                 base.Columns.Add(this.columnHV_TON_GIAO);
                 this.columnHV_NGHE_NGHIEP = new global::System.Data.DataColumn("HV_NGHE_NGHIEP", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_NGHE_NGHIEP);
-                this.columnHV_TRINHDO_VANHOA = new global::System.Data.DataColumn("HV_TRINHDO_VANHOA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHV_TRINHDO_VANHOA);
+                this.columnHV_TRINHDO_HOCVAN = new global::System.Data.DataColumn("HV_TRINHDO_HOCVAN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_TRINHDO_HOCVAN);
                 this.columnHV_TRINHDO_CHUYENMON = new global::System.Data.DataColumn("HV_TRINHDO_CHUYENMON", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_TRINHDO_CHUYENMON);
                 this.columnHV_CMND = new global::System.Data.DataColumn("HV_CMND", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1572,12 +1572,12 @@ namespace DauThau.DataSets {
                 base.Columns.Add(this.columnHV_DCHT_TU_TOCHUC);
                 this.columnHV_DCHT_TINHTRANG = new global::System.Data.DataColumn("HV_DCHT_TINHTRANG", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_DCHT_TINHTRANG);
-                this.columnHV_BTXH_NHAN_HANGTHANG = new global::System.Data.DataColumn("HV_BTXH_NHAN_HANGTHANG", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHV_BTXH_NHAN_HANGTHANG);
-                this.columnHV_BTXH_TIEN_HANGTHANG = new global::System.Data.DataColumn("HV_BTXH_TIEN_HANGTHANG", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHV_BTXH_TIEN_HANGTHANG);
-                this.columnHV_BTXH_KHAC = new global::System.Data.DataColumn("HV_BTXH_KHAC", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHV_BTXH_KHAC);
+                this.columnHV_TCXH_NHAN_HANGTHANG = new global::System.Data.DataColumn("HV_TCXH_NHAN_HANGTHANG", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_TCXH_NHAN_HANGTHANG);
+                this.columnHV_TCXH_TIEN_HANGTHANG = new global::System.Data.DataColumn("HV_TCXH_TIEN_HANGTHANG", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_TCXH_TIEN_HANGTHANG);
+                this.columnHV_TCXH_KHAC = new global::System.Data.DataColumn("HV_TCXH_KHAC", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_TCXH_KHAC);
                 this.columnHV_BHYT_MIENPHI = new global::System.Data.DataColumn("HV_BHYT_MIENPHI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_BHYT_MIENPHI);
                 this.columnHV_QUYETDINH_CONGNHAN_KT = new global::System.Data.DataColumn("HV_QUYETDINH_CONGNHAN_KT", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1618,8 +1618,8 @@ namespace DauThau.DataSets {
                 base.Columns.Add(this.columnHV_KHUYETTAT_NAM);
                 this.columnHV_VAOHOI_NGAY = new global::System.Data.DataColumn("HV_VAOHOI_NGAY", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHV_VAOHOI_NGAY);
-                this.columnHV_BTXH_HANGTHANG = new global::System.Data.DataColumn("HV_BTXH_HANGTHANG", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHV_BTXH_HANGTHANG);
+                this.columnHV_TCXH_HANGTHANG = new global::System.Data.DataColumn("HV_TCXH_HANGTHANG", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHV_TCXH_HANGTHANG);
                 this.columnHP_NGAY = new global::System.Data.DataColumn("HP_NGAY", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHP_NGAY);
                 this.columnHP_PHI = new global::System.Data.DataColumn("HP_PHI", typeof(long), null, global::System.Data.MappingType.Element);
@@ -1894,17 +1894,17 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HV_TRINHDO_VANHOA {
+            public string HV_TRINHDO_HOCVAN {
                 get {
                     try {
-                        return ((string)(this[this.tableHOI_VIEN.HV_TRINHDO_VANHOAColumn]));
+                        return ((string)(this[this.tableHOI_VIEN.HV_TRINHDO_HOCVANColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HV_TRINHDO_VANHOA\' in table \'HOI_VIEN\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_TRINHDO_HOCVAN\' in table \'HOI_VIEN\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableHOI_VIEN.HV_TRINHDO_VANHOAColumn] = value;
+                    this[this.tableHOI_VIEN.HV_TRINHDO_HOCVANColumn] = value;
                 }
             }
             
@@ -2678,49 +2678,49 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HV_BTXH_NHAN_HANGTHANG {
+            public string HV_TCXH_NHAN_HANGTHANG {
                 get {
                     try {
-                        return ((string)(this[this.tableHOI_VIEN.HV_BTXH_NHAN_HANGTHANGColumn]));
+                        return ((string)(this[this.tableHOI_VIEN.HV_TCXH_NHAN_HANGTHANGColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HV_BTXH_NHAN_HANGTHANG\' in table \'HOI_VIEN\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_TCXH_NHAN_HANGTHANG\' in table \'HOI_VIEN\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableHOI_VIEN.HV_BTXH_NHAN_HANGTHANGColumn] = value;
+                    this[this.tableHOI_VIEN.HV_TCXH_NHAN_HANGTHANGColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HV_BTXH_TIEN_HANGTHANG {
+            public string HV_TCXH_TIEN_HANGTHANG {
                 get {
                     try {
-                        return ((string)(this[this.tableHOI_VIEN.HV_BTXH_TIEN_HANGTHANGColumn]));
+                        return ((string)(this[this.tableHOI_VIEN.HV_TCXH_TIEN_HANGTHANGColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HV_BTXH_TIEN_HANGTHANG\' in table \'HOI_VIEN\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_TCXH_TIEN_HANGTHANG\' in table \'HOI_VIEN\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableHOI_VIEN.HV_BTXH_TIEN_HANGTHANGColumn] = value;
+                    this[this.tableHOI_VIEN.HV_TCXH_TIEN_HANGTHANGColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HV_BTXH_KHAC {
+            public string HV_TCXH_KHAC {
                 get {
                     try {
-                        return ((string)(this[this.tableHOI_VIEN.HV_BTXH_KHACColumn]));
+                        return ((string)(this[this.tableHOI_VIEN.HV_TCXH_KHACColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HV_BTXH_KHAC\' in table \'HOI_VIEN\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_TCXH_KHAC\' in table \'HOI_VIEN\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableHOI_VIEN.HV_BTXH_KHACColumn] = value;
+                    this[this.tableHOI_VIEN.HV_TCXH_KHACColumn] = value;
                 }
             }
             
@@ -3046,17 +3046,17 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HV_BTXH_HANGTHANG {
+            public string HV_TCXH_HANGTHANG {
                 get {
                     try {
-                        return ((string)(this[this.tableHOI_VIEN.HV_BTXH_HANGTHANGColumn]));
+                        return ((string)(this[this.tableHOI_VIEN.HV_TCXH_HANGTHANGColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HV_BTXH_HANGTHANG\' in table \'HOI_VIEN\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HV_TCXH_HANGTHANG\' in table \'HOI_VIEN\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableHOI_VIEN.HV_BTXH_HANGTHANGColumn] = value;
+                    this[this.tableHOI_VIEN.HV_TCXH_HANGTHANGColumn] = value;
                 }
             }
             
@@ -3190,14 +3190,14 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHV_TRINHDO_VANHOANull() {
-                return this.IsNull(this.tableHOI_VIEN.HV_TRINHDO_VANHOAColumn);
+            public bool IsHV_TRINHDO_HOCVANNull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_TRINHDO_HOCVANColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHV_TRINHDO_VANHOANull() {
-                this[this.tableHOI_VIEN.HV_TRINHDO_VANHOAColumn] = global::System.Convert.DBNull;
+            public void SetHV_TRINHDO_HOCVANNull() {
+                this[this.tableHOI_VIEN.HV_TRINHDO_HOCVANColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3778,38 +3778,38 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHV_BTXH_NHAN_HANGTHANGNull() {
-                return this.IsNull(this.tableHOI_VIEN.HV_BTXH_NHAN_HANGTHANGColumn);
+            public bool IsHV_TCXH_NHAN_HANGTHANGNull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_TCXH_NHAN_HANGTHANGColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHV_BTXH_NHAN_HANGTHANGNull() {
-                this[this.tableHOI_VIEN.HV_BTXH_NHAN_HANGTHANGColumn] = global::System.Convert.DBNull;
+            public void SetHV_TCXH_NHAN_HANGTHANGNull() {
+                this[this.tableHOI_VIEN.HV_TCXH_NHAN_HANGTHANGColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHV_BTXH_TIEN_HANGTHANGNull() {
-                return this.IsNull(this.tableHOI_VIEN.HV_BTXH_TIEN_HANGTHANGColumn);
+            public bool IsHV_TCXH_TIEN_HANGTHANGNull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_TCXH_TIEN_HANGTHANGColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHV_BTXH_TIEN_HANGTHANGNull() {
-                this[this.tableHOI_VIEN.HV_BTXH_TIEN_HANGTHANGColumn] = global::System.Convert.DBNull;
+            public void SetHV_TCXH_TIEN_HANGTHANGNull() {
+                this[this.tableHOI_VIEN.HV_TCXH_TIEN_HANGTHANGColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHV_BTXH_KHACNull() {
-                return this.IsNull(this.tableHOI_VIEN.HV_BTXH_KHACColumn);
+            public bool IsHV_TCXH_KHACNull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_TCXH_KHACColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHV_BTXH_KHACNull() {
-                this[this.tableHOI_VIEN.HV_BTXH_KHACColumn] = global::System.Convert.DBNull;
+            public void SetHV_TCXH_KHACNull() {
+                this[this.tableHOI_VIEN.HV_TCXH_KHACColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4054,14 +4054,14 @@ namespace DauThau.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHV_BTXH_HANGTHANGNull() {
-                return this.IsNull(this.tableHOI_VIEN.HV_BTXH_HANGTHANGColumn);
+            public bool IsHV_TCXH_HANGTHANGNull() {
+                return this.IsNull(this.tableHOI_VIEN.HV_TCXH_HANGTHANGColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHV_BTXH_HANGTHANGNull() {
-                this[this.tableHOI_VIEN.HV_BTXH_HANGTHANGColumn] = global::System.Convert.DBNull;
+            public void SetHV_TCXH_HANGTHANGNull() {
+                this[this.tableHOI_VIEN.HV_TCXH_HANGTHANGColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
