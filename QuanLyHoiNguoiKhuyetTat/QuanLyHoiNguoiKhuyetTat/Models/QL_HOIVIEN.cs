@@ -102,7 +102,6 @@ namespace DauThau.Models
         public string HV_VIECLAM { get; set; }
         public Nullable<int> HV_VIECLAM_THUNHAP { get; set; }
         public Nullable<bool> HV_TRE_DIHOC { get; set; }
-        public string HV_NHUCAU { get; set; }
         public string HV_THANHVIEN_HOI { get; set; }
         public string HV_GHICHU { get; set; }
         public Nullable<bool> HV_SENDMAIL_16TUOI { get; set; }
@@ -111,6 +110,12 @@ namespace DauThau.Models
         public string HV_NGH_DIACHI { get; set; }
         public string HV_NGH_SDT { get; set; }
         public string HV_NGH_FACE { get; set; }
+        public string HV_NC_DAOTAO_NGHE_VIEC_LAM { get; set; }
+        public string HV_NC_NANGCAO_NHANTHUC { get; set; }
+        public string HV_NC_NANGCAO_NANGLUC { get; set; }
+        public string HV_NC_ASXH { get; set; }
+        public string HV_NC_HOANHAP_XH { get; set; }
+        public string HV_NC_KHAC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOIVIEN_CON> QL_HOIVIEN_CON { get; set; }

@@ -12,6 +12,7 @@ namespace DauThau.DataSets
     {
         partial class HOI_VIENDataTable
         {
+
         }
     }
 }

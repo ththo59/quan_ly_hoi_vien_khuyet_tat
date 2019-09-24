@@ -579,7 +579,6 @@
           <Property Name="HV_VIECLAM" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_VIECLAM_THUNHAP" Type="int" />
           <Property Name="HV_TRE_DIHOC" Type="bit" />
-          <Property Name="HV_NHUCAU" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_THANHVIEN_HOI" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_GHICHU" Type="nvarchar(max)" />
           <Property Name="HV_SENDMAIL_16TUOI" Type="bit" />
@@ -588,6 +587,12 @@
           <Property Name="HV_NGH_DIACHI" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGH_SDT" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGH_FACE" Type="nvarchar" MaxLength="250" />
+          <Property Name="HV_NC_DAOTAO_NGHE_VIEC_LAM" Type="nvarchar" MaxLength="500" />
+          <Property Name="HV_NC_NANGCAO_NHANTHUC" Type="nvarchar" MaxLength="500" />
+          <Property Name="HV_NC_NANGCAO_NANGLUC" Type="nvarchar" MaxLength="500" />
+          <Property Name="HV_NC_ASXH" Type="nvarchar" MaxLength="500" />
+          <Property Name="HV_NC_HOANHAP_XH" Type="nvarchar" MaxLength="500" />
+          <Property Name="HV_NC_KHAC" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="QL_HOIVIEN_CON">
           <Key>
@@ -1771,7 +1776,6 @@
           <Property Name="HV_VIECLAM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_VIECLAM_THUNHAP" Type="Int32" />
           <Property Name="HV_TRE_DIHOC" Type="Boolean" />
-          <Property Name="HV_NHUCAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_THANHVIEN_HOI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HV_SENDMAIL_16TUOI" Type="Boolean" />
@@ -1780,6 +1784,12 @@
           <Property Name="HV_NGH_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGH_SDT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGH_FACE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NC_DAOTAO_NGHE_VIEC_LAM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NC_NANGCAO_NHANTHUC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NC_NANGCAO_NANGLUC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NC_ASXH" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NC_HOANHAP_XH" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HV_NC_KHAC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOIVIEN_CON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_CON" />
           <NavigationProperty Name="QL_HOIVIEN_HOIPHI" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_HOIPHI" />
           <NavigationProperty Name="QL_HOIVIEN_IMAGE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" FromRole="QL_HOIVIEN" ToRole="QL_HOIVIEN_IMAGE" />
@@ -2454,6 +2464,12 @@
           <EntitySetMapping Name="QL_HOIVIEN">
             <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOIVIEN">
               <MappingFragment StoreEntitySet="QL_HOIVIEN">
+                <ScalarProperty Name="HV_NC_KHAC" ColumnName="HV_NC_KHAC" />
+                <ScalarProperty Name="HV_NC_HOANHAP_XH" ColumnName="HV_NC_HOANHAP_XH" />
+                <ScalarProperty Name="HV_NC_ASXH" ColumnName="HV_NC_ASXH" />
+                <ScalarProperty Name="HV_NC_NANGCAO_NANGLUC" ColumnName="HV_NC_NANGCAO_NANGLUC" />
+                <ScalarProperty Name="HV_NC_NANGCAO_NHANTHUC" ColumnName="HV_NC_NANGCAO_NHANTHUC" />
+                <ScalarProperty Name="HV_NC_DAOTAO_NGHE_VIEC_LAM" ColumnName="HV_NC_DAOTAO_NGHE_VIEC_LAM" />
                 <ScalarProperty Name="HV_NGH_FACE" ColumnName="HV_NGH_FACE" />
                 <ScalarProperty Name="HV_NGH_SDT" ColumnName="HV_NGH_SDT" />
                 <ScalarProperty Name="HV_NGH_DIACHI" ColumnName="HV_NGH_DIACHI" />
@@ -2462,7 +2478,6 @@
                 <ScalarProperty Name="HV_SENDMAIL_16TUOI" ColumnName="HV_SENDMAIL_16TUOI" />
                 <ScalarProperty Name="HV_GHICHU" ColumnName="HV_GHICHU" />
                 <ScalarProperty Name="HV_THANHVIEN_HOI" ColumnName="HV_THANHVIEN_HOI" />
-                <ScalarProperty Name="HV_NHUCAU" ColumnName="HV_NHUCAU" />
                 <ScalarProperty Name="HV_TRE_DIHOC" ColumnName="HV_TRE_DIHOC" />
                 <ScalarProperty Name="HV_VIECLAM_THUNHAP" ColumnName="HV_VIECLAM_THUNHAP" />
                 <ScalarProperty Name="HV_VIECLAM" ColumnName="HV_VIECLAM" />
