@@ -159,6 +159,7 @@
     <Compile Include="Class\clsChangeType.cs" />
     <Compile Include="Class\clsConnection.cs" />
     <Compile Include="Class\clsConstant.cs" />
+    <Compile Include="Class\clsExtensionString.cs" />
     <Compile Include="Class\clsMail.cs" />
     <Compile Include="Class\clsEncryption.cs" />
     <Compile Include="Class\clsEnum.cs" />

@@ -32,28 +32,28 @@
             this.btnControl = new ControlsLib.ButtonsArray();
             this.gcGrid = new DevExpress.XtraGrid.GridControl();
             this.gvGrid = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            this.colHV_HO = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_TEN = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_NAMSINH_NAM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_NAMSINH_NU = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_NGUOI_BAO_TRO = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_TAMTRU_DIACHI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_HOAN_CANH = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_DIENTHOAI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_DOI_TUONG = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colHV_GHICHU = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colSTT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colSTT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_HO = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_TEN = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_NAMSINH_NAM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_NAMSINH_NU = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_CHA_ME = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_TAMTRU_DIACHI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_HOAN_CANH = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_DIENTHOAI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_DOITUONG = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand11 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.colHV_GHICHU = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcGrid)).BeginInit();
@@ -170,11 +170,11 @@
             this.colHV_TEN,
             this.colHV_NAMSINH_NAM,
             this.colHV_NAMSINH_NU,
-            this.colHV_NGUOI_BAO_TRO,
+            this.colHV_CHA_ME,
             this.colHV_TAMTRU_DIACHI,
             this.colHV_HOAN_CANH,
             this.colHV_DIENTHOAI,
-            this.colHV_DOI_TUONG,
+            this.colHV_DOITUONG,
             this.colHV_GHICHU});
             this.gvGrid.GridControl = this.gcGrid;
             this.gvGrid.Name = "gvGrid";
@@ -188,84 +188,13 @@
             this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHV_TEN, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // colHV_HO
+            // gridBand4
             // 
-            this.colHV_HO.Caption = "Họ";
-            this.colHV_HO.FieldName = "HV_HO";
-            this.colHV_HO.Name = "colHV_HO";
-            this.colHV_HO.Visible = true;
-            this.colHV_HO.Width = 114;
-            // 
-            // colHV_TEN
-            // 
-            this.colHV_TEN.Caption = "Tên";
-            this.colHV_TEN.FieldName = "HV_TEN";
-            this.colHV_TEN.Name = "colHV_TEN";
-            this.colHV_TEN.Visible = true;
-            this.colHV_TEN.Width = 135;
-            // 
-            // colHV_NAMSINH_NAM
-            // 
-            this.colHV_NAMSINH_NAM.Caption = "Nam";
-            this.colHV_NAMSINH_NAM.FieldName = "HV_GIOI_TINH_NAM";
-            this.colHV_NAMSINH_NAM.Name = "colHV_NAMSINH_NAM";
-            this.colHV_NAMSINH_NAM.Visible = true;
-            this.colHV_NAMSINH_NAM.Width = 99;
-            // 
-            // colHV_NAMSINH_NU
-            // 
-            this.colHV_NAMSINH_NU.Caption = "Nữ";
-            this.colHV_NAMSINH_NU.FieldName = "HV_GIOI_TINH_NU";
-            this.colHV_NAMSINH_NU.Name = "colHV_NAMSINH_NU";
-            this.colHV_NAMSINH_NU.Visible = true;
-            // 
-            // colHV_NGUOI_BAO_TRO
-            // 
-            this.colHV_NGUOI_BAO_TRO.Caption = "Cha mẹ/Người bảo trợ";
-            this.colHV_NGUOI_BAO_TRO.FieldName = "HV_NGUOI_BAO_TRO";
-            this.colHV_NGUOI_BAO_TRO.Name = "colHV_NGUOI_BAO_TRO";
-            this.colHV_NGUOI_BAO_TRO.Visible = true;
-            this.colHV_NGUOI_BAO_TRO.Width = 150;
-            // 
-            // colHV_TAMTRU_DIACHI
-            // 
-            this.colHV_TAMTRU_DIACHI.Caption = "Địa chỉ";
-            this.colHV_TAMTRU_DIACHI.FieldName = "HV_TAMTRU_DIACHI";
-            this.colHV_TAMTRU_DIACHI.Name = "colHV_TAMTRU_DIACHI";
-            this.colHV_TAMTRU_DIACHI.Visible = true;
-            this.colHV_TAMTRU_DIACHI.Width = 109;
-            // 
-            // colHV_HOAN_CANH
-            // 
-            this.colHV_HOAN_CANH.Caption = "Hoàn cảnh/ Tình trạng khuyết tật";
-            this.colHV_HOAN_CANH.FieldName = "HV_HOAN_CANH";
-            this.colHV_HOAN_CANH.Name = "colHV_HOAN_CANH";
-            this.colHV_HOAN_CANH.Visible = true;
-            this.colHV_HOAN_CANH.Width = 213;
-            // 
-            // colHV_DIENTHOAI
-            // 
-            this.colHV_DIENTHOAI.Caption = "Số điện thoại";
-            this.colHV_DIENTHOAI.FieldName = "HV_DIENTHOAI";
-            this.colHV_DIENTHOAI.Name = "colHV_DIENTHOAI";
-            this.colHV_DIENTHOAI.Visible = true;
-            this.colHV_DIENTHOAI.Width = 118;
-            // 
-            // colHV_DOI_TUONG
-            // 
-            this.colHV_DOI_TUONG.Caption = "Đối tượng";
-            this.colHV_DOI_TUONG.FieldName = "HV_DOI_TUONG";
-            this.colHV_DOI_TUONG.Name = "colHV_DOI_TUONG";
-            this.colHV_DOI_TUONG.Visible = true;
-            this.colHV_DOI_TUONG.Width = 112;
-            // 
-            // colHV_GHICHU
-            // 
-            this.colHV_GHICHU.Caption = "Ghi chú";
-            this.colHV_GHICHU.FieldName = "HV_GHICHU";
-            this.colHV_GHICHU.Name = "colHV_GHICHU";
-            this.colHV_GHICHU.Visible = true;
-            this.colHV_GHICHU.Width = 111;
+            this.gridBand4.Caption = "STT";
+            this.gridBand4.Columns.Add(this.colSTT);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.VisibleIndex = 0;
+            this.gridBand4.Width = 60;
             // 
             // colSTT
             // 
@@ -275,14 +204,6 @@
             this.colSTT.Visible = true;
             this.colSTT.Width = 60;
             // 
-            // gridBand4
-            // 
-            this.gridBand4.Caption = "STT";
-            this.gridBand4.Columns.Add(this.colSTT);
-            this.gridBand4.Name = "gridBand4";
-            this.gridBand4.VisibleIndex = 0;
-            this.gridBand4.Width = 60;
-            // 
             // gridBand5
             // 
             this.gridBand5.Caption = "Họ";
@@ -290,6 +211,14 @@
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.VisibleIndex = 1;
             this.gridBand5.Width = 114;
+            // 
+            // colHV_HO
+            // 
+            this.colHV_HO.Caption = "Họ";
+            this.colHV_HO.FieldName = "HV_HO";
+            this.colHV_HO.Name = "colHV_HO";
+            this.colHV_HO.Visible = true;
+            this.colHV_HO.Width = 114;
             // 
             // gridBand6
             // 
@@ -299,6 +228,14 @@
             this.gridBand6.VisibleIndex = 2;
             this.gridBand6.Width = 135;
             // 
+            // colHV_TEN
+            // 
+            this.colHV_TEN.Caption = "Tên";
+            this.colHV_TEN.FieldName = "HV_TEN";
+            this.colHV_TEN.Name = "colHV_TEN";
+            this.colHV_TEN.Visible = true;
+            this.colHV_TEN.Width = 135;
+            // 
             // gridBand7
             // 
             this.gridBand7.Caption = "Nam";
@@ -306,6 +243,14 @@
             this.gridBand7.Name = "gridBand7";
             this.gridBand7.VisibleIndex = 3;
             this.gridBand7.Width = 99;
+            // 
+            // colHV_NAMSINH_NAM
+            // 
+            this.colHV_NAMSINH_NAM.Caption = "Nam";
+            this.colHV_NAMSINH_NAM.FieldName = "HV_NAMSINH_NAM";
+            this.colHV_NAMSINH_NAM.Name = "colHV_NAMSINH_NAM";
+            this.colHV_NAMSINH_NAM.Visible = true;
+            this.colHV_NAMSINH_NAM.Width = 99;
             // 
             // gridBand8
             // 
@@ -315,13 +260,28 @@
             this.gridBand8.VisibleIndex = 4;
             this.gridBand8.Width = 75;
             // 
+            // colHV_NAMSINH_NU
+            // 
+            this.colHV_NAMSINH_NU.Caption = "Nữ";
+            this.colHV_NAMSINH_NU.FieldName = "HV_NAMSINH_NU";
+            this.colHV_NAMSINH_NU.Name = "colHV_NAMSINH_NU";
+            this.colHV_NAMSINH_NU.Visible = true;
+            // 
             // gridBand1
             // 
             this.gridBand1.Caption = "Cha mẹ/Người bảo trợ";
-            this.gridBand1.Columns.Add(this.colHV_NGUOI_BAO_TRO);
+            this.gridBand1.Columns.Add(this.colHV_CHA_ME);
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.VisibleIndex = 5;
             this.gridBand1.Width = 150;
+            // 
+            // colHV_CHA_ME
+            // 
+            this.colHV_CHA_ME.Caption = "Cha mẹ/Người bảo trợ";
+            this.colHV_CHA_ME.FieldName = "HV_CHA_ME";
+            this.colHV_CHA_ME.Name = "colHV_CHA_ME";
+            this.colHV_CHA_ME.Visible = true;
+            this.colHV_CHA_ME.Width = 150;
             // 
             // gridBand2
             // 
@@ -329,7 +289,15 @@
             this.gridBand2.Columns.Add(this.colHV_TAMTRU_DIACHI);
             this.gridBand2.Name = "gridBand2";
             this.gridBand2.VisibleIndex = 6;
-            this.gridBand2.Width = 109;
+            this.gridBand2.Width = 229;
+            // 
+            // colHV_TAMTRU_DIACHI
+            // 
+            this.colHV_TAMTRU_DIACHI.Caption = "Địa chỉ";
+            this.colHV_TAMTRU_DIACHI.FieldName = "HV_TAMTRU_DIACHI";
+            this.colHV_TAMTRU_DIACHI.Name = "colHV_TAMTRU_DIACHI";
+            this.colHV_TAMTRU_DIACHI.Visible = true;
+            this.colHV_TAMTRU_DIACHI.Width = 229;
             // 
             // gridBand3
             // 
@@ -339,6 +307,14 @@
             this.gridBand3.VisibleIndex = 7;
             this.gridBand3.Width = 213;
             // 
+            // colHV_HOAN_CANH
+            // 
+            this.colHV_HOAN_CANH.Caption = "Hoàn cảnh/ Tình trạng khuyết tật";
+            this.colHV_HOAN_CANH.FieldName = "HV_HOAN_CANH";
+            this.colHV_HOAN_CANH.Name = "colHV_HOAN_CANH";
+            this.colHV_HOAN_CANH.Visible = true;
+            this.colHV_HOAN_CANH.Width = 213;
+            // 
             // gridBand9
             // 
             this.gridBand9.Caption = "Số điện thoại";
@@ -347,13 +323,29 @@
             this.gridBand9.VisibleIndex = 8;
             this.gridBand9.Width = 118;
             // 
+            // colHV_DIENTHOAI
+            // 
+            this.colHV_DIENTHOAI.Caption = "Số điện thoại";
+            this.colHV_DIENTHOAI.FieldName = "HV_DIENTHOAI";
+            this.colHV_DIENTHOAI.Name = "colHV_DIENTHOAI";
+            this.colHV_DIENTHOAI.Visible = true;
+            this.colHV_DIENTHOAI.Width = 118;
+            // 
             // gridBand10
             // 
             this.gridBand10.Caption = "Đối tượng";
-            this.gridBand10.Columns.Add(this.colHV_DOI_TUONG);
+            this.gridBand10.Columns.Add(this.colHV_DOITUONG);
             this.gridBand10.Name = "gridBand10";
             this.gridBand10.VisibleIndex = 9;
             this.gridBand10.Width = 112;
+            // 
+            // colHV_DOITUONG
+            // 
+            this.colHV_DOITUONG.Caption = "Đối tượng";
+            this.colHV_DOITUONG.FieldName = "HV_DOITUONG";
+            this.colHV_DOITUONG.Name = "colHV_DOITUONG";
+            this.colHV_DOITUONG.Visible = true;
+            this.colHV_DOITUONG.Width = 112;
             // 
             // gridBand11
             // 
@@ -362,6 +354,14 @@
             this.gridBand11.Name = "gridBand11";
             this.gridBand11.VisibleIndex = 10;
             this.gridBand11.Width = 111;
+            // 
+            // colHV_GHICHU
+            // 
+            this.colHV_GHICHU.Caption = "Ghi chú";
+            this.colHV_GHICHU.FieldName = "HV_GHICHU";
+            this.colHV_GHICHU.Name = "colHV_GHICHU";
+            this.colHV_GHICHU.Visible = true;
+            this.colHV_GHICHU.Width = 111;
             // 
             // ucBCTreKTVaConNKT
             // 
@@ -388,12 +388,12 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_HO;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_NAMSINH_NAM;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_NAMSINH_NU;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_NGUOI_BAO_TRO;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_CHA_ME;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_TAMTRU_DIACHI;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_HOAN_CANH;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_DIENTHOAI;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_GHICHU;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_DOI_TUONG;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_DOITUONG;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHV_TEN;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSTT;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;

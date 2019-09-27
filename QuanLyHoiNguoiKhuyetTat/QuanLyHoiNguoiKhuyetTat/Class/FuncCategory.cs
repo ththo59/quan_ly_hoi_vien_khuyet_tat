@@ -143,9 +143,10 @@ namespace DauThau.Class
 
             item = new dynamicObjectString()
             {
-                ID = "TEKT",
+                ID = clsParameter.HV_DOITUONG_TEKT,
                 NAME = "Trẻ khuyết tật"
             };
+
             list.Add(item);
             return list;
         }

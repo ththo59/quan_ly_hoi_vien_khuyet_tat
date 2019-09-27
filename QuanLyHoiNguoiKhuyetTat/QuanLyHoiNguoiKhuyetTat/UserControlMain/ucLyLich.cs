@@ -375,6 +375,8 @@ namespace DauThau.UserControlCategory
             //Nhu cầu
             , "txtNC_DaoTaoNghe_ViecLam", "txtNC_NangCaoNhanThuc", "txtNC_NangCaoNangLuc", "txtNC_HoaNhapXH", "txtNC_ASXH", "txtNC_Khac"
 
+            //Người giám hộ
+            , "txtNGH_TEN", "txtNGH_DIACHI", "txtNGH_FACE", "txtNGH_SDT"
             };
 
             //LayoutControl[] layouts = new LayoutControl[] { layThongTinCaNhan,layViecLam, lay};    

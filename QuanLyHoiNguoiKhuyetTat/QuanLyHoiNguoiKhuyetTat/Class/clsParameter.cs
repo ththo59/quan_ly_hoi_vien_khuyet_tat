@@ -68,5 +68,8 @@ namespace DauThau.Class
         /// Control hiển thị trạng thái đang chọn đợt đấu thầu.
         /// </summary>
         public static DevExpress.XtraBars.BarStaticItem _barStaticLogin =new DevExpress.XtraBars.BarStaticItem();
+
+        //Hội viên
+        public static String HV_DOITUONG_TEKT = "TEKT";
     }
 }

@@ -37,7 +37,7 @@ namespace DauThau.UserControlCategoryMain
             public string HV_CHA_ME { get; set; }
             public string HV_TAMTRU_DIACHI { get; set; }
             public string HV_HOAN_CANH { get; set; }
-            public string HV_DOI_TUONG { get; set; }
+            public string HV_DOITUONG { get; set; }
             public string HV_DIENTHOAI { get; set; }
             public string HV_GHICHU { get; set; }
         }
@@ -54,28 +54,52 @@ namespace DauThau.UserControlCategoryMain
             context.QL_HOIVIEN.Load();
             int stt = 1;
             var data = (from p in context.QL_HOIVIEN
-                        where (p.HV_NGAY_SINH.HasValue ? DateTime.Now.Year - p.HV_NGAY_SINH.Value.Year : 0) <= 15
+                        where p.HV_DOITUONG == clsParameter.HV_DOITUONG_TEKT
                         select p).ToList();
             List<clsTreKTVaConNKT> listData = new List<clsTreKTVaConNKT>();
-            
+
             foreach (QL_HOIVIEN item in data)
             {
                 clsTreKTVaConNKT row = new clsTreKTVaConNKT();
                 row.STT = stt++;
-                row.HV_HO = item.HV_HO;
+                row.HV_HO = item.HV_HO + " " + item.HV_TEN;
                 row.HV_TEN = item.HV_TEN;
                 row.HV_NAMSINH_NAM = item.HV_GIOI_TINH == "Nam" ? (item.HV_NGAY_SINH.HasValue ? item.HV_NGAY_SINH.Value.Year.ToString() : "") : "";
                 row.HV_NAMSINH_NU = item.HV_GIOI_TINH == "Nữ" ? (item.HV_NGAY_SINH.HasValue ? item.HV_NGAY_SINH.Value.Year.ToString() : "") : "";
-                row.HV_CHA_ME = item.HV_SONG_VOI_CHITIET;
+                row.HV_CHA_ME = item.HV_NGH_TEN;
                 row.HV_HOAN_CANH = "";
                 row.HV_TAMTRU_DIACHI = item.HV_TAMTRU_DIACHI;
-                row.HV_DIENTHOAI = item.HV_DIENTHOAI;
-                row.HV_DOI_TUONG = "TKT";
+                row.HV_DIENTHOAI = (item.HV_DIENTHOAI == "" ? item.HV_NGH_SDT : "");
+                row.HV_DOITUONG = item.HV_DOITUONG;
                 row.HV_GHICHU = item.HV_GHICHU;
                 listData.Add(row);
             }
 
+            var data_child = (from p in context.QL_HOIVIEN_CON select p).ToList();
+            foreach (QL_HOIVIEN_CON item in data_child)
+            {
+                var parent = item.QL_HOIVIEN;
+                if (parent == null) {
+                    continue;
+                }
+
+                clsTreKTVaConNKT row = new clsTreKTVaConNKT();
+                row.STT = stt++;
+                row.HV_HO = item.CON_TEN;
+                row.HV_TEN = item.CON_TEN.Ex_getLastName();
+                row.HV_NAMSINH_NAM = item.CON_GIOITINH == "Nam" ? (item.CON_NGAYSINH.HasValue ? item.CON_NGAYSINH.Value.Year.ToString() : "") : "";
+                row.HV_NAMSINH_NU = item.CON_GIOITINH == "Nữ" ? (item.CON_NGAYSINH.HasValue ? item.CON_NGAYSINH.Value.Year.ToString() : "") : "";
+                row.HV_CHA_ME = parent.HV_HO + " " + parent.HV_TEN;
+                row.HV_HOAN_CANH = "";
+                row.HV_TAMTRU_DIACHI = parent.HV_TAMTRU_DIACHI;
+                row.HV_DIENTHOAI = (parent.HV_DIENTHOAI == "" ? parent.HV_NGH_SDT : "");
+                row.HV_DOITUONG = "Con NKT";
+                row.HV_GHICHU = item.CON_GHICHU;
+                listData.Add(row);
+            }
+
             gcGrid.DataSource = listData;
+
             _wait.Close();
         }
 
