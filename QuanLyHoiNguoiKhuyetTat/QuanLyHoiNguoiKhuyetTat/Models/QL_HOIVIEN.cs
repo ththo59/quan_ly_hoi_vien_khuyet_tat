@@ -26,6 +26,7 @@ namespace DauThau.Models
         public long HV_ID { get; set; }
         public string HV_HO { get; set; }
         public string HV_TEN { get; set; }
+        public string HV_HOTEN { get; set; }
         public string HV_GIOI_TINH { get; set; }
         public string HV_DAN_TOC { get; set; }
         public string HV_DOITUONG { get; set; }
@@ -69,14 +70,6 @@ namespace DauThau.Models
         public string HV_TINHTRANG_HONNHAN { get; set; }
         public string HV_VOCHONG { get; set; }
         public Nullable<int> HV_SOCON { get; set; }
-        public string HV_CON1_TEN { get; set; }
-        public Nullable<System.DateTime> HV_CON1_NGAYSINH { get; set; }
-        public string HV_CON1_GIOITINH { get; set; }
-        public string HV_CON1_HOCTRUONG { get; set; }
-        public string HV_CON2_TEN { get; set; }
-        public Nullable<System.DateTime> HV_CON2_NGAYSINH { get; set; }
-        public string HV_CON2_GIOITINH { get; set; }
-        public string HV_CON2_HOCTRUONG { get; set; }
         public string HV_PHONGTRAO_THETHAO { get; set; }
         public string HV_PHONGTRAO_MONGMUON { get; set; }
         public string HV_NGUYENVONG { get; set; }

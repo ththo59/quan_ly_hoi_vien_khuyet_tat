@@ -29,7 +29,6 @@ namespace DauThau.UserControlCategoryMain
 
         public class clsTreKTVaConNKT
         {
-            public int STT { get; set; }
             public string HV_HO { get; set; }
             public string HV_TEN { get; set; }
             public string HV_NAMSINH_NAM { get; set; }
@@ -61,17 +60,16 @@ namespace DauThau.UserControlCategoryMain
             foreach (QL_HOIVIEN item in data)
             {
                 clsTreKTVaConNKT row = new clsTreKTVaConNKT();
-                row.STT = stt++;
                 row.HV_HO = item.HV_HO + " " + item.HV_TEN;
                 row.HV_TEN = item.HV_TEN;
                 row.HV_NAMSINH_NAM = item.HV_GIOI_TINH == "Nam" ? (item.HV_NGAY_SINH.HasValue ? item.HV_NGAY_SINH.Value.Year.ToString() : "") : "";
                 row.HV_NAMSINH_NU = item.HV_GIOI_TINH == "Nữ" ? (item.HV_NGAY_SINH.HasValue ? item.HV_NGAY_SINH.Value.Year.ToString() : "") : "";
                 row.HV_CHA_ME = item.HV_NGH_TEN;
-                row.HV_HOAN_CANH = "";
+                row.HV_HOAN_CANH = item.HV_GHICHU;
                 row.HV_TAMTRU_DIACHI = item.HV_TAMTRU_DIACHI;
-                row.HV_DIENTHOAI = (item.HV_DIENTHOAI == "" ? item.HV_NGH_SDT : "");
+                row.HV_DIENTHOAI = (item.HV_DIENTHOAI != "" ? item.HV_DIENTHOAI : item.HV_NGH_SDT);
                 row.HV_DOITUONG = item.HV_DOITUONG;
-                row.HV_GHICHU = item.HV_GHICHU;
+                row.HV_GHICHU = item.HV_KT_TINHTRANG_CHITIET;
                 listData.Add(row);
             }
 
@@ -84,20 +82,20 @@ namespace DauThau.UserControlCategoryMain
                 }
 
                 clsTreKTVaConNKT row = new clsTreKTVaConNKT();
-                row.STT = stt++;
                 row.HV_HO = item.CON_TEN;
                 row.HV_TEN = item.CON_TEN.Ex_getLastName();
                 row.HV_NAMSINH_NAM = item.CON_GIOITINH == "Nam" ? (item.CON_NGAYSINH.HasValue ? item.CON_NGAYSINH.Value.Year.ToString() : "") : "";
                 row.HV_NAMSINH_NU = item.CON_GIOITINH == "Nữ" ? (item.CON_NGAYSINH.HasValue ? item.CON_NGAYSINH.Value.Year.ToString() : "") : "";
                 row.HV_CHA_ME = parent.HV_HO + " " + parent.HV_TEN;
-                row.HV_HOAN_CANH = "";
+                row.HV_HOAN_CANH = item.CON_GHICHU;
                 row.HV_TAMTRU_DIACHI = parent.HV_TAMTRU_DIACHI;
-                row.HV_DIENTHOAI = (parent.HV_DIENTHOAI == "" ? parent.HV_NGH_SDT : "");
+                row.HV_DIENTHOAI = (parent.HV_DIENTHOAI != "" ? parent.HV_DIENTHOAI : parent.HV_NGH_SDT);
                 row.HV_DOITUONG = "Con NKT";
-                row.HV_GHICHU = item.CON_GHICHU;
+                row.HV_GHICHU = "";
                 listData.Add(row);
             }
 
+            listData = listData.OrderBy(p => p.HV_TEN).ToList();
             gcGrid.DataSource = listData;
 
             _wait.Close();
@@ -121,7 +119,7 @@ namespace DauThau.UserControlCategoryMain
 
                 waitDialogForm.SetCaption(String.Format("{0} - {1}%", "Đang xuất excel ...", 50));
 
-                excelManager.GridData2Excel(gvGrid, 8, 1, false, false, "", false, false);
+                excelManager.GridData2Excel(gvGrid, 7, 1, false, false, "", false, false);
 
                 //excelManager.SelectRange(excelManager.WorkingRange.Row + excelManager.WorkingRange.Rows.Count, excelManager.WorkingRange.Column,
                 //    excelManager.WorkingRange.Row + excelManager.WorkingRange.Rows.Count, excelManager.WorkingRange.Column + excelManager.WorkingRange.Columns.Count - 1);
@@ -160,7 +158,7 @@ namespace DauThau.UserControlCategoryMain
                     .SetFontStyle(true, false, false)
                     .SetFontSize(16)
                     .SetHorizontalAlignment(Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter)
-                    .SetRangeValue("DANH SÁCH HỘI VIÊN");
+                    .SetRangeValue("DANH SÁCH TRẺ KHUYẾT TẬT VÀ CON NGƯỜI KHUYẾT TẬT");
 
                 excelManager.SelectRange(11, 2, er, ec).AutoFitColumn();
                 //excelManager.SelectRange(11, 2, er, ec).SetNumberFormat("#,#0");
@@ -220,5 +218,12 @@ namespace DauThau.UserControlCategoryMain
             }
         }
 
+        private void gvGrid_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.Column == colSTT && e.IsGetData)
+            {
+                e.Value = e.ListSourceRowIndex + 1;
+            }
+        }
     }
 }

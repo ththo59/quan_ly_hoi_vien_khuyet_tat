@@ -503,6 +503,7 @@
           <Property Name="HV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HV_HO" Type="nvarchar" MaxLength="50" />
           <Property Name="HV_TEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="HV_HOTEN" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_GIOI_TINH" Type="nvarchar" MaxLength="10" />
           <Property Name="HV_DAN_TOC" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_DOITUONG" Type="nvarchar" MaxLength="250" />
@@ -546,14 +547,6 @@
           <Property Name="HV_TINHTRANG_HONNHAN" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_VOCHONG" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_SOCON" Type="int" />
-          <Property Name="HV_CON1_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_CON1_NGAYSINH" Type="date" />
-          <Property Name="HV_CON1_GIOITINH" Type="nvarchar" MaxLength="50" />
-          <Property Name="HV_CON1_HOCTRUONG" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_CON2_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="HV_CON2_NGAYSINH" Type="date" />
-          <Property Name="HV_CON2_GIOITINH" Type="nvarchar" MaxLength="50" />
-          <Property Name="HV_CON2_HOCTRUONG" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_PHONGTRAO_THETHAO" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_PHONGTRAO_MONGMUON" Type="nvarchar" MaxLength="250" />
           <Property Name="HV_NGUYENVONG" Type="nvarchar" MaxLength="250" />
@@ -1700,6 +1693,7 @@
           <Property Name="HV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HV_HO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HV_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HV_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_GIOI_TINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="HV_DAN_TOC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_DOITUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -1743,14 +1737,6 @@
           <Property Name="HV_TINHTRANG_HONNHAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_VOCHONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_SOCON" Type="Int32" />
-          <Property Name="HV_CON1_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON1_NGAYSINH" Type="DateTime" Precision="0" />
-          <Property Name="HV_CON1_GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON1_HOCTRUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON2_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON2_NGAYSINH" Type="DateTime" Precision="0" />
-          <Property Name="HV_CON2_GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HV_CON2_HOCTRUONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_PHONGTRAO_THETHAO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_PHONGTRAO_MONGMUON" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HV_NGUYENVONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -2503,14 +2489,6 @@
                 <ScalarProperty Name="HV_NGUYENVONG" ColumnName="HV_NGUYENVONG" />
                 <ScalarProperty Name="HV_PHONGTRAO_MONGMUON" ColumnName="HV_PHONGTRAO_MONGMUON" />
                 <ScalarProperty Name="HV_PHONGTRAO_THETHAO" ColumnName="HV_PHONGTRAO_THETHAO" />
-                <ScalarProperty Name="HV_CON2_HOCTRUONG" ColumnName="HV_CON2_HOCTRUONG" />
-                <ScalarProperty Name="HV_CON2_GIOITINH" ColumnName="HV_CON2_GIOITINH" />
-                <ScalarProperty Name="HV_CON2_NGAYSINH" ColumnName="HV_CON2_NGAYSINH" />
-                <ScalarProperty Name="HV_CON2_TEN" ColumnName="HV_CON2_TEN" />
-                <ScalarProperty Name="HV_CON1_HOCTRUONG" ColumnName="HV_CON1_HOCTRUONG" />
-                <ScalarProperty Name="HV_CON1_GIOITINH" ColumnName="HV_CON1_GIOITINH" />
-                <ScalarProperty Name="HV_CON1_NGAYSINH" ColumnName="HV_CON1_NGAYSINH" />
-                <ScalarProperty Name="HV_CON1_TEN" ColumnName="HV_CON1_TEN" />
                 <ScalarProperty Name="HV_SOCON" ColumnName="HV_SOCON" />
                 <ScalarProperty Name="HV_VOCHONG" ColumnName="HV_VOCHONG" />
                 <ScalarProperty Name="HV_TINHTRANG_HONNHAN" ColumnName="HV_TINHTRANG_HONNHAN" />
@@ -2554,6 +2532,7 @@
                 <ScalarProperty Name="HV_DOITUONG" ColumnName="HV_DOITUONG" />
                 <ScalarProperty Name="HV_DAN_TOC" ColumnName="HV_DAN_TOC" />
                 <ScalarProperty Name="HV_GIOI_TINH" ColumnName="HV_GIOI_TINH" />
+                <ScalarProperty Name="HV_HOTEN" ColumnName="HV_HOTEN" />
                 <ScalarProperty Name="HV_TEN" ColumnName="HV_TEN" />
                 <ScalarProperty Name="HV_HO" ColumnName="HV_HO" />
                 <ScalarProperty Name="HV_ID" ColumnName="HV_ID" />

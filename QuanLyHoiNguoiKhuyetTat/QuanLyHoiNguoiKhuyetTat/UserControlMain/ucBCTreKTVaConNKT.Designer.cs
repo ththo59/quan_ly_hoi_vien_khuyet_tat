@@ -187,6 +187,7 @@
             this.gvGrid.OptionsView.ShowGroupPanel = false;
             this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHV_TEN, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gvGrid.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gvGrid_CustomUnboundColumnData);
             // 
             // gridBand4
             // 
@@ -201,6 +202,7 @@
             this.colSTT.Caption = "STT";
             this.colSTT.FieldName = "STT";
             this.colSTT.Name = "colSTT";
+            this.colSTT.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.colSTT.Visible = true;
             this.colSTT.Width = 60;
             // 

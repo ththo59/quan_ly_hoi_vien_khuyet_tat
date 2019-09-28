@@ -126,6 +126,7 @@ namespace DauThau.UserControlCategory
             //chkListNhuCau.Ex_SetEditValueToString(strNhuCau);
 
             repThanhVienHoi.Ex_SetDataSource(CategoryEntitiesTable.DM_THANHVIEN_HOI.Ex_ToString());
+            FuncCategory.loadCategoryForRepositoryItemLookUpEditByName(CategoryEntitiesTable.DM_GIOITINH, repCon_lueGioTinh);
 
             _wait.Close();
         }
@@ -637,6 +638,8 @@ namespace DauThau.UserControlCategory
             //Thông tin cá nhân
             item.HV_HO = txtHo.Text;
             item.HV_TEN = txtTen.Text;
+            item.HV_HOTEN = item.HV_HO + " " + item.HV_TEN;
+
             if (pictureAvatar.Image != null)
             {
                 if(_hoiVienImage == null)
@@ -870,6 +873,34 @@ namespace DauThau.UserControlCategory
             Int64 hv_id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colHV_ID));
             var hoivien = (from p in context.QL_HOIVIEN where p.HV_ID == hv_id select p).ToList();
             DataTable dt = FunctionHelper.ConvertToDataTable(hoivien);
+            dt.Columns.Add("HV_CON1_TEN", typeof(String));
+            dt.Columns.Add("HV_CON1_GIOITINH", typeof(String));
+            dt.Columns.Add("HV_CON1_NGAYSINH", typeof(DateTime));
+            dt.Columns.Add("HV_CON2_TEN", typeof(String));
+            dt.Columns.Add("HV_CON2_GIOITINH", typeof(String));
+            dt.Columns.Add("HV_CON2_NGAYSINH", typeof(DateTime));
+            foreach (var item in hoivien)
+            {
+                var hoivien_con = item.QL_HOIVIEN_CON.ToList();
+                int soCon = 1;
+                foreach (var con in hoivien_con)
+                {
+                    if(soCon == 1)
+                    {
+                        dt.Rows[0]["HV_CON1_TEN"] = con.CON_TEN;
+                        dt.Rows[0]["HV_CON1_GIOITINH"] = con.CON_GIOITINH;
+                        dt.Rows[0]["HV_CON1_NGAYSINH"] = con.CON_NGAYSINH;
+                    }else
+                    {
+                        dt.Rows[0]["HV_CON2_TEN"] = con.CON_TEN;
+                        dt.Rows[0]["HV_CON2_GIOITINH"] = con.CON_GIOITINH;
+                        dt.Rows[0]["HV_CON2_NGAYSINH"] = con.CON_NGAYSINH;
+                        break;
+                    }
+                    soCon++;
+                }
+            }
+            
             dt.TableName = "HOI_VIEN";
             frmPrint frm = new frmPrint(rpt);
             rpt.DataSource = dt;
@@ -1030,7 +1061,7 @@ namespace DauThau.UserControlCategory
         {
             string title = "Họ và tên: ";
             string giatri_cu = title + _hoiVien_cu.HV_HO + " " + _hoiVien_cu.HV_TEN + Environment.NewLine;
-            string giatri_moi = title + item.HV_HO + " " + item.HV_TEN + Environment.NewLine;
+            string giatri_moi = title + item.HV_HOTEN + Environment.NewLine;
 
             if (_hoiVien_cu.HV_GIOI_TINH != item.HV_GIOI_TINH)
             {
@@ -1350,7 +1381,7 @@ namespace DauThau.UserControlCategory
             switch (actionStatus)
             {
                 case EnumFormStatus.ADD:
-                    string giatri_moi = "Họ tên: " + item.HV_HO + " " + item.HV_TEN + Environment.NewLine;
+                    string giatri_moi = "Họ tên: " + item.HV_HOTEN + Environment.NewLine;
                     giatri_moi += "Địa chỉ thường trú: " + item.HV_THUONGTRU_DIACHI;
                     nhatKy.NK_GIATRI_MOI = giatri_moi;
                     nhatKy.NK_THAOTAC = "Thêm";
@@ -1865,16 +1896,6 @@ namespace DauThau.UserControlCategory
             {
                 item.EditValue = 0;
             }
-        }
-
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit2_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
