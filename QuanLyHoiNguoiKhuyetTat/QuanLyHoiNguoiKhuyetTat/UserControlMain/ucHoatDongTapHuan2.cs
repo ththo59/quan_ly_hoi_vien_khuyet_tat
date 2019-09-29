@@ -43,7 +43,6 @@ namespace DauThau.UserControlCategory
         
 
         //Lưu ý: khi mở lần đầu tiên idRowSeleted = 0 và lấy dữ liệu dòng đầu tiên (nếu có)
-        const Int64 constIdDeleted = -1;
         private Boolean _first_load_data = true;
 
         private void ucHoatDongHoiThaoTapHuan_Load(object sender, EventArgs e)
@@ -314,7 +313,7 @@ namespace DauThau.UserControlCategory
         private string _getMemoText(BindingList<QL_HOATDONG_TAPHUAN_CHITIET> data)
         {
             StringBuilder title = new StringBuilder();
-            foreach (var item in data.Where(p=>p.TH_ID != constIdDeleted))
+            foreach (var item in data.Where(p=>p.TH_ID != clsParameter.statusDeleted))
             {
                 if (item.TH_CT_DIACHI != "")
                 {
@@ -526,6 +525,7 @@ namespace DauThau.UserControlCategory
             listTapHuanVienChinh = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+            listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             tapHuanDiaDiem = new QL_HOATDONG_TAPHUAN_DIADIEM();
         }
 
@@ -561,7 +561,7 @@ namespace DauThau.UserControlCategory
                     person.QL_HOATDONG_TAPHUAN = item;
                     _context.QL_HOATDONG_TAPHUAN_CHITIET.Add(person);
                 }
-                else if (person.TH_ID == constIdDeleted) //delete
+                else if (person.TH_ID == clsParameter.statusDeleted) //delete
                 {
                     item_chitiet = (from p in _context.QL_HOATDONG_TAPHUAN_CHITIET
                                     where p.TH_CT_ID == person.TH_CT_ID
@@ -582,37 +582,7 @@ namespace DauThau.UserControlCategory
             }
         }
 
-        private void _insertMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_TAPHUAN item, CategoryTapHuanChiTietLoai enumLoai)
-        {
-            BindingList<QL_HOATDONG_TAPHUAN_CHITIET> list_chitiet = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
-            switch (enumLoai)
-            {
-                case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
-                    list_chitiet = listNguoiThucHien;
-                    break;
-                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
-                    list_chitiet = listTapHuanVienChinh;
-                    break;
-                case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
-                    list_chitiet = listTapHuanVienPhu;
-                    break;
-                case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
-                    list_chitiet = listPhienDichVien;
-                    break;
-                case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
-                    list_chitiet = listDoiTuongKhongKhuyetTat;
-                    break;
-                default:
-                    break;
-            }
-
-            foreach (var row in list_chitiet)
-            {
-                row.QL_HOATDONG_TAPHUAN = item;
-                _context.QL_HOATDONG_TAPHUAN_CHITIET.Add(row);
-            }
-            _context.QL_HOATDONG_TAPHUAN.Add(item);
-        }
+       
 
         private void _updateDiaDiemToChucData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_TAPHUAN item)
         {
@@ -626,7 +596,7 @@ namespace DauThau.UserControlCategory
                 tapHuanDiaDiem.QL_HOATDONG_TAPHUAN = item;
                 _context.QL_HOATDONG_TAPHUAN_DIADIEM.Add(tapHuanDiaDiem);
             }
-            else if (tapHuanDiaDiem.TH_ID == constIdDeleted) //delete
+            else if (tapHuanDiaDiem.TH_ID == clsParameter.statusDeleted) //delete
             {
                 var item_chitiet = (from p in _context.QL_HOATDONG_TAPHUAN_DIADIEM
                                 where p.TH_DD_ID == tapHuanDiaDiem.TH_DD_ID
@@ -865,7 +835,11 @@ namespace DauThau.UserControlCategory
             List<Int64> idList = new List<long>();
             foreach (var id in idStringList)
             {
-                idList.Add(Convert.ToInt64(id));
+                Int64 idConvert =  clsChangeType.change_int64(id);
+                if(idConvert > 0)
+                {
+                    idList.Add(idConvert);
+                } 
             }
 
             var hoivienList = context.QL_HOIVIEN.Where(p => idList.Contains(p.HV_ID)).OrderBy(p => p.HV_TEN).ToList();
@@ -896,8 +870,8 @@ namespace DauThau.UserControlCategory
             }
 
             //Người không khuyết tật
-            int count_NguoiKhongKT = listDoiTuongKhongKhuyetTat.Count;
-            foreach (var item in listDoiTuongKhongKhuyetTat)
+            int count_NguoiKhongKT = listDoiTuongKhongKhuyetTat.Where(p => p.TH_ID != clsParameter.statusDeleted).ToList().Count;
+            foreach (var item in listDoiTuongKhongKhuyetTat.Where(p => p.TH_ID != clsParameter.statusDeleted).ToList())
             {
                 count_Nam += item.TH_CT_GIOITINH == "Nam" ? 1 : 0;
                 count_Nu += item.TH_CT_GIOITINH == "Nữ" ? 1 : 0;
@@ -1084,7 +1058,7 @@ namespace DauThau.UserControlCategory
 
             frm.ShowDialog();
             tapHuanDiaDiem = frm.data;
-            memoDiaDiemToChuc.Text = (tapHuanDiaDiem != null && tapHuanDiaDiem.TH_ID != constIdDeleted) ? tapHuanDiaDiem.TH_DD_TEN : "";
+            memoDiaDiemToChuc.Text = (tapHuanDiaDiem != null && tapHuanDiaDiem.TH_ID != clsParameter.statusDeleted) ? tapHuanDiaDiem.TH_DD_TEN : "";
         }
 
 

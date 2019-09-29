@@ -416,6 +416,12 @@
     <Compile Include="Forms\frmLyLich_CMND.Designer.cs">
       <DependentUpon>frmLyLich_CMND.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmDoiTuongKhac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmTapHuanDiaDiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -558,6 +564,9 @@
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_DAYNGHE.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOATDONG_DOITUONG_KHAC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_HNXH.cs">
@@ -1728,6 +1737,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLyLich_CMND.resx">
       <DependentUpon>frmLyLich_CMND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDoiTuongKhac.resx">
+      <DependentUpon>frmDoiTuongKhac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTapHuanDiaDiem.resx">
       <DependentUpon>frmTapHuanDiaDiem.cs</DependentUpon>

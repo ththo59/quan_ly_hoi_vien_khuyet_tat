@@ -15,6 +15,8 @@ namespace DauThau.Class
         public static char separatorChar = ';';
 
         public static Int64 _goiThauID = 0;
+
+        //Dùng để đánh dấu 1 dòng dữ liệu đang ở trạng thái deleted.
         public static Int64 statusDeleted = -1;
 #if (ReleaseKonTum)
         public static string pHospital = "BỆNH VIỆN ĐA KHOA TỈNH";
@@ -71,5 +73,12 @@ namespace DauThau.Class
 
         //Hội viên
         public static String HV_DOITUONG_TEKT = "TEKT";
+
+        //Hoạt động
+        public static Int64 LOAI_HOATDONG_DAYNGHE_ID = 1;
+        public static string LOAI_HOATDONG_DAYNGHE_TEN = "Dạy nghề";
+
+        public static Int64 LOAI_HOATDONG_VIECLAM_ID = 2;
+        public static string LOAI_HOATDONG_VIECLAM_TEN = "Việc làm";
     }
 }

@@ -18,6 +18,7 @@ using static DauThau.Class.FuncCategory;
 using DauThau.Reports;
 using DauThau.UserControlCategoryMain;
 using DauThau.UserControlMain;
+using DauThau.Forms;
 
 namespace DauThau.UserControlCategory
 {
@@ -27,7 +28,9 @@ namespace DauThau.UserControlCategory
         {
             InitializeComponent();
         }
-        
+
+        public BindingList<QL_HOATDONG_DOITUONG_KHAC> listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_DOITUONG_KHAC>();
+
         private void ucHoatDongDayNghe_Load(object sender, EventArgs e)
         {
             registerButtonArray(btnControl);
@@ -74,7 +77,6 @@ namespace DauThau.UserControlCategory
                 item.DN_TONGTIEN = row.DN_TONGTIEN;
                 item.DN_NOIDUNG = row.DN_NOIDUNG;
                 item.DN_DONVI_THUCHIEN = row.DN_DONVI_THUCHIEN;
-                item.DN_DOITUONG_THAMGIA = row.DN_DOITUONG_THAMGIA + "; " +  row.DN_DOITUONG_KHAC;
                 lists.Add(item);
             }
             DataTable dataPrint = FunctionHelper.ConvertToDataTable(lists);
@@ -141,7 +143,7 @@ namespace DauThau.UserControlCategory
             gcGrid.Enabled = readOnly;
             seTongSoNgay.ReadOnly = true;
             seTongSoThang.ReadOnly = true;
-            txtDoiTuong.ReadOnly = true;
+            memoDoiTuongThamGia.ReadOnly = true;
         }
 
         private void _clearData()
@@ -190,12 +192,13 @@ namespace DauThau.UserControlCategory
                 txtDayTuNguon.EditValue = item.DN_DONVI_THUCHIEN;
 
                 seSoLuongNguoiThamGia.EditValue = item.DN_SOLUONG;
-                seSoluongNu.EditValue = item.DN_SOLUONG_NU;
+                seSoLuongNu.EditValue = item.DN_SOLUONG_NU;
                 seTongKinhPhi.EditValue = item.DN_TONGTIEN;
 
-                txtDoiTuong.EditValue = item.DN_DOITUONG_THAMGIA;
-                txtDoiTuongId.EditValue = item.DN_DOITUONG_THAMGIA_ID;
-                txtDoiTuongKhac.EditValue = item.DN_DOITUONG_KHAC;
+                memoDoiTuongThamGia.EditValue = item.DN_DOITUONG_THAMGIA;
+                memoDoiTuongId.EditValue = item.DN_DOITUONG_THAMGIA_ID;
+
+                _setMemoText(item);
                 txtNoiDung.EditValue = item.DN_NOIDUNG;
                 txtHoTro.EditValue = item.DN_NGUOI_HOTRO;
             }
@@ -214,13 +217,12 @@ namespace DauThau.UserControlCategory
             item.DN_DONVI_THUCHIEN = txtDayTuNguon.Text;
 
             item.DN_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
-            item.DN_SOLUONG_NU = seSoluongNu.Ex_EditValueToInt();
+            item.DN_SOLUONG_NU = seSoLuongNu.Ex_EditValueToInt();
             item.DN_TONGTIEN = seTongKinhPhi.Ex_EditValueToInt();
 
             item.DN_NOIDUNG = txtNoiDung.Text;
-            item.DN_DOITUONG_THAMGIA = txtDoiTuong.Text;
-            item.DN_DOITUONG_THAMGIA_ID = txtDoiTuongId.Text;
-            item.DN_DOITUONG_KHAC = txtDoiTuongKhac.Text;
+            item.DN_DOITUONG_THAMGIA = memoDoiTuongThamGia.Text;
+            item.DN_DOITUONG_THAMGIA_ID = memoDoiTuongId.Text;
             item.DN_NGUOI_HOTRO = txtHoTro.Text;
         }
 
@@ -243,9 +245,9 @@ namespace DauThau.UserControlCategory
                 dxErrorProvider.SetError(txtDiaDiem, "Vui lòng nhập thông tin");
             }
 
-            if (clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) < clsChangeType.change_int64(seSoluongNu.EditValue))
+            if (clsChangeType.change_int64(seSoLuongNguoiThamGia.EditValue) < clsChangeType.change_int64(seSoLuongNu.EditValue))
             {
-                dxErrorProvider.SetError(seSoluongNu, "Số lượng nữ không phù hợp.");
+                dxErrorProvider.SetError(seSoLuongNu, "Số lượng nữ không phù hợp.");
             }
 
             if (dxErrorProvider.HasErrors)
@@ -267,13 +269,10 @@ namespace DauThau.UserControlCategory
                     {
                         case EnumFormStatus.ADD:
 
-                            #region Add
-
                             item = new QL_HOATDONG_DAYNGHE();
                             _setObjectEntities(ref item);
+                            _updateMemoData(_context, item, clsParameter.LOAI_HOATDONG_DAYNGHE_ID);
                             _context.QL_HOATDONG_DAYNGHE.Add(item);
-
-                            #endregion
 
                             break;
                         case EnumFormStatus.MODIFY:
@@ -288,7 +287,8 @@ namespace DauThau.UserControlCategory
                             {
                                 _context.Entry(entity).CurrentValues.SetValues(item);
                             }
-                            
+
+                            _updateMemoData(_context, item, clsParameter.LOAI_HOATDONG_DAYNGHE_ID);
                             break;
                         default:
                             break;
@@ -319,6 +319,7 @@ namespace DauThau.UserControlCategory
                 if (_formStatus == EnumFormStatus.ADD)
                 {
                     _clearData();
+                    _initMemoData();
                     deTuNgay.Focus();
                     _statusAllControl(false);
                 }
@@ -446,12 +447,132 @@ namespace DauThau.UserControlCategory
         private void btnSelectHoiVien_Click(object sender, EventArgs e)
         {
             frmSelectHoiVien frm = new frmSelectHoiVien();
-            frm.selectNameList = txtDoiTuong.Text;
-            frm.selectIdList = txtDoiTuongId.Text;
+            frm.selectNameList = memoDoiTuongThamGia.Text;
+            frm.selectIdList = memoDoiTuongId.Text;
             frm.ShowDialog();
 
-            txtDoiTuong.Text = frm.selectNameList;
-            txtDoiTuongId.Text = frm.selectIdList;
+            memoDoiTuongThamGia.Text = frm.selectNameList;
+            memoDoiTuongId.Text = frm.selectIdList;
+
+            _updateStatusDoiTuong();
         }
+
+        #region Đối tượng khác
+
+        private void _updateStatusDoiTuong()
+        {
+            string[] idStringList = memoDoiTuongId.Text.Split(new[] { "; " }, StringSplitOptions.None);
+            List<Int64> idList = new List<long>();
+            foreach (var id in idStringList)
+            {
+                Int64 idConvert = clsChangeType.change_int64(id);
+                if (idConvert > 0)
+                {
+                    idList.Add(idConvert);
+                }
+            }
+
+            var hoivienList = context.QL_HOIVIEN.Where(p => idList.Contains(p.HV_ID)).OrderBy(p => p.HV_TEN).ToList();
+            int count_hoiVien = hoivienList != null ? hoivienList.Count : 0;
+
+            int count_Nam = 0;
+            int count_Nu = 0;
+
+            foreach (var item in hoivienList)
+            {
+                count_Nam += item.HV_GIOI_TINH == "Nam" ? 1 : 0;
+                count_Nu += item.HV_GIOI_TINH == "Nữ" ? 1 : 0;
+            }
+
+            //Người không khuyết tật
+            foreach (var item in listDoiTuongKhongKhuyetTat.Where(p => p.PARENT_ID != clsParameter.statusDeleted).ToList())
+            {
+                count_Nam += item.DTK_GIOITINH == "Nam" ? 1 : 0;
+                count_Nu += item.DTK_GIOITINH == "Nữ" ? 1 : 0;
+            }
+            seSoLuongNguoiThamGia.EditValue = count_Nam + count_Nu;
+            seSoLuongNu.EditValue = count_Nu;
+
+        }
+
+        private void _setMemoText(QL_HOATDONG_DAYNGHE item)
+        {
+            var query = item.QL_HOATDONG_DOITUONG_KHAC.ToList();
+
+            listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_DOITUONG_KHAC>(query);
+            memoDoiTuongKhac.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+        }
+
+        private string _getMemoText(BindingList<QL_HOATDONG_DOITUONG_KHAC> data)
+        {
+            StringBuilder title = new StringBuilder();
+            foreach (var item in data.Where(p => p.PARENT_ID != clsParameter.statusDeleted))
+            {
+                if (item.DTK_DIACHI != "")
+                {
+                    title.AppendFormat("{0}({1}); ", item.DTK_HO + " " + item.DTK_TEN, item.DTK_DIACHI);
+                }
+                else if (item.DTK_DONVI_TEN != "")
+                {
+                    title.AppendFormat("{0}({1}); ", item.DTK_HO + " " + item.DTK_TEN, item.DTK_DONVI_TEN);
+                }
+                else
+                {
+                    title.AppendFormat("{0}; ", item.DTK_HO + " " + item.DTK_TEN);
+                }
+
+            }
+            return title.ToString();
+        }
+
+        private void _initMemoData()
+        {
+            listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_DOITUONG_KHAC>();
+        }
+
+        private void _updateMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_DAYNGHE item, Int64 loaiHoatDongId)
+        {
+            QL_HOATDONG_DOITUONG_KHAC item_chitiet;
+            foreach (var person in listDoiTuongKhongKhuyetTat)
+            {
+                if (person.PARENT_ID == null) //add
+                {
+                    person.LOAI_HD_ID = loaiHoatDongId;
+                    person.QL_HOATDONG_DAYNGHE = item;
+                    _context.QL_HOATDONG_DOITUONG_KHAC.Add(person);
+                }
+                else if (person.PARENT_ID == clsParameter.statusDeleted) //delete
+                {
+                    item_chitiet = (from p in _context.QL_HOATDONG_DOITUONG_KHAC
+                                    where p.DTK_ID == person.DTK_ID
+                                    select p).FirstOrDefault();
+                    if (item_chitiet != null)
+                    {
+                        _context.QL_HOATDONG_DOITUONG_KHAC.Remove(item_chitiet);
+                    }
+                }
+                else //modify
+                {
+                    var chitiet = _context.QL_HOATDONG_DOITUONG_KHAC.Where(p => p.LOAI_HD_ID == loaiHoatDongId && p.DTK_ID == person.DTK_ID).FirstOrDefault();
+                    if (chitiet != null)
+                    {
+                        _context.Entry(chitiet).CurrentValues.SetValues(person);
+                    }
+                }
+            }
+        }
+
+        private void btnDoiTuongKhongKT_Click(object sender, EventArgs e)
+        {
+            frmDoiTuongKhac frm = new frmDoiTuongKhac();
+            frm.data = listDoiTuongKhongKhuyetTat;
+            frm.ShowDialog();
+
+            listDoiTuongKhongKhuyetTat = frm.data;
+            memoDoiTuongKhac.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+            _updateStatusDoiTuong();
+        }
+
+        #endregion
     }
 }
