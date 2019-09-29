@@ -75,10 +75,10 @@ namespace DauThau.Class
         public static String HV_DOITUONG_TEKT = "TEKT";
 
         //Hoạt động
-        public static Int64 LOAI_HOATDONG_DAYNGHE_ID = 1;
-        public static string LOAI_HOATDONG_DAYNGHE_TEN = "Dạy nghề";
+        //public static Int64 LOAI_HOATDONG_DAYNGHE_ID = 1;
+        //public static string LOAI_HOATDONG_DAYNGHE_TEN = "Dạy nghề";
 
-        public static Int64 LOAI_HOATDONG_VIECLAM_ID = 2;
-        public static string LOAI_HOATDONG_VIECLAM_TEN = "Việc làm";
+        //public static Int64 LOAI_HOATDONG_VIECLAM_ID = 2;
+        //public static string LOAI_HOATDONG_VIECLAM_TEN = "Việc làm";
     }
 }

@@ -14,6 +14,12 @@ namespace DauThau.Models
     
     public partial class QL_HOATDONG_ASXH
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QL_HOATDONG_ASXH()
+        {
+            this.QL_HOATDONG_ASXH_DOITUONG_KHAC = new HashSet<QL_HOATDONG_ASXH_DOITUONG_KHAC>();
+        }
+    
         public long ASXH_ID { get; set; }
         public Nullable<long> ASXH_LOAI_ID { get; set; }
         public string ASXH_TEN { get; set; }
@@ -28,5 +34,8 @@ namespace DauThau.Models
         public string ASXH_DOITUONG_KHAC { get; set; }
         public string ASXH_DONVI_THUCHIEN { get; set; }
         public string ASXH_NOIDUNG { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_ASXH_DOITUONG_KHAC> QL_HOATDONG_ASXH_DOITUONG_KHAC { get; set; }
     }
 }

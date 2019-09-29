@@ -32,8 +32,8 @@
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>22</ApplicationRevision>
-    <ApplicationVersion>2019.8.17.%2a</ApplicationVersion>
+    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationVersion>2019.9.29.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -386,6 +386,48 @@
     <Compile Include="Forms\frmExcelsManager.Designer.cs">
       <DependentUpon>frmExcelsManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmHoatDongKhacDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongKhacDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongKhacDoiTuongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongHNXHDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongHNXHDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongHNXHDoiTuongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongASXHDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongASXHDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongASXHDoiTuongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongHoiThaoDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongHoiThaoDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongHoiThaoDoiTuongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongHoiChoTrienLamDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongHoiChoTrienLamDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongHoiChoTrienLamDoiTuongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongVayVonDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongVayVonDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongVayVonDoiTuongKhac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongViecLamDoiTuongKhac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHoatDongViecLamDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongViecLamDoiTuongKhac.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmImportExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,11 +458,11 @@
     <Compile Include="Forms\frmLyLich_CMND.Designer.cs">
       <DependentUpon>frmLyLich_CMND.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDoiTuongKhac.cs">
+    <Compile Include="Forms\frmHoatDongDayNgheDoiTuongKhac.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDoiTuongKhac.Designer.cs">
-      <DependentUpon>frmDoiTuongKhac.cs</DependentUpon>
+    <Compile Include="Forms\frmHoatDongDayNgheDoiTuongKhac.Designer.cs">
+      <DependentUpon>frmHoatDongDayNgheDoiTuongKhac.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmTapHuanDiaDiem.cs">
       <SubType>Form</SubType>
@@ -563,22 +605,37 @@
     <Compile Include="Models\QL_HOATDONG_ASXH.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_ASXH_DOITUONG_KHAC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_DAYNGHE.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QL_HOATDONG_DOITUONG_KHAC.cs">
+    <Compile Include="Models\QL_HOATDONG_DAYNGHE_DOITUONG_KHAC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_HNXH.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_HNXH_DOITUONG_KHAC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_HOICHO_TRIENLAM.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_HOITHAO.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_HOITHAO_DOITUONG_KHAC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_KHAC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOATDONG_KHAC_DOITUONG_KHAC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOATDONG_TAPHUAN.cs">
@@ -593,7 +650,13 @@
     <Compile Include="Models\QL_HOATDONG_VAYVON.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QL_HOATDONG_VAYVON_DOITUONG_KHAC.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QL_HOATDONG_VIECLAM.cs">
+      <DependentUpon>QLHVContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QL_HOATDONG_VIECLAM_DOITUONG_KHAC.cs">
       <DependentUpon>QLHVContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QL_HOIVIEN.cs">
@@ -1723,6 +1786,27 @@
     <EmbeddedResource Include="Forms\frmExcelsManager.resx">
       <DependentUpon>frmExcelsManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongKhacDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongKhacDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongHNXHDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongHNXHDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongASXHDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongASXHDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongHoiThaoDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongHoiThaoDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongHoiChoTrienLamDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongHoiChoTrienLamDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongVayVonDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongVayVonDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHoatDongViecLamDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongViecLamDoiTuongKhac.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImportExport.resx">
       <DependentUpon>frmImportExport.cs</DependentUpon>
     </EmbeddedResource>
@@ -1738,8 +1822,8 @@
     <EmbeddedResource Include="Forms\frmLyLich_CMND.resx">
       <DependentUpon>frmLyLich_CMND.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDoiTuongKhac.resx">
-      <DependentUpon>frmDoiTuongKhac.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmHoatDongDayNgheDoiTuongKhac.resx">
+      <DependentUpon>frmHoatDongDayNgheDoiTuongKhac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmTapHuanDiaDiem.resx">
       <DependentUpon>frmTapHuanDiaDiem.cs</DependentUpon>
@@ -1762,7 +1846,6 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -17,7 +17,7 @@ namespace DauThau.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QL_HOATDONG_VIECLAM()
         {
-            this.QL_HOATDONG_DOITUONG_KHAC = new HashSet<QL_HOATDONG_DOITUONG_KHAC>();
+            this.QL_HOATDONG_VIECLAM_DOITUONG_KHAC = new HashSet<QL_HOATDONG_VIECLAM_DOITUONG_KHAC>();
         }
     
         public long VL_ID { get; set; }
@@ -39,6 +39,6 @@ namespace DauThau.Models
         public virtual QL_HOATDONG_VIECLAM QL_HOATDONG_VIECLAM1 { get; set; }
         public virtual QL_HOATDONG_VIECLAM QL_HOATDONG_VIECLAM2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QL_HOATDONG_DOITUONG_KHAC> QL_HOATDONG_DOITUONG_KHAC { get; set; }
+        public virtual ICollection<QL_HOATDONG_VIECLAM_DOITUONG_KHAC> QL_HOATDONG_VIECLAM_DOITUONG_KHAC { get; set; }
     }
 }

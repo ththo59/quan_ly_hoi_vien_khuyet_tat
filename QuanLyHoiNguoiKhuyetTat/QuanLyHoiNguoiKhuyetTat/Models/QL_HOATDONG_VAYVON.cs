@@ -14,6 +14,12 @@ namespace DauThau.Models
     
     public partial class QL_HOATDONG_VAYVON
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QL_HOATDONG_VAYVON()
+        {
+            this.QL_HOATDONG_VAYVON_DOITUONG_KHAC = new HashSet<QL_HOATDONG_VAYVON_DOITUONG_KHAC>();
+        }
+    
         public long VV_ID { get; set; }
         public string VV_TEN { get; set; }
         public Nullable<System.DateTime> VV_THOIGIAN_BATDAU { get; set; }
@@ -30,5 +36,8 @@ namespace DauThau.Models
         public string VV_DOITUONG_ID { get; set; }
         public string VV_DOITUONG_KHAC { get; set; }
         public string VV_NOIDUNG { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_VAYVON_DOITUONG_KHAC> QL_HOATDONG_VAYVON_DOITUONG_KHAC { get; set; }
     }
 }

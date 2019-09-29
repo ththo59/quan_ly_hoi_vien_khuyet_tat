@@ -255,6 +255,31 @@
           <Property Name="ASXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="ASXH_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_ASXH_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_DAYNGHE">
           <Key>
             <PropertyRef Name="DN_ID" />
@@ -275,13 +300,12 @@
           <Property Name="DN_NOIDUNG" Type="nvarchar(max)" />
           <Property Name="DN_NGUOI_HOTRO" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="QL_HOATDONG_DOITUONG_KHAC">
+        <EntityType Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
           <Key>
             <PropertyRef Name="DTK_ID" />
           </Key>
           <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PARENT_ID" Type="bigint" />
-          <Property Name="LOAI_HD_ID" Type="bigint" />
           <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
           <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
@@ -320,6 +344,31 @@
           <Property Name="HNXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="HNXH_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_HNXH_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_HOICHO_TRIENLAM">
           <Key>
             <PropertyRef Name="HC_ID" />
@@ -339,6 +388,31 @@
           <Property Name="HC_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
           <Property Name="HC_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HC_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_HOITHAO">
           <Key>
@@ -361,6 +435,31 @@
           <Property Name="HT_NGUOI_HOTRO" Type="nvarchar(max)" />
           <Property Name="HT_NGUOI_HOTRO_THULAO" Type="int" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_KHAC">
           <Key>
             <PropertyRef Name="KHAC_ID" />
@@ -379,6 +478,31 @@
           <Property Name="KHAC_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="KHAC_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="KHAC_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_KHAC_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_TAPHUAN">
           <Key>
@@ -501,6 +625,31 @@
           <Property Name="VV_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="VV_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="QL_HOATDONG_VIECLAM">
           <Key>
             <PropertyRef Name="VL_ID" />
@@ -520,6 +669,31 @@
           <Property Name="VL_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
           <Property Name="VL_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="VL_NOIDUNG" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARENT_ID" Type="bigint" />
+          <Property Name="DTK_HO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_GIOITINH" Type="nvarchar" MaxLength="10" />
+          <Property Name="DTK_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="DTK_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_MASOTHUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_FACEBOOK" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_CMND_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="datetime" />
+          <Property Name="DTK_CMND_NOICAP" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_DONVI_SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
+          <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="QL_HOIVIEN">
           <Key>
@@ -736,26 +910,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
-          <End Role="QL_HOATDONG_DAYNGHE" Type="Self.QL_HOATDONG_DAYNGHE" Multiplicity="0..1" />
-          <End Role="QL_HOATDONG_DOITUONG_KHAC" Type="Self.QL_HOATDONG_DOITUONG_KHAC" Multiplicity="*" />
+        <Association Name="FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH">
+          <End Role="QL_HOATDONG_ASXH" Type="Self.QL_HOATDONG_ASXH" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_ASXH_DOITUONG_KHAC" Type="Self.QL_HOATDONG_ASXH_DOITUONG_KHAC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="QL_HOATDONG_DAYNGHE">
-              <PropertyRef Name="DN_ID" />
+            <Principal Role="QL_HOATDONG_ASXH">
+              <PropertyRef Name="ASXH_ID" />
             </Principal>
-            <Dependent Role="QL_HOATDONG_DOITUONG_KHAC">
+            <Dependent Role="QL_HOATDONG_ASXH_DOITUONG_KHAC">
               <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
-          <End Role="QL_HOATDONG_VIECLAM" Type="Self.QL_HOATDONG_VIECLAM" Multiplicity="0..1" />
-          <End Role="QL_HOATDONG_DOITUONG_KHAC" Type="Self.QL_HOATDONG_DOITUONG_KHAC" Multiplicity="*" />
+        <Association Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
+          <End Role="QL_HOATDONG_DAYNGHE" Type="Self.QL_HOATDONG_DAYNGHE" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Type="Self.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="QL_HOATDONG_VIECLAM">
-              <PropertyRef Name="VL_ID" />
+            <Principal Role="QL_HOATDONG_DAYNGHE">
+              <PropertyRef Name="DN_ID" />
             </Principal>
-            <Dependent Role="QL_HOATDONG_DOITUONG_KHAC">
+            <Dependent Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
               <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -769,6 +943,54 @@
             </Principal>
             <Dependent Role="QL_HOATDONG_VIECLAM1">
               <PropertyRef Name="VL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH">
+          <End Role="QL_HOATDONG_HNXH" Type="Self.QL_HOATDONG_HNXH" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_HNXH_DOITUONG_KHAC" Type="Self.QL_HOATDONG_HNXH_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HNXH">
+              <PropertyRef Name="HNXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_HNXH_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM">
+          <End Role="QL_HOATDONG_HOICHO_TRIENLAM" Type="Self.QL_HOATDONG_HOICHO_TRIENLAM" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Type="Self.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HOICHO_TRIENLAM">
+              <PropertyRef Name="HC_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO">
+          <End Role="QL_HOATDONG_HOITHAO" Type="Self.QL_HOATDONG_HOITHAO" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Type="Self.QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HOITHAO">
+              <PropertyRef Name="HT_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC">
+          <End Role="QL_HOATDONG_KHAC" Type="Self.QL_HOATDONG_KHAC" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_KHAC_DOITUONG_KHAC" Type="Self.QL_HOATDONG_KHAC_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_KHAC">
+              <PropertyRef Name="KHAC_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_KHAC_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -793,6 +1015,30 @@
             </Principal>
             <Dependent Role="QL_HOATDONG_TAPHUAN_DIADIEM">
               <PropertyRef Name="TH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON">
+          <End Role="QL_HOATDONG_VAYVON" Type="Self.QL_HOATDONG_VAYVON" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_VAYVON_DOITUONG_KHAC" Type="Self.QL_HOATDONG_VAYVON_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_VAYVON">
+              <PropertyRef Name="VV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
+          <End Role="QL_HOATDONG_VIECLAM" Type="Self.QL_HOATDONG_VIECLAM" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Type="Self.QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_VIECLAM">
+              <PropertyRef Name="VL_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -885,17 +1131,24 @@
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_ASXH" EntityType="Self.QL_HOATDONG_ASXH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_ASXH_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_ASXH_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="Self.QL_HOATDONG_DAYNGHE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="QL_HOATDONG_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HNXH" EntityType="Self.QL_HOATDONG_HNXH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_HNXH_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_HNXH_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HOICHO_TRIENLAM" EntityType="Self.QL_HOATDONG_HOICHO_TRIENLAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_HOITHAO" EntityType="Self.QL_HOATDONG_HOITHAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_KHAC" EntityType="Self.QL_HOATDONG_KHAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_KHAC_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="Self.QL_HOATDONG_TAPHUAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN_CHITIET" EntityType="Self.QL_HOATDONG_TAPHUAN_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN_DIADIEM" EntityType="Self.QL_HOATDONG_TAPHUAN_DIADIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_VAYVON" EntityType="Self.QL_HOATDONG_VAYVON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_VAYVON_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_VIECLAM" EntityType="Self.QL_HOATDONG_VIECLAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN" EntityType="Self.QL_HOIVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_CON" EntityType="Self.QL_HOIVIEN_CON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOIVIEN_HOIPHI" EntityType="Self.QL_HOIVIEN_HOIPHI" Schema="dbo" store:Type="Tables" />
@@ -920,17 +1173,33 @@
             <End Role="DM_TINH" EntitySet="DM_TINH" />
             <End Role="DM_XA" EntitySet="DM_XA" />
           </AssociationSet>
-          <AssociationSet Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" Association="Self.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
-            <End Role="QL_HOATDONG_DAYNGHE" EntitySet="QL_HOATDONG_DAYNGHE" />
-            <End Role="QL_HOATDONG_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DOITUONG_KHAC" />
+          <AssociationSet Name="FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" Association="Self.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH">
+            <End Role="QL_HOATDONG_ASXH" EntitySet="QL_HOATDONG_ASXH" />
+            <End Role="QL_HOATDONG_ASXH_DOITUONG_KHAC" EntitySet="QL_HOATDONG_ASXH_DOITUONG_KHAC" />
           </AssociationSet>
-          <AssociationSet Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" Association="Self.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
-            <End Role="QL_HOATDONG_VIECLAM" EntitySet="QL_HOATDONG_VIECLAM" />
-            <End Role="QL_HOATDONG_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DOITUONG_KHAC" />
+          <AssociationSet Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" Association="Self.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
+            <End Role="QL_HOATDONG_DAYNGHE" EntitySet="QL_HOATDONG_DAYNGHE" />
+            <End Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" Association="Self.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
             <End Role="QL_HOATDONG_VIECLAM" EntitySet="QL_HOATDONG_VIECLAM" />
             <End Role="QL_HOATDONG_VIECLAM1" EntitySet="QL_HOATDONG_VIECLAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" Association="Self.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH">
+            <End Role="QL_HOATDONG_HNXH" EntitySet="QL_HOATDONG_HNXH" />
+            <End Role="QL_HOATDONG_HNXH_DOITUONG_KHAC" EntitySet="QL_HOATDONG_HNXH_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" Association="Self.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM">
+            <End Role="QL_HOATDONG_HOICHO_TRIENLAM" EntitySet="QL_HOATDONG_HOICHO_TRIENLAM" />
+            <End Role="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" EntitySet="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" Association="Self.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO">
+            <End Role="QL_HOATDONG_HOITHAO" EntitySet="QL_HOATDONG_HOITHAO" />
+            <End Role="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" EntitySet="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" Association="Self.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC">
+            <End Role="QL_HOATDONG_KHAC" EntitySet="QL_HOATDONG_KHAC" />
+            <End Role="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntitySet="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" Association="Self.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN">
             <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
@@ -939,6 +1208,14 @@
           <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" Association="Self.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN">
             <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
             <End Role="QL_HOATDONG_TAPHUAN_DIADIEM" EntitySet="QL_HOATDONG_TAPHUAN_DIADIEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" Association="Self.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON">
+            <End Role="QL_HOATDONG_VAYVON" EntitySet="QL_HOATDONG_VAYVON" />
+            <End Role="QL_HOATDONG_VAYVON_DOITUONG_KHAC" EntitySet="QL_HOATDONG_VAYVON_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" Association="Self.FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
+            <End Role="QL_HOATDONG_VIECLAM" EntitySet="QL_HOATDONG_VIECLAM" />
+            <End Role="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" EntitySet="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON" Association="Self.FK_QL_HOIVIEN_CON_QL_HOIVIEN_CON">
             <End Role="QL_HOIVIEN" EntitySet="QL_HOIVIEN" />
@@ -1122,14 +1399,45 @@
             <End Role="QL_HOIVIEN_THANHVIENHOI" EntitySet="QL_HOIVIEN_THANHVIENHOI" />
           </AssociationSet>
           <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" />
-          <EntitySet Name="QL_HOATDONG_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DOITUONG_KHAC" />
-          <AssociationSet Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
+          <EntitySet Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
+          <AssociationSet Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
             <End Role="QL_HOATDONG_DAYNGHE" EntitySet="QL_HOATDONG_DAYNGHE" />
-            <End Role="QL_HOATDONG_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DOITUONG_KHAC" />
+            <End Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
           </AssociationSet>
-          <AssociationSet Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
+          <EntitySet Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM_DOITUONG_KHAC" />
+          <AssociationSet Name="FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
             <End Role="QL_HOATDONG_VIECLAM" EntitySet="QL_HOATDONG_VIECLAM" />
-            <End Role="QL_HOATDONG_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DOITUONG_KHAC" />
+            <End Role="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" EntitySet="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" />
+          </AssociationSet>
+          <EntitySet Name="QL_HOATDONG_ASXH_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH_DOITUONG_KHAC" />
+          <EntitySet Name="QL_HOATDONG_HNXH_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH_DOITUONG_KHAC" />
+          <EntitySet Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_DOITUONG_KHAC" />
+          <AssociationSet Name="FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH">
+            <End Role="QL_HOATDONG_ASXH" EntitySet="QL_HOATDONG_ASXH" />
+            <End Role="QL_HOATDONG_ASXH_DOITUONG_KHAC" EntitySet="QL_HOATDONG_ASXH_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH">
+            <End Role="QL_HOATDONG_HNXH" EntitySet="QL_HOATDONG_HNXH" />
+            <End Role="QL_HOATDONG_HNXH_DOITUONG_KHAC" EntitySet="QL_HOATDONG_HNXH_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON">
+            <End Role="QL_HOATDONG_VAYVON" EntitySet="QL_HOATDONG_VAYVON" />
+            <End Role="QL_HOATDONG_VAYVON_DOITUONG_KHAC" EntitySet="QL_HOATDONG_VAYVON_DOITUONG_KHAC" />
+          </AssociationSet>
+          <EntitySet Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" />
+          <EntitySet Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO_DOITUONG_KHAC" />
+          <EntitySet Name="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC_DOITUONG_KHAC" />
+          <AssociationSet Name="FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM">
+            <End Role="QL_HOATDONG_HOICHO_TRIENLAM" EntitySet="QL_HOATDONG_HOICHO_TRIENLAM" />
+            <End Role="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" EntitySet="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO">
+            <End Role="QL_HOATDONG_HOITHAO" EntitySet="QL_HOATDONG_HOITHAO" />
+            <End Role="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" EntitySet="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC">
+            <End Role="QL_HOATDONG_KHAC" EntitySet="QL_HOATDONG_KHAC" />
+            <End Role="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntitySet="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
@@ -1315,6 +1623,7 @@
           <Property Name="ASXH_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ASXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ASXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_ASXH_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH" ToRole="QL_HOATDONG_ASXH_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_HNXH">
           <Key>
@@ -1334,6 +1643,7 @@
           <Property Name="HNXH_TONGSO_TIEN" Type="Int32" />
           <Property Name="HNXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HNXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_HNXH_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" FromRole="QL_HOATDONG_HNXH" ToRole="QL_HOATDONG_HNXH_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_HOITHAO">
           <Key>
@@ -1355,6 +1665,7 @@
           <Property Name="HT_SOTIEN_HOTRO" Type="Int32" />
           <Property Name="HT_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HT_NGUOI_HOTRO_THULAO" Type="Int32" />
+          <NavigationProperty Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" FromRole="QL_HOATDONG_HOITHAO" ToRole="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_KHAC">
           <Key>
@@ -1374,6 +1685,7 @@
           <Property Name="KHAC_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="KHAC_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="KHAC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_KHAC_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_KHAC" ToRole="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_VAYVON">
           <Key>
@@ -1395,6 +1707,7 @@
           <Property Name="VV_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VV_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VV_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" FromRole="QL_HOATDONG_VAYVON" ToRole="QL_HOATDONG_VAYVON_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_VIECLAM">
           <Key>
@@ -1417,7 +1730,7 @@
           <Property Name="VL_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_VIECLAM1" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_VIECLAM" ToRole="QL_HOATDONG_VIECLAM1" />
           <NavigationProperty Name="QL_HOATDONG_VIECLAM2" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_VIECLAM1" ToRole="QL_HOATDONG_VIECLAM" />
-          <NavigationProperty Name="QL_HOATDONG_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" FromRole="QL_HOATDONG_VIECLAM" ToRole="QL_HOATDONG_DOITUONG_KHAC" />
+          <NavigationProperty Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" FromRole="QL_HOATDONG_VIECLAM" ToRole="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" />
         </EntityType>
         <Association Name="FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM">
           <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM" Role="QL_HOATDONG_VIECLAM" Multiplicity="1" />
@@ -1488,6 +1801,7 @@
           <Property Name="HC_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" FromRole="QL_HOATDONG_HOICHO_TRIENLAM" ToRole="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="DM_NHA_TAI_TRO">
           <Key>
@@ -1895,15 +2209,14 @@
           <Property Name="DN_DOITUONG_THAMGIA_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DN_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DN_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QL_HOATDONG_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" FromRole="QL_HOATDONG_DAYNGHE" ToRole="QL_HOATDONG_DOITUONG_KHAC" />
+          <NavigationProperty Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" FromRole="QL_HOATDONG_DAYNGHE" ToRole="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
         </EntityType>
-        <EntityType Name="QL_HOATDONG_DOITUONG_KHAC">
+        <EntityType Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
           <Key>
             <PropertyRef Name="DTK_ID" />
           </Key>
           <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PARENT_ID" Type="Int64" />
-          <Property Name="LOAI_HD_ID" Type="Int64" />
           <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -1922,29 +2235,282 @@
           <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QL_HOATDONG_DAYNGHE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" FromRole="QL_HOATDONG_DOITUONG_KHAC" ToRole="QL_HOATDONG_DAYNGHE" />
-          <NavigationProperty Name="QL_HOATDONG_VIECLAM" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" FromRole="QL_HOATDONG_DOITUONG_KHAC" ToRole="QL_HOATDONG_VIECLAM" />
+          <NavigationProperty Name="QL_HOATDONG_DAYNGHE" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" FromRole="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" ToRole="QL_HOATDONG_DAYNGHE" />
         </EntityType>
-        <Association Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
+        <Association Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
           <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Role="QL_HOATDONG_DAYNGHE" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DOITUONG_KHAC" Role="QL_HOATDONG_DOITUONG_KHAC" Multiplicity="*" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QL_HOATDONG_DAYNGHE">
               <PropertyRef Name="DN_ID" />
             </Principal>
-            <Dependent Role="QL_HOATDONG_DOITUONG_KHAC">
+            <Dependent Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
               <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
+        <EntityType Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_VIECLAM" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" FromRole="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" ToRole="QL_HOATDONG_VIECLAM" />
+        </EntityType>
+        <Association Name="FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM">
           <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM" Role="QL_HOATDONG_VIECLAM" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DOITUONG_KHAC" Role="QL_HOATDONG_DOITUONG_KHAC" Multiplicity="*" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Role="QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QL_HOATDONG_VIECLAM">
               <PropertyRef Name="VL_ID" />
             </Principal>
-            <Dependent Role="QL_HOATDONG_DOITUONG_KHAC">
+            <Dependent Role="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_HOATDONG_ASXH_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_ASXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH_DOITUONG_KHAC" ToRole="QL_HOATDONG_ASXH" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_HNXH_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_HNXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" FromRole="QL_HOATDONG_HNXH_DOITUONG_KHAC" ToRole="QL_HOATDONG_HNXH" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_VAYVON" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" FromRole="QL_HOATDONG_VAYVON_DOITUONG_KHAC" ToRole="QL_HOATDONG_VAYVON" />
+        </EntityType>
+        <Association Name="FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" Role="QL_HOATDONG_ASXH" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH_DOITUONG_KHAC" Role="QL_HOATDONG_ASXH_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_ASXH">
+              <PropertyRef Name="ASXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_ASXH_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" Role="QL_HOATDONG_HNXH" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH_DOITUONG_KHAC" Role="QL_HOATDONG_HNXH_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HNXH">
+              <PropertyRef Name="HNXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_HNXH_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Role="QL_HOATDONG_VAYVON" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_DOITUONG_KHAC" Role="QL_HOATDONG_VAYVON_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_VAYVON">
+              <PropertyRef Name="VV_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_HOICHO_TRIENLAM" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" FromRole="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" ToRole="QL_HOATDONG_HOICHO_TRIENLAM" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_HOITHAO" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" FromRole="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" ToRole="QL_HOATDONG_HOITHAO" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_KHAC_DOITUONG_KHAC">
+          <Key>
+            <PropertyRef Name="DTK_ID" />
+          </Key>
+          <Property Name="DTK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARENT_ID" Type="Int64" />
+          <Property Name="DTK_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_MASOTHUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_FACEBOOK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_CMND_NGAYCAP" Type="DateTime" Precision="3" />
+          <Property Name="DTK_CMND_NOICAP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_DONVI_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_SO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_KHAC_DOITUONG_KHAC" ToRole="QL_HOATDONG_KHAC" />
+        </EntityType>
+        <Association Name="FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM" Role="QL_HOATDONG_HOICHO_TRIENLAM" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Role="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HOICHO_TRIENLAM">
+              <PropertyRef Name="HC_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO" Role="QL_HOATDONG_HOITHAO" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Role="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HOITHAO">
+              <PropertyRef Name="HT_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC" Role="QL_HOATDONG_KHAC" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC_DOITUONG_KHAC" Role="QL_HOATDONG_KHAC_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_KHAC">
+              <PropertyRef Name="KHAC_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_KHAC_DOITUONG_KHAC">
               <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -2658,9 +3224,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="QL_HOATDONG_DOITUONG_KHAC">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_DOITUONG_KHAC">
-              <MappingFragment StoreEntitySet="QL_HOATDONG_DOITUONG_KHAC">
+          <EntitySetMapping Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
                 <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
                 <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
                 <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
@@ -2679,7 +3245,188 @@
                 <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
                 <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
                 <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
-                <ScalarProperty Name="LOAI_HD_ID" ColumnName="LOAI_HD_ID" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_ASXH_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_ASXH_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_HNXH_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_HNXH_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_HOITHAO_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_KHAC_DOITUONG_KHAC">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC_DOITUONG_KHAC">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_KHAC_DOITUONG_KHAC">
+                <ScalarProperty Name="DTK_TK_DIACHI" ColumnName="DTK_TK_DIACHI" />
+                <ScalarProperty Name="DTK_TK_NGANHANG" ColumnName="DTK_TK_NGANHANG" />
+                <ScalarProperty Name="DTK_TK_SO" ColumnName="DTK_TK_SO" />
+                <ScalarProperty Name="DTK_DONVI_SDT" ColumnName="DTK_DONVI_SDT" />
+                <ScalarProperty Name="DTK_DONVI_DIACHI" ColumnName="DTK_DONVI_DIACHI" />
+                <ScalarProperty Name="DTK_DONVI_TEN" ColumnName="DTK_DONVI_TEN" />
+                <ScalarProperty Name="DTK_CMND_NOICAP" ColumnName="DTK_CMND_NOICAP" />
+                <ScalarProperty Name="DTK_CMND_NGAYCAP" ColumnName="DTK_CMND_NGAYCAP" />
+                <ScalarProperty Name="DTK_CMND_SO" ColumnName="DTK_CMND_SO" />
+                <ScalarProperty Name="DTK_FACEBOOK" ColumnName="DTK_FACEBOOK" />
+                <ScalarProperty Name="DTK_EMAIL" ColumnName="DTK_EMAIL" />
+                <ScalarProperty Name="DTK_MASOTHUE" ColumnName="DTK_MASOTHUE" />
+                <ScalarProperty Name="DTK_SDT" ColumnName="DTK_SDT" />
+                <ScalarProperty Name="DTK_DIACHI" ColumnName="DTK_DIACHI" />
+                <ScalarProperty Name="DTK_CHUCVU" ColumnName="DTK_CHUCVU" />
+                <ScalarProperty Name="DTK_GIOITINH" ColumnName="DTK_GIOITINH" />
+                <ScalarProperty Name="DTK_TEN" ColumnName="DTK_TEN" />
+                <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
                 <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
                 <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
               </MappingFragment>

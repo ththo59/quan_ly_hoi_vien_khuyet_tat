@@ -63,9 +63,22 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Width="1.5" PointX="0.75" PointY="21.875" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DOITUONG_KHAC" Width="1.5" PointX="12" PointY="17.625" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Width="1.5" PointX="3" PointY="21.375" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VIECLAM_DOITUONG_KHAC" Width="1.5" PointX="12" PointY="17.5" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VIECLAM_DOITUONG_KHAC_QL_HOATDONG_VIECLAM" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH_DOITUONG_KHAC" Width="1.5" PointX="14" PointY="24.125" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH_DOITUONG_KHAC" Width="1.5" PointX="5" PointY="38.125" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_DOITUONG_KHAC" Width="1.5" PointX="18" PointY="33.375" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Width="1.5" PointX="16.625" PointY="52.25" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Width="1.5" PointX="16" PointY="46.375" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC_DOITUONG_KHAC" Width="1.5" PointX="16" PointY="40.125" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,6 +14,12 @@ namespace DauThau.Models
     
     public partial class QL_HOATDONG_HOICHO_TRIENLAM
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public QL_HOATDONG_HOICHO_TRIENLAM()
+        {
+            this.QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC = new HashSet<QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC>();
+        }
+    
         public long HC_ID { get; set; }
         public string HC_TEN { get; set; }
         public Nullable<System.DateTime> HC_THOIGIAN_BATDAU { get; set; }
@@ -29,5 +35,8 @@ namespace DauThau.Models
         public string HC_DOITUONG_ID { get; set; }
         public string HC_DOITUONG_KHAC { get; set; }
         public string HC_NOIDUNG { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC> QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC { get; set; }
     }
 }
