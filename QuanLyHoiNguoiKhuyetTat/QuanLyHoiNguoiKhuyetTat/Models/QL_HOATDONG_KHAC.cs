@@ -18,6 +18,7 @@ namespace DauThau.Models
         public QL_HOATDONG_KHAC()
         {
             this.QL_HOATDONG_KHAC_DOITUONG_KHAC = new HashSet<QL_HOATDONG_KHAC_DOITUONG_KHAC>();
+            this.QL_HOATDONG_NHATAITRO = new HashSet<QL_HOATDONG_NHATAITRO>();
         }
     
         public long KHAC_ID { get; set; }
@@ -37,5 +38,7 @@ namespace DauThau.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOATDONG_KHAC_DOITUONG_KHAC> QL_HOATDONG_KHAC_DOITUONG_KHAC { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_NHATAITRO> QL_HOATDONG_NHATAITRO { get; set; }
     }
 }

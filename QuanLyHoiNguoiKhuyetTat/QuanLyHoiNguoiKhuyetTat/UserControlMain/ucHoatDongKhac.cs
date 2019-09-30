@@ -30,7 +30,7 @@ namespace DauThau.UserControlCategory
         }
 
         public BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC> listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC>();
-
+        public BindingList<QL_HOATDONG_NHATAITRO> listNhaTaiTro = new BindingList<QL_HOATDONG_NHATAITRO>();
 
         private void ucHoatDongKhac_Load(object sender, EventArgs e)
         {
@@ -103,11 +103,8 @@ namespace DauThau.UserControlCategory
                 if (clsMessage.MessageYesNo(string.Format("Bạn có chắc muốn xóa: {0}", item.KHAC_TEN)) == DialogResult.Yes)
                 {
                     Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
-                    var listChiTiet = (from p in context.QL_HOATDONG_KHAC_DOITUONG_KHAC where p.PARENT_ID == id select p);
-                    foreach (var item_delete in listChiTiet)
-                    {
-                        context.QL_HOATDONG_KHAC_DOITUONG_KHAC.Remove(item_delete);
-                    }
+                    _deleteMemoData(context, id);
+
                     QL_HOATDONG_KHAC entities = (from p in context.QL_HOATDONG_KHAC where p.KHAC_ID == id select p).FirstOrDefault();
                     context.QL_HOATDONG_KHAC.Remove(entities);
                     context.SaveChanges();
@@ -150,6 +147,7 @@ namespace DauThau.UserControlCategory
             seTongSoNgay.ReadOnly = true;
             memoDoiTuong.ReadOnly = true;
             memoDoiTuongKhac.ReadOnly = true;
+            memoDonViTaiTro.ReadOnly = true;
         }
 
         private void _clearData()
@@ -190,14 +188,14 @@ namespace DauThau.UserControlCategory
                 seTongSoNgay.EditValue = item.KHAC_TONGSO_NGAY;
                 txtTenChuongTrinh.EditValue = item.KHAC_TEN;
                 txtDiaDiem.EditValue = item.KHAC_DIADIEM;
-                txtDonViThucHien.EditValue = item.KHAC_DONVI_THUCHIEN;
+                memoDonViTaiTro.EditValue = item.KHAC_DONVI_THUCHIEN;
 
                 seSoLuongNguoiThamGia.EditValue = item.KHAC_SOLUONG;
                 seTongSoTien.EditValue = item.KHAC_TONGSO_TIEN;
 
                 memoDoiTuong.EditValue = item.KHAC_DOITUONG;
                 memoDoiTuongId.EditValue = item.KHAC_DOITUONG_ID;
-                _setMemoText(item);
+                _setMemoData(item);
 
                 txtNoiDung.EditValue = item.KHAC_NOIDUNG;
             }
@@ -213,7 +211,7 @@ namespace DauThau.UserControlCategory
 
             item.KHAC_TEN = txtTenChuongTrinh.Text ;
             item.KHAC_DIADIEM = txtDiaDiem.Text;
-            item.KHAC_DONVI_THUCHIEN = txtDonViThucHien.Text;
+            item.KHAC_DONVI_THUCHIEN = memoDonViTaiTro.Text;
             item.KHAC_SOLUONG = seSoLuongNguoiThamGia.Ex_EditValueToInt();
 
             item.KHAC_DOITUONG = memoDoiTuong.Text;
@@ -441,7 +439,36 @@ namespace DauThau.UserControlCategory
             _updateStatusDoiTuong();
         }
 
+        #region MemoData
+
+        private void _initMemoData()
+        {
+            listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC>();
+            listNhaTaiTro = new BindingList<QL_HOATDONG_NHATAITRO>();
+        }
+
+        private void _updateMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_KHAC item)
+        {
+            _updateNhaTaiTro(_context, item);
+            _updateDoiTuongKhac(_context, item);
+        }
+
+        private void _deleteMemoData(QL_HOIVIEN_KTEntities context, Int64 id)
+        {
+            _deleteDoiTuongKhac(context, id);
+            _deleteNhaTaiTro(context, id);
+        }
+
+        private void _setMemoData(QL_HOATDONG_KHAC item)
+        {
+            _setNhaTaiTro(item);
+            _setDoiTuongKhac(item);
+        }
+
+        #endregion
+
         #region Đối tượng khác
+
 
         private void _updateStatusDoiTuong()
         {
@@ -479,15 +506,15 @@ namespace DauThau.UserControlCategory
 
         }
 
-        private void _setMemoText(QL_HOATDONG_KHAC item)
+        private void _setDoiTuongKhac(QL_HOATDONG_KHAC item)
         {
             var query = item.QL_HOATDONG_KHAC_DOITUONG_KHAC.ToList();
 
             listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC>(query);
-            memoDoiTuongKhac.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+            memoDoiTuongKhac.Text = _getDoiTuongKhac(listDoiTuongKhongKhuyetTat);
         }
 
-        private string _getMemoText(BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC> data)
+        private string _getDoiTuongKhac(BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC> data)
         {
             StringBuilder title = new StringBuilder();
             foreach (var item in data.Where(p => p.PARENT_ID != clsParameter.statusDeleted))
@@ -509,12 +536,16 @@ namespace DauThau.UserControlCategory
             return title.ToString();
         }
 
-        private void _initMemoData()
+        private void _deleteDoiTuongKhac(QL_HOIVIEN_KTEntities context, Int64 id)
         {
-            listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_KHAC_DOITUONG_KHAC>();
+            var listChiTiet = (from p in context.QL_HOATDONG_KHAC_DOITUONG_KHAC where p.PARENT_ID == id select p);
+            foreach (var item_delete in listChiTiet)
+            {
+                context.QL_HOATDONG_KHAC_DOITUONG_KHAC.Remove(item_delete);
+            }
         }
 
-        private void _updateMemoData(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_KHAC item)
+        private void _updateDoiTuongKhac(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_KHAC item)
         {
             QL_HOATDONG_KHAC_DOITUONG_KHAC item_chitiet;
             foreach (var person in listDoiTuongKhongKhuyetTat)
@@ -552,8 +583,87 @@ namespace DauThau.UserControlCategory
             frm.ShowDialog();
 
             listDoiTuongKhongKhuyetTat = frm.data;
-            memoDoiTuongKhac.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+            memoDoiTuongKhac.Text = _getDoiTuongKhac(listDoiTuongKhongKhuyetTat);
             _updateStatusDoiTuong();
+        }
+
+        #endregion
+
+        #region Nha Tai Tro
+
+        private void _deleteNhaTaiTro(QL_HOIVIEN_KTEntities context, Int64 id)
+        {
+            var listChiTiet = (from p in context.QL_HOATDONG_NHATAITRO where p.KHAC_ID == id select p);
+            foreach (var item_delete in listChiTiet)
+            {
+                context.QL_HOATDONG_NHATAITRO.Remove(item_delete);
+            }
+
+        }
+        private void _updateNhaTaiTro(QL_HOIVIEN_KTEntities _context, QL_HOATDONG_KHAC item)
+        {
+            QL_HOATDONG_NHATAITRO item_chitiet;
+            foreach (var person in listNhaTaiTro)
+            {
+                if (person.KHAC_ID == null) //add
+                {
+                    person.QL_HOATDONG_KHAC = item;
+                    _context.QL_HOATDONG_NHATAITRO.Add(person);
+                }
+                else if (person.KHAC_ID == clsParameter.statusDeleted) //delete
+                {
+                    item_chitiet = (from p in _context.QL_HOATDONG_NHATAITRO
+                                    where p.NTT_ID == person.NTT_ID
+                                    select p).FirstOrDefault();
+                    if (item_chitiet != null)
+                    {
+                        _context.QL_HOATDONG_NHATAITRO.Remove(item_chitiet);
+                    }
+                }
+                else //modify
+                {
+                    var chitiet = _context.QL_HOATDONG_NHATAITRO.Where(p => p.NTT_ID == person.NTT_ID).FirstOrDefault();
+                    if (chitiet != null)
+                    {
+                        _context.Entry(chitiet).CurrentValues.SetValues(person);
+                    }
+                }
+            }
+        }
+
+        private void _setNhaTaiTro(QL_HOATDONG_KHAC item)
+        {
+            var queryNhaTaiTro = item.QL_HOATDONG_NHATAITRO.ToList();
+            listNhaTaiTro = new BindingList<QL_HOATDONG_NHATAITRO>(queryNhaTaiTro);
+            memoDonViTaiTro.Text = _getNhaTaiTro(listNhaTaiTro);
+        }
+
+        private string _getNhaTaiTro(BindingList<QL_HOATDONG_NHATAITRO> data)
+        {
+            StringBuilder title = new StringBuilder();
+            foreach (var item in data.Where(p => p.KHAC_ID != clsParameter.statusDeleted))
+            {
+                if (item.NTT_DIACHI != "")
+                {
+                    title.AppendFormat("{0}({1}); ", item.NTT_TEN, item.NTT_DIACHI);
+                }
+                else
+                {
+                    title.AppendFormat("{0}; ", item.NTT_TEN);
+                }
+
+            }
+            return title.ToString();
+
+        }
+
+        private void btnDonViTaiTro_Click(object sender, EventArgs e)
+        {
+            frmNhaTaiTro_V2 frm = new frmNhaTaiTro_V2((int)CategoryHoatDong.KHAC);
+            frm.data = listNhaTaiTro;
+            frm.ShowDialog();
+            listNhaTaiTro = frm.data;
+            memoDonViTaiTro.Text = _getNhaTaiTro(listNhaTaiTro);
         }
 
         #endregion

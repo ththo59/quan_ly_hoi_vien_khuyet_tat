@@ -23,6 +23,19 @@ namespace DauThau.Class
         DOITUONG_KHONG_KHUYETTAT
     }
 
+    enum CategoryHoatDong
+    {
+        DAYNGHE = 1,
+        VIECLAM,
+        VAYVON,
+        HOICHO_TRIENLAM,
+        HOITHAO,
+        TAPHUAN,
+        ASXH,
+        HNXH,
+        KHAC
+    }
+
     enum CategoryEntitiesTable
     {
         DM_GIOITINH = 0,

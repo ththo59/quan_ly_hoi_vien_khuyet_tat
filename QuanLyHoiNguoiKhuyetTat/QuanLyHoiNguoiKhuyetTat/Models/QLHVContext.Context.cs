@@ -79,5 +79,6 @@ namespace DauThau.Models
         public virtual DbSet<QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC> QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC { get; set; }
         public virtual DbSet<QL_HOATDONG_HOITHAO_DOITUONG_KHAC> QL_HOATDONG_HOITHAO_DOITUONG_KHAC { get; set; }
         public virtual DbSet<QL_HOATDONG_KHAC_DOITUONG_KHAC> QL_HOATDONG_KHAC_DOITUONG_KHAC { get; set; }
+        public virtual DbSet<QL_HOATDONG_NHATAITRO> QL_HOATDONG_NHATAITRO { get; set; }
     }
 }

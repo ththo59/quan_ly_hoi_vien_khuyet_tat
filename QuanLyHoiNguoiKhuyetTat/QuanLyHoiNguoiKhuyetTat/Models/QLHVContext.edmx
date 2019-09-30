@@ -87,30 +87,6 @@
           <Property Name="LOAIHD_TEN" Type="nvarchar" MaxLength="50" />
           <Property Name="LOAIHD_STT" Type="int" />
         </EntityType>
-        <EntityType Name="DM_NOI_O_NHA">
-          <Key>
-            <PropertyRef Name="NO_NHA_ID" />
-          </Key>
-          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NO_NHA_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_O_SONG_VOI">
-          <Key>
-            <PropertyRef Name="NOSV_ID" />
-          </Key>
-          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NOSV_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_SINH_SONG">
-          <Key>
-            <PropertyRef Name="NSS_ID" />
-          </Key>
-          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NSS_STT" Type="int" />
-        </EntityType>
         <EntityType Name="DM_NGHE_NGHIEP">
           <Key>
             <PropertyRef Name="NN_ID" />
@@ -166,6 +142,30 @@
           <Property Name="NC_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="NC_STT" Type="int" />
         </EntityType>
+        <EntityType Name="DM_NOI_O_NHA">
+          <Key>
+            <PropertyRef Name="NO_NHA_ID" />
+          </Key>
+          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NO_NHA_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_O_SONG_VOI">
+          <Key>
+            <PropertyRef Name="NOSV_ID" />
+          </Key>
+          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NOSV_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_SINH_SONG">
+          <Key>
+            <PropertyRef Name="NSS_ID" />
+          </Key>
+          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NSS_STT" Type="int" />
+        </EntityType>
         <EntityType Name="DM_PHUONGTIEN_DILAI">
           <Key>
             <PropertyRef Name="PT_ID" />
@@ -173,6 +173,14 @@
           <Property Name="PT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PT_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="PT_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_THANHVIEN_HOI">
+          <Key>
+            <PropertyRef Name="TVH_ID" />
+          </Key>
+          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TINH">
           <Key>
@@ -198,14 +206,6 @@
           <Property Name="TG_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TG_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="TG_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_THANHVIEN_HOI">
-          <Key>
-            <PropertyRef Name="TVH_ID" />
-          </Key>
-          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
           <Key>
@@ -503,6 +503,25 @@
           <Property Name="DTK_TK_SO" Type="nvarchar" MaxLength="50" />
           <Property Name="DTK_TK_NGANHANG" Type="nvarchar" MaxLength="250" />
           <Property Name="DTK_TK_DIACHI" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="QL_HOATDONG_NHATAITRO">
+          <Key>
+            <PropertyRef Name="NTT_ID" />
+          </Key>
+          <Property Name="NTT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASXH_ID" Type="bigint" />
+          <Property Name="HNXH_ID" Type="bigint" />
+          <Property Name="KHAC_ID" Type="bigint" />
+          <Property Name="NTT_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_DIACHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_CANHAN_TOCHUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_SOTIEN" Type="int" />
+          <Property Name="NTT_GHICHU" Type="nvarchar(max)" />
+          <Property Name="NTT_LOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_NDD_HOTEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_NDD_CHUCVU" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_NDD_SDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_NDD_EMAIL" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_TAPHUAN">
           <Key>
@@ -994,6 +1013,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH">
+          <End Role="QL_HOATDONG_ASXH" Type="Self.QL_HOATDONG_ASXH" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_NHATAITRO" Type="Self.QL_HOATDONG_NHATAITRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_ASXH">
+              <PropertyRef Name="ASXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_NHATAITRO">
+              <PropertyRef Name="ASXH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH">
+          <End Role="QL_HOATDONG_HNXH" Type="Self.QL_HOATDONG_HNXH" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_NHATAITRO" Type="Self.QL_HOATDONG_NHATAITRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HNXH">
+              <PropertyRef Name="HNXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_NHATAITRO">
+              <PropertyRef Name="HNXH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC">
+          <End Role="QL_HOATDONG_KHAC" Type="Self.QL_HOATDONG_KHAC" Multiplicity="0..1" />
+          <End Role="QL_HOATDONG_NHATAITRO" Type="Self.QL_HOATDONG_NHATAITRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_KHAC">
+              <PropertyRef Name="KHAC_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_NHATAITRO">
+              <PropertyRef Name="KHAC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN">
           <End Role="QL_HOATDONG_TAPHUAN" Type="Self.QL_HOATDONG_TAPHUAN" Multiplicity="0..1" />
           <End Role="QL_HOATDONG_TAPHUAN_CHITIET" Type="Self.QL_HOATDONG_TAPHUAN_CHITIET" Multiplicity="*" />
@@ -1113,20 +1168,20 @@
           <EntitySet Name="DM_KHUYETTAT_NGUYENNHAN" EntityType="Self.DM_KHUYETTAT_NGUYENNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_KHUYETTAT_TINHTRANG" EntityType="Self.DM_KHUYETTAT_TINHTRANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LOAI_HOATDONG" EntityType="Self.DM_LOAI_HOATDONG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGOAINGU" EntityType="Self.DM_NGOAINGU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO" EntityType="Self.DM_NHA_TAI_TRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_CHITIET" EntityType="Self.DM_NHA_TAI_TRO_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_LOAI" EntityType="Self.DM_NHA_TAI_TRO_LOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHUCAU" EntityType="Self.DM_NHUCAU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_PHUONGTIEN_DILAI" EntityType="Self.DM_PHUONGTIEN_DILAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINHTRANG_HONNHAN" EntityType="Self.DM_TINHTRANG_HONNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TONGIAO" EntityType="Self.DM_TONGIAO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
@@ -1142,6 +1197,7 @@
           <EntitySet Name="QL_HOATDONG_HOITHAO_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_HOITHAO_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_KHAC" EntityType="Self.QL_HOATDONG_KHAC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntityType="Self.QL_HOATDONG_KHAC_DOITUONG_KHAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QL_HOATDONG_NHATAITRO" EntityType="Self.QL_HOATDONG_NHATAITRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN" EntityType="Self.QL_HOATDONG_TAPHUAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN_CHITIET" EntityType="Self.QL_HOATDONG_TAPHUAN_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QL_HOATDONG_TAPHUAN_DIADIEM" EntityType="Self.QL_HOATDONG_TAPHUAN_DIADIEM" Schema="dbo" store:Type="Tables" />
@@ -1200,6 +1256,18 @@
           <AssociationSet Name="FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" Association="Self.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC">
             <End Role="QL_HOATDONG_KHAC" EntitySet="QL_HOATDONG_KHAC" />
             <End Role="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntitySet="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" Association="Self.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH">
+            <End Role="QL_HOATDONG_ASXH" EntitySet="QL_HOATDONG_ASXH" />
+            <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH" Association="Self.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH">
+            <End Role="QL_HOATDONG_HNXH" EntitySet="QL_HOATDONG_HNXH" />
+            <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" Association="Self.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC">
+            <End Role="QL_HOATDONG_KHAC" EntitySet="QL_HOATDONG_KHAC" />
+            <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" Association="Self.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN">
             <End Role="QL_HOATDONG_TAPHUAN" EntitySet="QL_HOATDONG_TAPHUAN" />
@@ -1439,6 +1507,19 @@
             <End Role="QL_HOATDONG_KHAC" EntitySet="QL_HOATDONG_KHAC" />
             <End Role="QL_HOATDONG_KHAC_DOITUONG_KHAC" EntitySet="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
           </AssociationSet>
+          <EntitySet Name="QL_HOATDONG_NHATAITRO" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO" />
+          <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH">
+            <End Role="QL_HOATDONG_ASXH" EntitySet="QL_HOATDONG_ASXH" />
+            <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH">
+            <End Role="QL_HOATDONG_HNXH" EntitySet="QL_HOATDONG_HNXH" />
+            <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC">
+            <End Role="QL_HOATDONG_KHAC" EntitySet="QL_HOATDONG_KHAC" />
+            <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="DM_CHUCVU_HOI">
           <Key>
@@ -1624,6 +1705,7 @@
           <Property Name="ASXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ASXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_ASXH_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH" ToRole="QL_HOATDONG_ASXH_DOITUONG_KHAC" />
+          <NavigationProperty Name="QL_HOATDONG_NHATAITRO" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH" ToRole="QL_HOATDONG_NHATAITRO" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_HNXH">
           <Key>
@@ -1644,6 +1726,7 @@
           <Property Name="HNXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HNXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_HNXH_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" FromRole="QL_HOATDONG_HNXH" ToRole="QL_HOATDONG_HNXH_DOITUONG_KHAC" />
+          <NavigationProperty Name="QL_HOATDONG_NHATAITRO" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH" FromRole="QL_HOATDONG_HNXH" ToRole="QL_HOATDONG_NHATAITRO" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_HOITHAO">
           <Key>
@@ -1686,6 +1769,7 @@
           <Property Name="KHAC_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="KHAC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_KHAC_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_KHAC" ToRole="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
+          <NavigationProperty Name="QL_HOATDONG_NHATAITRO" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_KHAC" ToRole="QL_HOATDONG_NHATAITRO" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_VAYVON">
           <Key>
@@ -2512,6 +2596,64 @@
             </Principal>
             <Dependent Role="QL_HOATDONG_KHAC_DOITUONG_KHAC">
               <PropertyRef Name="PARENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_HOATDONG_NHATAITRO">
+          <Key>
+            <PropertyRef Name="NTT_ID" />
+          </Key>
+          <Property Name="NTT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASXH_ID" Type="Int64" />
+          <Property Name="HNXH_ID" Type="Int64" />
+          <Property Name="KHAC_ID" Type="Int64" />
+          <Property Name="NTT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CANHAN_TOCHUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_SOTIEN" Type="Int32" />
+          <Property Name="NTT_GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_LOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_NDD_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_NDD_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_NDD_SDT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_NDD_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_ASXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_NHATAITRO" ToRole="QL_HOATDONG_ASXH" />
+          <NavigationProperty Name="QL_HOATDONG_HNXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH" FromRole="QL_HOATDONG_NHATAITRO" ToRole="QL_HOATDONG_HNXH" />
+          <NavigationProperty Name="QL_HOATDONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_NHATAITRO" ToRole="QL_HOATDONG_KHAC" />
+        </EntityType>
+        <Association Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" Role="QL_HOATDONG_ASXH" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO" Role="QL_HOATDONG_NHATAITRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_ASXH">
+              <PropertyRef Name="ASXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_NHATAITRO">
+              <PropertyRef Name="ASXH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" Role="QL_HOATDONG_HNXH" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO" Role="QL_HOATDONG_NHATAITRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_HNXH">
+              <PropertyRef Name="HNXH_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_NHATAITRO">
+              <PropertyRef Name="HNXH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC" Role="QL_HOATDONG_KHAC" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO" Role="QL_HOATDONG_NHATAITRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_KHAC">
+              <PropertyRef Name="KHAC_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_NHATAITRO">
+              <PropertyRef Name="KHAC_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3429,6 +3571,26 @@
                 <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
                 <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
                 <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_NHATAITRO">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_NHATAITRO">
+                <ScalarProperty Name="NTT_NDD_EMAIL" ColumnName="NTT_NDD_EMAIL" />
+                <ScalarProperty Name="NTT_NDD_SDT" ColumnName="NTT_NDD_SDT" />
+                <ScalarProperty Name="NTT_NDD_CHUCVU" ColumnName="NTT_NDD_CHUCVU" />
+                <ScalarProperty Name="NTT_NDD_HOTEN" ColumnName="NTT_NDD_HOTEN" />
+                <ScalarProperty Name="NTT_LOAI" ColumnName="NTT_LOAI" />
+                <ScalarProperty Name="NTT_GHICHU" ColumnName="NTT_GHICHU" />
+                <ScalarProperty Name="NTT_SOTIEN" ColumnName="NTT_SOTIEN" />
+                <ScalarProperty Name="NTT_CANHAN_TOCHUC" ColumnName="NTT_CANHAN_TOCHUC" />
+                <ScalarProperty Name="NTT_DIACHI" ColumnName="NTT_DIACHI" />
+                <ScalarProperty Name="NTT_TEN" ColumnName="NTT_TEN" />
+                <ScalarProperty Name="KHAC_ID" ColumnName="KHAC_ID" />
+                <ScalarProperty Name="HNXH_ID" ColumnName="HNXH_ID" />
+                <ScalarProperty Name="ASXH_ID" ColumnName="ASXH_ID" />
+                <ScalarProperty Name="NTT_ID" ColumnName="NTT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -18,15 +18,10 @@ namespace DauThau.Class
 
         //Dùng để đánh dấu 1 dòng dữ liệu đang ở trạng thái deleted.
         public static Int64 statusDeleted = -1;
-#if (ReleaseKonTum)
-        public static string pHospital = "BỆNH VIỆN ĐA KHOA TỈNH";
-        public static string pParentHospital = "SỞ Y TẾ TỈNH KON TUM";
-        public static string pStoreDanhGiaHoSoDuThau = "sp_DanhGiaHoSoDuThau";
-#else
+
         public static string pParentHospital = "SỞ LĐTB&XH TP CẦN THƠ";
         public static string pHospital = "HỘI NGƯỜI KHUYẾT TẬT TP CẤN THƠ";
         public static string pStoreDanhGiaHoSoDuThau = "sp_DanhGiaHoSoDuThau_BV121";
-#endif
 
         public static string pFormatNumber = "###,##0.####";
         public static string pNgayMoThau = "Cần Thơ, ngày 11 tháng 06 năm 2013";
@@ -75,10 +70,32 @@ namespace DauThau.Class
         public static String HV_DOITUONG_TEKT = "TEKT";
 
         //Hoạt động
-        //public static Int64 LOAI_HOATDONG_DAYNGHE_ID = 1;
-        //public static string LOAI_HOATDONG_DAYNGHE_TEN = "Dạy nghề";
+        public static Int64 LOAI_HOATDONG_DAYNGHE_ID = 1;
+        public static string LOAI_HOATDONG_DAYNGHE_TEN = "Dạy nghề";
 
-        //public static Int64 LOAI_HOATDONG_VIECLAM_ID = 2;
-        //public static string LOAI_HOATDONG_VIECLAM_TEN = "Việc làm";
+        public static Int64 LOAI_HOATDONG_VIECLAM_ID = 2;
+        public static string LOAI_HOATDONG_VIECLAM_TEN = "Việc làm";
+
+        public static Int64 LOAI_HOATDONG_VAYVON_ID = 3;
+        public static string LOAI_HOATDONG_VAYVON_TEN = "Vay vốn";
+
+        public static Int64 LOAI_HOATDONG_HOICHO_TRIENLAM_ID = 4;
+        public static string LOAI_HOATDONG_HOICHO_TRIENLAM_TEN = "Hội chợ triễn lãm";
+
+        public static Int64 LOAI_HOATDONG_HOITHAO_ID = 5;
+        public static string LOAI_HOATDONG_HOITHAO_TEN = "Hội thảo";
+
+        public static Int64 LOAI_HOATDONG_TAPHUAN_ID = 6;
+        public static string LOAI_HOATDONG_TAPHUAN_TEN = "Tập huấn";
+
+        public static Int64 LOAI_HOATDONG_ASXH_ID = 7;
+        public static string LOAI_HOATDONG_ASXH_TEN = "An sinh xã hội";
+
+        public static Int64 LOAI_HOATDONG_HNXH_ID = 8;
+        public static string LOAI_HOATDONG_HNXH_TEN = "Hòa nhập xã hội";
+
+        public static Int64 LOAI_HOATDONG_KHAC_ID = 9;
+        public static string LOAI_HOATDONG_KHAC_TEN = "Hoạt động khác";
+
     }
 }

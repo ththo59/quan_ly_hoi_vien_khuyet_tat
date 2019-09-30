@@ -79,6 +79,10 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO" Width="1.5" PointX="21" PointY="12.625" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
