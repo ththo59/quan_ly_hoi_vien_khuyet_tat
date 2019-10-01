@@ -403,7 +403,9 @@ namespace DauThau
                     case "btnBCTreKTVaConNKT":
                         uc = new ucBCTreKTVaConNKT();
                         break;
-
+                    case "btnBCNhaTaiTroMTQ":
+                        uc = new ucBCNhaTaiTroVaMTQ();
+                        break;
                     #endregion
 
                     #region Báo cáo hoạt động
