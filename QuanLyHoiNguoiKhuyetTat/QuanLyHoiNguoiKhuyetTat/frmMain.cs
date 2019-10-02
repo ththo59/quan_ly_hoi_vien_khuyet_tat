@@ -409,7 +409,10 @@ namespace DauThau
                     #endregion
 
                     #region Báo cáo hoạt động
-
+                        
+                    case "btnBCHoatDongTheoDieuKien":
+                        uc = new ucBCHoatDongTheoDieuKien();
+                        break;
                     case "btnBCHoatDongNangCaoNhanThuc":
                         uc = new ucBCHoatDongNangCaoNhanThuc();
                         break;

@@ -41,25 +41,43 @@ namespace DauThau.UserControlCategoryMain
 
         private void ucBCNhaTaiTroVaMTQ_Load(object sender, EventArgs e)
         {
+            deTuNgay.Ex_FormatCustomDateEdit();
+            deDenNgay.Ex_FormatCustomDateEdit();
+
+            //set mặc định
+            var current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var nextMonth = current.AddMonths(1);
+            deTuNgay.DateTime = current;
+            deDenNgay.DateTime = nextMonth.AddDays(-1);
+
             btnControl_btnEventView_Click(null, null);
+            
         }
 
         private void btnControl_btnEventView_Click(object sender, EventArgs e)
         {
+            List<clsNhaTaiTroMTQ> listData = new List<clsNhaTaiTroMTQ>();
+
+            if (deTuNgay.EditValue == null || deDenNgay.EditValue == null)
+            {
+                clsMessage.MessageWarning("Vui lòng nhập điều kiện tìm kiếm");
+                return;
+            }else if(deTuNgay.DateTime.Date > deDenNgay.DateTime.Date)
+            {
+                clsMessage.MessageWarning("Thời gian tìm kiếm không phù hợp");
+                return;
+            }
+
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
-            context.QL_HOIVIEN.Load();
-            List<clsNhaTaiTroMTQ> listData = new List<clsNhaTaiTroMTQ>();
-            DateTime deSearchTuNgay = new DateTime(2019, 10, 01);
-            DateTime deSearchDenNgay = new DateTime(2019, 10, 30);
+
             //ASXH
             var listASXHData = (from p in context.QL_HOATDONG_NHATAITRO
                         let asxh = p.QL_HOATDONG_ASXH
-                        where deSearchTuNgay.Date <= asxh.ASXH_THOIGIAN_BATDAU
-                             && asxh.ASXH_THOIGIAN_BATDAU <= deSearchDenNgay.Date
+                        where deTuNgay.DateTime.Date <= asxh.ASXH_THOIGIAN_BATDAU
+                             && asxh.ASXH_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
                         select new clsNhaTaiTroMTQ
                         {
-                            //NTT_NGAY = asxh.ASXH_THOIGIAN_BATDAU.Value.Date.ToString("dd/MM/yyyy") + " - " + asxh.ASXH_THOIGIAN_KETTHUC.Value.Date.ToString("dd/MM/yyyy"),
                             NTT_THOIGIAN_BATDAU = asxh.ASXH_THOIGIAN_BATDAU,
                             NTT_THOIGIAN_KETTHUC = asxh.ASXH_THOIGIAN_KETTHUC,
                             NTT_TEN_CHUONGTRINH = asxh.ASXH_TEN,
@@ -69,8 +87,45 @@ namespace DauThau.UserControlCategoryMain
                             NTT_GHICHU = p.NTT_GHICHU
                         }
                         ).ToList();
-
             listData.AddRange(listASXHData);
+
+            //HNXH
+            var listHNXHData = (from p in context.QL_HOATDONG_NHATAITRO
+                                let asxh = p.QL_HOATDONG_HNXH
+                                where deTuNgay.DateTime.Date <= asxh.HNXH_THOIGIAN_BATDAU
+                                     && asxh.HNXH_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                select new clsNhaTaiTroMTQ
+                                {
+                                    NTT_THOIGIAN_BATDAU = asxh.HNXH_THOIGIAN_BATDAU,
+                                    NTT_THOIGIAN_KETTHUC = asxh.HNXH_THOIGIAN_KETTHUC,
+                                    NTT_TEN_CHUONGTRINH = asxh.HNXH_TEN,
+                                    NTT_TEN = p.NTT_TEN,
+                                    NTT_DIACHI = p.NTT_DIACHI,
+                                    NTT_SOTIEN = p.NTT_SOTIEN,
+                                    NTT_GHICHU = p.NTT_GHICHU
+                                }
+                        ).ToList();
+            listData.AddRange(listHNXHData);
+
+            //HNXH
+            var listKhacData = (from p in context.QL_HOATDONG_NHATAITRO
+                                let asxh = p.QL_HOATDONG_KHAC
+                                where deTuNgay.DateTime.Date <= asxh.KHAC_THOIGIAN_BATDAU
+                                     && asxh.KHAC_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                select new clsNhaTaiTroMTQ
+                                {
+                                    NTT_THOIGIAN_BATDAU = asxh.KHAC_THOIGIAN_BATDAU,
+                                    NTT_THOIGIAN_KETTHUC = asxh.KHAC_THOIGIAN_KETTHUC,
+                                    NTT_TEN_CHUONGTRINH = asxh.KHAC_TEN,
+                                    NTT_TEN = p.NTT_TEN,
+                                    NTT_DIACHI = p.NTT_DIACHI,
+                                    NTT_SOTIEN = p.NTT_SOTIEN,
+                                    NTT_GHICHU = p.NTT_GHICHU
+                                }
+                        ).ToList();
+            listData.AddRange(listKhacData);
+
+            listData = listData.OrderBy(p => p.NTT_THOIGIAN_BATDAU).ToList();
             foreach (var item in listData)
             {
                 item.NTT_NGAY = item.NTT_THOIGIAN_BATDAU.Value.Date.ToString("dd/MM/yyyy") + " - " + item.NTT_THOIGIAN_KETTHUC.Value.Date.ToString("dd/MM/yyyy");
