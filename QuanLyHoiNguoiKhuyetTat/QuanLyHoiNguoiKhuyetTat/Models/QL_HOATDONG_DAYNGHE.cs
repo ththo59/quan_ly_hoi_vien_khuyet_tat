@@ -33,6 +33,7 @@ namespace DauThau.Models
         public Nullable<int> DN_TONGTIEN { get; set; }
         public string DN_DOITUONG_THAMGIA { get; set; }
         public string DN_DOITUONG_THAMGIA_ID { get; set; }
+        public string DN_DOITUONG_KHAC { get; set; }
         public string DN_NOIDUNG { get; set; }
         public string DN_NGUOI_HOTRO { get; set; }
     

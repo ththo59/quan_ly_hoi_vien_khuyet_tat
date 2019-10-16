@@ -15,8 +15,8 @@ namespace DauThau.Models
     public partial class QL_HOIVIEN_THANHVIENHOI
     {
         public long TV_ID { get; set; }
-        public Nullable<long> HV_ID { get; set; }
         public string TVH_TEN { get; set; }
+        public Nullable<long> HV_ID { get; set; }
         public Nullable<System.DateTime> TV_NGAY { get; set; }
         public string TV_GHICHU { get; set; }
     

@@ -27,16 +27,28 @@ namespace DauThau.UserControlCategoryMain
             InitializeComponent();
         }
 
-        public class clsNhaTaiTroMTQ
+        public class clsBCHoatDongTheoDieuKien
         {
-            public String NTT_NGAY { get; set; }
-            public DateTime? NTT_THOIGIAN_BATDAU { get; set; }
-            public DateTime? NTT_THOIGIAN_KETTHUC { get; set; }
-            public string NTT_TEN { get; set; }
-            public string NTT_TEN_CHUONGTRINH { get; set; }
-            public string NTT_DIACHI { get; set; }
-            public int? NTT_SOTIEN { get; set; }
-            public string NTT_GHICHU { get; set; }
+            public String HD_LOAI { get; set; }
+            public String HD_NGAY { get; set; }
+            public DateTime? HD_THOIGIAN_BATDAU { get; set; }
+            public DateTime? HD_THOIGIAN_KETTHUC { get; set; }
+            public string HD_TEN { get; set; }
+            public string HD_DIADIEM { get; set; }
+            public string HD_DONVI_THUCHIEN { get; set; }
+            public string HD_DONVI_TAITRO { get; set; }
+            public int? HD_TONGTIEN { get; set; }
+            public string HD_DOITUONG { get; set; }
+            public string HD_DOITUONG_KHAC { get; set; }
+            public string HD_NGUOI_HOTRO { get; set; }
+            public int? HD_NGUOI_HOTRO_THULAO { get; set; }
+            public string HD_NGHEDAY { get; set; }
+            public string HD_DAY_TU_NGUON { get; set; }
+            public string HD_NOIDUNG { get; set; }
+            public string HD_VV_NGUON_VAY { get; set; }
+            public int? HD_VV_SOTIEN_VAY { get; set; }
+            public DateTime? HD_VV_THOIGIAN_TRA { get; set; }
+            public string HD_VV_PHUONGTHUC_TRA { get; set; }
         }
 
         private void ucBCHoatDongTheoDieuKien_Load(object sender, EventArgs e)
@@ -56,7 +68,7 @@ namespace DauThau.UserControlCategoryMain
 
         private void btnControl_btnEventView_Click(object sender, EventArgs e)
         {
-            List<clsNhaTaiTroMTQ> listData = new List<clsNhaTaiTroMTQ>();
+            List<clsBCHoatDongTheoDieuKien> listData = new List<clsBCHoatDongTheoDieuKien>();
 
             if (deTuNgay.EditValue == null || deDenNgay.EditValue == null)
             {
@@ -70,65 +82,131 @@ namespace DauThau.UserControlCategoryMain
 
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             context = new QL_HOIVIEN_KTEntities();
+            List<QL_HOIVIEN> listHoiVien = context.QL_HOIVIEN.ToList();
 
-            //ASXH
-            var listASXHData = (from p in context.QL_HOATDONG_NHATAITRO
-                        let asxh = p.QL_HOATDONG_ASXH
-                        where deTuNgay.DateTime.Date <= asxh.ASXH_THOIGIAN_BATDAU
-                             && asxh.ASXH_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
-                        select new clsNhaTaiTroMTQ
-                        {
-                            NTT_THOIGIAN_BATDAU = asxh.ASXH_THOIGIAN_BATDAU,
-                            NTT_THOIGIAN_KETTHUC = asxh.ASXH_THOIGIAN_KETTHUC,
-                            NTT_TEN_CHUONGTRINH = asxh.ASXH_TEN,
-                            NTT_TEN = p.NTT_TEN,
-                            NTT_DIACHI = p.NTT_DIACHI,
-                            NTT_SOTIEN = p.NTT_SOTIEN,
-                            NTT_GHICHU = p.NTT_GHICHU
-                        }
-                        ).ToList();
-            listData.AddRange(listASXHData);
-
-            //HNXH
-            var listHNXHData = (from p in context.QL_HOATDONG_NHATAITRO
-                                let asxh = p.QL_HOATDONG_HNXH
-                                where deTuNgay.DateTime.Date <= asxh.HNXH_THOIGIAN_BATDAU
-                                     && asxh.HNXH_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
-                                select new clsNhaTaiTroMTQ
+            //Dạy nghề
+            var listDayNgheData = (from p in context.QL_HOATDONG_DAYNGHE
+                                where deTuNgay.DateTime.Date <= p.DN_THOIGIAN_BATDAU
+                                     && p.DN_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                select new clsBCHoatDongTheoDieuKien
                                 {
-                                    NTT_THOIGIAN_BATDAU = asxh.HNXH_THOIGIAN_BATDAU,
-                                    NTT_THOIGIAN_KETTHUC = asxh.HNXH_THOIGIAN_KETTHUC,
-                                    NTT_TEN_CHUONGTRINH = asxh.HNXH_TEN,
-                                    NTT_TEN = p.NTT_TEN,
-                                    NTT_DIACHI = p.NTT_DIACHI,
-                                    NTT_SOTIEN = p.NTT_SOTIEN,
-                                    NTT_GHICHU = p.NTT_GHICHU
+                                    HD_LOAI = "Dạy nghề",
+                                    HD_THOIGIAN_BATDAU = p.DN_THOIGIAN_BATDAU,
+                                    HD_THOIGIAN_KETTHUC = p.DN_THOIGIAN_KETTHUC,
+                                    HD_TEN = p.DN_TEN,
+                                    HD_DIADIEM = p.DN_DIADIEM,
+                                    HD_DONVI_THUCHIEN = "",
+                                    HD_DONVI_TAITRO = "",
+                                    HD_TONGTIEN = p.DN_TONGTIEN,
+                                    HD_DOITUONG = p.DN_DOITUONG_THAMGIA,
+                                    HD_DOITUONG_KHAC = p.DN_DOITUONG_KHAC,
+                                    HD_NGUOI_HOTRO = p.DN_NGUOI_HOTRO,
+                                    HD_NGUOI_HOTRO_THULAO = 0,
+                                    HD_NGHEDAY = p.DN_NGHE,
+                                    HD_DAY_TU_NGUON = p.DN_DONVI_THUCHIEN,
+                                    HD_NOIDUNG = p.DN_NOIDUNG
                                 }
                         ).ToList();
-            listData.AddRange(listHNXHData);
+            listData.AddRange(listDayNgheData);
 
-            //HNXH
-            var listKhacData = (from p in context.QL_HOATDONG_NHATAITRO
-                                let asxh = p.QL_HOATDONG_KHAC
-                                where deTuNgay.DateTime.Date <= asxh.KHAC_THOIGIAN_BATDAU
-                                     && asxh.KHAC_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
-                                select new clsNhaTaiTroMTQ
+            //VIEC LAM
+            var listViecLamData = (from p in context.QL_HOATDONG_VIECLAM
+                                where deTuNgay.DateTime.Date <= p.VL_THOIGIAN_BATDAU
+                                     && p.VL_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                select new clsBCHoatDongTheoDieuKien
                                 {
-                                    NTT_THOIGIAN_BATDAU = asxh.KHAC_THOIGIAN_BATDAU,
-                                    NTT_THOIGIAN_KETTHUC = asxh.KHAC_THOIGIAN_KETTHUC,
-                                    NTT_TEN_CHUONGTRINH = asxh.KHAC_TEN,
-                                    NTT_TEN = p.NTT_TEN,
-                                    NTT_DIACHI = p.NTT_DIACHI,
-                                    NTT_SOTIEN = p.NTT_SOTIEN,
-                                    NTT_GHICHU = p.NTT_GHICHU
+                                    HD_LOAI = "Việc làm",
+                                    HD_THOIGIAN_BATDAU = p.VL_THOIGIAN_BATDAU,
+                                    HD_THOIGIAN_KETTHUC = p.VL_THOIGIAN_KETTHUC,
+                                    HD_TEN = p.VL_TEN,
+                                    HD_DIADIEM = p.VL_DIADIEM,
+                                    HD_DONVI_THUCHIEN = p.VL_DONVI_GIOITHIEU,
+                                    HD_DONVI_TAITRO = "",
+                                    HD_TONGTIEN = 0,
+                                    HD_DOITUONG = p.VL_DOITUONG_TEN,
+                                    HD_DOITUONG_KHAC = p.VL_DOITUONG_KHAC,
+                                    HD_NGUOI_HOTRO = "",
+                                    HD_NGUOI_HOTRO_THULAO = 0,
+                                    HD_NOIDUNG = p.VL_NOIDUNG
                                 }
                         ).ToList();
-            listData.AddRange(listKhacData);
+            listData.AddRange(listViecLamData);
 
-            listData = listData.OrderBy(p => p.NTT_THOIGIAN_BATDAU).ToList();
+            //VAY VON
+            var listVayVonData = (from p in context.QL_HOATDONG_VAYVON
+                                   where deTuNgay.DateTime.Date <= p.VV_THOIGIAN_BATDAU
+                                        && p.VV_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                   select new clsBCHoatDongTheoDieuKien
+                                   {
+                                       HD_LOAI = "Vay vốn",
+                                       HD_THOIGIAN_BATDAU = p.VV_THOIGIAN_BATDAU,
+                                       HD_THOIGIAN_KETTHUC = p.VV_THOIGIAN_KETTHUC,
+                                       HD_TEN = p.VV_TEN,
+                                       HD_DIADIEM = p.VV_DIADIEM,
+                                       HD_DONVI_THUCHIEN = "",
+                                       HD_DONVI_TAITRO = "",
+                                       HD_TONGTIEN = 0,
+                                       HD_DOITUONG = p.VV_DOITUONG_TEN,
+                                       HD_DOITUONG_KHAC = p.VV_DOITUONG_KHAC,
+                                       HD_NOIDUNG = p.VV_NOIDUNG,
+
+                                       HD_VV_NGUON_VAY = p.VV_NGUON_VAY,
+                                       HD_VV_THOIGIAN_TRA = p.VV_THOIGIAN_TRA,
+                                       HD_VV_SOTIEN_VAY = p.VV_TIEN_VAY,
+                                       HD_VV_PHUONGTHUC_TRA = p.VV_PHUONGTHUC_TRA
+                                   }
+                        ).ToList();
+            listData.AddRange(listVayVonData);
+
+            //Hội chợ triển lãm
+            var listHoiChoTrienLamData = (from p in context.QL_HOATDONG_HOICHO_TRIENLAM
+                                  where deTuNgay.DateTime.Date <= p.HC_THOIGIAN_BATDAU
+                                       && p.HC_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                  select new clsBCHoatDongTheoDieuKien
+                                  {
+                                      HD_LOAI = "Hội chợ triễn lãm",
+                                      HD_THOIGIAN_BATDAU = p.HC_THOIGIAN_BATDAU,
+                                      HD_THOIGIAN_KETTHUC = p.HC_THOIGIAN_KETTHUC,
+                                      HD_TEN = p.HC_TEN,
+                                      HD_DIADIEM = p.HC_DIADIEM,
+                                      HD_DONVI_THUCHIEN = "",
+                                      HD_DONVI_TAITRO = p.HC_TAITRO_DONVI,
+                                      HD_TONGTIEN = p.HC_SOTIEN_SAU_BANHANG,
+                                      HD_DOITUONG = p.HC_DOITUONG_TEN,
+                                      HD_DOITUONG_KHAC = p.HC_DOITUONG_KHAC,
+                                      HD_NOIDUNG = p.HC_NOIDUNG
+                                  }
+                        ).ToList();
+            listData.AddRange(listHoiChoTrienLamData);
+
+            //Hội thảo
+            var listHoiThaoData = (from p in context.QL_HOATDONG_HOITHAO
+                                          where deTuNgay.DateTime.Date <= p.HT_THOIGIAN_BATDAU
+                                               && p.HT_THOIGIAN_BATDAU <= deDenNgay.DateTime.Date
+                                          select new clsBCHoatDongTheoDieuKien
+                                          {
+                                              HD_LOAI = p.HT_LOAI_ID == 1 ? "Đại hội" : "",
+                                              HD_THOIGIAN_BATDAU = p.HT_THOIGIAN_BATDAU,
+                                              HD_THOIGIAN_KETTHUC = p.HT_THOIGIAN_KETTHUC,
+                                              HD_TEN = p.HT_TEN,
+                                              HD_DIADIEM = p.HT_DIADIEM,
+                                              HD_DONVI_THUCHIEN = p.HT_DONVI_THUCHIEN,
+                                              HD_DONVI_TAITRO = "",
+                                              HD_TONGTIEN = p.HT_SOTIEN_HOTRO,
+                                              HD_DOITUONG = p.HT_DOITUONG_TEN,
+                                              HD_DOITUONG_KHAC = p.HT_DOITUONG_KHAC,
+                                              HD_NOIDUNG = p.HT_NOIDUNG,
+
+                                              HD_NGUOI_HOTRO = p.HT_NGUOI_HOTRO,
+                                              HD_NGUOI_HOTRO_THULAO = p.HT_NGUOI_HOTRO_THULAO
+                                          }
+                        ).ToList();
+            listData.AddRange(listHoiThaoData);
+
+            listData = listData.OrderBy(p => p.HD_LOAI).OrderBy(p => p.HD_THOIGIAN_BATDAU).ToList();
             foreach (var item in listData)
             {
-                item.NTT_NGAY = item.NTT_THOIGIAN_BATDAU.Value.Date.ToString("dd/MM/yyyy") + " - " + item.NTT_THOIGIAN_KETTHUC.Value.Date.ToString("dd/MM/yyyy");
+                item.HD_NGAY = item.HD_THOIGIAN_BATDAU.Value.Date.ToString("dd/MM/yyyy") + " - " + item.HD_THOIGIAN_KETTHUC.Value.Date.ToString("dd/MM/yyyy");
             }
             gcGrid.DataSource = listData;
 
@@ -153,7 +231,7 @@ namespace DauThau.UserControlCategoryMain
 
                 waitDialogForm.SetCaption(String.Format("{0} - {1}%", "Đang xuất excel ...", 50));
 
-                excelManager.GridData2Excel(gvGrid, 7, 1, false, true, "", false, false);
+                excelManager.GridData2Excel(gvGrid, 8, 1, false, false, "", false, false);
 
                 //excelManager.SelectRange(excelManager.WorkingRange.Row + excelManager.WorkingRange.Rows.Count, excelManager.WorkingRange.Column,
                 //    excelManager.WorkingRange.Row + excelManager.WorkingRange.Rows.Count, excelManager.WorkingRange.Column + excelManager.WorkingRange.Columns.Count - 1);
