@@ -230,7 +230,6 @@ namespace DauThau.UserControlCategory
             item.DN_NOIDUNG = txtNoiDung.Text;
             item.DN_DOITUONG_THAMGIA = memoDoiTuongThamGia.Text;
             item.DN_DOITUONG_THAMGIA_ID = memoDoiTuongId.Text;
-            item.DN_DOITUONG_KHAC = memoDoiTuongKhac.Text;
             item.DN_NGUOI_HOTRO = txtHoTro.Text;
         }
 

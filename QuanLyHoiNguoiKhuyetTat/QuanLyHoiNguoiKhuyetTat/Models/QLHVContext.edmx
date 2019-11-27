@@ -87,6 +87,30 @@
           <Property Name="LOAIHD_TEN" Type="nvarchar" MaxLength="50" />
           <Property Name="LOAIHD_STT" Type="int" />
         </EntityType>
+        <EntityType Name="DM_NOI_O_NHA">
+          <Key>
+            <PropertyRef Name="NO_NHA_ID" />
+          </Key>
+          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NO_NHA_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_O_SONG_VOI">
+          <Key>
+            <PropertyRef Name="NOSV_ID" />
+          </Key>
+          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NOSV_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_NOI_SINH_SONG">
+          <Key>
+            <PropertyRef Name="NSS_ID" />
+          </Key>
+          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="NSS_STT" Type="int" />
+        </EntityType>
         <EntityType Name="DM_NGHE_NGHIEP">
           <Key>
             <PropertyRef Name="NN_ID" />
@@ -142,30 +166,6 @@
           <Property Name="NC_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="NC_STT" Type="int" />
         </EntityType>
-        <EntityType Name="DM_NOI_O_NHA">
-          <Key>
-            <PropertyRef Name="NO_NHA_ID" />
-          </Key>
-          <Property Name="NO_NHA_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NO_NHA_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NO_NHA_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_O_SONG_VOI">
-          <Key>
-            <PropertyRef Name="NOSV_ID" />
-          </Key>
-          <Property Name="NOSV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOSV_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NOSV_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_NOI_SINH_SONG">
-          <Key>
-            <PropertyRef Name="NSS_ID" />
-          </Key>
-          <Property Name="NSS_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NSS_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NSS_STT" Type="int" />
-        </EntityType>
         <EntityType Name="DM_PHUONGTIEN_DILAI">
           <Key>
             <PropertyRef Name="PT_ID" />
@@ -173,14 +173,6 @@
           <Property Name="PT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PT_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="PT_STT" Type="int" />
-        </EntityType>
-        <EntityType Name="DM_THANHVIEN_HOI">
-          <Key>
-            <PropertyRef Name="TVH_ID" />
-          </Key>
-          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TINH">
           <Key>
@@ -206,6 +198,14 @@
           <Property Name="TG_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TG_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="TG_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="DM_THANHVIEN_HOI">
+          <Key>
+            <PropertyRef Name="TVH_ID" />
+          </Key>
+          <Property Name="TVH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TVH_TEN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TVH_STT" Type="int" />
         </EntityType>
         <EntityType Name="DM_TRINH_DO_CHUYEN_MON">
           <Key>
@@ -246,13 +246,13 @@
           <Property Name="ASXH_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="ASXH_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="ASXH_TONGSO_NGAY" Type="int" />
-          <Property Name="ASXH_DIADIEM" Type="nvarchar" MaxLength="500" />
+          <Property Name="ASXH_DIADIEM" Type="nvarchar" MaxLength="250" />
           <Property Name="ASXH_SOLUONG" Type="int" />
           <Property Name="ASXH_TONGSO_TIEN" Type="int" />
           <Property Name="ASXH_DOITUONG_TEN" Type="nvarchar(max)" />
-          <Property Name="ASXH_DOITUONG_ID" Type="nvarchar(max)" />
-          <Property Name="ASXH_DOITUONG_KHAC" Type="nvarchar(max)" />
-          <Property Name="ASXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="500" />
+          <Property Name="ASXH_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="ASXH_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
+          <Property Name="ASXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="ASXH_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_ASXH_DOITUONG_KHAC">
@@ -289,15 +289,14 @@
           <Property Name="DN_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="DN_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="DN_TONGSO_NGAY" Type="int" />
-          <Property Name="DN_DIADIEM" Type="nvarchar" MaxLength="500" />
-          <Property Name="DN_NGHE" Type="nvarchar" MaxLength="500" />
-          <Property Name="DN_DONVI_THUCHIEN" Type="nvarchar" MaxLength="500" />
+          <Property Name="DN_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="DN_NGHE" Type="nvarchar" MaxLength="250" />
+          <Property Name="DN_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="DN_SOLUONG" Type="int" />
           <Property Name="DN_SOLUONG_NU" Type="int" />
           <Property Name="DN_TONGTIEN" Type="int" />
           <Property Name="DN_DOITUONG_THAMGIA" Type="nvarchar(max)" />
-          <Property Name="DN_DOITUONG_THAMGIA_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="DN_DOITUONG_KHAC" Type="nvarchar(max)" />
+          <Property Name="DN_DOITUONG_THAMGIA_ID" Type="nvarchar" MaxLength="250" />
           <Property Name="DN_NOIDUNG" Type="nvarchar(max)" />
           <Property Name="DN_NGUOI_HOTRO" Type="nvarchar(max)" />
         </EntityType>
@@ -339,8 +338,8 @@
           <Property Name="HNXH_DIADIEM" Type="nvarchar" MaxLength="250" />
           <Property Name="HNXH_SOLUONG" Type="int" />
           <Property Name="HNXH_DOITUONG_TEN" Type="nvarchar(max)" />
-          <Property Name="HNXH_DOITUONG_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="HNXH_DOITUONG_KHAC" Type="nvarchar(max)" />
+          <Property Name="HNXH_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="HNXH_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HNXH_TONGSO_TIEN" Type="int" />
           <Property Name="HNXH_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="HNXH_NOIDUNG" Type="nvarchar(max)" />
@@ -379,15 +378,15 @@
           <Property Name="HC_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="HC_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="HC_TONGSO_NGAY" Type="int" />
-          <Property Name="HC_DIADIEM" Type="nvarchar" MaxLength="500" />
+          <Property Name="HC_DIADIEM" Type="nvarchar" MaxLength="250" />
           <Property Name="HC_SOLUONG" Type="int" />
           <Property Name="HC_SOLUONG_NU" Type="int" />
-          <Property Name="HC_TAITRO_DONVI" Type="nvarchar" MaxLength="500" />
+          <Property Name="HC_TAITRO_DONVI" Type="nvarchar" MaxLength="250" />
           <Property Name="HC_TAITRO_SOTEN" Type="int" />
           <Property Name="HC_SOTIEN_SAU_BANHANG" Type="int" />
           <Property Name="HC_DOITUONG_TEN" Type="nvarchar(max)" />
-          <Property Name="HC_DOITUONG_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="HC_DOITUONG_KHAC" Type="nvarchar(max)" />
+          <Property Name="HC_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="HC_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HC_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC">
@@ -425,13 +424,13 @@
           <Property Name="HT_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="HT_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="HT_TONGSO_NGAY" Type="int" />
-          <Property Name="HT_DIADIEM" Type="nvarchar" MaxLength="500" />
+          <Property Name="HT_DIADIEM" Type="nvarchar" MaxLength="250" />
           <Property Name="HT_NOIDUNG" Type="nvarchar(max)" />
-          <Property Name="HT_DONVI_THUCHIEN" Type="nvarchar" MaxLength="500" />
+          <Property Name="HT_DONVI_THUCHIEN" Type="nvarchar" MaxLength="300" />
           <Property Name="HT_SOLUONG" Type="int" />
           <Property Name="HT_DOITUONG_TEN" Type="nvarchar(max)" />
-          <Property Name="HT_DOITUONG_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="HT_DOITUONG_KHAC" Type="nvarchar" MaxLength="500" />
+          <Property Name="HT_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="HT_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="HT_SOTIEN_HOTRO" Type="int" />
           <Property Name="HT_NGUOI_HOTRO" Type="nvarchar(max)" />
           <Property Name="HT_NGUOI_HOTRO_THULAO" Type="int" />
@@ -471,13 +470,13 @@
           <Property Name="KHAC_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="KHAC_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="KHAC_TONGSO_NGAY" Type="int" />
-          <Property Name="KHAC_DIADIEM" Type="nvarchar" MaxLength="500" />
+          <Property Name="KHAC_DIADIEM" Type="nvarchar" MaxLength="250" />
           <Property Name="KHAC_SOLUONG" Type="int" />
           <Property Name="KHAC_TONGSO_TIEN" Type="int" />
           <Property Name="KHAC_DOITUONG" Type="nvarchar(max)" />
-          <Property Name="KHAC_DOITUONG_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="KHAC_DOITUONG_KHAC" Type="nvarchar(max)" />
-          <Property Name="KHAC_DONVI_THUCHIEN" Type="nvarchar" MaxLength="500" />
+          <Property Name="KHAC_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
+          <Property Name="KHAC_DONVI_THUCHIEN" Type="nvarchar" MaxLength="250" />
           <Property Name="KHAC_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_KHAC_DOITUONG_KHAC">
@@ -509,19 +508,19 @@
           <Key>
             <PropertyRef Name="NTT_ID" />
           </Key>
-          <Property Name="NTT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NTT_ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ASXH_ID" Type="bigint" />
           <Property Name="HNXH_ID" Type="bigint" />
           <Property Name="KHAC_ID" Type="bigint" />
           <Property Name="NTT_TEN" Type="nvarchar" MaxLength="250" />
-          <Property Name="NTT_DIACHI" Type="nvarchar" MaxLength="250" />
-          <Property Name="NTT_CANHAN_TOCHUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NTT_DIACHI" Type="nvarchar" MaxLength="500" />
+          <Property Name="NTT_CANHAN_TOCHUC" Type="nvarchar" MaxLength="250" />
           <Property Name="NTT_SOTIEN" Type="int" />
-          <Property Name="NTT_GHICHU" Type="nvarchar(max)" />
+          <Property Name="NTT_GHICHU" Type="nvarchar" MaxLength="500" />
           <Property Name="NTT_LOAI" Type="nvarchar" MaxLength="50" />
           <Property Name="NTT_NDD_HOTEN" Type="nvarchar" MaxLength="250" />
           <Property Name="NTT_NDD_CHUCVU" Type="nvarchar" MaxLength="250" />
-          <Property Name="NTT_NDD_SDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="NTT_NDD_SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="NTT_NDD_EMAIL" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_TAPHUAN">
@@ -540,14 +539,14 @@
           <Property Name="TH_TINH_THUCHIEN" Type="nvarchar" MaxLength="50" />
           <Property Name="TH_HOATDONG_MA" Type="nvarchar" MaxLength="50" />
           <Property Name="TH_HOATDONG_LOAI" Type="nvarchar" MaxLength="50" />
-          <Property Name="TH_LINK_THV_HOPDONG" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_LINK_THV_BANCAMKET" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_LINK_TAILIEU" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_LINK_BAOCAO_SAU_TAPHUAN" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_DOITUONG_HV_ID" Type="nvarchar" MaxLength="500" />
+          <Property Name="TH_LINK_THV_HOPDONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_LINK_THV_BANCAMKET" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_LINK_TAILIEU" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_LINK_BAOCAO_SAU_TAPHUAN" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_DOITUONG_HV_ID" Type="nvarchar" MaxLength="250" />
           <Property Name="TH_DOITUONG_HV_TEN" Type="nvarchar(max)" />
-          <Property Name="TH_DOITUONG_LINK_EXCEL" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_DOITUONG_LINK_SCAN" Type="nvarchar" MaxLength="500" />
+          <Property Name="TH_DOITUONG_LINK_EXCEL" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_DOITUONG_LINK_SCAN" Type="nvarchar" MaxLength="250" />
           <Property Name="TH_DOITUONG_TONGSO" Type="int" />
           <Property Name="TH_DOITUONG_SL_NAM" Type="int" />
           <Property Name="TH_DOITUONG_SL_NU" Type="int" />
@@ -560,18 +559,18 @@
           <Property Name="TH_KT_SL_TRITUE" Type="int" />
           <Property Name="TH_KT_SL_THANKINH_TAMTHAN" Type="int" />
           <Property Name="TH_KT_SL_KHAC" Type="int" />
-          <Property Name="TH_DIADIEM_LINK_HOPDONG" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_DIADIEM_LINK_BB_THANHLY" Type="nvarchar" MaxLength="500" />
+          <Property Name="TH_DIADIEM_LINK_HOPDONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_DIADIEM_LINK_BB_THANHLY" Type="nvarchar" MaxLength="250" />
           <Property Name="TH_TONGTIEN_DUYET" Type="int" />
           <Property Name="TH_TONGTIEN_THUCHIEN" Type="int" />
           <Property Name="TH_TONGTIEN_BAN_KEHOACH" Type="int" />
-          <Property Name="TH_LINK_DUYETCHI" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_LINK_KEHOACH_HOATDONG" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_LINK_CHUNGTU" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_CONGVAN_SO" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_CONGVAN_DONVI_GUI" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_CONGVAN_GUI_DONVI" Type="nvarchar" MaxLength="500" />
-          <Property Name="TH_CONGVAN_LINK" Type="nvarchar" MaxLength="500" />
+          <Property Name="TH_LINK_DUYETCHI" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_LINK_KEHOACH_HOATDONG" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_LINK_CHUNGTU" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_CONGVAN_SO" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_CONGVAN_DONVI_GUI" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_CONGVAN_GUI_DONVI" Type="nvarchar" MaxLength="250" />
+          <Property Name="TH_CONGVAN_LINK" Type="nvarchar" MaxLength="250" />
           <Property Name="TH_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_TAPHUAN_CHITIET">
@@ -633,7 +632,7 @@
           <Property Name="VV_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="VV_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="VV_TONGSO_NGAY" Type="int" />
-          <Property Name="VV_DIADIEM" Type="nvarchar" MaxLength="500" />
+          <Property Name="VV_DIADIEM" Type="nvarchar" MaxLength="250" />
           <Property Name="VV_SOLUONG" Type="int" />
           <Property Name="VV_SOLUONG_NU" Type="int" />
           <Property Name="VV_NGUON_VAY" Type="nvarchar" MaxLength="250" />
@@ -641,8 +640,8 @@
           <Property Name="VV_THOIGIAN_TRA" Type="datetime" />
           <Property Name="VV_PHUONGTHUC_TRA" Type="nvarchar" MaxLength="250" />
           <Property Name="VV_DOITUONG_TEN" Type="nvarchar(max)" />
-          <Property Name="VV_DOITUONG_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="VV_DOITUONG_KHAC" Type="nvarchar(max)" />
+          <Property Name="VV_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="VV_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="VV_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC">
@@ -680,14 +679,14 @@
           <Property Name="VL_THOIGIAN_BATDAU" Type="datetime" />
           <Property Name="VL_THOIGIAN_KETTHUC" Type="datetime" />
           <Property Name="VL_TONGSO_NGAY" Type="int" />
-          <Property Name="VL_DIADIEM" Type="nvarchar" MaxLength="500" />
-          <Property Name="VL_DONVI_GIOITHIEU" Type="nvarchar" MaxLength="500" />
+          <Property Name="VL_DIADIEM" Type="nvarchar" MaxLength="250" />
+          <Property Name="VL_DONVI_GIOITHIEU" Type="nvarchar" MaxLength="250" />
           <Property Name="VL_SOLUONG" Type="int" />
           <Property Name="VL_SOLUONG_NU" Type="int" />
           <Property Name="VL_THUNHAP_THANG" Type="int" />
           <Property Name="VL_DOITUONG_TEN" Type="nvarchar(max)" />
-          <Property Name="VL_DOITUONG_ID" Type="nvarchar" MaxLength="500" />
-          <Property Name="VL_DOITUONG_KHAC" Type="nvarchar(max)" />
+          <Property Name="VL_DOITUONG_ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="VL_DOITUONG_KHAC" Type="nvarchar" MaxLength="250" />
           <Property Name="VL_NOIDUNG" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_VIECLAM_DOITUONG_KHAC">
@@ -1169,20 +1168,20 @@
           <EntitySet Name="DM_KHUYETTAT_NGUYENNHAN" EntityType="Self.DM_KHUYETTAT_NGUYENNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_KHUYETTAT_TINHTRANG" EntityType="Self.DM_KHUYETTAT_TINHTRANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_LOAI_HOATDONG" EntityType="Self.DM_LOAI_HOATDONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGHE_NGHIEP" EntityType="Self.DM_NGHE_NGHIEP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NGOAINGU" EntityType="Self.DM_NGOAINGU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO" EntityType="Self.DM_NHA_TAI_TRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_CHITIET" EntityType="Self.DM_NHA_TAI_TRO_CHITIET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHA_TAI_TRO_LOAI" EntityType="Self.DM_NHA_TAI_TRO_LOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_NHUCAU" EntityType="Self.DM_NHUCAU" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_NHA" EntityType="Self.DM_NOI_O_NHA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_O_SONG_VOI" EntityType="Self.DM_NOI_O_SONG_VOI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_NOI_SINH_SONG" EntityType="Self.DM_NOI_SINH_SONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_PHUONGTIEN_DILAI" EntityType="Self.DM_PHUONGTIEN_DILAI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINH" EntityType="Self.DM_TINH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TINHTRANG_HONNHAN" EntityType="Self.DM_TINHTRANG_HONNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TONGIAO" EntityType="Self.DM_TONGIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_THANHVIEN_HOI" EntityType="Self.DM_THANHVIEN_HOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_CHUYEN_MON" EntityType="Self.DM_TRINH_DO_CHUYEN_MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_TRINH_DO_HOC_VAN" EntityType="Self.DM_TRINH_DO_HOC_VAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DM_XA" EntityType="Self.DM_XA" Schema="dbo" store:Type="Tables" />
@@ -1341,7 +1340,6 @@
           <EntitySet Name="DM_XA" EntityType="QL_HOIVIEN_KTModel.DM_XA" />
           <EntitySet Name="QL_HOATDONG_ASXH" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH" />
           <EntitySet Name="QL_HOATDONG_ASXH_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_ASXH_DOITUONG_KHAC" />
-          <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" />
           <EntitySet Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
           <EntitySet Name="QL_HOATDONG_HNXH" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" />
           <EntitySet Name="QL_HOATDONG_HNXH_DOITUONG_KHAC" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH_DOITUONG_KHAC" />
@@ -1390,10 +1388,6 @@
           <AssociationSet Name="FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH">
             <End Role="QL_HOATDONG_ASXH" EntitySet="QL_HOATDONG_ASXH" />
             <End Role="QL_HOATDONG_NHATAITRO" EntitySet="QL_HOATDONG_NHATAITRO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
-            <End Role="QL_HOATDONG_DAYNGHE" EntitySet="QL_HOATDONG_DAYNGHE" />
-            <End Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
           </AssociationSet>
           <AssociationSet Name="FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH">
             <End Role="QL_HOATDONG_HNXH" EntitySet="QL_HOATDONG_HNXH" />
@@ -1458,6 +1452,11 @@
           <AssociationSet Name="FK_QL_USERS_PERMISSION_QL_USERS" Association="QL_HOIVIEN_KTModel.FK_QL_USERS_PERMISSION_QL_USERS">
             <End Role="QL_USERS" EntitySet="QL_USERS" />
             <End Role="QL_USERS_PERMISSION" EntitySet="QL_USERS_PERMISSION" />
+          </AssociationSet>
+          <EntitySet Name="QL_HOATDONG_DAYNGHE" EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" />
+          <AssociationSet Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
+            <End Role="QL_HOATDONG_DAYNGHE" EntitySet="QL_HOATDONG_DAYNGHE" />
+            <End Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" EntitySet="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="DM_CHAMSOC_BANTHAN">
@@ -1709,13 +1708,13 @@
           <Property Name="ASXH_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
           <Property Name="ASXH_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="ASXH_TONGSO_NGAY" Type="Int32" />
-          <Property Name="ASXH_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ASXH_SOLUONG" Type="Int32" />
           <Property Name="ASXH_TONGSO_TIEN" Type="Int32" />
           <Property Name="ASXH_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ASXH_DOITUONG_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ASXH_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ASXH_DONVI_THUCHIEN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ASXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ASXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_ASXH_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH" ToRole="QL_HOATDONG_ASXH_DOITUONG_KHAC" />
           <NavigationProperty Name="QL_HOATDONG_NHATAITRO" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH" ToRole="QL_HOATDONG_NHATAITRO" />
@@ -1745,28 +1744,6 @@
           <Property Name="DTK_TK_NGANHANG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DTK_TK_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_ASXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_ASXH_DOITUONG_KHAC_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_ASXH_DOITUONG_KHAC" ToRole="QL_HOATDONG_ASXH" />
-        </EntityType>
-        <EntityType Name="QL_HOATDONG_DAYNGHE">
-          <Key>
-            <PropertyRef Name="DN_ID" />
-          </Key>
-          <Property Name="DN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DN_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DN_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
-          <Property Name="DN_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
-          <Property Name="DN_TONGSO_NGAY" Type="Int32" />
-          <Property Name="DN_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DN_NGHE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DN_DONVI_THUCHIEN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DN_SOLUONG" Type="Int32" />
-          <Property Name="DN_SOLUONG_NU" Type="Int32" />
-          <Property Name="DN_TONGTIEN" Type="Int32" />
-          <Property Name="DN_DOITUONG_THAMGIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DN_DOITUONG_THAMGIA_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DN_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DN_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DN_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" FromRole="QL_HOATDONG_DAYNGHE" ToRole="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
         </EntityType>
         <EntityType Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
           <Key>
@@ -1807,8 +1784,8 @@
           <Property Name="HNXH_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HNXH_SOLUONG" Type="Int32" />
           <Property Name="HNXH_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HNXH_DOITUONG_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="HNXH_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HNXH_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HNXH_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HNXH_TONGSO_TIEN" Type="Int32" />
           <Property Name="HNXH_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HNXH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1850,15 +1827,15 @@
           <Property Name="HC_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
           <Property Name="HC_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="HC_TONGSO_NGAY" Type="Int32" />
-          <Property Name="HC_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HC_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_SOLUONG" Type="Int32" />
           <Property Name="HC_SOLUONG_NU" Type="Int32" />
-          <Property Name="HC_TAITRO_DONVI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HC_TAITRO_DONVI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_TAITRO_SOTEN" Type="Int32" />
           <Property Name="HC_SOTIEN_SAU_BANHANG" Type="Int32" />
           <Property Name="HC_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HC_DOITUONG_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="HC_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HC_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HC_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC_QL_HOATDONG_HOICHO_TRIENLAM" FromRole="QL_HOATDONG_HOICHO_TRIENLAM" ToRole="QL_HOATDONG_HOICHO_TRIENLAM_DOITUONG_KHAC" />
         </EntityType>
@@ -1898,13 +1875,13 @@
           <Property Name="HT_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
           <Property Name="HT_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="HT_TONGSO_NGAY" Type="Int32" />
-          <Property Name="HT_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HT_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HT_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HT_DONVI_THUCHIEN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HT_DONVI_THUCHIEN" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="HT_SOLUONG" Type="Int32" />
           <Property Name="HT_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HT_DOITUONG_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="HT_DOITUONG_KHAC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HT_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HT_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="HT_SOTIEN_HOTRO" Type="Int32" />
           <Property Name="HT_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HT_NGUOI_HOTRO_THULAO" Type="Int32" />
@@ -1946,13 +1923,13 @@
           <Property Name="KHAC_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
           <Property Name="KHAC_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="KHAC_TONGSO_NGAY" Type="Int32" />
-          <Property Name="KHAC_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="KHAC_SOLUONG" Type="Int32" />
           <Property Name="KHAC_TONGSO_TIEN" Type="Int32" />
           <Property Name="KHAC_DOITUONG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KHAC_DOITUONG_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="KHAC_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KHAC_DONVI_THUCHIEN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="KHAC_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="KHAC_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_KHAC_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_KHAC" ToRole="QL_HOATDONG_KHAC_DOITUONG_KHAC" />
           <NavigationProperty Name="QL_HOATDONG_NHATAITRO" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" FromRole="QL_HOATDONG_KHAC" ToRole="QL_HOATDONG_NHATAITRO" />
@@ -1992,14 +1969,14 @@
           <Property Name="HNXH_ID" Type="Int64" />
           <Property Name="KHAC_ID" Type="Int64" />
           <Property Name="NTT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NTT_DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NTT_CANHAN_TOCHUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_DIACHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_CANHAN_TOCHUC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NTT_SOTIEN" Type="Int32" />
-          <Property Name="NTT_GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="NTT_LOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NTT_NDD_HOTEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NTT_NDD_CHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NTT_NDD_SDT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NTT_NDD_SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NTT_NDD_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_ASXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_ASXH" FromRole="QL_HOATDONG_NHATAITRO" ToRole="QL_HOATDONG_ASXH" />
           <NavigationProperty Name="QL_HOATDONG_HNXH" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_HNXH" FromRole="QL_HOATDONG_NHATAITRO" ToRole="QL_HOATDONG_HNXH" />
@@ -2021,14 +1998,14 @@
           <Property Name="TH_TINH_THUCHIEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TH_HOATDONG_MA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TH_HOATDONG_LOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TH_LINK_THV_HOPDONG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_LINK_THV_BANCAMKET" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_LINK_TAILIEU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_LINK_BAOCAO_SAU_TAPHUAN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_DOITUONG_HV_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_THV_HOPDONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_THV_BANCAMKET" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_TAILIEU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_BAOCAO_SAU_TAPHUAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DOITUONG_HV_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TH_DOITUONG_HV_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TH_DOITUONG_LINK_EXCEL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_DOITUONG_LINK_SCAN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DOITUONG_LINK_EXCEL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DOITUONG_LINK_SCAN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TH_DOITUONG_TONGSO" Type="Int32" />
           <Property Name="TH_DOITUONG_SL_NAM" Type="Int32" />
           <Property Name="TH_DOITUONG_SL_NU" Type="Int32" />
@@ -2041,18 +2018,18 @@
           <Property Name="TH_KT_SL_TRITUE" Type="Int32" />
           <Property Name="TH_KT_SL_THANKINH_TAMTHAN" Type="Int32" />
           <Property Name="TH_KT_SL_KHAC" Type="Int32" />
-          <Property Name="TH_DIADIEM_LINK_HOPDONG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_DIADIEM_LINK_BB_THANHLY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DIADIEM_LINK_HOPDONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_DIADIEM_LINK_BB_THANHLY" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TH_TONGTIEN_DUYET" Type="Int32" />
           <Property Name="TH_TONGTIEN_THUCHIEN" Type="Int32" />
           <Property Name="TH_TONGTIEN_BAN_KEHOACH" Type="Int32" />
-          <Property Name="TH_LINK_DUYETCHI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_LINK_KEHOACH_HOATDONG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_LINK_CHUNGTU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_CONGVAN_SO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_CONGVAN_DONVI_GUI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_CONGVAN_GUI_DONVI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TH_CONGVAN_LINK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_DUYETCHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_KEHOACH_HOATDONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_LINK_CHUNGTU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_CONGVAN_SO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_CONGVAN_DONVI_GUI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_CONGVAN_GUI_DONVI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TH_CONGVAN_LINK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TH_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_TAPHUAN_CHITIET" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" FromRole="QL_HOATDONG_TAPHUAN" ToRole="QL_HOATDONG_TAPHUAN_CHITIET" />
           <NavigationProperty Name="QL_HOATDONG_TAPHUAN_DIADIEM" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" FromRole="QL_HOATDONG_TAPHUAN" ToRole="QL_HOATDONG_TAPHUAN_DIADIEM" />
@@ -2118,7 +2095,7 @@
           <Property Name="VV_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
           <Property Name="VV_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="VV_TONGSO_NGAY" Type="Int32" />
-          <Property Name="VV_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VV_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VV_SOLUONG" Type="Int32" />
           <Property Name="VV_SOLUONG_NU" Type="Int32" />
           <Property Name="VV_NGUON_VAY" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -2126,8 +2103,8 @@
           <Property Name="VV_THOIGIAN_TRA" Type="DateTime" Precision="3" />
           <Property Name="VV_PHUONGTHUC_TRA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VV_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="VV_DOITUONG_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="VV_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VV_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VV_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VV_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_VAYVON_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" FromRole="QL_HOATDONG_VAYVON" ToRole="QL_HOATDONG_VAYVON_DOITUONG_KHAC" />
         </EntityType>
@@ -2167,14 +2144,14 @@
           <Property Name="VL_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
           <Property Name="VL_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
           <Property Name="VL_TONGSO_NGAY" Type="Int32" />
-          <Property Name="VL_DIADIEM" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="VL_DONVI_GIOITHIEU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VL_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VL_DONVI_GIOITHIEU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VL_SOLUONG" Type="Int32" />
           <Property Name="VL_SOLUONG_NU" Type="Int32" />
           <Property Name="VL_THUNHAP_THANG" Type="Int32" />
           <Property Name="VL_DOITUONG_TEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="VL_DOITUONG_ID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="VL_DOITUONG_KHAC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VL_DOITUONG_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VL_DOITUONG_KHAC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="VL_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="QL_HOATDONG_VIECLAM1" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_VIECLAM" ToRole="QL_HOATDONG_VIECLAM1" />
           <NavigationProperty Name="QL_HOATDONG_VIECLAM2" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" FromRole="QL_HOATDONG_VIECLAM1" ToRole="QL_HOATDONG_VIECLAM" />
@@ -2455,18 +2432,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
-          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Role="QL_HOATDONG_DAYNGHE" Multiplicity="0..1" />
-          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="QL_HOATDONG_DAYNGHE">
-              <PropertyRef Name="DN_ID" />
-            </Principal>
-            <Dependent Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
-              <PropertyRef Name="PARENT_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_QL_HOATDONG_HNXH_DOITUONG_KHAC_QL_HOATDONG_HNXH">
           <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH" Role="QL_HOATDONG_HNXH" Multiplicity="0..1" />
           <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_HNXH_DOITUONG_KHAC" Role="QL_HOATDONG_HNXH_DOITUONG_KHAC" Multiplicity="*" />
@@ -2656,6 +2621,39 @@
             </Principal>
             <Dependent Role="QL_USERS_PERMISSION">
               <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="QL_HOATDONG_DAYNGHE">
+          <Key>
+            <PropertyRef Name="DN_ID" />
+          </Key>
+          <Property Name="DN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DN_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_THOIGIAN_BATDAU" Type="DateTime" Precision="3" />
+          <Property Name="DN_THOIGIAN_KETTHUC" Type="DateTime" Precision="3" />
+          <Property Name="DN_TONGSO_NGAY" Type="Int32" />
+          <Property Name="DN_DIADIEM" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_NGHE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_DONVI_THUCHIEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_SOLUONG" Type="Int32" />
+          <Property Name="DN_SOLUONG_NU" Type="Int32" />
+          <Property Name="DN_TONGTIEN" Type="Int32" />
+          <Property Name="DN_DOITUONG_THAMGIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DN_DOITUONG_THAMGIA_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DN_NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DN_NGUOI_HOTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Relationship="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE" FromRole="QL_HOATDONG_DAYNGHE" ToRole="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" />
+        </EntityType>
+        <Association Name="FK_QL_HOATDONG_DAYNGHE_DOITUONG_KHAC_QL_HOATDONG_DAYNGHE">
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE" Role="QL_HOATDONG_DAYNGHE" Multiplicity="0..1" />
+          <End Type="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QL_HOATDONG_DAYNGHE">
+              <PropertyRef Name="DN_ID" />
+            </Principal>
+            <Dependent Role="QL_HOATDONG_DAYNGHE_DOITUONG_KHAC">
+              <PropertyRef Name="PARENT_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2966,28 +2964,6 @@
                 <ScalarProperty Name="DTK_HO" ColumnName="DTK_HO" />
                 <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
                 <ScalarProperty Name="DTK_ID" ColumnName="DTK_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QL_HOATDONG_DAYNGHE">
-            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE">
-              <MappingFragment StoreEntitySet="QL_HOATDONG_DAYNGHE">
-                <ScalarProperty Name="DN_NGUOI_HOTRO" ColumnName="DN_NGUOI_HOTRO" />
-                <ScalarProperty Name="DN_NOIDUNG" ColumnName="DN_NOIDUNG" />
-                <ScalarProperty Name="DN_DOITUONG_KHAC" ColumnName="DN_DOITUONG_KHAC" />
-                <ScalarProperty Name="DN_DOITUONG_THAMGIA_ID" ColumnName="DN_DOITUONG_THAMGIA_ID" />
-                <ScalarProperty Name="DN_DOITUONG_THAMGIA" ColumnName="DN_DOITUONG_THAMGIA" />
-                <ScalarProperty Name="DN_TONGTIEN" ColumnName="DN_TONGTIEN" />
-                <ScalarProperty Name="DN_SOLUONG_NU" ColumnName="DN_SOLUONG_NU" />
-                <ScalarProperty Name="DN_SOLUONG" ColumnName="DN_SOLUONG" />
-                <ScalarProperty Name="DN_DONVI_THUCHIEN" ColumnName="DN_DONVI_THUCHIEN" />
-                <ScalarProperty Name="DN_NGHE" ColumnName="DN_NGHE" />
-                <ScalarProperty Name="DN_DIADIEM" ColumnName="DN_DIADIEM" />
-                <ScalarProperty Name="DN_TONGSO_NGAY" ColumnName="DN_TONGSO_NGAY" />
-                <ScalarProperty Name="DN_THOIGIAN_KETTHUC" ColumnName="DN_THOIGIAN_KETTHUC" />
-                <ScalarProperty Name="DN_THOIGIAN_BATDAU" ColumnName="DN_THOIGIAN_BATDAU" />
-                <ScalarProperty Name="DN_TEN" ColumnName="DN_TEN" />
-                <ScalarProperty Name="DN_ID" ColumnName="DN_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3594,6 +3570,27 @@
                 <ScalarProperty Name="PER_NAME" ColumnName="PER_NAME" />
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QL_HOATDONG_DAYNGHE">
+            <EntityTypeMapping TypeName="QL_HOIVIEN_KTModel.QL_HOATDONG_DAYNGHE">
+              <MappingFragment StoreEntitySet="QL_HOATDONG_DAYNGHE">
+                <ScalarProperty Name="DN_NGUOI_HOTRO" ColumnName="DN_NGUOI_HOTRO" />
+                <ScalarProperty Name="DN_NOIDUNG" ColumnName="DN_NOIDUNG" />
+                <ScalarProperty Name="DN_DOITUONG_THAMGIA_ID" ColumnName="DN_DOITUONG_THAMGIA_ID" />
+                <ScalarProperty Name="DN_DOITUONG_THAMGIA" ColumnName="DN_DOITUONG_THAMGIA" />
+                <ScalarProperty Name="DN_TONGTIEN" ColumnName="DN_TONGTIEN" />
+                <ScalarProperty Name="DN_SOLUONG_NU" ColumnName="DN_SOLUONG_NU" />
+                <ScalarProperty Name="DN_SOLUONG" ColumnName="DN_SOLUONG" />
+                <ScalarProperty Name="DN_DONVI_THUCHIEN" ColumnName="DN_DONVI_THUCHIEN" />
+                <ScalarProperty Name="DN_NGHE" ColumnName="DN_NGHE" />
+                <ScalarProperty Name="DN_DIADIEM" ColumnName="DN_DIADIEM" />
+                <ScalarProperty Name="DN_TONGSO_NGAY" ColumnName="DN_TONGSO_NGAY" />
+                <ScalarProperty Name="DN_THOIGIAN_KETTHUC" ColumnName="DN_THOIGIAN_KETTHUC" />
+                <ScalarProperty Name="DN_THOIGIAN_BATDAU" ColumnName="DN_THOIGIAN_BATDAU" />
+                <ScalarProperty Name="DN_TEN" ColumnName="DN_TEN" />
+                <ScalarProperty Name="DN_ID" ColumnName="DN_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

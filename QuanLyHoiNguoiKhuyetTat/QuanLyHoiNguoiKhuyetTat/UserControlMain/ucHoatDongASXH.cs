@@ -281,48 +281,55 @@ namespace DauThau.UserControlCategory
 
         protected override bool SaveData()
         {
-            if (_validateControl())
+            try
             {
-                using (var _context = new QL_HOIVIEN_KTEntities())
+                if (_validateControl())
                 {
-                    QL_HOATDONG_ASXH item = new QL_HOATDONG_ASXH();
-                    switch (_formStatus)
+                    using (var _context = new QL_HOIVIEN_KTEntities())
                     {
-                        case EnumFormStatus.ADD:
+                        QL_HOATDONG_ASXH item = new QL_HOATDONG_ASXH();
+                        switch (_formStatus)
+                        {
+                            case EnumFormStatus.ADD:
 
-                            #region Add
+                                #region Add
 
-                            item = new QL_HOATDONG_ASXH();
-                            _setObjectEntities(ref item);
-                            _updateMemoData(_context, item);
-                            _context.QL_HOATDONG_ASXH.Add(item);
-
-                            #endregion
-
-                            break;
-                        case EnumFormStatus.MODIFY:
-                            Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
-                            item = (from p in _context.QL_HOATDONG_ASXH where p.ASXH_ID == id select p).FirstOrDefault<QL_HOATDONG_ASXH>();
-                            if (item != null)
-                            {
+                                item = new QL_HOATDONG_ASXH();
                                 _setObjectEntities(ref item);
-                            }
-                            var entity = _context.QL_HOATDONG_ASXH.Find(id);
-                            if (entity != null)
-                            {
-                                _context.Entry(entity).CurrentValues.SetValues(item);
-                            }
-                            _updateMemoData(_context, item);
-                            break;
-                        default:
-                            break;
-                    }
-                    _context.SaveChanges();
-                    _idRowSelected = item.ASXH_ID;
-                }
-                FormStatus = EnumFormStatus.VIEW;
-            }
+                                _updateMemoData(_context, item);
+                                _context.QL_HOATDONG_ASXH.Add(item);
 
+                                #endregion
+
+                                break;
+                            case EnumFormStatus.MODIFY:
+                                Int64 id = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colID));
+                                item = (from p in _context.QL_HOATDONG_ASXH where p.ASXH_ID == id select p).FirstOrDefault<QL_HOATDONG_ASXH>();
+                                if (item != null)
+                                {
+                                    _setObjectEntities(ref item);
+                                }
+                                var entity = _context.QL_HOATDONG_ASXH.Find(id);
+                                if (entity != null)
+                                {
+                                    _context.Entry(entity).CurrentValues.SetValues(item);
+                                }
+                                _updateMemoData(_context, item);
+                                break;
+                            default:
+                                break;
+                        }
+                        _context.SaveChanges();
+                        _idRowSelected = item.ASXH_ID;
+                    }
+                    FormStatus = EnumFormStatus.VIEW;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
             return base.SaveData();
         }
 

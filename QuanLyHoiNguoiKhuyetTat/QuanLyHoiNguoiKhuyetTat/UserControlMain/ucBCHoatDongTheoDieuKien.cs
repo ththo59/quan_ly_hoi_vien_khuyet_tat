@@ -99,7 +99,6 @@ namespace DauThau.UserControlCategoryMain
                                     HD_DONVI_TAITRO = "",
                                     HD_TONGTIEN = p.DN_TONGTIEN,
                                     HD_DOITUONG = p.DN_DOITUONG_THAMGIA,
-                                    HD_DOITUONG_KHAC = p.DN_DOITUONG_KHAC,
                                     HD_NGUOI_HOTRO = p.DN_NGUOI_HOTRO,
                                     HD_NGUOI_HOTRO_THULAO = 0,
                                     HD_NGHEDAY = p.DN_NGHE,
