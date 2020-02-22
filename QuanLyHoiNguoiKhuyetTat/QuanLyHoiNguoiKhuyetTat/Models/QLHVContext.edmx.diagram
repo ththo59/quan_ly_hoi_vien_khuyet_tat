@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b573c64cd9c34f0d87e419b0e7cfb1ae" Name="Diagram1" ZoomLevel="45">
+      <Diagram DiagramId="b573c64cd9c34f0d87e419b0e7cfb1ae" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_CHAMSOC_BANTHAN" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_CHUCVU_HOI" Width="1.5" PointX="5.75" PointY="7.75" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.DM_DANTOC" Width="1.5" PointX="7.75" PointY="7.75" />
@@ -45,7 +45,6 @@
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_KHAC_DOITUONG_KHAC" Width="1.5" PointX="8" PointY="22.375" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_NHATAITRO" Width="2.625" PointX="8" PointY="10.25" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN" Width="1.5" PointX="10.75" PointY="1.75" />
-        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" Width="1.5" PointX="13" PointY="5.625" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_DIADIEM" Width="1.5" PointX="13" PointY="1.375" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON" Width="1.5" PointX="15.75" PointY="5.5" />
         <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_VAYVON_DOITUONG_KHAC" Width="1.5" PointX="18" PointY="5.125" />
@@ -70,7 +69,6 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_HOITHAO_DOITUONG_KHAC_QL_HOATDONG_HOITHAO" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_KHAC_DOITUONG_KHAC_QL_HOATDONG_KHAC" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_NHATAITRO_QL_HOATDONG_KHAC" />
-        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_DIADIEM_QL_HOATDONG_TAPHUAN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_VAYVON_DOITUONG_KHAC_QL_HOATDONG_VAYVON" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_GIAIQUYET_VIECLAM_QL_HOATDONG_GIAIQUYET_VIECLAM" />
@@ -83,6 +81,8 @@
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_HOIPHI_QL_HOIVIEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_IMAGE_QL_HOIVIEN" />
         <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOIVIEN_THANHVIENHOI_QL_HOIVIEN" />
+        <EntityTypeShape EntityType="QL_HOIVIEN_KTModel.QL_HOATDONG_TAPHUAN_CHITIET" Width="1.5" PointX="13" PointY="6.375" />
+        <AssociationConnector Association="QL_HOIVIEN_KTModel.FK_QL_HOATDONG_TAPHUAN_CHITIET_QL_HOATDONG_TAPHUAN" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

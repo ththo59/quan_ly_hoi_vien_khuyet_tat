@@ -201,6 +201,9 @@ namespace DauThau
                     case "btnLoaiHoatDong":
                         uc = new ucDMTapHuan_LoaiHoatDong();
                         break;
+                    case "btnLoaiNhaTaiTro":
+                        uc = new ucDMTapHuan_LoaiNhaTaiTro();
+                        break;
                     #endregion
 
                     #region Lý lịch
@@ -558,6 +561,5 @@ namespace DauThau
             clsAddTab.AddTabControl(TabControlParent, new ucBCChiPhi_SoQuyTienMat(), "ucBCChiPhi_SoQuyTienMat", "Sổ quỷ tiền mặt");
         }
 
-        
     }
 }

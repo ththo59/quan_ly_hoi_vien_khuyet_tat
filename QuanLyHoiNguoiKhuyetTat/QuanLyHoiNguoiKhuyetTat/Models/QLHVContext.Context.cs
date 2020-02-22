@@ -65,7 +65,6 @@ namespace DauThau.Models
         public virtual DbSet<QL_HOATDONG_KHAC_DOITUONG_KHAC> QL_HOATDONG_KHAC_DOITUONG_KHAC { get; set; }
         public virtual DbSet<QL_HOATDONG_NHATAITRO> QL_HOATDONG_NHATAITRO { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN> QL_HOATDONG_TAPHUAN { get; set; }
-        public virtual DbSet<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
         public virtual DbSet<QL_HOATDONG_TAPHUAN_DIADIEM> QL_HOATDONG_TAPHUAN_DIADIEM { get; set; }
         public virtual DbSet<QL_HOATDONG_VAYVON> QL_HOATDONG_VAYVON { get; set; }
         public virtual DbSet<QL_HOATDONG_VAYVON_DOITUONG_KHAC> QL_HOATDONG_VAYVON_DOITUONG_KHAC { get; set; }
@@ -80,5 +79,6 @@ namespace DauThau.Models
         public virtual DbSet<QL_USERS_PERMISSION> QL_USERS_PERMISSION { get; set; }
         public virtual DbSet<QL_HOATDONG_DAYNGHE> QL_HOATDONG_DAYNGHE { get; set; }
         public virtual DbSet<QL_HOIVIEN> QL_HOIVIEN { get; set; }
+        public virtual DbSet<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
     }
 }

@@ -315,14 +315,14 @@ namespace DauThau.UserControlCategory
             StringBuilder title = new StringBuilder();
             foreach (var item in data.Where(p=>p.TH_ID != clsParameter.statusDeleted))
             {
-                if (item.TH_CT_DIACHI != "")
-                {
-                    title.AppendFormat("{0}({1}); ", item.TH_CT_HO + " " + item.TH_CT_TEN, item.TH_CT_DIACHI);
-                }else if(item.TH_CT_DONVI_TEN != "")
-                {
-                    title.AppendFormat("{0}({1}); ", item.TH_CT_HO + " " + item.TH_CT_TEN, item.TH_CT_DONVI_TEN);
-                }
-                else
+                //if (item.TH_CT_DIACHI != "")
+                //{
+                //    title.AppendFormat("{0} ({1}); ", item.TH_CT_HO + " " + item.TH_CT_TEN, item.TH_CT_DIACHI);
+                //}else if(item.TH_CT_DONVI_TEN != "")
+                //{
+                //    title.AppendFormat("{0} ({1}); ", item.TH_CT_HO + " " + item.TH_CT_TEN, item.TH_CT_DONVI_TEN);
+                //}
+                //else
                 {
                     title.AppendFormat("{0}; ", item.TH_CT_HO + " " + item.TH_CT_TEN);
                 }

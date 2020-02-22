@@ -39,9 +39,10 @@ namespace DauThau.Models
         public string TH_CT_LINK_CV { get; set; }
         public string TH_CT_LINK_HOPDONG { get; set; }
         public string TH_CT_LINK_BANCAMKET { get; set; }
-        public Nullable<int> TH_CT_THULAO { get; set; }
-        public Nullable<int> TH_CT_CHIPHIKHAC { get; set; }
-        public string TH_CT_DIENGIAI { get; set; }
+        public Nullable<int> TH_CT_CHIPHI_1 { get; set; }
+        public Nullable<int> TH_CT_CHIPHI_2 { get; set; }
+        public Nullable<int> TH_CT_CHIPHI_3 { get; set; }
+        public Nullable<int> TH_CT_CHIPHI_4 { get; set; }
     
         public virtual QL_HOATDONG_TAPHUAN QL_HOATDONG_TAPHUAN { get; set; }
     }

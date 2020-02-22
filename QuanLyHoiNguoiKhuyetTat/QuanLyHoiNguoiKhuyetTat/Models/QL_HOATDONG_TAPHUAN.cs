@@ -17,8 +17,8 @@ namespace DauThau.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QL_HOATDONG_TAPHUAN()
         {
-            this.QL_HOATDONG_TAPHUAN_CHITIET = new HashSet<QL_HOATDONG_TAPHUAN_CHITIET>();
             this.QL_HOATDONG_TAPHUAN_DIADIEM = new HashSet<QL_HOATDONG_TAPHUAN_DIADIEM>();
+            this.QL_HOATDONG_TAPHUAN_CHITIET = new HashSet<QL_HOATDONG_TAPHUAN_CHITIET>();
         }
     
         public long TH_ID { get; set; }
@@ -68,8 +68,8 @@ namespace DauThau.Models
         public string TH_NOIDUNG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QL_HOATDONG_TAPHUAN_DIADIEM> QL_HOATDONG_TAPHUAN_DIADIEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QL_HOATDONG_TAPHUAN_CHITIET> QL_HOATDONG_TAPHUAN_CHITIET { get; set; }
     }
 }

@@ -1126,6 +1126,12 @@
     <Compile Include="UserControlCategory\ucBase.Designer.cs">
       <DependentUpon>ucBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlCategory\ucDMTapHuan_LoaiNhaTaiTro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCategory\ucDMTapHuan_LoaiNhaTaiTro.Designer.cs">
+      <DependentUpon>ucDMTapHuan_LoaiNhaTaiTro.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlCategory\ucNhatKy.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1251,6 +1257,12 @@
     </Compile>
     <Compile Include="UserControlCategory\ucDMTrinhDoHocVan.Designer.cs">
       <DependentUpon>ucDMTrinhDoHocVan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMain\frmTapHuanChonDanhSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControlMain\frmTapHuanChonDanhSach.Designer.cs">
+      <DependentUpon>frmTapHuanChonDanhSach.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlMain\frmSelectHoiVien.cs">
       <SubType>Form</SubType>
@@ -1870,6 +1882,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -2096,6 +2109,9 @@
     <EmbeddedResource Include="UserControlCategory\ucBase.resx">
       <DependentUpon>ucBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCategory\ucDMTapHuan_LoaiNhaTaiTro.resx">
+      <DependentUpon>ucDMTapHuan_LoaiNhaTaiTro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucNhatKy.resx">
       <DependentUpon>ucNhatKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -2158,6 +2174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlCategory\ucDMTrinhDoHocVan.resx">
       <DependentUpon>ucDMTrinhDoHocVan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlMain\frmTapHuanChonDanhSach.resx">
+      <DependentUpon>frmTapHuanChonDanhSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlMain\frmSelectHoiVien.resx">
       <DependentUpon>frmSelectHoiVien.cs</DependentUpon>

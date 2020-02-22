@@ -48,8 +48,10 @@ namespace DauThau.Forms
             FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_GIOITINH, lueGioiTinh);
             FunctionHelper.dateFormat(deNgayCap_Nam, deNgayCap_Thang, deNgayCap_Ngay);
 
-            seThuLao.Ex_FormatCustomSpinEdit();
-            seChiPhiKhac.Ex_FormatCustomSpinEdit();
+            seThuLao_1.Ex_FormatCustomSpinEdit();
+            seThuLao_2.Ex_FormatCustomSpinEdit();
+            seThuLao_3.Ex_FormatCustomSpinEdit();
+            seThuLao_4.Ex_FormatCustomSpinEdit();
 
             _changeLayout((CategoryTapHuanChiTietLoai)_loai_id);
             FormStatus = EnumFormStatus.VIEW;
@@ -73,7 +75,11 @@ namespace DauThau.Forms
                 case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
                     break;
                 case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
-                    layCV.Visibility = laybuttonCV.Visibility = layTOR.Visibility = layButonTOR.Visibility = LayoutVisibility.Never;
+                    laySe_CHIPHI_1.Text = "Thù lao phiên dịch NNKH";
+                    laySe_CHIPHI_2.Text = "Sinh hoạt phí";
+                    layCV.Visibility = laybuttonCV.Visibility = layTOR.Visibility = layButonTOR.Visibility 
+                        = laySe_CHIPHI_3.Visibility = laySe_CHIPHI_4.Visibility
+                        = LayoutVisibility.Never;
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
                     layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
@@ -91,7 +97,10 @@ namespace DauThau.Forms
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             gcGrid.DataSource = data.Where(p=> p.TH_ID != constIdDeleted);
             _setFocusedRow();
-            _bindingData();
+
+            QL_HOATDONG_TAPHUAN_CHITIET item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN_CHITIET;
+            _bindingData(item);
+
             _wait.Close();
         }
 
@@ -107,10 +116,11 @@ namespace DauThau.Forms
                 }
             }
         }
-        void _bindingData()
+
+
+        void _bindingData(QL_HOATDONG_TAPHUAN_CHITIET item)
         {
             _clearData();
-            QL_HOATDONG_TAPHUAN_CHITIET item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN_CHITIET;
             if (item != null)
             {
                 txtHo.Text = item.TH_CT_HO;
@@ -143,9 +153,16 @@ namespace DauThau.Forms
                 txtLinkHopDong.EditValue = item.TH_CT_LINK_HOPDONG;
                 txtLinkBanCamKet.EditValue = item.TH_CT_LINK_BANCAMKET;
 
-                seThuLao.EditValue = item.TH_CT_THULAO;
-                seChiPhiKhac.EditValue = item.TH_CT_CHIPHIKHAC;
-                txtDienGiai.Text = item.TH_CT_DIENGIAI;
+                /*
+                 * TH_CT_CHIPHI_1 : Chuẩn bị tài liệu
+                 * TH_CT_CHIPHI_2 : Tổ chức tập huấn
+                 * TH_CT_CHIPHI_3 : Báo cáo
+                 * TH_CT_CHIPHI_4 : Sinh hoạt phí
+                 */
+                seThuLao_1.EditValue = item.TH_CT_CHIPHI_1;
+                seThuLao_2.EditValue = item.TH_CT_CHIPHI_2;
+                seThuLao_3.EditValue = item.TH_CT_CHIPHI_3;
+                seThuLao_4.EditValue = item.TH_CT_CHIPHI_4;
             }
         }
 
@@ -197,9 +214,17 @@ namespace DauThau.Forms
             item.TH_CT_LINK_HOPDONG = txtLinkHopDong.Text;
             item.TH_CT_LINK_BANCAMKET = txtLinkBanCamKet.Text;
 
-            item.TH_CT_THULAO = seThuLao.Ex_EditValueToInt();
-            item.TH_CT_CHIPHIKHAC = seChiPhiKhac.Ex_EditValueToInt();
-            item.TH_CT_DIENGIAI = txtDienGiai.Text;
+            /*
+             * TH_CT_CHIPHI_1 : Chuẩn bị tài liệu
+             * TH_CT_CHIPHI_2 : Tổ chức tập huấn
+             * TH_CT_CHIPHI_3 : Báo cáo
+             * TH_CT_CHIPHI_4 : Sinh hoạt phí
+             */
+            item.TH_CT_CHIPHI_1 = seThuLao_1.Ex_EditValueToInt();
+            item.TH_CT_CHIPHI_2 = seThuLao_2.Ex_EditValueToInt();
+            item.TH_CT_CHIPHI_3 = seThuLao_3.Ex_EditValueToInt();
+            item.TH_CT_CHIPHI_4 = seThuLao_4.Ex_EditValueToInt();
+
         }
 
         private void _clearData()
@@ -377,6 +402,7 @@ namespace DauThau.Forms
                 if (_formStatus == EnumFormStatus.ADD)
                 {
                     _statusAllControl(false);
+                    btnChonDanhSach.Enabled = true;
                     _clearData();
                 }
                 else if (_formStatus == EnumFormStatus.MODIFY)
@@ -398,6 +424,7 @@ namespace DauThau.Forms
 
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                     btnControl.btnModify.Enabled = btnControl.btnDelete.Enabled = gvGrid.RowCount > 0;
+                    btnChonDanhSach.Enabled = false;
 
                 }
             }
@@ -410,7 +437,8 @@ namespace DauThau.Forms
         private void gvGrid_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             idRowSelected = Convert.ToInt64(gvGrid.GetFocusedRowCellValue(colTH_CT_ID));
-            _bindingData();
+            QL_HOATDONG_TAPHUAN_CHITIET item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN_CHITIET;
+            _bindingData(item);
         }
 
         #endregion
@@ -471,19 +499,35 @@ namespace DauThau.Forms
                 {"bThoiGian", bThoiGian},
                 {"bDiaDiem", tapHuan_DiaDiemData.TH_DD_TEN},
                 {"bDoiTuong", bDoiTuong},
-                {"bSoLuongThamDu", tapHuanData.TH_DOITUONG_TONGSO.ToString()},
+                {"bSoLuongThamDu", tapHuanData.TH_DOITUONG_TONGSO.ToString()}
+
             };
 
             string fileName = "";
+            int tongTien = 0;
             switch ((CategoryTapHuanChiTietLoai)_loai_id)
             {
                 case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
                     break;
                 case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_CHINH:
                 case CategoryTapHuanChiTietLoai.TAP_HUAN_VIEN_PHU:
+                    dataPrint.Add("bThanhTien_1", (seThuLao_1.Ex_EditValueToInt() ?? 0).ToString("#,#"));
+                    dataPrint.Add("bThanhTien_2", (seThuLao_2.Ex_EditValueToInt() ?? 0).ToString("#,#"));
+                    dataPrint.Add("bThanhTien_3", (seThuLao_3.Ex_EditValueToInt() ?? 0).ToString("#,#"));
+                    dataPrint.Add("bThanhTien_4", (seThuLao_4.Ex_EditValueToInt() ?? 0).ToString("#,#"));
+
+                    tongTien = (seThuLao_1.Ex_EditValueToInt() ?? 0) + (seThuLao_2.Ex_EditValueToInt() ?? 0) + (seThuLao_3.Ex_EditValueToInt() ?? 0) + (seThuLao_4.Ex_EditValueToInt() ?? 0);
+                    dataPrint.Add("bThanhTien_TongTien", tongTien.ToString("#,#"));
+
                     fileName = "THV_hop_dong_thue.doc";
                     break;
                 case CategoryTapHuanChiTietLoai.PHIEN_DICH_VIEN:
+                    dataPrint.Add("bThanhTien_1", (seThuLao_1.Ex_EditValueToInt() ?? 0).ToString("#,#"));
+                    dataPrint.Add("bThanhTien_2", (seThuLao_2.Ex_EditValueToInt() ?? 0).ToString("#,#"));
+
+                    tongTien = (seThuLao_1.Ex_EditValueToInt() ?? 0) + (seThuLao_2.Ex_EditValueToInt() ?? 0) ;
+                    dataPrint.Add("bThanhTien_TongTien", tongTien.ToString("#,#"));
+
                     fileName = "PDV_hop_dong_thue.doc";
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
@@ -547,5 +591,13 @@ namespace DauThau.Forms
             }
             ExportHelper.exportWord(dataPrint, fileName);
         }
+
+        private void btnChonDanhSach_Click(object sender, EventArgs e)
+        {
+            frmTapHuanChonDanhSach frm = new frmTapHuanChonDanhSach(_loai_id);
+            frm.ShowDialog();
+            _bindingData(frm.rowSelected);
+        }
+
     }
 }

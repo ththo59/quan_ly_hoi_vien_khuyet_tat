@@ -203,6 +203,7 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.dsBangChaoGia1 = new DauThau.DataSets.dsBangChaoGia();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLoaiNhaTaiTro = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueGoiThau)).BeginInit();
@@ -388,9 +389,10 @@
             this.btnNhatKy,
             this.btnBCTreKTVaConNKT,
             this.btnBCNhaTaiTroMTQ,
-            this.btnBCHoatDongTheoDieuKien});
+            this.btnBCHoatDongTheoDieuKien,
+            this.btnLoaiNhaTaiTro});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 244;
+            this.ribbonMain.MaxItemId = 245;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.PageHeaderItemLinks.Add(this.ribbonMain.ExpandCollapseItem);
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -1829,7 +1831,8 @@
             this.barSubItem11.LargeWidth = 80;
             this.barSubItem11.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDonViPhuTrach),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnLoaiHoatDong)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLoaiHoatDong),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLoaiNhaTaiTro)});
             this.barSubItem11.Name = "barSubItem11";
             this.barSubItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -2107,6 +2110,12 @@
             this.barButtonItem11.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // btnLoaiNhaTaiTro
+            // 
+            this.btnLoaiNhaTaiTro.Caption = "Loại nhà tài trợ";
+            this.btnLoaiNhaTaiTro.Id = 244;
+            this.btnLoaiNhaTaiTro.Name = "btnLoaiNhaTaiTro";
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -2348,5 +2357,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btnBCHoatDongTheoDieuKien;
+        private DevExpress.XtraBars.BarButtonItem btnLoaiNhaTaiTro;
     }
 }
