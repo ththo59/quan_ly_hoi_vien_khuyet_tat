@@ -66,7 +66,7 @@ namespace DauThau.Forms
         }
         private Boolean _validateControl()
         {
-
+            dxErrorProvider1.ClearErrors();
             if (txtDiaDiem_Ten.Text.Trim() == string.Empty)
             {
                 dxErrorProvider1.SetError(txtDiaDiem_Ten, "Dữ liệu không được trống");
@@ -81,7 +81,7 @@ namespace DauThau.Forms
             return true;
         }
 
-        void _bindingData()
+        void _bindingData(QL_HOATDONG_TAPHUAN_DIADIEM data)
         {
             _clearData();
             if (data != null && data.TH_ID != constIdDeleted)
@@ -243,11 +243,12 @@ namespace DauThau.Forms
                 else
                 {
                     _statusAllControl(true);
-                    _bindingData();
+                    _bindingData(data);
                     this.btnControl.Status = ControlsLib.ButtonsArray.StateEnum.View;
                 }
             }
         }
+
 
         #endregion
 
@@ -255,6 +256,11 @@ namespace DauThau.Forms
 
         #endregion
 
-
+        private void btnChonDanhSach_Click(object sender, EventArgs e)
+        {
+            frmTapHuanChonDiaDiem frm = new frmTapHuanChonDiaDiem();
+            frm.ShowDialog();
+            _bindingData(frm.rowSelected);
+        }
     }
 }

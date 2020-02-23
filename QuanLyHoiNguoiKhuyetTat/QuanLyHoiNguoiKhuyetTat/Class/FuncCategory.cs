@@ -151,6 +151,26 @@ namespace DauThau.Class
             return list;
         }
 
+        public static List<dynamicObject> loadDMDoiTuong2()
+        {
+            List<dynamicObject> list = new List<dynamicObject>();
+            var item = new dynamicObject()
+            {
+                ID = 1,
+                NAME = "Người không khuyết tật"
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 2,
+                NAME = "Người khuyết tật"
+            };
+
+            list.Add(item);
+            return list;
+        }
+
         public static List<dynamicObject> loadDMCaNhanToChuc()
         {
             List<dynamicObject> list = new List<dynamicObject>();
@@ -662,6 +682,9 @@ namespace DauThau.Class
                         break;
                     case CategoryEntitiesTable.DM_DOITUONG:
                         listItem = loadDMDoiTuong();
+                        break;
+                    case CategoryEntitiesTable.DM_DOITUONG2:
+                        listItem = loadDMDoiTuong2();
                         break;
                     default:
                         break;

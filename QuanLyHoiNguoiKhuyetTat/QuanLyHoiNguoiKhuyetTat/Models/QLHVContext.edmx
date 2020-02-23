@@ -580,6 +580,8 @@
           <Property Name="TH_CT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TH_ID" Type="bigint" />
           <Property Name="TH_CT_LOAI" Type="int" />
+          <Property Name="TH_CT_DOITUONG" Type="bigint" />
+          <Property Name="TH_CT_DANGTAT" Type="nvarchar" MaxLength="500" />
           <Property Name="TH_CT_HO" Type="nvarchar" MaxLength="250" />
           <Property Name="TH_CT_TEN" Type="nvarchar" MaxLength="250" />
           <Property Name="TH_CT_GIOITINH" Type="nvarchar" MaxLength="10" />
@@ -2619,6 +2621,8 @@
           <Property Name="TH_CT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TH_ID" Type="Int64" />
           <Property Name="TH_CT_LOAI" Type="Int32" />
+          <Property Name="TH_CT_DOITUONG" Type="Int64" />
+          <Property Name="TH_CT_DANGTAT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="TH_CT_HO" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TH_CT_TEN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TH_CT_GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -3591,6 +3595,8 @@
                 <ScalarProperty Name="TH_CT_GIOITINH" ColumnName="TH_CT_GIOITINH" />
                 <ScalarProperty Name="TH_CT_TEN" ColumnName="TH_CT_TEN" />
                 <ScalarProperty Name="TH_CT_HO" ColumnName="TH_CT_HO" />
+                <ScalarProperty Name="TH_CT_DANGTAT" ColumnName="TH_CT_DANGTAT" />
+                <ScalarProperty Name="TH_CT_DOITUONG" ColumnName="TH_CT_DOITUONG" />
                 <ScalarProperty Name="TH_CT_LOAI" ColumnName="TH_CT_LOAI" />
                 <ScalarProperty Name="TH_ID" ColumnName="TH_ID" />
                 <ScalarProperty Name="TH_CT_ID" ColumnName="TH_CT_ID" />

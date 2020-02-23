@@ -53,6 +53,13 @@ namespace DauThau.Forms
             seThuLao_3.Ex_FormatCustomSpinEdit();
             seThuLao_4.Ex_FormatCustomSpinEdit();
 
+            string tinhTrangKT_Value = lueDangTat.EditValue + string.Empty;
+            lueDangTat.Ex_SetDataSource(CategoryEntitiesTable.DM_KHUYETTAT_TINHTRANG.Ex_ToString());
+            lueDangTat.EditValue = tinhTrangKT_Value;
+            lueDangTat.RefreshEditValue();
+
+            FuncCategory.loadCategoryByName(CategoryEntitiesTable.DM_DOITUONG2, lueDoiTuong);
+
             _changeLayout((CategoryTapHuanChiTietLoai)_loai_id);
             FormStatus = EnumFormStatus.VIEW;
         }
@@ -66,7 +73,7 @@ namespace DauThau.Forms
                 case CategoryTapHuanChiTietLoai.NGUOI_THUC_HIEN:
                     layPrintBanCamKet.Visibility = layPrintBanHopDong.Visibility = LayoutVisibility.Never;
                     layGroupCoQuanDonVi.Visibility = layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
-                    this.Size = new Size(1045, 385);
+                    this.Size = new Size(1045, 400);
                     this.CenterToScreen();
 
                     break;
@@ -85,7 +92,7 @@ namespace DauThau.Forms
                     layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
                     layPrintBanCamKet.Visibility = layPrintBanHopDong.Visibility = LayoutVisibility.Never;
                     layGroupVanBan.Visibility = layGroupThuLao.Visibility = LayoutVisibility.Never;
-                    this.Size = new Size(1045, 470);
+                    this.Size = new Size(1045, 500);
                     this.CenterToScreen();
                     break;
                 default:
@@ -136,6 +143,10 @@ namespace DauThau.Forms
                     deNgayCap_Thang.EditValue = item.TH_CT_CMND_NGAYCAP.Value.Month;
                     deNgayCap_Nam.EditValue = item.TH_CT_CMND_NGAYCAP.Value.Year;
                 }
+                lueDoiTuong.EditValue = item.TH_CT_DOITUONG;
+                lueDangTat.EditValue = item.TH_CT_DANGTAT + string.Empty;
+                lueDangTat.RefreshEditValue(); 
+
                 txtNoiCap.Text = item.TH_CT_CMND_NOICAP;
                 txtDiaChi.Text = item.TH_CT_DIACHI;
                 txtSoDienThoai.Text = item.TH_CT_SDT;
@@ -189,6 +200,10 @@ namespace DauThau.Forms
             item.TH_CT_TEN = txtTen.Text;
             item.TH_CT_CHUCVU = txtChucVu.Text;
             item.TH_CT_GIOITINH = lueGioiTinh.EditValue + string.Empty;
+
+            item.TH_CT_DOITUONG = lueDoiTuong.Ex_EditValueToInt();
+            item.TH_CT_DANGTAT = lueDangTat.EditValue + string.Empty;
+
             item.TH_CT_EMAIL = txtEmail.Text;
             item.TH_CT_FACEBOOK = txtFace.Text;
             item.TH_CT_CMND_SO = txtCMND.Text;
@@ -599,5 +614,19 @@ namespace DauThau.Forms
             _bindingData(frm.rowSelected);
         }
 
+        private void lueDoiTuong_EditValueChanged(object sender, EventArgs e)
+        {
+            if (clsChangeType.change_int(lueDoiTuong.EditValue) == (int)CategoryDoiTuong.DT_NGUOI_KHUYET_TAT)
+            {
+                lueDangTat.Enabled = true;
+            }
+            else
+            {
+                lueDangTat.Enabled = false;
+                lueDangTat.EditValue = null;
+                lueDangTat.RefreshEditValue();
+            }
+            
+        }
     }
 }

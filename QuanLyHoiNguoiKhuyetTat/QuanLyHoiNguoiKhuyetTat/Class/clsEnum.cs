@@ -49,6 +49,7 @@ namespace DauThau.Class
         DM_DANTOC,
         DM_CHUCVU_HOI,
         DM_DOITUONG,
+        DM_DOITUONG2, //Bao gồm : Người không khuyết tât, người khuyết tật
 
         DM_KHUYETTAT_MUCDO,
         DM_KHUYETTAT_NGUYENNHAN,
@@ -91,6 +92,12 @@ namespace DauThau.Class
         HUONG_DAN_THUC_TAP,
         VAN_DONG_CHINH_SACH,
         TRUYEN_THONG_PHAP_LY
+    }
+
+    enum CategoryDoiTuong
+    {
+        DT_NGUOI_KHONG_KHUYET_TAT = 1,
+        DT_NGUOI_KHUYET_TAT
     }
 
     enum CategoryHoiThao

@@ -14,45 +14,41 @@ using DauThau.Class;
 
 namespace DauThau.UserControlMain
 {
-    public partial class frmTapHuanChonDanhSach : XtraForm
+    public partial class frmTapHuanChonDiaDiem : XtraForm
     {
-        private int _loai_id;
-        public frmTapHuanChonDanhSach(int loaiId)
+        public frmTapHuanChonDiaDiem()
         {
             InitializeComponent();
-            _loai_id = loaiId;
 
         }
-        public QL_HOATDONG_TAPHUAN_CHITIET rowSelected = new QL_HOATDONG_TAPHUAN_CHITIET();
+        public QL_HOATDONG_TAPHUAN_DIADIEM rowSelected = new QL_HOATDONG_TAPHUAN_DIADIEM();
         public string selectIdList = string.Empty;
 
         public class clsSelectList
         {
-            public Int64 TH_CT_ID { get; set; }
+            public Int64 TH_DD_ID { get; set; }
             public Boolean CHON { get; set; }
-            public string TH_CT_HO { get; set; }
-            public string TH_CT_TEN { get; set; }
-            public string TH_CT_GIOITINH { get; set; }
-            public string TH_CT_DIACHI { get; set; }
+            public string TH_DD_TEN { get; set; }
+            public string TH_DD_NGUOI_DAIDIEN { get; set; }
+            public string TH_DD_DIACHI { get; set; }
         }
 
         public List<clsSelectList> listHoiVen = new List<clsSelectList>();
-        private void frmTapHuanChonDanhSach_Load(object sender, EventArgs e)
+        private void frmTapHuanChonDiaDiem_Load(object sender, EventArgs e)
         {
             string[] hoivienIdList = selectIdList.Split(new[] { "; " }, StringSplitOptions.None);
 
             WaitDialogForm _wait = new WaitDialogForm("Đang tải dữ liệu ...", "Vui lòng đợi giây lát");
             QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
-            context.QL_HOATDONG_TAPHUAN_CHITIET.Load();
-            var data = (from p in context.QL_HOATDONG_TAPHUAN_CHITIET
-                         group p by new { p.TH_CT_HO, p.TH_CT_TEN, p.TH_CT_GIOITINH, p.TH_CT_DIACHI } into g
+            context.QL_HOATDONG_TAPHUAN_DIADIEM.Load();
+            var data = (from p in context.QL_HOATDONG_TAPHUAN_DIADIEM
+                        group p by new { p.TH_DD_TEN, p.TH_DD_NGUOI_DAIDIEN, p.TH_DD_DIACHI } into g
                         select new clsSelectList
                         {
-                            TH_CT_ID = g.Max(k=>k.TH_CT_ID),
-                            TH_CT_HO = g.Key.TH_CT_HO,
-                            TH_CT_TEN = g.Key.TH_CT_TEN,
-                            TH_CT_GIOITINH = g.Key.TH_CT_GIOITINH,
-                            TH_CT_DIACHI = g.Key.TH_CT_DIACHI
+                            TH_DD_ID = g.Max(k=> k.TH_DD_ID),
+                            TH_DD_TEN = g.Key.TH_DD_TEN,
+                            TH_DD_NGUOI_DAIDIEN = g.Key.TH_DD_NGUOI_DAIDIEN,
+                            TH_DD_DIACHI = g.Key.TH_DD_DIACHI
                         }
                         ).ToList();
             gcGrid.DataSource = data;
@@ -70,10 +66,10 @@ namespace DauThau.UserControlMain
             for (int i = 0; i < gvGrid.RowCount; i++)
             {
                 if (clsChangeType.change_bool(gvGrid.GetRowCellValue(i, colCHON))) {
-                    Int64 id = clsChangeType.change_int64(gvGrid.GetRowCellValue(i, colTH_CT_ID));
+                    Int64 id = clsChangeType.change_int64(gvGrid.GetRowCellValue(i, colTH_DD_ID));
                     QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
-                    context.QL_HOATDONG_TAPHUAN_CHITIET.Load();
-                    rowSelected = (from p in context.QL_HOATDONG_TAPHUAN_CHITIET where p.TH_CT_ID == id select p).FirstOrDefault();
+                    context.QL_HOATDONG_TAPHUAN_DIADIEM.Load();
+                    rowSelected = (from p in context.QL_HOATDONG_TAPHUAN_DIADIEM where p.TH_DD_ID == id select p).FirstOrDefault();
                     break;
                 }
             }

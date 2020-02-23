@@ -297,6 +297,15 @@ namespace DauThau.Class
             }
             return Convert.ToInt64(lue.EditValue);
         }
+        public static Nullable<Int32> Ex_EditValueToInt32(this LookUpEdit lue)
+        {
+            if (lue.EditValue == null)
+            {
+                return new Nullable<Int32>();
+            }
+            return Convert.ToInt32(lue.EditValue);
+        }
+
         public static Nullable<Int64> Ex_EditValueToInt(this SearchLookUpEdit lue)
         {
             if (lue.EditValue == null)

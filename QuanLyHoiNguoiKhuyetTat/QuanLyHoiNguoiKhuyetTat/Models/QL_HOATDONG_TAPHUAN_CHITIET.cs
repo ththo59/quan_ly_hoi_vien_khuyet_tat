@@ -17,6 +17,8 @@ namespace DauThau.Models
         public long TH_CT_ID { get; set; }
         public Nullable<long> TH_ID { get; set; }
         public Nullable<int> TH_CT_LOAI { get; set; }
+        public Nullable<long> TH_CT_DOITUONG { get; set; }
+        public string TH_CT_DANGTAT { get; set; }
         public string TH_CT_HO { get; set; }
         public string TH_CT_TEN { get; set; }
         public string TH_CT_GIOITINH { get; set; }

@@ -38,7 +38,7 @@ namespace DauThau.UserControlCategory
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listNguoiThucHien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
-        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+        public BindingList<QL_HOATDONG_TAPHUAN_CHITIET> listDoiTuongKhac = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
         public QL_HOATDONG_TAPHUAN_DIADIEM tapHuanDiaDiem = new QL_HOATDONG_TAPHUAN_DIADIEM();
         
 
@@ -54,9 +54,6 @@ namespace DauThau.UserControlCategory
             deTuNgay.Ex_FormatCustomDateEdit();
             deDenNgay.Ex_FormatCustomDateEdit();
 
-            seTienDiLai.Ex_FormatCustomSpinEdit();
-            seTienAnTrua.Ex_FormatCustomSpinEdit();
-            seTienAnNhe.Ex_FormatCustomSpinEdit();
             seTongSoNguoiThamDu.Ex_FormatCustomSpinEdit();
             seSoLuongNam.Ex_FormatCustomSpinEdit();
             seSoLuongNu.Ex_FormatCustomSpinEdit();
@@ -355,8 +352,8 @@ namespace DauThau.UserControlCategory
                     memoPhienDichVien.Text = _getMemoText(listPhienDichVien);
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
-                    listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>(query);
-                    memoDoiTuongKhongKT.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+                    listDoiTuongKhac = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>(query);
+                    memoDoiTuongKhac.Text = _getMemoText(listDoiTuongKhac);
                     break;
                 default:
                     break;
@@ -405,9 +402,6 @@ namespace DauThau.UserControlCategory
                 seTongSoNguoiThamDu.EditValue = item.TH_DOITUONG_TONGSO;
                 seSoLuongNam.EditValue = item.TH_DOITUONG_SL_NAM;
                 seSoLuongNu.EditValue = item.TH_DOITUONG_SL_NU;
-                seTienDiLai.EditValue = item.TH_TIEN_DILAI;
-                seTienAnTrua.EditValue = item.TH_TIEN_ANTRUA;
-                seTienAnNhe.EditValue = item.TH_TIEN_ANNHE;
 
                 seKTKhac.EditValue = item.TH_KT_SL_KHAC;
                 seKTNgheNoi.EditValue = item.TH_KT_SL_NGHENOI;
@@ -439,6 +433,7 @@ namespace DauThau.UserControlCategory
                 txtCongVan_GuiDonVi.EditValue = item.TH_CONGVAN_GUI_DONVI;
                 txtLinkCongVan.EditValue = item.TH_CONGVAN_LINK;
 
+                _updateStatusDoiTuong();
             }
         }
 
@@ -469,9 +464,7 @@ namespace DauThau.UserControlCategory
             item.TH_DOITUONG_TONGSO = seTongSoNguoiThamDu.Ex_EditValueToInt();
             item.TH_DOITUONG_SL_NAM = seSoLuongNam.Ex_EditValueToInt();
             item.TH_DOITUONG_SL_NU = seSoLuongNu.Ex_EditValueToInt();
-            item.TH_TIEN_DILAI = seTienDiLai.Ex_EditValueToInt();
-            item.TH_TIEN_ANTRUA = seTienAnTrua.Ex_EditValueToInt();
-            item.TH_TIEN_ANNHE = seTienAnNhe.Ex_EditValueToInt();
+           
 
             item.TH_KT_SL_VANDONG = seKTVanDong.Ex_EditValueToInt();
             item.TH_KT_SL_TRITUE = seKTTriTue.Ex_EditValueToInt();
@@ -525,7 +518,7 @@ namespace DauThau.UserControlCategory
             listTapHuanVienChinh = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             listTapHuanVienPhu = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             listPhienDichVien = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
-            listDoiTuongKhongKhuyetTat = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
+            listDoiTuongKhac = new BindingList<QL_HOATDONG_TAPHUAN_CHITIET>();
             tapHuanDiaDiem = new QL_HOATDONG_TAPHUAN_DIADIEM();
         }
 
@@ -547,7 +540,7 @@ namespace DauThau.UserControlCategory
                     list_chitiet = listPhienDichVien;
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
-                    list_chitiet = listDoiTuongKhongKhuyetTat;
+                    list_chitiet = listDoiTuongKhac;
                     break;
                 default:
                     break;
@@ -770,7 +763,7 @@ namespace DauThau.UserControlCategory
             _setObjectEntities(ref item);
             frm.tapHuanData = item;
             frm.tapHuan_DiaDiemData = tapHuanDiaDiem;
-            frm.tapHuanNguoiKhongKT = listDoiTuongKhongKhuyetTat;
+            frm.tapHuanNguoiKhongKT = listDoiTuongKhac;
 
             switch (enumLoai)
             {
@@ -792,7 +785,7 @@ namespace DauThau.UserControlCategory
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
                     frm.Text = "Đối tượng không khuyết tật";
-                    frm.data = listDoiTuongKhongKhuyetTat;
+                    frm.data = listDoiTuongKhac;
                     break;
                 default:
                     break;
@@ -819,8 +812,8 @@ namespace DauThau.UserControlCategory
                     memoPhienDichVien.Text = _getMemoText(listPhienDichVien);
                     break;
                 case CategoryTapHuanChiTietLoai.DOITUONG_KHONG_KHUYETTAT:
-                    listDoiTuongKhongKhuyetTat = frm.data;
-                    memoDoiTuongKhongKT.Text = _getMemoText(listDoiTuongKhongKhuyetTat);
+                    listDoiTuongKhac = frm.data;
+                    memoDoiTuongKhac.Text = _getMemoText(listDoiTuongKhac);
                     _updateStatusDoiTuong();
                     break;
                 default:
@@ -870,11 +863,18 @@ namespace DauThau.UserControlCategory
             }
 
             //Người không khuyết tật
-            int count_NguoiKhongKT = listDoiTuongKhongKhuyetTat.Where(p => p.TH_ID != clsParameter.statusDeleted).ToList().Count;
-            foreach (var item in listDoiTuongKhongKhuyetTat.Where(p => p.TH_ID != clsParameter.statusDeleted).ToList())
+            int count_NguoiKhongKT = listDoiTuongKhac.Where(p => p.TH_ID != clsParameter.statusDeleted).ToList().Count;
+            foreach (var item in listDoiTuongKhac.Where(p => p.TH_ID != clsParameter.statusDeleted).ToList())
             {
                 count_Nam += item.TH_CT_GIOITINH == "Nam" ? 1 : 0;
                 count_Nu += item.TH_CT_GIOITINH == "Nữ" ? 1 : 0;
+
+                count_KT_VanDong += item.TH_CT_DANGTAT.Contains("Khuyết tật vận động") ? 1 : 0;
+                count_KT_Nhin += item.TH_CT_DANGTAT.Contains("Khuyết tật nhìn") ? 1 : 0;
+                count_KT_NgheNoi += item.TH_CT_DANGTAT.Contains("Khuyết tật nghe, nói") ? 1 : 0;
+                count_KT_TriTue += item.TH_CT_DANGTAT.Contains("Khuyết tật trí tuệ") ? 1 : 0;
+                count_KT_TamThan_ThanKinh += item.TH_CT_DANGTAT.Contains("Khuyết tật thần kinh, tâm thần") ? 1 : 0;
+                count_KT_Khac += item.TH_CT_DANGTAT.Contains("Khuyết tật khác") ? 1 : 0;
             }
 
             seTongSoNguoiThamDu.EditValue = count_hoiVien + count_NguoiKhongKT;
@@ -1199,7 +1199,7 @@ namespace DauThau.UserControlCategory
                     stt++;
                 }
 
-                foreach (var item in listDoiTuongKhongKhuyetTat.OrderBy(p=>p.TH_CT_TEN))
+                foreach (var item in listDoiTuongKhac.OrderBy(p=>p.TH_CT_TEN))
                 {
                     object cell = excelSheet.Cells[row, colSTT];
                     excelSheet.get_Range(cell, cell).Value = stt;

@@ -1198,6 +1198,8 @@
             this.gvGrid.OptionsView.RowAutoHeight = true;
             this.gvGrid.OptionsView.ShowAutoFilterRow = true;
             this.gvGrid.OptionsView.ShowGroupPanel = false;
+            this.gvGrid.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colHV_TEN, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gvGrid.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvGrid_RowClick);
             // 
             // colHV_ID
@@ -1226,6 +1228,7 @@
             this.colHV_TEN.ColumnEdit = this.repositoryItemMemoEdit1;
             this.colHV_TEN.FieldName = "HV_TEN";
             this.colHV_TEN.Name = "colHV_TEN";
+            this.colHV_TEN.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
             this.colHV_TEN.Visible = true;
             this.colHV_TEN.VisibleIndex = 1;
             this.colHV_TEN.Width = 203;
@@ -2055,7 +2058,7 @@
             this.layoutControlItem35.Name = "layoutControlItem3";
             this.layoutControlItem35.Size = new System.Drawing.Size(344, 30);
             this.layoutControlItem35.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem35.Text = "Họ";
+            this.layoutControlItem35.Text = "Họ và chữ lót";
             this.layoutControlItem35.TextSize = new System.Drawing.Size(125, 17);
             // 
             // layoutControlItem36
