@@ -252,6 +252,21 @@ namespace DauThau.Class
             };
             list.Add(item);
 
+            item = new dynamicObject()
+            {
+                ID = 6,
+                NAME = "Hội nghị",
+                STT = 6
+            };
+            list.Add(item);
+
+            item = new dynamicObject()
+            {
+                ID = 7,
+                NAME = "Hội thảo",
+                STT = 7
+            };
+            list.Add(item);
             return list;
         }
 

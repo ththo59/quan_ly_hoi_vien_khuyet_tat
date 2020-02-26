@@ -27,7 +27,7 @@ namespace DauThau
                 //UserLookAndFeel.Default.SetSkinStyle("Xmas");
                 //Application.Run(new frmCreateKey());
                 Application.Run(new frmLogin());
-                    //Application.Run(new frmMain());
+                //Application.Run(new frmMain());
             }
             catch (Exception ex)
             {

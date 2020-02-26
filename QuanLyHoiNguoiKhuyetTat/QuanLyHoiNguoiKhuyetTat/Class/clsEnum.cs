@@ -91,7 +91,9 @@ namespace DauThau.Class
         TH_GIAODUC,
         HUONG_DAN_THUC_TAP,
         VAN_DONG_CHINH_SACH,
-        TRUYEN_THONG_PHAP_LY
+        TRUYEN_THONG_PHAP_LY,
+        HOI_NGHI,
+        HOI_THAO
     }
 
     enum CategoryDoiTuong
@@ -103,8 +105,8 @@ namespace DauThau.Class
     enum CategoryHoiThao
     {
         DAI_HOI = 1,
-        HOI_NGHI,
-        HOI_THAO,
+        HOI_NGHI, //không dùng
+        HOI_THAO, //không dùng
         BUOI_LE,
         CUOC_HOP,
         TRUYEN_THONG_DAI_CHUNG,

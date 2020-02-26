@@ -868,13 +868,15 @@ namespace DauThau.UserControlCategory
             {
                 count_Nam += item.TH_CT_GIOITINH == "Nam" ? 1 : 0;
                 count_Nu += item.TH_CT_GIOITINH == "Nữ" ? 1 : 0;
-
-                count_KT_VanDong += item.TH_CT_DANGTAT.Contains("Khuyết tật vận động") ? 1 : 0;
-                count_KT_Nhin += item.TH_CT_DANGTAT.Contains("Khuyết tật nhìn") ? 1 : 0;
-                count_KT_NgheNoi += item.TH_CT_DANGTAT.Contains("Khuyết tật nghe, nói") ? 1 : 0;
-                count_KT_TriTue += item.TH_CT_DANGTAT.Contains("Khuyết tật trí tuệ") ? 1 : 0;
-                count_KT_TamThan_ThanKinh += item.TH_CT_DANGTAT.Contains("Khuyết tật thần kinh, tâm thần") ? 1 : 0;
-                count_KT_Khac += item.TH_CT_DANGTAT.Contains("Khuyết tật khác") ? 1 : 0;
+                if(item.TH_CT_DANGTAT != null)
+                {
+                    count_KT_VanDong += item.TH_CT_DANGTAT.Contains("Khuyết tật vận động") ? 1 : 0;
+                    count_KT_Nhin += item.TH_CT_DANGTAT.Contains("Khuyết tật nhìn") ? 1 : 0;
+                    count_KT_NgheNoi += item.TH_CT_DANGTAT.Contains("Khuyết tật nghe, nói") ? 1 : 0;
+                    count_KT_TriTue += item.TH_CT_DANGTAT.Contains("Khuyết tật trí tuệ") ? 1 : 0;
+                    count_KT_TamThan_ThanKinh += item.TH_CT_DANGTAT.Contains("Khuyết tật thần kinh, tâm thần") ? 1 : 0;
+                    count_KT_Khac += item.TH_CT_DANGTAT.Contains("Khuyết tật khác") ? 1 : 0;
+                }
             }
 
             seTongSoNguoiThamDu.EditValue = count_hoiVien + count_NguoiKhongKT;

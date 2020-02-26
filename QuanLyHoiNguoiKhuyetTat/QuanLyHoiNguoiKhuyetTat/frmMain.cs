@@ -253,10 +253,10 @@ namespace DauThau
                         uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.DAI_HOI);
                         break;
                     case "btnHoiNghi":
-                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.HOI_NGHI);
+                        uc = new ucHoatDongTapHuan2((Int64)CategoryTapHuan.HOI_NGHI);
                         break;
                     case "btnHoiThao":
-                        uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.HOI_THAO);
+                        uc = new ucHoatDongTapHuan2((Int64)CategoryTapHuan.HOI_THAO);
                         break;
                     case "btnBuoiLe":
                         uc = new ucHoatDongHoiThao((Int64)CategoryHoiThao.BUOI_LE);
