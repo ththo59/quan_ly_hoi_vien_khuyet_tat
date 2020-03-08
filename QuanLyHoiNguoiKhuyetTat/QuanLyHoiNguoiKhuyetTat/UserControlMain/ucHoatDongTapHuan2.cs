@@ -395,8 +395,8 @@ namespace DauThau.UserControlCategory
                 txtLinkBaoCaoSauTapHuan.EditValue = item.TH_LINK_BAOCAO_SAU_TAPHUAN;
                 
 
-                memoDoiTuong.EditValue = item.TH_DOITUONG_HV_TEN;
-                memoDoiTuongId.EditValue = item.TH_DOITUONG_HV_ID;
+                memoDoiTuongHoiVien.EditValue = item.TH_DOITUONG_HV_TEN;
+                memoDoiTuongHoiVienId.EditValue = item.TH_DOITUONG_HV_ID;
 
                 txtLinkTDVScan.EditValue = item.TH_DOITUONG_LINK_SCAN;
                 seTongSoNguoiThamDu.EditValue = item.TH_DOITUONG_TONGSO;
@@ -457,8 +457,8 @@ namespace DauThau.UserControlCategory
             item.TH_LINK_TAILIEU = txtLinkTaiLieu.Text;
             item.TH_LINK_BAOCAO_SAU_TAPHUAN = txtLinkBaoCaoSauTapHuan.Text;
 
-            item.TH_DOITUONG_HV_ID = memoDoiTuongId.Text;
-            item.TH_DOITUONG_HV_TEN = memoDoiTuong.Text;
+            item.TH_DOITUONG_HV_ID = memoDoiTuongHoiVienId.Text;
+            item.TH_DOITUONG_HV_TEN = memoDoiTuongHoiVien.Text;
             item.TH_DOITUONG_LINK_SCAN = txtLinkTDVScan.Text;
 
             item.TH_DOITUONG_TONGSO = seTongSoNguoiThamDu.Ex_EditValueToInt();
@@ -824,7 +824,7 @@ namespace DauThau.UserControlCategory
 
         private void _updateStatusDoiTuong()
         {
-            string[] idStringList = memoDoiTuongId.Text.Split(new[] { "; " }, StringSplitOptions.None);
+            string[] idStringList = memoDoiTuongHoiVienId.Text.Split(new[] { "; " }, StringSplitOptions.None);
             List<Int64> idList = new List<long>();
             foreach (var id in idStringList)
             {
@@ -990,12 +990,12 @@ namespace DauThau.UserControlCategory
         private void btnSelectHoiVien_Click(object sender, EventArgs e)
         {
             frmSelectHoiVien frm = new frmSelectHoiVien();
-            frm.selectNameList = memoDoiTuong.Text;
-            frm.selectIdList = memoDoiTuongId.Text;
+            frm.selectNameList = memoDoiTuongHoiVien.Text;
+            frm.selectIdList = memoDoiTuongHoiVienId.Text;
             frm.ShowDialog();
 
-            memoDoiTuong.Text = frm.selectNameList;
-            memoDoiTuongId.Text = frm.selectIdList;
+            memoDoiTuongHoiVien.Text = frm.selectNameList;
+            memoDoiTuongHoiVienId.Text = frm.selectIdList;
             _updateStatusDoiTuong();
         }
 
@@ -1094,12 +1094,12 @@ namespace DauThau.UserControlCategory
             FunctionHelper.openLink(txtLinkCongVan.Text);
         }
 
-        #endregion
-
         private void btnLinkDiaDiem_BBThanhLy_Click(object sender, EventArgs e)
         {
             FunctionHelper.openLink(txtLinkDiaDiem_BBThanhLy.Text);
         }
+
+        #endregion
 
         #region Print
 
@@ -1173,9 +1173,9 @@ namespace DauThau.UserControlCategory
                 //Decimal _tongTien = 0;
                 excel.ActiveWindow.Caption = "DanhSachThamDuVien";
                 excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelBook.Worksheets[1];
-               
+
                 //data
-                string[] idStringList = memoDoiTuongId.Text.Split(new[] { "; " }, StringSplitOptions.None);
+                string[] idStringList = memoDoiTuongHoiVienId.Text.Split(new[] { "; " }, StringSplitOptions.None);
                 List<Int64> idList = new List<long>();
                 foreach (var id in idStringList)
                 {
@@ -1293,5 +1293,62 @@ namespace DauThau.UserControlCategory
         }
 
         #endregion
+
+        private void btnControl_btnEventExcel_Click(object sender, EventArgs e)
+        {
+            QL_HOATDONG_TAPHUAN item = gvGrid.GetFocusedRow() as QL_HOATDONG_TAPHUAN;
+            if (item == null)
+            {
+                return;
+            }
+
+            WaitDialogForm _wait = new WaitDialogForm("Đang xuất excel...", "Xin vui lòng chờ giây lát");
+            frmTapHuanExcel f = new frmTapHuanExcel();
+
+            f.headerData.TH_TEN = item.TH_TEN;
+            f.headerData.TH_TAPHUANVIEN = memoTHVChinh.Text + " " + memoTHVPhu.Text;
+            f.headerData.TH_DIADIEM = memoDiaDiemToChuc.Text;
+            f.headerData.TH_THOIGIAN = deTuNgay.DateTime.ToString("dd/MM/yyyy") + " - " + deDenNgay.DateTime.ToString("dd/MM/yyyy");
+
+            string[] hoivienIdList = memoDoiTuongHoiVienId.Text.Split(new[] { "; " }, StringSplitOptions.None);
+            QL_HOIVIEN_KTEntities context = new QL_HOIVIEN_KTEntities();
+            context.QL_HOIVIEN.Load();
+
+            List<clsTapHuanDetailData> listDetailData = new List<clsTapHuanDetailData>();
+            var hoivien = (from p in context.QL_HOIVIEN where hoivienIdList.Contains(p.HV_ID.ToString())
+                        select new clsTapHuanDetailData {
+                            TH_DOITUONG_HOLOT = p.HV_HO,
+                            TH_DOITUONG_TEN = p.HV_TEN,
+                            TH_DOITUONG_CHUCVU = p.HV_CHUCVU,
+                            TH_DOITUONG_DONVI = p.HV_COQUAN,
+                            TH_DOITUONG_NAM = p.HV_GIOI_TINH == "Nam" ? "X" : "",
+                            TH_DOITUONG_NU = p.HV_GIOI_TINH == "Nam" ? "" : "X"
+                        } ).ToList();
+            listDetailData.AddRange(hoivien);
+
+            foreach(QL_HOATDONG_TAPHUAN_CHITIET ct in listDoiTuongKhac)
+            {
+                clsTapHuanDetailData row = new clsTapHuanDetailData();
+                row.TH_DOITUONG_HOLOT = ct.TH_CT_HO;
+                row.TH_DOITUONG_TEN = ct.TH_CT_TEN;
+                row.TH_DOITUONG_CHUCVU = ct.TH_CT_CHUCVU;
+                row.TH_DOITUONG_DONVI = ct.TH_CT_DONVI_TEN;
+                row.TH_DOITUONG_NAM = ct.TH_CT_GIOITINH == "Nam" ? "X" : "";
+                row.TH_DOITUONG_NU = ct.TH_CT_GIOITINH == "Nam" ? "" : "X";
+                listDetailData.Add(row);
+            }
+
+            f.detailData = listDetailData;
+
+            f.ShowDialog();
+
+            _wait.Close();
+        }
+
+        private void btnHoatDongCuaHoiVien_Click(object sender, EventArgs e)
+        {
+            frmTapHuanTheoHoiVien f = new frmTapHuanTheoHoiVien();
+            f.ShowDialog();
+        }
     }
 }

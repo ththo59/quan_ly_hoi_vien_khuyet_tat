@@ -184,13 +184,23 @@ namespace DauThau.Forms
 
         private Boolean _validateControl()
         {
-
+            dxErrorProvider1.ClearErrors();
             if (txtHo.Text.Trim() == string.Empty)
             {
-                clsMessage.MessageWarning("Vui lòng nhập đầy tên tổ chức");
-                return false;
+                dxErrorProvider1.SetError(txtHo, "Vui lòng nhập dữ liệu.");
             }
-            return true;
+            if(txtTen.Text.Trim() == string.Empty)
+            {
+                dxErrorProvider1.SetError(txtTen, "Vui lòng nhập dữ liệu.");
+            }
+            if (lueGioiTinh.Text.Trim() == string.Empty)
+            {
+                dxErrorProvider1.SetError(lueGioiTinh, "Vui lòng nhập dữ liệu.");
+            }
+            if (dxErrorProvider1.HasErrors) {
+                clsMessage.MessageWarning("Vui lòng nhập đầy đủ thông tin.");
+            }
+            return !dxErrorProvider1.HasErrors;
         }
 
         private void _setObjectEntities(ref QL_HOATDONG_TAPHUAN_CHITIET item)

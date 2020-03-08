@@ -126,4 +126,16 @@ namespace DauThau.Class
         public Int64 HD_TONGTIEN { get; set; }
         public string HD_DIADIEM { get; set; }
     }
+
+    public class clsTapHuanDetailData
+    {
+        public Int64 STT { get; set; }
+        public string TH_DOITUONG_HOLOT { get; set; }
+        public string TH_DOITUONG_TEN { get; set; }
+        public string TH_DOITUONG_CHUCVU { get; set; }
+        public string TH_DOITUONG_DONVI { get; set; }
+        public string TH_DOITUONG_NAM { get; set; }
+        public string TH_DOITUONG_NU { get; set; }
+    }
+
 }

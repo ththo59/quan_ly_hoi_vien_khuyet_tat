@@ -383,6 +383,7 @@
             this.txtNguoiDaiDien.Name = "txtNguoiDaiDien";
             this.txtNguoiDaiDien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNguoiDaiDien.Properties.Appearance.Options.UseFont = true;
+            this.txtNguoiDaiDien.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNguoiDaiDien.Size = new System.Drawing.Size(237, 26);
             this.txtNguoiDaiDien.StyleController = this.layoutEdit;
             this.txtNguoiDaiDien.TabIndex = 5;

@@ -1057,7 +1057,7 @@
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(568, 57);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.Text = "Đối tượng";
+            this.layoutControlItem7.Text = "Đối tượng hội viên";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(120, 18);
             // 
             // layoutControlItem11
